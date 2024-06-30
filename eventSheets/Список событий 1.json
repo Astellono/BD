@@ -298,7 +298,10 @@
 						{
 							"id": "reset-global-variables",
 							"objectClass": "System",
-							"sid": 858485393302630
+							"sid": 858485393302630,
+							"parameters": {
+								"reset-static": false
+							}
 						}
 					],
 					"sid": 434926004789157
@@ -413,7 +416,8 @@
 								"object": "hBar",
 								"layer": "0",
 								"image-point": "0",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -424,7 +428,8 @@
 								"object": "hpEnemyText",
 								"layer": "0",
 								"image-point": "0",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -504,7 +509,8 @@
 										"object": "stateEnemyText",
 										"layer": "0",
 										"image-point": "0",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -515,7 +521,8 @@
 										"object": "hpEnemyText",
 										"layer": "0",
 										"image-point": "0",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -1787,7 +1794,8 @@
 										"object": "HitBox",
 										"layer": "0",
 										"image-point": "1",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -2083,7 +2091,8 @@
 												"object": "HitBox",
 												"layer": "0",
 												"image-point": "1",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -2243,7 +2252,8 @@
 																"object": "Bottle",
 																"layer": "0",
 																"image-point": "1",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -2302,7 +2312,8 @@
 																"object": "Brick",
 																"layer": "0",
 																"image-point": "1",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -2438,7 +2449,8 @@
 																"object": "Baseball",
 																"layer": "0",
 																"image-point": "1",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -2497,7 +2509,8 @@
 																"object": "Bottle",
 																"layer": "0",
 																"image-point": "1",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -2633,7 +2646,8 @@
 																"object": "Baseball",
 																"layer": "0",
 																"image-point": "1",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -2692,7 +2706,8 @@
 																"object": "Brick",
 																"layer": "0",
 																"image-point": "1",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -2782,7 +2797,8 @@
 														"object": "Baseball",
 														"layer": "0",
 														"image-point": "1",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -2860,7 +2876,8 @@
 														"object": "Brick",
 														"layer": "0",
 														"image-point": "1",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -2938,7 +2955,8 @@
 														"object": "Bottle",
 														"layer": "0",
 														"image-point": "1",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -3123,7 +3141,8 @@
 																"object": "HitBox",
 																"layer": "0",
 																"image-point": "0",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -3225,7 +3244,8 @@
 																"object": "HitBox",
 																"layer": "0",
 																"image-point": "0",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -3327,7 +3347,8 @@
 																"object": "HitBox",
 																"layer": "0",
 																"image-point": "0",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -3586,7 +3607,8 @@
 								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
-									"sid": 992394249774997
+									"sid": 992394249774997,
+									"disabled": true
 								}
 							],
 							"actions": [
@@ -3630,9 +3652,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 748882274893383,
+									"sid": 995057359141744,
 									"parameters": {
-										"seconds": "0.5"
+										"seconds": "0.3"
 									}
 								},
 								{
@@ -3644,15 +3666,23 @@
 										"which": "overall",
 										"speed": "0"
 									}
-								},
+								}
+							],
+							"sid": 579812319419719
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 631521035003214,
+									"id": "on-animation-finished",
+									"objectClass": "EnemyBaseball",
+									"sid": 596978938452241,
 									"parameters": {
-										"seconds": "1"
+										"animation": "\"Down\""
 									}
-								},
+								}
+							],
+							"actions": [
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "EnemyBaseball",
@@ -3663,7 +3693,7 @@
 									}
 								}
 							],
-							"sid": 579812319419719
+							"sid": 138525366567468
 						}
 					],
 					"sid": 900324426668599
@@ -3843,11 +3873,6 @@
 									"parameters": {
 										"instance-variable": "stager"
 									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 257100276623236
 								}
 							],
 							"actions": [
@@ -3882,6 +3907,7 @@
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 816021199511888,
+									"disabled": true,
 									"parameters": {
 										"seconds": "0.5"
 									}
@@ -3890,6 +3916,7 @@
 									"id": "set-boolean-instvar",
 									"objectClass": "EnemyBaseball",
 									"sid": 917050998037511,
+									"disabled": true,
 									"parameters": {
 										"instance-variable": "stager",
 										"value": "false"
@@ -3897,6 +3924,48 @@
 								}
 							],
 							"sid": 292978751536983
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "EnemyBaseball",
+									"sid": 368189830735153,
+									"parameters": {
+										"animation": "\"Damage\""
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "EnemyBaseball",
+									"sid": 104902806391634,
+									"parameters": {
+										"animation": "\"Damage\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball",
+									"sid": 770089767620250,
+									"parameters": {
+										"instance-variable": "stager",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball",
+									"sid": 869166270646651,
+									"parameters": {
+										"instance-variable": "move",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 902573315598769
 						}
 					],
 					"sid": 849116087981042
@@ -4202,6 +4271,11 @@
 												"comparison": 2,
 												"value": "50"
 											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 869190715892249
 										}
 									],
 									"actions": [
@@ -5093,7 +5167,8 @@
 												"object": "HitBox",
 												"layer": "0",
 												"image-point": "1",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -5223,7 +5298,8 @@
 												"object": "HitBoxEnemy",
 												"layer": "0",
 												"image-point": "1",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
