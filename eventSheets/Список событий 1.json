@@ -3924,7 +3924,22 @@
 									"isInverted": true
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "cast-ray",
+									"objectClass": "EnemyBaseball",
+									"sid": 380998003383567,
+									"disabled": true,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"from-x": "Self.X",
+										"from-y": "Self.Y",
+										"to-x": "Self.X +100",
+										"to-y": "Self.X + 100",
+										"use-collision-cells": true
+									}
+								}
+							],
 							"sid": 649282912767602,
 							"children": [
 								{
@@ -4035,25 +4050,40 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-on-floor",
+											"id": "is-overlapping-another-object",
 											"objectClass": "EnemyBaseball",
-											"sid": 551329096007370,
-											"behaviorType": "Платформер"
+											"sid": 106474186707951,
+											"parameters": {
+												"object": "Kray"
+											}
 										}
 									],
 									"actions": [
 										{
 											"id": "simulate-control",
 											"objectClass": "EnemyBaseball",
-											"sid": 712366885027775,
+											"sid": 524942875028020,
 											"behaviorType": "Платформер",
 											"parameters": {
 												"control": "jump"
 											}
+										},
+										{
+											"id": "create-object-by-name",
+											"objectClass": "System",
+											"sid": 708015692824236,
+											"disabled": true,
+											"parameters": {
+												"object-name": "\"Wall\"",
+												"layer": "1",
+												"x": "EnemyBaseball.X + 10",
+												"y": "EnemyBaseball.Y + 20",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
 										}
 									],
-									"sid": 108818502924917,
-									"disabled": true
+									"sid": 943565250954498
 								}
 							]
 						}
@@ -6591,6 +6621,720 @@
 				}
 			],
 			"sid": 255861649952218
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PlatformUpDown",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "UpDown",
+							"sid": 431610024991355
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UpDown",
+							"sid": 594877243681777,
+							"parameters": {
+								"instance-variable": "distanceToPlayer",
+								"value": "sqrt(((Self.X - Player.X)^2) + ((Self.Y - Player.Y)^2) )"
+							}
+						}
+					],
+					"sid": 243388992373261
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UpDown",
+							"sid": 944491505224424,
+							"parameters": {
+								"instance-variable": "distanceToPlayer",
+								"comparison": 2,
+								"value": "200"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "UpDown",
+							"sid": 501483664115743,
+							"parameters": {
+								"object": "Player"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 449002787403671,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "UpDown",
+									"sid": 127734980538089,
+									"parameters": {
+										"comparison": 2,
+										"y-co-ordinate": "Player.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "UpDown",
+									"sid": 433802587895372,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 869181543280040
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "UpDown",
+									"sid": 298772532952189,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "Player.Y"
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Клавиатура",
+									"sid": 441685349905032,
+									"parameters": {
+										"key": 83
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "UpDown",
+									"sid": 420087302046175,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 763792385704761
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Клавиатура",
+									"sid": 197283957086877,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "UpDown",
+									"sid": 268683570923527,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 510713837411955
+						}
+					]
+				}
+			],
+			"sid": 515506773193747
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Lifts",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "TpUpDown",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 715670825522153,
+									"parameters": {
+										"key": 83
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpUp",
+									"sid": 340856298520783,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpDown",
+									"sid": 816182950965223,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "TpUpDown",
+									"sid": 234983471769646,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Player",
+									"sid": 468819072836568,
+									"parameters": {
+										"y": "Self.Y + TpUp.distanceToPlayer"
+									}
+								}
+							],
+							"sid": 507403348911321
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 957654249561296,
+									"parameters": {
+										"key": 87
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpUp",
+									"sid": 440308240983195,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpDown",
+									"sid": 948848034980924,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "TpUpDown",
+									"sid": 743344736154795,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Player",
+									"sid": 784398502570266,
+									"parameters": {
+										"y": "Self.Y - TpDown.distanceToPlayer"
+									}
+								}
+							],
+							"sid": 838281838673929
+						}
+					],
+					"sid": 486218476681977
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "TpDown",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 856958716466189,
+									"parameters": {
+										"key": 83
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpUp",
+									"sid": 533058764455541,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "TpDown",
+									"sid": 413537473040512,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Player",
+									"sid": 489322485671003,
+									"parameters": {
+										"y": "Self.Y + TpUp.distanceToPlayer"
+									}
+								}
+							],
+							"sid": 118832819056136
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 705266244811376,
+									"parameters": {
+										"key": 83
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpUpDown",
+									"sid": 392259352642515,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "TpDown",
+									"sid": 253557302281250,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Player",
+									"sid": 465340142351520,
+									"parameters": {
+										"y": "Self.Y + TpUpDown.distanceToPlayer"
+									}
+								}
+							],
+							"sid": 996349128652654
+						}
+					],
+					"sid": 389135723535841
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "TpUp",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 273011983236097,
+									"parameters": {
+										"key": 87
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpDown",
+									"sid": 316356181525181,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "TpUp",
+									"sid": 856567029780003,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Player",
+									"sid": 165363438910803,
+									"parameters": {
+										"y": "Self.Y - TpDown.distanceToPlayer"
+									}
+								}
+							],
+							"sid": 125768158002070
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 141919570017528,
+									"parameters": {
+										"key": 87
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpUpDown",
+									"sid": 311485460525942,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "500"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "TpUp",
+									"sid": 999851230196582,
+									"parameters": {
+										"object": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Player",
+									"sid": 145629717808204,
+									"parameters": {
+										"y": "Self.Y - TpUpDown.distanceToPlayer"
+									}
+								}
+							],
+							"sid": 877708223519717
+						}
+					],
+					"sid": 660479974895495
+				}
+			],
+			"sid": 882254723087130
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "setupLift",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "TpDown",
+							"sid": 736224448927278
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TpDown",
+							"sid": 631730985223487,
+							"parameters": {
+								"instance-variable": "distanceToPlayer",
+								"value": "sqrt(((Self.X - Player.X)^2) + ((Self.Y - Player.Y)^2) )"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TpDown",
+							"sid": 733839881140724,
+							"parameters": {
+								"instance-variable": "distanceToPlayerY",
+								"value": "Self.Y - Player.Y"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Текст",
+							"sid": 505694177728425,
+							"parameters": {
+								"text": "\"[color=#ff0000]\" &\n\"Distance: \" & TpDown.distanceToPlayer& \n\"\nDistanceY: \" & TpDown.distanceToPlayerY &\n\n\"[/color]\"\n"
+							}
+						}
+					],
+					"sid": 815220802773386,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpDown",
+									"sid": 529022067835799,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "TpDown",
+									"sid": 641585529452399,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"value": "Self.distanceToPlayerY* -1"
+									}
+								}
+							],
+							"sid": 175334099689984
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 737276939834629
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "TpDown",
+									"sid": 827967342476895,
+									"parameters": {
+										"object": "Текст",
+										"layer": "0",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 446598371281108
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "TpUp",
+							"sid": 426123374878704
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TpUp",
+							"sid": 210968190997056,
+							"parameters": {
+								"instance-variable": "distanceToPlayer",
+								"value": "sqrt(((Self.X - Player.X)^2) + ((Self.Y - Player.Y)^2) )"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TpUp",
+							"sid": 479853411038892,
+							"parameters": {
+								"instance-variable": "distanceToPlayerY",
+								"value": "Self.Y - Player.Y"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Текст2",
+							"sid": 892085696667541,
+							"parameters": {
+								"text": "\"[color=#ff0000]\" &\n\"Distance: \" & TpUp.distanceToPlayer& \n\"\nDistanceY: \" & TpUp.distanceToPlayerY &\n\n\"[/color]\"\n"
+							}
+						}
+					],
+					"sid": 359776061048728,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 486227895414014
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "TpUp",
+									"sid": 452029141464268,
+									"parameters": {
+										"object": "Текст2",
+										"layer": "0",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 989056649933420
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpUp",
+									"sid": 526560181068235,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "TpUp",
+									"sid": 336138077686913,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"value": "Self.distanceToPlayer * -1"
+									}
+								}
+							],
+							"sid": 880552156655485
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "TpUpDown",
+							"sid": 284591874671423
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TpUpDown",
+							"sid": 284929397582108,
+							"parameters": {
+								"instance-variable": "distanceToPlayer",
+								"value": "sqrt(((Self.X - Player.X)^2) + ((Self.Y - Player.Y)^2) )"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TpUpDown",
+							"sid": 736812870699169,
+							"parameters": {
+								"instance-variable": "distanceToPlayerY",
+								"value": "Self.Y - Player.Y"
+							}
+						}
+					],
+					"sid": 983719719198439,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TpUpDown",
+									"sid": 230451187493436,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "TpUpDown",
+									"sid": 414608489036518,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"value": "Self.distanceToPlayer * -1"
+									}
+								}
+							],
+							"sid": 635498025934747
+						}
+					]
+				}
+			],
+			"sid": 196447402899362
 		}
 	],
 	"sid": 686803034278913
