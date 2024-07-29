@@ -483,9 +483,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "stateEnemyText",
-							"sid": 781655734408964,
+							"sid": 889088183546568,
 							"parameters": {
-								"text": "\"[color=#ff0000]\" &\n\"move: \" & EnemyBaseball.move & \n\"\nfight: \" & EnemyBaseball.fight &\n\"\nstager: \" & EnemyBaseball.stager&\n\"\r\ndown: \" & EnemyBaseball.Down&\n\"\r\ndeath: \" & EnemyBaseball.deathCnt&\n\"\r\nVisible: \" & EnemyBaseball.Visible&\n\"\r\nVisible: \" & EnemyBaseball.distance&\n\"[/color]\"\n"
+								"text": "\"[color=#ff0000]\" &\n\"move: \" & EnemyBaseball.move & \n\"\nfight: \" & EnemyBaseball.fight &\n\"\nstager: \" & EnemyBaseball.stager&\n\"\r\ndown: \" & EnemyBaseball.Down&\n\"\r\ndeath: \" & EnemyBaseball.deathCnt&\n\"\r\nVisible: \" & EnemyBaseball.Visible&\n\"\r\nSearch: \" & EnemyBaseball.search&\n\"[/color]\"\n"
 							}
 						}
 					],
@@ -3739,6 +3739,14 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "EnemyBaseball",
+									"sid": 617940346968495,
+									"parameters": {
+										"instance-variable": "Visible"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
 									"sid": 310945797350678,
 									"parameters": {
 										"instance-variable": "death"
@@ -4431,58 +4439,22 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "EnemyBaseball",
-									"sid": 215566257995884,
-									"parameters": {
-										"instance-variable": "distance",
-										"comparison": 2,
-										"value": "150"
-									}
-								},
-								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "EnemyBaseball",
 									"sid": 874702945290072,
 									"parameters": {
 										"instance-variable": "Visible"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "ray-intersected",
-									"objectClass": "EnemyBaseball",
-									"sid": 416913412110930,
-									"behaviorType": "ПолеЗрения",
-									"isInverted": true
+									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "EnemyBaseball",
-									"sid": 153642702921850,
+									"sid": 117771587490262,
 									"parameters": {
-										"instance-variable": "move",
+										"instance-variable": "Active",
 										"value": "true"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "EnemyBaseball",
-									"sid": 847458731314105,
-									"parameters": {
-										"instance-variable": "Visible",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "EnemyBaseball",
-									"sid": 844020191187439,
-									"parameters": {
-										"instance-variable": "fight",
-										"value": "false"
 									}
 								}
 							],
@@ -4494,10 +4466,116 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "EnemyBaseball",
-									"sid": 309541874825460,
+									"sid": 690322011341689,
 									"parameters": {
 										"instance-variable": "Visible"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 318692510863901,
+									"parameters": {
+										"instance-variable": "Active"
 									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball",
+									"sid": 731709880541421,
+									"parameters": {
+										"instance-variable": "search",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 817392733149139
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball",
+									"sid": 604695666408107,
+									"parameters": {
+										"instance-variable": "distance",
+										"comparison": 2,
+										"value": "150"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 244637652785861,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Visible"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "ray-intersected",
+									"objectClass": "EnemyBaseball",
+									"sid": 587115573543792,
+									"behaviorType": "ПолеЗрения",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball",
+									"sid": 605442170593297,
+									"parameters": {
+										"instance-variable": "move",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball",
+									"sid": 647179845273877,
+									"parameters": {
+										"instance-variable": "search",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball",
+									"sid": 437348410558710,
+									"parameters": {
+										"instance-variable": "Visible",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball",
+									"sid": 212199685336712,
+									"parameters": {
+										"instance-variable": "fight",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 304540348786961
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 405638330098138,
+									"parameters": {
+										"instance-variable": "search"
+									},
+									"isInverted": true
 								},
 								{
 									"id": "ray-intersected",
@@ -4936,6 +5014,178 @@
 						}
 					],
 					"sid": 366188877789369
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "EnemySearch",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 616243018747618,
+									"parameters": {
+										"instance-variable": "search"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 651918725126829,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "EnemyBaseball",
+											"sid": 766671869529377
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "EnemyBaseball",
+											"sid": 113330156745353,
+											"behaviorType": "Платформер",
+											"parameters": {
+												"control": "left"
+											}
+										},
+										{
+											"id": "set-max-speed",
+											"objectClass": "EnemyBaseball",
+											"sid": 795383196577753,
+											"behaviorType": "Платформер",
+											"parameters": {
+												"max-speed": "250"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "EnemyBaseball",
+											"sid": 124850748018279,
+											"parameters": {
+												"animation": "\"Run\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 126457563285831
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "EnemyBaseball",
+											"sid": 534795939600032,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "EnemyBaseball",
+											"sid": 495675370857634,
+											"behaviorType": "Платформер",
+											"parameters": {
+												"control": "right"
+											}
+										},
+										{
+											"id": "set-max-speed",
+											"objectClass": "EnemyBaseball",
+											"sid": 528939744595566,
+											"behaviorType": "Платформер",
+											"parameters": {
+												"max-speed": "250"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "EnemyBaseball",
+											"sid": 606513712824519,
+											"parameters": {
+												"animation": "\"Run\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 315911757587433
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "EnemyBaseball",
+											"sid": 366281673695955,
+											"parameters": {
+												"object": "TpUp"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 901982583378816,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "EnemyBaseball",
+											"sid": 612010560040824,
+											"parameters": {
+												"y": "Player.Y"
+											}
+										}
+									],
+									"sid": 810028420567464
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "EnemyBaseball",
+											"sid": 468232577460690,
+											"parameters": {
+												"object": "TpDown"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 260874524380898,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "EnemyBaseball",
+											"sid": 453805537731436,
+											"parameters": {
+												"y": "Player.Y"
+											}
+										}
+									],
+									"sid": 174453983473844
+								}
+							]
+						}
+					],
+					"sid": 453722457109103
 				}
 			],
 			"sid": 255861649952218
@@ -5143,8 +5393,8 @@
 							"actions": [
 								{
 									"id": "set-y",
-									"objectClass": "Player",
-									"sid": 468819072836568,
+									"objectClass": "EnemyBaseball",
+									"sid": 333065877364711,
 									"parameters": {
 										"y": "Self.Y + TpUp.distanceToPlayer"
 									}
