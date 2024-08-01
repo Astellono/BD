@@ -5181,6 +5181,38 @@
 										}
 									],
 									"sid": 174453983473844
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "EnemyBaseball",
+											"sid": 182711384291260,
+											"parameters": {
+												"object": "TpUpDown"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 241635617725550,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "EnemyBaseball",
+											"sid": 697126154955025,
+											"parameters": {
+												"y": "Player.Y"
+											}
+										}
+									],
+									"sid": 476039572040161
 								}
 							]
 						}
@@ -5218,6 +5250,59 @@
 						}
 					],
 					"sid": 243388992373261
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "EnemyBaseball",
+							"sid": 920641122160450,
+							"parameters": {
+								"object": "UpDown"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "EnemyBaseball",
+							"sid": 510870061006073,
+							"parameters": {
+								"mode": "exclusive",
+								"tags": "\"UpDown\""
+							}
+						}
+					],
+					"sid": 834400852943539,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "EnemyBaseball",
+									"sid": 804862078920640,
+									"parameters": {
+										"comparison": 2,
+										"y-co-ordinate": "UpDown.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-solid-collision-filter",
+									"objectClass": "EnemyBaseball",
+									"sid": 669952867105993,
+									"parameters": {
+										"mode": "inclusive",
+										"tags": "\"UpDown Wall\""
+									}
+								}
+							],
+							"sid": 308131057933190
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -5898,6 +5983,31 @@
 								}
 							],
 							"sid": 635498025934747
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 881725113465956
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "TpDown",
+									"sid": 899946159103402,
+									"parameters": {
+										"object": "Текст",
+										"layer": "0",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 356974335000951
 						}
 					]
 				}
@@ -6087,6 +6197,157 @@
 									"sid": 913160942553421
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "door1",
+									"sid": 406748040749341,
+									"parameters": {
+										"object": "EnemyBaseball"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "door1",
+									"sid": 798816230587477,
+									"parameters": {
+										"instance-variable": "open"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "door1",
+									"sid": 450131755784132,
+									"parameters": {
+										"instance-variable": "open",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "door1",
+									"sid": 387128179576100,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "door1",
+									"sid": 608853412688149,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 793819633503138
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "door1",
+									"sid": 524181913800668,
+									"parameters": {
+										"object": "Player"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player",
+									"sid": 686573146556321,
+									"parameters": {
+										"animation": "weapon & \"Dash\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "door1",
+									"sid": 719170797868841,
+									"parameters": {
+										"instance-variable": "open",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "door1",
+									"sid": 367764002988968,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "door1",
+									"sid": 801517569907741,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 440299712371451
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "door1",
+									"sid": 607596479658930,
+									"parameters": {
+										"object": "Player"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player",
+									"sid": 929588909066185,
+									"parameters": {
+										"animation": "weapon & \"Tackle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "door1",
+									"sid": 306338486886592,
+									"parameters": {
+										"instance-variable": "open",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "door1",
+									"sid": 900873919208344,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "door1",
+									"sid": 211050564520161,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 882369819541103
 						}
 					],
 					"sid": 124576494395622
