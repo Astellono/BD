@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 37900,
+	"savedWithRelease": 39700,
 	"name": "BD",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -100,7 +100,14 @@
 		{
 			"type": "behavior",
 			"id": "solid",
-			"name": "Твердый",
+			"name": "Твёрдый",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "radialblur",
+			"name": "Радиальное размытие",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -117,7 +124,9 @@
 		"items": [
 			"hpEnemyText",
 			"hBar",
-			"stateEnemyText"
+			"stateEnemyText",
+			"Текст",
+			"Текст2"
 		],
 		"subfolders": [
 			{
@@ -146,9 +155,21 @@
 			{
 				"items": [
 					"Fon",
-					"Wall"
+					"Wall",
+					"Kray",
+					"UpDown"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"TpDown",
+							"TpUpDown",
+							"TpUp"
+						],
+						"subfolders": [],
+						"name": "TP"
+					}
+				],
 				"name": "Wall"
 			},
 			{
@@ -176,15 +197,15 @@
 			},
 			{
 				"items": [
-					"Спрайт"
+					"Спрайт",
+					"Спрайт2"
 				],
 				"subfolders": [],
 				"name": "Background"
 			},
 			{
 				"items": [
-					"Door",
-					"Door2"
+					"door1"
 				],
 				"subfolders": [],
 				"name": "Door"
@@ -196,8 +217,7 @@
 	"families": {
 		"items": [
 			"Enemys",
-			"Casts",
-			"Lift"
+			"Casts"
 		],
 		"subfolders": []
 	},
@@ -409,7 +429,6 @@
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
 		"framerateMode": "vsync",
-		"compositingMode": "standard",
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"renderingMode": "2d",
