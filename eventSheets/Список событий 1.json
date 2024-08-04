@@ -433,7 +433,8 @@
 							}
 						}
 					],
-					"sid": 725315089761894
+					"sid": 725315089761894,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -490,6 +491,7 @@
 						}
 					],
 					"sid": 350375345646743,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -526,7 +528,8 @@
 									}
 								}
 							],
-							"sid": 634212020915488
+							"sid": 634212020915488,
+							"disabled": true
 						}
 					]
 				},
@@ -3440,14 +3443,14 @@
 								{
 									"id": "cast-ray",
 									"objectClass": "EnemyBaseball",
-									"sid": 545989967024280,
+									"sid": 661495645496442,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
 										"from-x": "Self.X",
 										"from-y": "Self.Y",
 										"to-x": "Player.x",
 										"to-y": "Player.Y",
-										"use-collision-cells": false
+										"use-collision-cells": true
 									}
 								}
 							],
@@ -4479,6 +4482,15 @@
 									"parameters": {
 										"instance-variable": "Active"
 									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 647907847027529,
+									"parameters": {
+										"instance-variable": "death"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -4514,6 +4526,24 @@
 									"disabled": true,
 									"parameters": {
 										"instance-variable": "Visible"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 448722838873667,
+									"parameters": {
+										"instance-variable": "Down"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 513851049116066,
+									"parameters": {
+										"instance-variable": "death"
 									},
 									"isInverted": true
 								},
@@ -4574,6 +4604,15 @@
 									"sid": 405638330098138,
 									"parameters": {
 										"instance-variable": "search"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball",
+									"sid": 969085221699881,
+									"parameters": {
+										"instance-variable": "death"
 									},
 									"isInverted": true
 								},
@@ -5449,21 +5488,21 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpUp",
-									"sid": 340856298520783,
+									"sid": 706425728839859,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpDown",
-									"sid": 816182950965223,
+									"sid": 968708330431889,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
@@ -5478,8 +5517,8 @@
 							"actions": [
 								{
 									"id": "set-y",
-									"objectClass": "EnemyBaseball",
-									"sid": 333065877364711,
+									"objectClass": "Player",
+									"sid": 391279262123601,
 									"parameters": {
 										"y": "Self.Y + TpUp.distanceToPlayer"
 									}
@@ -5501,21 +5540,21 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpUp",
-									"sid": 440308240983195,
+									"sid": 290005002386952,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpDown",
-									"sid": 948848034980924,
+									"sid": 522274084317028,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
@@ -5563,11 +5602,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpUp",
-									"sid": 533058764455541,
+									"sid": 738445974072587,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
@@ -5605,11 +5644,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpUpDown",
-									"sid": 392259352642515,
+									"sid": 622811405551672,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
@@ -5657,11 +5696,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpDown",
-									"sid": 316356181525181,
+									"sid": 840610174915742,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
@@ -5699,11 +5738,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "TpUpDown",
-									"sid": 311485460525942,
+									"sid": 102943756108735,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
 										"comparison": 2,
-										"value": "500"
+										"value": "250"
 									}
 								},
 								{
@@ -5772,6 +5811,7 @@
 							"id": "set-text",
 							"objectClass": "Текст",
 							"sid": 505694177728425,
+							"disabled": true,
 							"parameters": {
 								"text": "\"[color=#ff0000]\" &\n\"Distance: \" & TpDown.distanceToPlayer& \n\"\nDistanceY: \" & TpDown.distanceToPlayerY &\n\n\"[/color]\"\n"
 							}
@@ -5865,6 +5905,7 @@
 							"id": "set-text",
 							"objectClass": "Текст2",
 							"sid": 892085696667541,
+							"disabled": true,
 							"parameters": {
 								"text": "\"[color=#ff0000]\" &\n\"Distance: \" & TpUp.distanceToPlayer& \n\"\nDistanceY: \" & TpUp.distanceToPlayerY &\n\n\"[/color]\"\n"
 							}
@@ -6354,6 +6395,28 @@
 				}
 			],
 			"sid": 967016172259623
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "camera",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Camera",
+							"sid": 525851166226264
+						}
+					],
+					"actions": [],
+					"sid": 623215210905221
+				}
+			],
+			"sid": 381608667725998
 		}
 	],
 	"sid": 686803034278913
