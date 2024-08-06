@@ -241,31 +241,6 @@
 							}
 						},
 						{
-							"id": "start-fade",
-							"objectClass": "Baseball",
-							"sid": 189531166410859,
-							"disabled": true,
-							"behaviorType": "Угасание"
-						},
-						{
-							"id": "set-fade-out-time",
-							"objectClass": "Baseball",
-							"sid": 232168389472319,
-							"behaviorType": "Угасание",
-							"parameters": {
-								"fade-out-time": "0.5"
-							}
-						},
-						{
-							"id": "set-fade-in-time",
-							"objectClass": "Baseball",
-							"sid": 392892014732536,
-							"behaviorType": "Угасание",
-							"parameters": {
-								"fade-in-time": "1"
-							}
-						},
-						{
 							"id": "set-text",
 							"objectClass": "hpEnemyText",
 							"sid": 149816066207980,
@@ -484,14 +459,13 @@
 						{
 							"id": "set-text",
 							"objectClass": "stateEnemyText",
-							"sid": 889088183546568,
+							"sid": 893467696278294,
 							"parameters": {
-								"text": "\"[color=#ff0000]\" &\n\"move: \" & EnemyBaseball.move & \n\"\nfight: \" & EnemyBaseball.fight &\n\"\nstager: \" & EnemyBaseball.stager&\n\"\r\ndown: \" & EnemyBaseball.Down&\n\"\r\ndeath: \" & EnemyBaseball.deathCnt&\n\"\r\nVisible: \" & EnemyBaseball.Visible&\n\"\r\nSearch: \" & EnemyBaseball.search&\n\"[/color]\"\n"
+								"text": "\"[color=#ff0000]\" &\n\"XDir: \" & EnemyBaseball.move & \n\"\nYDir: \" & EnemyBaseball.fight &\n\n\"[/color]\"\n"
 							}
 						}
 					],
 					"sid": 350375345646743,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -528,8 +502,64 @@
 									}
 								}
 							],
-							"sid": 634212020915488,
-							"disabled": true
+							"sid": 634212020915488
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Player",
+							"sid": 517844309624541
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "stateEnemyText",
+							"sid": 563213020413764,
+							"parameters": {
+								"x": "Player.X-15",
+								"y": "Player.Y -200"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "stateEnemyText",
+							"sid": 397801330124891,
+							"parameters": {
+								"text": "\"[color=#ff0000]\" &\n\"XDir: \" & Player.dirCastX & \n\"\nYDir: \" & Player.dirCastY &\n\n\"[/color]\"\n"
+							}
+						}
+					],
+					"sid": 909110690804307,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 321844268211626
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Player",
+									"sid": 968155527532650,
+									"parameters": {
+										"object": "stateEnemyText",
+										"layer": "\"Слой 1\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 272839618551810
 						}
 					]
 				},
@@ -2682,6 +2712,37 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "is-visible",
+													"objectClass": "Player",
+													"sid": 301936502387907
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 753860731305474,
+													"parameters": {
+														"instance-variable": "dirCastX",
+														"value": "Мышь.X - Self.X"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 849957415724688,
+													"parameters": {
+														"instance-variable": "dirCastY",
+														"value": " Self.Y - Мышь.Y "
+													}
+												}
+											],
+											"sid": 462566214729836
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "on-click",
 													"objectClass": "Мышь",
 													"sid": 139443110737864,
@@ -2714,24 +2775,33 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Player",
-													"sid": 806850973858878,
+													"sid": 952017438967041,
 													"parameters": {
 														"object": "Baseball",
-														"layer": "0",
+														"layer": "\"Слой 1\"",
 														"image-point": "1",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
 												},
 												{
+													"id": "set-immovable",
+													"objectClass": "Baseball",
+													"sid": 815551549848290,
+													"behaviorType": "Физика",
+													"parameters": {
+														"setting": "movable"
+													}
+												},
+												{
 													"id": "apply-impulse-towards-position",
 													"objectClass": "Baseball",
-													"sid": 605809792058285,
+													"sid": 491511725247392,
 													"behaviorType": "Физика",
 													"parameters": {
 														"impulse": "Self.speedCast",
-														"x": "Self.X+Self.dirX_Cast* Player.rotate",
-														"y": "Self.Y - Self.dirY_Cast",
+														"x": "Self.X+Player.dirCastX",
+														"y": "Self.Y - Player.dirCastY",
 														"image-point": "0"
 													}
 												},
@@ -2793,24 +2863,33 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Player",
-													"sid": 536975295111996,
+													"sid": 645004033735570,
 													"parameters": {
 														"object": "Brick",
-														"layer": "0",
+														"layer": "\"Слой 1\"",
 														"image-point": "1",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
 												},
 												{
+													"id": "set-immovable",
+													"objectClass": "Brick",
+													"sid": 683498270029169,
+													"behaviorType": "Физика",
+													"parameters": {
+														"setting": "movable"
+													}
+												},
+												{
 													"id": "apply-impulse-towards-position",
 													"objectClass": "Brick",
-													"sid": 988935160276694,
+													"sid": 438075053522043,
 													"behaviorType": "Физика",
 													"parameters": {
 														"impulse": "Self.speedCast",
-														"x": "Self.X+Self.dirX_Cast* Player.rotate",
-														"y": "Self.Y - Self.dirY_Cast",
+														"x": "Self.X+Player.dirCastX",
+														"y": "Self.Y-Player.dirCastY",
 														"image-point": "0"
 													}
 												},
@@ -2872,24 +2951,33 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Player",
-													"sid": 430076615165255,
+													"sid": 919245558109135,
 													"parameters": {
 														"object": "Bottle",
-														"layer": "0",
+														"layer": "\"Слой 1\"",
 														"image-point": "1",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
 												},
 												{
+													"id": "set-immovable",
+													"objectClass": "Bottle",
+													"sid": 541265281889652,
+													"behaviorType": "Физика",
+													"parameters": {
+														"setting": "movable"
+													}
+												},
+												{
 													"id": "apply-impulse-towards-position",
 													"objectClass": "Bottle",
-													"sid": 448830355853281,
+													"sid": 280141221365561,
 													"behaviorType": "Физика",
 													"parameters": {
 														"impulse": "Self.speedCast",
-														"x": "Self.X+Self.dirX_Cast* Player.rotate",
-														"y": "Self.Y - Self.dirY_Cast",
+														"x": "Self.X+Player.dirCastX",
+														"y": "Self.Y-Player.dirCastY",
 														"image-point": "0"
 													}
 												},
@@ -3020,14 +3108,14 @@
 								},
 								{
 									"eventType": "group",
-									"disabled": false,
+									"disabled": true,
 									"title": "withEnemy",
 									"description": "",
 									"isActiveOnStart": true,
 									"children": [
 										{
 											"eventType": "group",
-											"disabled": false,
+											"disabled": true,
 											"title": "brick",
 											"description": "",
 											"isActiveOnStart": true,
@@ -3102,7 +3190,8 @@
 															"sid": 704923831552994
 														}
 													],
-													"sid": 931609962347351
+													"sid": 931609962347351,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -3123,14 +3212,15 @@
 															"sid": 181668620053043
 														}
 													],
-													"sid": 979186995567105
+													"sid": 979186995567105,
+													"disabled": true
 												}
 											],
 											"sid": 487916966316554
 										},
 										{
 											"eventType": "group",
-											"disabled": false,
+											"disabled": true,
 											"title": "Baseball",
 											"description": "",
 											"isActiveOnStart": true,
@@ -3205,7 +3295,8 @@
 															"sid": 362146710523968
 														}
 													],
-													"sid": 814712960621370
+													"sid": 814712960621370,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -3226,14 +3317,15 @@
 															"sid": 856446945783228
 														}
 													],
-													"sid": 384076091878134
+													"sid": 384076091878134,
+													"disabled": true
 												}
 											],
 											"sid": 372348647722805
 										},
 										{
 											"eventType": "group",
-											"disabled": false,
+											"disabled": true,
 											"title": "Bottle",
 											"description": "",
 											"isActiveOnStart": true,
@@ -3308,7 +3400,8 @@
 															"sid": 795403024891597
 														}
 													],
-													"sid": 643086330804078
+													"sid": 643086330804078,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -3329,7 +3422,8 @@
 															"sid": 851040013071371
 														}
 													],
-													"sid": 357217201797873
+													"sid": 357217201797873,
+													"disabled": true
 												}
 											],
 											"sid": 958215946878241
