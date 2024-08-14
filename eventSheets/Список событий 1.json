@@ -459,9 +459,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "stateEnemyText",
-							"sid": 893467696278294,
+							"sid": 614681230836592,
 							"parameters": {
-								"text": "\"[color=#ff0000]\" &\n\"XDir: \" & EnemyBaseball.move & \n\"\nYDir: \" & EnemyBaseball.fight &\n\n\"[/color]\"\n"
+								"text": "\"[color=#ff0000]\" &\n\"move: \" & EnemyBaseball.move & \n\"\nfight: \" & EnemyBaseball.fight &\n\n\"[/color]\"\n"
 							}
 						}
 					],
@@ -480,10 +480,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "EnemyBaseball",
-									"sid": 948606624580708,
+									"sid": 326179571356759,
 									"parameters": {
 										"object": "stateEnemyText",
-										"layer": "0",
+										"layer": "\"Слой 1\"",
 										"image-point": "0",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -492,10 +492,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "EnemyBaseball",
-									"sid": 395859691557190,
+									"sid": 801048102449735,
 									"parameters": {
 										"object": "hpEnemyText",
-										"layer": "0",
+										"layer": "\"Слой 1\"",
 										"image-point": "0",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -535,6 +535,7 @@
 						}
 					],
 					"sid": 909110690804307,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -559,7 +560,8 @@
 									}
 								}
 							],
-							"sid": 272839618551810
+							"sid": 272839618551810,
+							"disabled": true
 						}
 					]
 				},
@@ -2111,12 +2113,53 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "is-visible",
+													"objectClass": "Baseball",
+													"sid": 588006533436454
+												}
+											],
+											"actions": [
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Baseball",
+													"sid": 772272039296234,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "Brick",
+														"state": "disable"
+													}
+												},
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Baseball",
+													"sid": 766051408927652,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "Bottle",
+														"state": "disable"
+													}
+												}
+											],
+											"sid": 420094037713723
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "on-click",
 													"objectClass": "Мышь",
 													"sid": 612925269897601,
 													"parameters": {
 														"mouse-button": "right",
 														"click-type": "clicked"
+													}
+												},
+												{
+													"id": "pick-random-instance",
+													"objectClass": "System",
+													"sid": 769302269854219,
+													"parameters": {
+														"object": "Baseball"
 													}
 												},
 												{
@@ -2199,11 +2242,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Player",
-															"sid": 287334286619458,
+															"sid": 499193586656931,
 															"parameters": {
 																"object": "Bottle",
-																"layer": "0",
-																"image-point": "1",
+																"layer": "\"Слой 1\"",
+																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -2259,11 +2302,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Player",
-															"sid": 224145598506495,
+															"sid": 995833037539827,
 															"parameters": {
 																"object": "Brick",
-																"layer": "0",
-																"image-point": "1",
+																"layer": "\"Слой 1\"",
+																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -2308,6 +2351,39 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "is-visible",
+													"objectClass": "Brick",
+													"sid": 427738597329850
+												}
+											],
+											"actions": [
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Baseball",
+													"sid": 699018971711525,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "Baseball",
+														"state": "disable"
+													}
+												},
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Baseball",
+													"sid": 861001722502606,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "Bottle",
+														"state": "disable"
+													}
+												}
+											],
+											"sid": 201239459036054
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "on-click",
 													"objectClass": "Мышь",
 													"sid": 432112989116871,
@@ -2320,6 +2396,14 @@
 													"id": "is-overlapping-another-object",
 													"objectClass": "Player",
 													"sid": 576208447190082,
+													"parameters": {
+														"object": "Brick"
+													}
+												},
+												{
+													"id": "pick-random-instance",
+													"objectClass": "System",
+													"sid": 947479184508181,
 													"parameters": {
 														"object": "Brick"
 													}
@@ -2396,11 +2480,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Player",
-															"sid": 102276700485451,
+															"sid": 594646369449433,
 															"parameters": {
 																"object": "Baseball",
-																"layer": "0",
-																"image-point": "1",
+																"layer": "\"Слой 1\"",
+																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -2456,11 +2540,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Player",
-															"sid": 478182842404407,
+															"sid": 170931616378142,
 															"parameters": {
 																"object": "Bottle",
-																"layer": "0",
-																"image-point": "1",
+																"layer": "\"Слой 1\"",
+																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -2505,12 +2589,53 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "is-visible",
+													"objectClass": "Bottle",
+													"sid": 482055542035033
+												}
+											],
+											"actions": [
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Baseball",
+													"sid": 126878239697075,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "Baseball",
+														"state": "disable"
+													}
+												},
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Baseball",
+													"sid": 819841101224548,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "Brick",
+														"state": "disable"
+													}
+												}
+											],
+											"sid": 668739333204106
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "on-click",
 													"objectClass": "Мышь",
 													"sid": 117435889590040,
 													"parameters": {
 														"mouse-button": "right",
 														"click-type": "clicked"
+													}
+												},
+												{
+													"id": "pick-random-instance",
+													"objectClass": "System",
+													"sid": 462251607823670,
+													"parameters": {
+														"object": "Bottle"
 													}
 												},
 												{
@@ -2593,11 +2718,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Player",
-															"sid": 348958640905210,
+															"sid": 634555244952114,
 															"parameters": {
 																"object": "Baseball",
-																"layer": "0",
-																"image-point": "1",
+																"layer": "\"Слой 1\"",
+																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -2653,11 +2778,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Player",
-															"sid": 361393680763241,
+															"sid": 267782564143285,
 															"parameters": {
 																"object": "Brick",
-																"layer": "0",
-																"image-point": "1",
+																"layer": "\"Слой 1\"",
+																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -3535,16 +3660,25 @@
 									}
 								},
 								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyBaseball",
+									"sid": 931890348438838,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Wall"
+									}
+								},
+								{
 									"id": "cast-ray",
 									"objectClass": "EnemyBaseball",
-									"sid": 661495645496442,
+									"sid": 712769434888736,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
 										"from-x": "Self.X",
-										"from-y": "Self.Y",
+										"from-y": "Self.Y -20",
 										"to-x": "Player.x",
 										"to-y": "Player.Y",
-										"use-collision-cells": true
+										"use-collision-cells": false
 									}
 								}
 							],
@@ -5201,10 +5335,10 @@
 										{
 											"id": "set-animation",
 											"objectClass": "EnemyBaseball",
-											"sid": 124850748018279,
+											"sid": 955874459414609,
 											"parameters": {
 												"animation": "\"Run\"",
-												"from": "beginning"
+												"from": "current-frame"
 											}
 										}
 									],
@@ -5242,10 +5376,10 @@
 										{
 											"id": "set-animation",
 											"objectClass": "EnemyBaseball",
-											"sid": 606513712824519,
+											"sid": 106930193456648,
 											"parameters": {
 												"animation": "\"Run\"",
-												"from": "beginning"
+												"from": "current-frame"
 											}
 										}
 									],
