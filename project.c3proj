@@ -50,13 +50,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "Fade",
-			"name": "Угасание",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "LOS",
 			"name": "Поле зрения",
 			"author": "Scirra",
@@ -113,8 +106,8 @@
 		},
 		{
 			"type": "effect",
-			"id": "warpripple",
-			"name": "Волна деформации",
+			"id": "warplayout",
+			"name": "Деформация на сцене",
 			"author": "Scirra",
 			"bundled": false
 		}
@@ -200,42 +193,114 @@
 			},
 			{
 				"items": [
-					"Спрайт",
-					"Спрайт2",
-					"ТайловыйФон",
-					"Bg_1",
-					"Bg_4",
-					"Bg_2",
-					"Bg_3",
-					"Trubi"
+					"door1"
 				],
+				"subfolders": [],
+				"name": "Door"
+			},
+			{
+				"items": [],
 				"subfolders": [
 					{
 						"items": [],
 						"subfolders": [
 							{
 								"items": [
-									"Road",
-									"LongWall",
-									"LongWall2",
-									"Exit_or_Window",
-									"Wall_Hole"
+									"Long_Wall",
+									"Tailes_BG",
+									"Wall_Hole",
+									"Wall_Hole2",
+									"Forest_BG",
+									"Forest_BG2",
+									"Forest_BG3",
+									"Floor_Tile",
+									"Foundaition",
+									"Wall_Little",
+									"Side_wall",
+									"Exit_Side",
+									"Floor_BG_Dark",
+									"Tailes_BG2",
+									"Ground",
+									"Wall_Dark",
+									"Window",
+									"Ladder",
+									"Ladder2",
+									"Column",
+									"Side_wall_Old",
+									"Спрайт",
+									"Window2",
+									"Exit_Window",
+									"Floor_Left",
+									"Floor_Right",
+									"Platform",
+									"Wood",
+									"Pipe",
+									"Foundaition_Light",
+									"Pipe_Battery",
+									"Pipe_Crash",
+									"Railings"
+								],
+								"subfolders": [
+									{
+										"items": [
+											"Shit",
+											"Garbage",
+											"Smoke",
+											"Garbage2"
+										],
+										"subfolders": [],
+										"name": "Garbage"
+									}
+								],
+								"name": "lvl 3"
+							},
+							{
+								"items": [
+									"Shield",
+									"Barell",
+									"Shield_Old",
+									"Blockage",
+									"Blockage2",
+									"Table",
+									"Wire",
+									"Barell3",
+									"Bad",
+									"Barell_Big",
+									"Post",
+									"Box",
+									"Dack",
+									"Battery_Old",
+									"Tumba",
+									"Kondition",
+									"Ssanina"
+								],
+								"subfolders": [
+									{
+										"items": [
+											"Bootle",
+											"Chair",
+											"Lamp",
+											"Glass"
+										],
+										"subfolders": [],
+										"name": "Active"
+									}
+								],
+								"name": "Object"
+							},
+							{
+								"items": [
+									"Door_Old",
+									"Спрайт2"
 								],
 								"subfolders": [],
-								"name": "lvl 3"
+								"name": "Doors"
 							}
 						],
 						"name": "Tiles"
 					}
 				],
 				"name": "Background"
-			},
-			{
-				"items": [
-					"door1"
-				],
-				"subfolders": [],
-				"name": "Door"
 			}
 		]
 	},
@@ -251,7 +316,9 @@
 	"layouts": {
 		"items": [
 			"Макет 1",
-			"Макет 2"
+			"Макет 2",
+			"Макет 3",
+			"Макет test"
 		],
 		"subfolders": []
 	},
@@ -457,7 +524,7 @@
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
 		"framerateMode": "vsync",
-		"sampling": "trilinear",
+		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "2d",
 		"anisotropicFiltering": "auto",
