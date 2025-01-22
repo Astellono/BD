@@ -1,0 +1,51 @@
+{
+	"name": "Dialogue",
+	"events": [
+		{
+			"functionName": "Create_Dealogue",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Text",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 366648594005110
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Cloud_Dialogue",
+					"sid": 938754742941716
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialog",
+					"sid": 439393856481619
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 527894976137897,
+					"parameters": {
+						"object-to-create": "Cloud_Dialogue",
+						"layer": "\"Dialog\"",
+						"x": "460",
+						"y": "338",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 302068546862154
+		}
+	],
+	"sid": 692011254246023
+}
