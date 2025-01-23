@@ -2,7 +2,7 @@
 	"name": "Dialogue",
 	"events": [
 		{
-			"functionName": "Create_Dealogue",
+			"functionName": "Create_DealogueSegal",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
@@ -33,14 +33,35 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 527894976137897,
+					"sid": 133764329587520,
 					"parameters": {
 						"object-to-create": "Cloud_Dialogue",
 						"layer": "\"Dialog\"",
-						"x": "460",
-						"y": "338",
+						"x": "Segal.X\n",
+						"y": "Segal.Y - 40",
 						"create-hierarchy": false,
 						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 645970799247313,
+					"parameters": {
+						"object-to-create": "dialogText",
+						"layer": "\"Dialog\"",
+						"x": "Segal.X",
+						"y": "Segal.Y - 40",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "dialogText",
+					"sid": 324273764102003,
+					"parameters": {
+						"text": "Text"
 					}
 				}
 			],

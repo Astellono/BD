@@ -1,5 +1,5 @@
 {
-	"name": "Список событий 2",
+	"name": "Bar",
 	"events": [
 		{
 			"eventType": "include",
@@ -630,7 +630,8 @@
 							}
 						}
 					],
-					"sid": 127032804370967
+					"sid": 127032804370967,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -647,12 +648,14 @@
 							"id": "is-running-typewriter-text",
 							"objectClass": "dialog",
 							"sid": 529975100090570,
+							"disabled": true,
 							"isInverted": true
 						},
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player2",
 							"sid": 400913996532913,
+							"disabled": true,
 							"parameters": {
 								"object": "Table_Beer"
 							}
@@ -660,9 +663,17 @@
 					],
 					"actions": [
 						{
+							"callFunction": "Create_DealogueSegal",
+							"sid": 974216614264185,
+							"parameters": [
+								"\"Addd\""
+							]
+						},
+						{
 							"id": "set-visible",
 							"objectClass": "Спрайт7",
 							"sid": 998939599744614,
+							"disabled": true,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -671,6 +682,7 @@
 							"id": "typewriter-text",
 							"objectClass": "dialog",
 							"sid": 774753975593095,
+							"disabled": true,
 							"parameters": {
 								"text": "\"Я курю и мне похуй! Я бухаю и мне похуй!\"",
 								"duration": "speedtext"
@@ -680,6 +692,7 @@
 							"id": "set-visible",
 							"objectClass": "Cloud_Dialogue",
 							"sid": 992765946090745,
+							"disabled": true,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -716,7 +729,8 @@
 							"sid": 644874849144499
 						}
 					],
-					"sid": 472210704124546
+					"sid": 472210704124546,
+					"disabled": true
 				}
 			],
 			"sid": 753611541323240
@@ -750,10 +764,10 @@
 					],
 					"actions": [
 						{
-							"callFunction": "Create_Dealogue",
-							"sid": 176279804714351,
+							"callFunction": "Create_DealogueSegal",
+							"sid": 501007104299410,
 							"parameters": [
-								"\"\""
+								"\"Hello\""
 							]
 						}
 					],
