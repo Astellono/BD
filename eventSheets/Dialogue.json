@@ -1,0 +1,179 @@
+{
+	"name": "Dialogue",
+	"events": [
+		{
+			"functionName": "Create_Dealogue",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Text",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 366648594005110
+				},
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 785633012605868
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 158524660760552
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Cloud_Dialogue",
+					"sid": 938754742941716
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 344648008342194,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogText",
+					"sid": 763539592613369
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 987829036938273,
+					"parameters": {
+						"object-to-create": "Cloud_Dialogue",
+						"layer": "\"Dialog\"",
+						"x": "x",
+						"y": "y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 242125056995954,
+					"parameters": {
+						"object-to-create": "dialogText",
+						"layer": "\"Dialog\"",
+						"x": "Cloud_Dialogue.x-53",
+						"y": "Cloud_Dialogue.y - 56",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "dialogText",
+					"sid": 522473465889505,
+					"parameters": {
+						"color": "rgbEx(255,255, 255)"
+					}
+				},
+				{
+					"id": "set-horizontal-alignment",
+					"objectClass": "dialogText",
+					"sid": 257678240335074,
+					"parameters": {
+						"horizontal-alignment": "center"
+					}
+				},
+				{
+					"id": "set-vertical-alignment",
+					"objectClass": "dialogText",
+					"sid": 599325026767258,
+					"parameters": {
+						"vertical-alignment": "center"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "dialogText",
+					"sid": 305076567602954,
+					"parameters": {
+						"width": "56",
+						"height": "33"
+					}
+				},
+				{
+					"id": "set-font-face",
+					"objectClass": "dialogText",
+					"sid": 129696207836440,
+					"parameters": {
+						"font-face": "\"Roboto\"",
+						"style": "normal"
+					}
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "dialogText",
+					"sid": 450318391666977,
+					"parameters": {
+						"size-pt": "6"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "dialogText",
+					"sid": 324273764102003,
+					"parameters": {
+						"text": "Text"
+					}
+				},
+				{
+					"id": "typewriter-text",
+					"objectClass": "dialogText",
+					"sid": 340218335649957,
+					"parameters": {
+						"text": "Text",
+						"duration": "3"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 832312416246697,
+					"parameters": {
+						"seconds": "5"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 662822772727824,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Cloud_Dialogue",
+					"sid": 206580736996079
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogText",
+					"sid": 813636302720186
+				}
+			],
+			"sid": 302068546862154
+		}
+	],
+	"sid": 692011254246023
+}

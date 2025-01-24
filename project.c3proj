@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 39700,
+	"savedWithRelease": 40702,
 	"name": "BD",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -99,6 +99,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "pulse",
+			"name": "Пульс",
+			"author": "Danguafer/Silexars",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "radialblur",
 			"name": "Радиальное размытие",
 			"author": "Scirra",
@@ -110,6 +117,13 @@
 			"name": "Деформация на сцене",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "warpripple",
+			"name": "Волна деформации",
+			"author": "Scirra",
+			"bundled": false
 		}
 	],
 	"uniqueId": "dhizg8oxhd5",
@@ -119,14 +133,12 @@
 			"hBar",
 			"stateEnemyText",
 			"Текст",
-			"Текст2",
-			"Дома",
-			"Дома2",
-			"Дома3"
+			"Текст2"
 		],
 		"subfolders": [
 			{
 				"items": [
+					"Player2",
 					"Player"
 				],
 				"subfolders": [],
@@ -134,6 +146,7 @@
 			},
 			{
 				"items": [
+					"security",
 					"EnemyBaseball"
 				],
 				"subfolders": [],
@@ -141,9 +154,9 @@
 			},
 			{
 				"items": [
-					"Baseball",
 					"Brick",
-					"Bottle"
+					"Bottle",
+					"Baseball"
 				],
 				"subfolders": [],
 				"name": "Weapon"
@@ -193,24 +206,22 @@
 			},
 			{
 				"items": [
-					"door1"
+					"ТайловыйФон",
+					"ТайловыйФон2",
+					"ТайловыйФон3",
+					"ТайловыйФон4",
+					"Спрайт9",
+					"Cloud_Big",
+					"Cloud_Mid",
+					"Спрайт10"
 				],
-				"subfolders": [],
-				"name": "Door"
-			},
-			{
-				"items": [],
 				"subfolders": [
 					{
-						"items": [
-							"Спрайт3",
-							"Спрайт4"
-						],
+						"items": [],
 						"subfolders": [
 							{
 								"items": [
 									"Long_Wall",
-									"Tailes_BG",
 									"Wall_Hole",
 									"Wall_Hole2",
 									"Forest_BG",
@@ -222,7 +233,6 @@
 									"Side_wall",
 									"Exit_Side",
 									"Floor_BG_Dark",
-									"Tailes_BG2",
 									"Ground",
 									"Wall_Dark",
 									"Window",
@@ -241,7 +251,10 @@
 									"Foundaition_Light",
 									"Pipe_Battery",
 									"Pipe_Crash",
-									"Railings"
+									"Railings",
+									"Floor_BG_Dark2",
+									"Tailes_BG2",
+									"Tailes_BG"
 								],
 								"subfolders": [
 									{
@@ -253,6 +266,16 @@
 										],
 										"subfolders": [],
 										"name": "Garbage"
+									},
+									{
+										"items": [
+											"Спрайт3",
+											"Спрайт4",
+											"Спрайт5",
+											"Спрайт6"
+										],
+										"subfolders": [],
+										"name": "Grafiti"
 									}
 								],
 								"name": "lvl 3"
@@ -283,7 +306,8 @@
 											"Bootle",
 											"Chair",
 											"Lamp",
-											"Glass"
+											"Glass",
+											"Glass_Destroy"
 										],
 										"subfolders": [],
 										"name": "Active"
@@ -304,6 +328,108 @@
 					}
 				],
 				"name": "Background"
+			},
+			{
+				"items": [
+					"door1"
+				],
+				"subfolders": [],
+				"name": "Door"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"BarSW",
+							"Arcade",
+							"TV",
+							"BarTable",
+							"Table_Beer",
+							"Chair_Bar",
+							"Table_Bar",
+							"Smoke_Bar",
+							"Fedor",
+							"Guit",
+							"HookahMan",
+							"Laska",
+							"Nuke",
+							"Segal"
+						],
+						"subfolders": [],
+						"name": "Bar"
+					},
+					{
+						"items": [
+							"Cloud_Dialogue",
+							"dialogue",
+							"Quest",
+							"press_E",
+							"dialog"
+						],
+						"subfolders": [],
+						"name": "Dialogue"
+					},
+					{
+						"items": [
+							"Спрайт8"
+						],
+						"subfolders": [],
+						"name": "Abandonment"
+					},
+					{
+						"items": [
+							"Station",
+							"Egorich",
+							"Table_Station",
+							"Monitor",
+							"Maniac",
+							"Investigator",
+							"Police_man"
+						],
+						"subfolders": [],
+						"name": "Police_station"
+					},
+					{
+						"items": [
+							"Flat"
+						],
+						"subfolders": [],
+						"name": "Mark_flat"
+					},
+					{
+						"items": [],
+						"subfolders": [
+							{
+								"items": [
+									"Bakery_Pipe",
+									"Bakery_Wall",
+									"Bakery_WallWindow",
+									"ТайловыйФон5"
+								],
+								"subfolders": [],
+								"name": "Wall"
+							},
+							{
+								"items": [
+									"Bakery_Wardrobe",
+									"Conveyor"
+								],
+								"subfolders": [],
+								"name": "Props"
+							}
+						],
+						"name": "Bakery"
+					}
+				],
+				"name": "Cat-scene"
+			},
+			{
+				"items": [
+					"dialogText"
+				],
+				"subfolders": [],
+				"name": "text"
 			}
 		]
 	},
@@ -311,23 +437,27 @@
 	"containers": [],
 	"families": {
 		"items": [
-			"Enemys",
-			"Casts"
+			"Casts",
+			"Enemys"
 		],
 		"subfolders": []
 	},
 	"layouts": {
 		"items": [
-			"Макет 1",
-			"Макет 2",
-			"Макет 3",
-			"Макет test"
+			"Test_elevator",
+			"Abandonment",
+			"Bar",
+			"Police_station",
+			"Mark_Flat",
+			"Bakery"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Список событий 1"
+			"Bar",
+			"Dialogue",
+			"actual"
 		],
 		"subfolders": []
 	},
@@ -542,7 +672,7 @@
 		"exportFileStructure": "folders",
 		"uidAllocationMode": "increment"
 	},
-	"viewportWidth": 960,
-	"viewportHeight": 540,
-	"firstLayout": null
+	"viewportWidth": 400,
+	"viewportHeight": 250,
+	"firstLayout": "Bar"
 }

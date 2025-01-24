@@ -1,0 +1,744 @@
+{
+	"name": "Bar",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Dialogue"
+		},
+		{
+			"eventType": "variable",
+			"name": "speedtext",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 630809690726601
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "Player2",
+							"sid": 261360504020750,
+							"behaviorType": "Платформер"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Клавиатура",
+							"sid": 925968165773655,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player2",
+							"sid": 128524456105804,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Player2",
+							"sid": 590388872575737,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"max-speed": "Player2.SpeedWalk"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player2",
+							"sid": 699682514079275,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 575340648495890
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "Player2",
+							"sid": 900509692116783,
+							"behaviorType": "Платформер"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Клавиатура",
+							"sid": 304330359437735,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player2",
+							"sid": 603530774222180,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Player2",
+							"sid": 380211687673668,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"max-speed": "Player2.SpeedWalk"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player2",
+							"sid": 508229998332055,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 277793886351443
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player2",
+							"sid": 581422493907834,
+							"behaviorType": "Платформер"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player2",
+							"sid": 618082194963046,
+							"parameters": {
+								"animation": "\"noWeaponWalk\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 681005845052357
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-speed",
+							"objectClass": "Player2",
+							"sid": 462359640123150,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"comparison": 0,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player2",
+							"sid": 110629830909025,
+							"parameters": {
+								"animation": "\"noWeaponIdle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 856099065997328
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 373041907006662
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 636891139903976,
+							"parameters": {
+								"variable": "HPplayer",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 537550530424646,
+							"parameters": {
+								"x": "lerp(Self.X,Player2.X,0.05)",
+								"y": "lerp(Self.Y,Player2.Y,0.05)"
+							}
+						}
+					],
+					"sid": 895176340288334
+				}
+			],
+			"sid": 760869306016351
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "openDoor2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "setupDoor2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "door1",
+									"sid": 404965017536103
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "door1",
+									"sid": 317542532233141,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"value": "Self.X-Player2.X"
+									}
+								}
+							],
+							"sid": 223191194226096,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "door1",
+											"sid": 294102273361943,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "door1",
+											"sid": 524089041075459,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"value": "Self.distanceToPlayer*-1"
+											}
+										}
+									],
+									"sid": 378404851310137
+								}
+							]
+						}
+					],
+					"sid": 353221626804049
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "moveDoor2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 931097327237540,
+									"parameters": {
+										"key": 69
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "door1",
+									"sid": 303973928879992,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "50"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 984290592586842,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "door1",
+											"sid": 126907145833012,
+											"parameters": {
+												"instance-variable": "open"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "door1",
+											"sid": 668303348518041,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "door1",
+											"sid": 124944572662527,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "door1",
+											"sid": 377477752122528,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 921462476719643
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 321043871341751
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "door1",
+											"sid": 840645886878727,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "door1",
+											"sid": 909875816157214,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "door1",
+											"sid": 196966046921392,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 583034886085232
+								}
+							]
+						}
+					],
+					"sid": 807995966925308
+				}
+			],
+			"sid": 573747891622169
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Dialogue",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 718858484517821,
+							"parameters": {
+								"interval-seconds": "speedtext"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 240098550616344,
+							"parameters": {
+								"first-value": "len(Quest.Text)",
+								"comparison": 4,
+								"second-value": "len(dialogue.Text)"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 504280663003401
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "dialogue",
+							"sid": 637114768483060,
+							"parameters": {
+								"text": "left(Quest.Text, len(dialogue.Text) +1)"
+							}
+						}
+					],
+					"sid": 444647696041023,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Клавиатура",
+							"sid": 116527942355528,
+							"parameters": {
+								"key": 69
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 308443448162541,
+							"parameters": {
+								"variable": "speedtext",
+								"value": "0.05"
+							}
+						}
+					],
+					"sid": 146095775036775,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Клавиатура",
+							"sid": 874108402346077,
+							"parameters": {
+								"key": 69
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 550649531747762,
+							"parameters": {
+								"variable": "speedtext",
+								"value": "0.3"
+							}
+						}
+					],
+					"sid": 358520278400650,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Клавиатура",
+							"sid": 895072734347921,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "dialogue",
+							"sid": 540175515077339,
+							"parameters": {
+								"text": "left(Quest.Text, len(dialogue.Text) +1000)"
+							}
+						}
+					],
+					"sid": 739874547045378,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player2",
+							"sid": 365321582320841,
+							"parameters": {
+								"object": "Table_Beer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 556418255459578,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 458625192661480,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Клавиатура",
+							"sid": 887570723604938,
+							"parameters": {
+								"key": 69
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player2",
+							"sid": 433285542760095,
+							"parameters": {
+								"object": "Table_Beer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 284045465405890,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 672801393907581,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "dialogue",
+							"sid": 329170860112198,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 587514031313548,
+					"disabled": true
+				}
+			],
+			"sid": 546752847550834
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Dialog",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Клавиатура",
+							"sid": 460618900604107,
+							"parameters": {
+								"key": 69
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 998108234097201,
+							"parameters": [
+								"\"Hello world!!! Hello world!!!  Hello world!!!  \"",
+								"Segal.X + 5",
+								"Segal.Y-40"
+							]
+						}
+					],
+					"sid": 114177942784057
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player2",
+							"sid": 719593209472823,
+							"parameters": {
+								"object": "Segal"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 624626139717961,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "press_E",
+							"sid": 560172681193267,
+							"parameters": {
+								"layer": "\"UI\""
+							}
+						}
+					],
+					"sid": 128965352427930
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 682017748324704
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 205992942005242,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 530281610390170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player2",
+							"sid": 799036706019658,
+							"parameters": {
+								"object": "Segal"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 534361046512463,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 126336394631310
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "press_E",
+							"sid": 873373169073622
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "press_E",
+							"sid": 242481876253108,
+							"parameters": {
+								"x": "Player2.x",
+								"y": "Player2.Y -50"
+							}
+						}
+					],
+					"sid": 958432824929455
+				}
+			],
+			"sid": 753611541323240
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Dialog_GG",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 745097819034311
+		}
+	],
+	"sid": 194809940947679
+}
