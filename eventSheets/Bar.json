@@ -533,7 +533,7 @@
 					"actions": [
 						{
 							"id": "set-visible",
-							"objectClass": "Спрайт7",
+							"objectClass": "press_E",
 							"sid": 556418255459578,
 							"parameters": {
 								"visibility": "visible"
@@ -566,7 +566,7 @@
 					"actions": [
 						{
 							"id": "set-visible",
-							"objectClass": "Спрайт7",
+							"objectClass": "press_E",
 							"sid": 284045465405890,
 							"parameters": {
 								"visibility": "invisible"
@@ -606,96 +606,23 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-running-typewriter-text",
-							"objectClass": "dialog",
-							"sid": 281787336727497,
-							"isInverted": true
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Player2",
-							"sid": 163053924831712,
-							"parameters": {
-								"object": "Table_Beer"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Спрайт7",
-							"sid": 522494410912397,
-							"parameters": {
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 127032804370967,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-key-pressed",
 							"objectClass": "Клавиатура",
 							"sid": 460618900604107,
 							"parameters": {
 								"key": 69
 							}
-						},
-						{
-							"id": "is-running-typewriter-text",
-							"objectClass": "dialog",
-							"sid": 529975100090570,
-							"disabled": true,
-							"isInverted": true
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Player2",
-							"sid": 400913996532913,
-							"disabled": true,
-							"parameters": {
-								"object": "Table_Beer"
-							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "Create_DealogueSegal",
-							"sid": 974216614264185,
+							"callFunction": "Create_Dealogue",
+							"sid": 998108234097201,
 							"parameters": [
-								"\"Addd\""
+								"\"Hello world!!! Hello world!!!  Hello world!!!  \"",
+								"Segal.X + 5",
+								"Segal.Y-40"
 							]
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Спрайт7",
-							"sid": 998939599744614,
-							"disabled": true,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "typewriter-text",
-							"objectClass": "dialog",
-							"sid": 774753975593095,
-							"disabled": true,
-							"parameters": {
-								"text": "\"Я курю и мне похуй! Я бухаю и мне похуй!\"",
-								"duration": "speedtext"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Cloud_Dialogue",
-							"sid": 992765946090745,
-							"disabled": true,
-							"parameters": {
-								"visibility": "visible"
-							}
 						}
 					],
 					"sid": 114177942784057
@@ -704,33 +631,101 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-typewriter-text-finished",
-							"objectClass": "dialog",
-							"sid": 693091996251773
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Клавиатура",
-							"sid": 164320115749984,
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player2",
+							"sid": 719593209472823,
 							"parameters": {
-								"key": 69
+								"object": "Segal"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "destroy",
-							"objectClass": "dialog",
-							"sid": 825872057531436
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 624626139717961,
+							"parameters": {
+								"visibility": "visible"
+							}
 						},
 						{
-							"id": "destroy",
-							"objectClass": "Cloud_Dialogue",
-							"sid": 644874849144499
+							"id": "move-to-layer",
+							"objectClass": "press_E",
+							"sid": 560172681193267,
+							"parameters": {
+								"layer": "\"UI\""
+							}
 						}
 					],
-					"sid": 472210704124546,
-					"disabled": true
+					"sid": 128965352427930
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 682017748324704
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 205992942005242,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 530281610390170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player2",
+							"sid": 799036706019658,
+							"parameters": {
+								"object": "Segal"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 534361046512463,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 126336394631310
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "press_E",
+							"sid": 873373169073622
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "press_E",
+							"sid": 242481876253108,
+							"parameters": {
+								"x": "Player2.x",
+								"y": "Player2.Y -50"
+							}
+						}
+					],
+					"sid": 958432824929455
 				}
 			],
 			"sid": 753611541323240
@@ -741,39 +736,7 @@
 			"title": "Dialog_GG",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
-							"sid": 108370245904144,
-							"parameters": {
-								"key": 69
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Player2",
-							"sid": 267776697998173,
-							"parameters": {
-								"object": "Segal"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Create_DealogueSegal",
-							"sid": 501007104299410,
-							"parameters": [
-								"\"Hello\""
-							]
-						}
-					],
-					"sid": 407392872491817
-				}
-			],
+			"children": [],
 			"sid": 745097819034311
 		}
 	],
