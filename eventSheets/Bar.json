@@ -6,6 +6,10 @@
 			"includeSheet": "Dialogue"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Effect"
+		},
+		{
 			"eventType": "variable",
 			"name": "speedtext",
 			"type": "number",
@@ -27,7 +31,7 @@
 					"conditions": [
 						{
 							"id": "is-on-floor",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 261360504020750,
 							"behaviorType": "Платформер"
 						},
@@ -43,7 +47,7 @@
 					"actions": [
 						{
 							"id": "simulate-control",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 128524456105804,
 							"behaviorType": "Платформер",
 							"parameters": {
@@ -52,16 +56,16 @@
 						},
 						{
 							"id": "set-max-speed",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 590388872575737,
 							"behaviorType": "Платформер",
 							"parameters": {
-								"max-speed": "Player2.SpeedWalk"
+								"max-speed": "Player_Cutscene.SpeedWalk"
 							}
 						},
 						{
 							"id": "set-mirrored",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 699682514079275,
 							"parameters": {
 								"state": "not-mirrored"
@@ -75,7 +79,7 @@
 					"conditions": [
 						{
 							"id": "is-on-floor",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 900509692116783,
 							"behaviorType": "Платформер"
 						},
@@ -91,7 +95,7 @@
 					"actions": [
 						{
 							"id": "simulate-control",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 603530774222180,
 							"behaviorType": "Платформер",
 							"parameters": {
@@ -100,16 +104,16 @@
 						},
 						{
 							"id": "set-max-speed",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 380211687673668,
 							"behaviorType": "Платформер",
 							"parameters": {
-								"max-speed": "Player2.SpeedWalk"
+								"max-speed": "Player_Cutscene.SpeedWalk"
 							}
 						},
 						{
 							"id": "set-mirrored",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 508229998332055,
 							"parameters": {
 								"state": "mirrored"
@@ -123,7 +127,7 @@
 					"conditions": [
 						{
 							"id": "is-moving",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 581422493907834,
 							"behaviorType": "Платформер"
 						}
@@ -131,7 +135,7 @@
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 618082194963046,
 							"parameters": {
 								"animation": "\"noWeaponWalk\"",
@@ -146,7 +150,7 @@
 					"conditions": [
 						{
 							"id": "compare-speed",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 462359640123150,
 							"behaviorType": "Платформер",
 							"parameters": {
@@ -158,7 +162,7 @@
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 110629830909025,
 							"parameters": {
 								"animation": "\"noWeaponIdle\"",
@@ -193,8 +197,8 @@
 							"objectClass": "Camera",
 							"sid": 537550530424646,
 							"parameters": {
-								"x": "lerp(Self.X,Player2.X,0.05)",
-								"y": "lerp(Self.Y,Player2.Y,0.05)"
+								"x": "lerp(Self.X,Player_Cutscene.X,0.05)",
+								"y": "lerp(Self.Y,Player_Cutscene.Y,0.05)"
 							}
 						}
 					],
@@ -233,7 +237,7 @@
 									"sid": 317542532233141,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
-										"value": "Self.X-Player2.X"
+										"value": "Self.X-Player_Cutscene.X"
 									}
 								}
 							],
@@ -395,208 +399,6 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
-			"title": "Dialogue",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 718858484517821,
-							"parameters": {
-								"interval-seconds": "speedtext"
-							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 240098550616344,
-							"parameters": {
-								"first-value": "len(Quest.Text)",
-								"comparison": 4,
-								"second-value": "len(dialogue.Text)"
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Cloud_Dialogue",
-							"sid": 504280663003401
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "dialogue",
-							"sid": 637114768483060,
-							"parameters": {
-								"text": "left(Quest.Text, len(dialogue.Text) +1)"
-							}
-						}
-					],
-					"sid": 444647696041023,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Клавиатура",
-							"sid": 116527942355528,
-							"parameters": {
-								"key": 69
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 308443448162541,
-							"parameters": {
-								"variable": "speedtext",
-								"value": "0.05"
-							}
-						}
-					],
-					"sid": 146095775036775,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Клавиатура",
-							"sid": 874108402346077,
-							"parameters": {
-								"key": 69
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 550649531747762,
-							"parameters": {
-								"variable": "speedtext",
-								"value": "0.3"
-							}
-						}
-					],
-					"sid": 358520278400650,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Клавиатура",
-							"sid": 895072734347921,
-							"parameters": {
-								"key": 32
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "dialogue",
-							"sid": 540175515077339,
-							"parameters": {
-								"text": "left(Quest.Text, len(dialogue.Text) +1000)"
-							}
-						}
-					],
-					"sid": 739874547045378,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Player2",
-							"sid": 365321582320841,
-							"parameters": {
-								"object": "Table_Beer"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "press_E",
-							"sid": 556418255459578,
-							"parameters": {
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 458625192661480,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
-							"sid": 887570723604938,
-							"parameters": {
-								"key": 69
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Player2",
-							"sid": 433285542760095,
-							"parameters": {
-								"object": "Table_Beer"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "press_E",
-							"sid": 284045465405890,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Cloud_Dialogue",
-							"sid": 672801393907581,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "dialogue",
-							"sid": 329170860112198,
-							"parameters": {
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 587514031313548,
-					"disabled": true
-				}
-			],
-			"sid": 546752847550834
-		},
-		{
-			"eventType": "group",
 			"disabled": false,
 			"title": "Dialog",
 			"description": "",
@@ -617,9 +419,23 @@
 					"actions": [
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 998108234097201,
+							"sid": 441028729105112,
 							"parameters": [
-								"\"Hello world!!! Hello world!!!  Hello world!!!  \"",
+								"\"Опять васян нахрючился  \"",
+								"Segal.X + 5",
+								"Segal.Y-40"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 439169276158296
+						},
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 367667127286713,
+							"parameters": [
+								"\"ААААА, выходи! Ой ты здесь\"",
 								"Segal.X + 5",
 								"Segal.Y-40"
 							]
@@ -632,7 +448,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 719593209472823,
 							"parameters": {
 								"object": "Segal"
@@ -685,7 +501,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Player2",
+							"objectClass": "Player_Cutscene",
 							"sid": 799036706019658,
 							"parameters": {
 								"object": "Segal"
@@ -720,8 +536,8 @@
 							"objectClass": "press_E",
 							"sid": 242481876253108,
 							"parameters": {
-								"x": "Player2.x",
-								"y": "Player2.Y -50"
+								"x": "Player_Cutscene.x",
+								"y": "Player_Cutscene.Y -50"
 							}
 						}
 					],
@@ -729,15 +545,6 @@
 				}
 			],
 			"sid": 753611541323240
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Dialog_GG",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [],
-			"sid": 745097819034311
 		}
 	],
 	"sid": 194809940947679

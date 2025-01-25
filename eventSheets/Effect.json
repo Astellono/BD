@@ -1,0 +1,223 @@
+{
+	"name": "Effect",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "actual"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Cloud_Big",
+					"sid": 733612798717225
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Cloud_Big",
+					"sid": 121344217085160,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "5"
+					}
+				}
+			],
+			"sid": 365458664834722
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Cloud_Big",
+					"sid": 199961868496176,
+					"parameters": {
+						"object": "Cloud_destroy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Cloud_Big",
+					"sid": 121260621572212,
+					"parameters": {
+						"x": "0",
+						"y": "200"
+					}
+				}
+			],
+			"sid": 511990528092500
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Cloud_little",
+					"sid": 851750853509052
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Cloud_little",
+					"sid": 642694358072958,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "10"
+					}
+				}
+			],
+			"sid": 881417504385008
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Cloud_little",
+					"sid": 153347786880377,
+					"parameters": {
+						"object": "Cloud_destroy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Cloud_little",
+					"sid": 751515434333205,
+					"parameters": {
+						"x": "-500",
+						"y": "80"
+					}
+				}
+			],
+			"sid": 983572709269209
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Cloud_Mid",
+					"sid": 848228408932848,
+					"parameters": {
+						"object": "Cloud_destroy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Cloud_Mid",
+					"sid": 179812857153541,
+					"parameters": {
+						"x": "-500",
+						"y": "Random(0, 600)"
+					}
+				}
+			],
+			"sid": 817624874660645
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Cloud_Mid",
+					"sid": 742222428006225
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Cloud_Mid",
+					"sid": 440358635032897,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "7"
+					}
+				}
+			],
+			"sid": 329237556473693
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Fog",
+					"sid": 841764185638446,
+					"parameters": {
+						"animation": "\"Animation 1\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Fog",
+					"sid": 856388225135861,
+					"parameters": {
+						"opacity": "80"
+					}
+				}
+			],
+			"sid": 463189940398101
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Light_Stolb",
+					"sid": 365246607833448,
+					"parameters": {
+						"animation": "\"Animation 1\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Light_Stolb",
+					"sid": 911958435720347,
+					"parameters": {
+						"opacity": "50"
+					}
+				}
+			],
+			"sid": 660126227243101
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Star",
+					"sid": 169190305581451
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Star",
+					"sid": 379387237977045,
+					"parameters": {
+						"frame-number": "random(1,5)"
+					}
+				}
+			],
+			"sid": 773631115795268
+		}
+	],
+	"sid": 163340988215681
+}
