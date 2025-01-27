@@ -177,25 +177,45 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-animation-playing",
+					"id": "is-outside-layout",
 					"objectClass": "Light_Stolb",
-					"sid": 365246607833448,
-					"parameters": {
-						"animation": "\"Animation 1\""
-					}
+					"sid": 519020213452374,
+					"isInverted": true
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 206389303744010
 				}
 			],
 			"actions": [
 				{
-					"id": "set-opacity",
+					"id": "set-animation-frame",
 					"objectClass": "Light_Stolb",
-					"sid": 911958435720347,
+					"sid": 698993969651894,
 					"parameters": {
-						"opacity": "50"
+						"frame-number": "2"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 306497178801111,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Light_Stolb",
+					"sid": 344117861640034,
+					"parameters": {
+						"frame-number": "0"
 					}
 				}
 			],
-			"sid": 660126227243101
+			"sid": 660126227243101,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
