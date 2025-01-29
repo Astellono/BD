@@ -87,6 +87,14 @@
 					}
 				},
 				{
+					"id": "set-wrapping",
+					"objectClass": "dialogText",
+					"sid": 634633954673400,
+					"parameters": {
+						"wrapping": "word"
+					}
+				},
+				{
 					"id": "set-horizontal-alignment",
 					"objectClass": "dialogText",
 					"sid": 257678240335074,
@@ -139,40 +147,64 @@
 				{
 					"id": "typewriter-text",
 					"objectClass": "dialogText",
-					"sid": 340218335649957,
+					"sid": 986538833271344,
 					"parameters": {
 						"text": "Text",
-						"duration": "3"
+						"duration": "1"
+					}
+				}
+			],
+			"sid": 302068546862154
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 458889677996504,
+					"parameters": {
+						"key": 32
 					}
 				},
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 832312416246697,
-					"parameters": {
-						"seconds": "5"
-					}
-				},
+					"id": "is-running-typewriter-text",
+					"objectClass": "dialogText",
+					"sid": 401809300018344
+				}
+			],
+			"actions": [
 				{
-					"id": "set-visible",
-					"objectClass": "press_E",
-					"sid": 662822772727824,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
+					"id": "typewriter-finish",
+					"objectClass": "dialogText",
+					"sid": 817827809418555
+				}
+			],
+			"sid": 401827148668661
+		},
+		{
+			"functionName": "Destroy_Dialoge",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
 				{
 					"id": "destroy",
 					"objectClass": "Cloud_Dialogue",
-					"sid": 206580736996079
+					"sid": 264064165267999
 				},
 				{
 					"id": "destroy",
 					"objectClass": "dialogText",
-					"sid": 813636302720186
+					"sid": 301690900803267
 				}
 			],
-			"sid": 302068546862154
+			"sid": 356410634110533
 		}
 	],
 	"sid": 692011254246023

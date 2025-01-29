@@ -414,31 +414,66 @@
 							"parameters": {
 								"key": 69
 							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 601352715323233,
+							"parameters": {
+								"object": "Segal"
+							}
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 441028729105112,
+							"sid": 492661083604939,
 							"parameters": [
-								"\"Опять васян нахрючился  \"",
+								"\"Привет Катя!\"",
 								"Segal.X + 5",
 								"Segal.Y-40"
 							]
 						},
 						{
-							"id": "wait-for-previous-actions",
+							"id": "wait",
 							"objectClass": "System",
-							"sid": 439169276158296
+							"sid": 397876133761163,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"callFunction": "Destroy_Dialoge",
+							"sid": 983733934815941
 						},
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 367667127286713,
+							"sid": 840877541846741,
 							"parameters": [
-								"\"ААААА, выходи! Ой ты здесь\"",
+								"\"Привет\"",
 								"Segal.X + 5",
 								"Segal.Y-40"
 							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 594655262072105,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"callFunction": "Destroy_Dialoge",
+							"sid": 576828102506403
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 728970932621456,
+							"parameters": {
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 114177942784057
