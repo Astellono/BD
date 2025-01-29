@@ -20,6 +20,16 @@
 			"sid": 630809690726601
 		},
 		{
+			"eventType": "variable",
+			"name": "onDial",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 806142641418064
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player2",
@@ -418,65 +428,303 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player_Cutscene",
-							"sid": 601352715323233,
+							"sid": 325676101779078,
 							"parameters": {
-								"object": "Segal"
+								"object": "Table_Beer"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 118678971952306,
+							"parameters": {
+								"variable": "onDial"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "Create_Dealogue",
-							"sid": 492661083604939,
-							"parameters": [
-								"\"Привет Катя!\"",
-								"Segal.X + 5",
-								"Segal.Y-40"
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 397876133761163,
+							"id": "add-to-instvar",
+							"objectClass": "Table_Beer",
+							"sid": 327286693070574,
 							"parameters": {
-								"seconds": "5"
+								"instance-variable": "textframe",
+								"value": "1"
 							}
-						},
-						{
-							"callFunction": "Destroy_Dialoge",
-							"sid": 983733934815941
-						},
-						{
-							"callFunction": "Create_Dealogue",
-							"sid": 840877541846741,
-							"parameters": [
-								"\"Привет\"",
-								"Segal.X + 5",
-								"Segal.Y-40"
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 594655262072105,
-							"parameters": {
-								"seconds": "5"
-							}
-						},
-						{
-							"callFunction": "Destroy_Dialoge",
-							"sid": 576828102506403
 						},
 						{
 							"id": "set-visible",
 							"objectClass": "press_E",
-							"sid": 728970932621456,
+							"sid": 622214883264091,
+							"disabled": true,
 							"parameters": {
 								"visibility": "visible"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 784767932633867,
+							"parameters": {
+								"variable": "onDial",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 686552919295404,
+							"parameters": [
+								"\"\""
+							]
 						}
 					],
-					"sid": 114177942784057
+					"sid": 114177942784057,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 761818917039755,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 945419172052013,
+									"parameters": [
+										"\"Опять васян нахрючился\"",
+										"428",
+										"380"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 373419107935937,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 549003701538150
+								}
+							],
+							"sid": 215080350096324
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 957513878357995,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 213126186459552,
+									"parameters": [
+										"\"kall_kalli4 задонатил 100 рублей\"",
+										"484",
+										"369"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 816395845170582,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 833760100322612
+								}
+							],
+							"sid": 595875579606102
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 693007117086761,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 940260831729453,
+									"parameters": [
+										"\"Да что же они так насвинячились\"",
+										"428",
+										"380"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 834105214641212,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 106090448199433
+								}
+							],
+							"sid": 525695318541340
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 822004502353595,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 922431191250865,
+									"parameters": [
+										"\"ААААА, выходи! Ой ты здесь\"",
+										"444",
+										"374"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 308366399709448,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 764635190101271
+								}
+							],
+							"sid": 351087685001477
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 772147193079093,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 456449928920454,
+									"parameters": [
+										"\"Стримы из бассейна, а что дальше?\"",
+										"494",
+										"376"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 833843559176145,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 831478499440600
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Table_Beer",
+									"sid": 738046396465439,
+									"parameters": {
+										"instance-variable": "textframe",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 556847962984899
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 435823126023683,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 314377159711176,
+									"parameters": [
+										"\"Я курю и мне похуй! Я бухаю и мне похуй!\"",
+										"484",
+										"369"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 216437849369731,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 618687814652315
+								}
+							],
+							"sid": 134663612803876
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -484,9 +732,9 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player_Cutscene",
-							"sid": 719593209472823,
+							"sid": 978011056573804,
 							"parameters": {
-								"object": "Segal"
+								"object": "Table_Beer"
 							}
 						}
 					],
@@ -537,9 +785,9 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player_Cutscene",
-							"sid": 799036706019658,
+							"sid": 128844993427290,
 							"parameters": {
-								"object": "Segal"
+								"object": "Table_Beer"
 							},
 							"isInverted": true
 						}

@@ -68,12 +68,12 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 242125056995954,
+					"sid": 934787974021875,
 					"parameters": {
 						"object-to-create": "dialogText",
 						"layer": "\"Dialog\"",
 						"x": "Cloud_Dialogue.x-53",
-						"y": "Cloud_Dialogue.y - 56",
+						"y": "Cloud_Dialogue.y - 59",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -84,6 +84,14 @@
 					"sid": 522473465889505,
 					"parameters": {
 						"color": "rgbEx(255,255, 255)"
+					}
+				},
+				{
+					"id": "set-line-height",
+					"objectClass": "dialogText",
+					"sid": 537884199018871,
+					"parameters": {
+						"line-height": "-2"
 					}
 				},
 				{
@@ -113,10 +121,10 @@
 				{
 					"id": "set-size",
 					"objectClass": "dialogText",
-					"sid": 305076567602954,
+					"sid": 751009399504559,
 					"parameters": {
 						"width": "56",
-						"height": "33"
+						"height": "38"
 					}
 				},
 				{
@@ -131,9 +139,9 @@
 				{
 					"id": "set-font-size",
 					"objectClass": "dialogText",
-					"sid": 450318391666977,
+					"sid": 689476831901725,
 					"parameters": {
-						"size-pt": "6"
+						"size-pt": "5"
 					}
 				},
 				{
@@ -202,9 +210,200 @@
 					"id": "destroy",
 					"objectClass": "dialogText",
 					"sid": 301690900803267
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 523352115604146,
+					"parameters": {
+						"variable": "onDial",
+						"value": "false"
+					}
 				}
 			],
 			"sid": 356410634110533
+		},
+		{
+			"functionName": "Create_mainDialoge",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Text",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 291619592033264
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Cloud_Dialogue",
+					"sid": 249864066283252
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 696281852582496,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogText",
+					"sid": 444150796699120
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 324167899772533,
+					"parameters": {
+						"object-to-create": "main_dialogue",
+						"layer": "\"Dialog\"",
+						"x": "ViewportWidth(0)/2 - 225",
+						"y": "200",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 608998683699758,
+					"disabled": true,
+					"parameters": {
+						"object-to-create": "dialogText",
+						"layer": "\"Dialog\"",
+						"x": "Cloud_Dialogue.x-53",
+						"y": "Cloud_Dialogue.y - 59",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "dialogText",
+					"sid": 195088836630519,
+					"disabled": true,
+					"parameters": {
+						"color": "rgbEx(255,255, 255)"
+					}
+				},
+				{
+					"id": "set-line-height",
+					"objectClass": "dialogText",
+					"sid": 649349819918096,
+					"disabled": true,
+					"parameters": {
+						"line-height": "-2"
+					}
+				},
+				{
+					"id": "set-wrapping",
+					"objectClass": "dialogText",
+					"sid": 375643678275833,
+					"disabled": true,
+					"parameters": {
+						"wrapping": "word"
+					}
+				},
+				{
+					"id": "set-horizontal-alignment",
+					"objectClass": "dialogText",
+					"sid": 182653821443539,
+					"disabled": true,
+					"parameters": {
+						"horizontal-alignment": "center"
+					}
+				},
+				{
+					"id": "set-vertical-alignment",
+					"objectClass": "dialogText",
+					"sid": 570223911564327,
+					"disabled": true,
+					"parameters": {
+						"vertical-alignment": "center"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "dialogText",
+					"sid": 225626529160323,
+					"disabled": true,
+					"parameters": {
+						"width": "56",
+						"height": "38"
+					}
+				},
+				{
+					"id": "set-font-face",
+					"objectClass": "dialogText",
+					"sid": 666488456707979,
+					"disabled": true,
+					"parameters": {
+						"font-face": "\"Roboto\"",
+						"style": "normal"
+					}
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "dialogText",
+					"sid": 405975494863207,
+					"disabled": true,
+					"parameters": {
+						"size-pt": "5"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "dialogText",
+					"sid": 426760361592462,
+					"disabled": true,
+					"parameters": {
+						"text": "Text"
+					}
+				},
+				{
+					"id": "typewriter-text",
+					"objectClass": "dialogText",
+					"sid": 165109497326675,
+					"disabled": true,
+					"parameters": {
+						"text": "Text",
+						"duration": "1"
+					}
+				}
+			],
+			"sid": 576675142271970
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 850915811542882
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "main_dialogue",
+					"sid": 961510468677300,
+					"parameters": {
+						"x": "ViewportLeft(0) + ViewportWidth(0)/2 - 225",
+						"y": "ViewportBottom(0) - 75"
+					}
+				}
+			],
+			"sid": 921652099720854
 		}
 	],
 	"sid": 692011254246023
