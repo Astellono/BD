@@ -2,10 +2,6 @@
 	"name": "Effect",
 	"events": [
 		{
-			"eventType": "include",
-			"includeSheet": "actual"
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -177,50 +173,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-outside-layout",
-					"objectClass": "Light_Stolb",
-					"sid": 519020213452374,
-					"isInverted": true
-				},
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 206389303744010
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Light_Stolb",
-					"sid": 698993969651894,
-					"parameters": {
-						"frame-number": "2"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 306497178801111,
-					"parameters": {
-						"seconds": "1.0"
-					}
-				},
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Light_Stolb",
-					"sid": 344117861640034,
-					"parameters": {
-						"frame-number": "0"
-					}
-				}
-			],
-			"sid": 660126227243101,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-created",
 					"objectClass": "Star",
 					"sid": 169190305581451
@@ -237,6 +189,30 @@
 				}
 			],
 			"sid": 773631115795268
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Light_Lamp2",
+					"sid": 669206165545712,
+					"parameters": {
+						"animation": "\"Animation 1\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Light_Lamp2",
+					"sid": 312854029888857,
+					"parameters": {
+						"opacity": "70"
+					}
+				}
+			],
+			"sid": 279175618535808
 		}
 	],
 	"sid": 163340988215681
