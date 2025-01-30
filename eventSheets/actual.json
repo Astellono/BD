@@ -2776,6 +2776,152 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "PlatformUpDown2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "UpDown",
+							"sid": 162709944754349
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UpDown",
+							"sid": 488074062840081,
+							"parameters": {
+								"instance-variable": "distanceToPlayer",
+								"value": "sqrt(((Self.X - Player.X)^2) + ((Self.Y - Player.Y)^2) )"
+							}
+						}
+					],
+					"sid": 136621994994411
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UpDown",
+							"sid": 465329744049924,
+							"parameters": {
+								"instance-variable": "distanceToPlayer",
+								"comparison": 2,
+								"value": "200"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "UpDown",
+							"sid": 183084093568662,
+							"parameters": {
+								"object": "Player"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 471321914378024,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "UpDown",
+									"sid": 369503495831086,
+									"parameters": {
+										"comparison": 2,
+										"y-co-ordinate": "Player.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "UpDown",
+									"sid": 701178115588725,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 885540957809122
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "UpDown",
+									"sid": 646027042789703,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "Player.Y"
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Клавиатура",
+									"sid": 858008588185047,
+									"parameters": {
+										"key": 83
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "UpDown",
+									"sid": 511574129668973,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 646827888115400
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Клавиатура",
+									"sid": 371517064960899,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "UpDown",
+									"sid": 907928934785087,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 737457960538425
+						}
+					]
+				}
+			],
+			"sid": 961372613561810
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Enemy",
 			"description": "",
 			"isActiveOnStart": true,

@@ -213,6 +213,169 @@
 				}
 			],
 			"sid": 279175618535808
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Box_MoveVert",
+					"sid": 918341434215911
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Box_MoveVert",
+					"sid": 342491568764782,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "vertical",
+						"speed": "-100"
+					}
+				}
+			],
+			"sid": 405378457616472
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "Box_MoveVert",
+					"sid": 336241087107066,
+					"parameters": {
+						"comparison": 2,
+						"y-co-ordinate": "356"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Box_MoveVert",
+					"sid": 958850603487128,
+					"behaviorType": "Твёрдый",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Box_MoveVert",
+					"sid": 857789423149469,
+					"behaviorType": "НастраиваемоеДвижение"
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 700794501120739,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Box_MoveVert",
+					"sid": 811830573219526
+				}
+			],
+			"sid": 210414724804034
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 791865454028519,
+					"parameters": {
+						"interval-seconds": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 154242953348183,
+					"parameters": {
+						"object-to-create": "Box_MoveHoriz",
+						"layer": "8",
+						"x": "1454",
+						"y": "748",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 252457028541377
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Box_MoveHoriz",
+					"sid": 605369215957186
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 722936032039582,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Box_MoveHoriz",
+					"sid": 507861650631696,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "100"
+					}
+				}
+			],
+			"sid": 537833392155251
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Box_MoveHoriz",
+					"sid": 357427387239658,
+					"parameters": {
+						"comparison": 4,
+						"x-co-ordinate": "1745"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 200335713236362,
+					"parameters": {
+						"object-to-create": "Box_MoveVert",
+						"layer": "8",
+						"x": "1745",
+						"y": "695",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Box_MoveHoriz",
+					"sid": 595605189722097
+				}
+			],
+			"sid": 537492274004795
 		}
 	],
 	"sid": 163340988215681

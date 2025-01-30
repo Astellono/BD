@@ -504,18 +504,6 @@
 										"428",
 										"380"
 									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 373419107935937,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"callFunction": "Destroy_Dialoge",
-									"sid": 549003701538150
 								}
 							],
 							"sid": 215080350096324
@@ -543,18 +531,6 @@
 										"484",
 										"369"
 									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 816395845170582,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"callFunction": "Destroy_Dialoge",
-									"sid": 833760100322612
 								}
 							],
 							"sid": 595875579606102
@@ -582,18 +558,6 @@
 										"428",
 										"380"
 									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 834105214641212,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"callFunction": "Destroy_Dialoge",
-									"sid": 106090448199433
 								}
 							],
 							"sid": 525695318541340
@@ -621,18 +585,6 @@
 										"444",
 										"374"
 									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 308366399709448,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"callFunction": "Destroy_Dialoge",
-									"sid": 764635190101271
 								}
 							],
 							"sid": 351087685001477
@@ -660,27 +612,6 @@
 										"494",
 										"376"
 									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 833843559176145,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"callFunction": "Destroy_Dialoge",
-									"sid": 831478499440600
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Table_Beer",
-									"sid": 738046396465439,
-									"parameters": {
-										"instance-variable": "textframe",
-										"value": "0"
-									}
 								}
 							],
 							"sid": 556847962984899
@@ -710,16 +641,13 @@
 									]
 								},
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 216437849369731,
+									"id": "set-instvar-value",
+									"objectClass": "Table_Beer",
+									"sid": 411651396254548,
 									"parameters": {
-										"seconds": "3"
+										"instance-variable": "textframe",
+										"value": "0"
 									}
-								},
-								{
-									"callFunction": "Destroy_Dialoge",
-									"sid": 618687814652315
 								}
 							],
 							"sid": 134663612803876
@@ -825,6 +753,27 @@
 						}
 					],
 					"sid": 958432824929455
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 893733751269137,
+							"parameters": {
+								"object": "Table_Beer"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Destroy_Dialoge",
+							"sid": 652783525431920
+						}
+					],
+					"sid": 792255052513884
 				}
 			],
 			"sid": 753611541323240
