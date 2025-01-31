@@ -263,6 +263,20 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 291619592033264
+				},
+				{
+					"name": "icon",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 324230038111235
+				},
+				{
+					"name": "timetyping",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 867710944088598
 				}
 			],
 			"eventType": "function-block",
@@ -270,8 +284,18 @@
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "Cloud_Dialogue",
-					"sid": 249864066283252
+					"objectClass": "main_dialogue",
+					"sid": 975872377401377
+				},
+				{
+					"id": "destroy",
+					"objectClass": "icon1",
+					"sid": 209424406688220
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogMainText",
+					"sid": 437291490914009
 				},
 				{
 					"id": "set-visible",
@@ -289,12 +313,12 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 324167899772533,
+					"sid": 212947016033443,
 					"parameters": {
 						"object-to-create": "main_dialogue",
-						"layer": "\"Dialog\"",
-						"x": "ViewportWidth(0)/2 - 225",
-						"y": "200",
+						"layer": "\"UI\"",
+						"x": "172",
+						"y": "ViewportBottom(0) - 75",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -302,57 +326,74 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 608998683699758,
-					"disabled": true,
+					"sid": 321524492456516,
 					"parameters": {
-						"object-to-create": "dialogText",
-						"layer": "\"Dialog\"",
-						"x": "Cloud_Dialogue.x-53",
-						"y": "Cloud_Dialogue.y - 59",
+						"object-to-create": "icon1",
+						"layer": "\"UI\"",
+						"x": "main_dialogue.X + 20",
+						"y": "main_dialogue.Y + 15",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "icon1",
+					"sid": 312707379162905,
+					"parameters": {
+						"animation": "icon",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 292819398558164,
+					"parameters": {
+						"object-to-create": "dialogMainText",
+						"layer": "\"UI\"",
+						"x": "main_dialogue.x + 80",
+						"y": "main_dialogue.y + 11",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
 				},
 				{
 					"id": "set-font-color",
-					"objectClass": "dialogText",
-					"sid": 195088836630519,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 978856072046216,
 					"parameters": {
 						"color": "rgbEx(255,255, 255)"
 					}
 				},
 				{
 					"id": "set-line-height",
-					"objectClass": "dialogText",
-					"sid": 649349819918096,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 266026180552900,
 					"parameters": {
-						"line-height": "-2"
+						"line-height": "2"
 					}
 				},
 				{
 					"id": "set-wrapping",
-					"objectClass": "dialogText",
-					"sid": 375643678275833,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 997222970198946,
 					"parameters": {
 						"wrapping": "word"
 					}
 				},
 				{
 					"id": "set-horizontal-alignment",
-					"objectClass": "dialogText",
-					"sid": 182653821443539,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 390161373601463,
 					"parameters": {
-						"horizontal-alignment": "center"
+						"horizontal-alignment": "left"
 					}
 				},
 				{
 					"id": "set-vertical-alignment",
-					"objectClass": "dialogText",
-					"sid": 570223911564327,
+					"objectClass": "dialogMainText",
+					"sid": 485470531032143,
 					"disabled": true,
 					"parameters": {
 						"vertical-alignment": "center"
@@ -360,19 +401,17 @@
 				},
 				{
 					"id": "set-size",
-					"objectClass": "dialogText",
-					"sid": 225626529160323,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 140374413663538,
 					"parameters": {
-						"width": "56",
-						"height": "38"
+						"width": "355",
+						"height": "60"
 					}
 				},
 				{
 					"id": "set-font-face",
-					"objectClass": "dialogText",
-					"sid": 666488456707979,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 717909507971902,
 					"parameters": {
 						"font-face": "\"Roboto\"",
 						"style": "normal"
@@ -380,34 +419,121 @@
 				},
 				{
 					"id": "set-font-size",
-					"objectClass": "dialogText",
-					"sid": 405975494863207,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 163230194958340,
 					"parameters": {
-						"size-pt": "5"
+						"size-pt": "10"
 					}
 				},
 				{
 					"id": "set-text",
-					"objectClass": "dialogText",
-					"sid": 426760361592462,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 540919797095941,
 					"parameters": {
 						"text": "Text"
 					}
 				},
 				{
 					"id": "typewriter-text",
-					"objectClass": "dialogText",
-					"sid": 165109497326675,
-					"disabled": true,
+					"objectClass": "dialogMainText",
+					"sid": 425121049159760,
 					"parameters": {
 						"text": "Text",
-						"duration": "1"
+						"duration": "timetyping"
 					}
 				}
 			],
 			"sid": 576675142271970
+		},
+		{
+			"functionName": "Destroy_DialogeMain",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "main_dialogue",
+					"sid": 118797179440471
+				},
+				{
+					"id": "destroy",
+					"objectClass": "icon1",
+					"sid": 873035622019253
+				},
+				{
+					"id": "destroy",
+					"objectClass": "dialogMainText",
+					"sid": 625807247791952
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_Cutscene",
+					"sid": 962505312374607,
+					"parameters": {
+						"instance-variable": "cast_text",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 230262631376718
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 242881892899727,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "is-running-typewriter-text",
+					"objectClass": "dialogMainText",
+					"sid": 897050933516440,
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Destroy_DialogeMain",
+					"sid": 407573027604600
+				}
+			],
+			"sid": 654749420758866
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 914832660824886,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "is-running-typewriter-text",
+					"objectClass": "dialogMainText",
+					"sid": 275338843170314
+				}
+			],
+			"actions": [
+				{
+					"id": "typewriter-finish",
+					"objectClass": "dialogMainText",
+					"sid": 566378679480435
+				}
+			],
+			"sid": 278020554819236
 		},
 		{
 			"eventType": "block",
@@ -415,7 +541,13 @@
 				{
 					"id": "every-tick",
 					"objectClass": "System",
-					"sid": 850915811542882
+					"sid": 850915811542882,
+					"disabled": true
+				},
+				{
+					"id": "is-on-screen",
+					"objectClass": "main_dialogue",
+					"sid": 759567213158970
 				}
 			],
 			"actions": [
@@ -427,9 +559,28 @@
 						"x": "ViewportLeft(0) + ViewportWidth(0)/2 - 225",
 						"y": "ViewportBottom(0) - 75"
 					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "icon1",
+					"sid": 906308090165710,
+					"parameters": {
+						"x": "main_dialogue.X + 20",
+						"y": "main_dialogue.Y  + 15"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "dialogMainText",
+					"sid": 139584457176420,
+					"parameters": {
+						"x": "main_dialogue.X + 100",
+						"y": "main_dialogue.Y + 15"
+					}
 				}
 			],
-			"sid": 921652099720854
+			"sid": 921652099720854,
+			"disabled": true
 		}
 	],
 	"sid": 692011254246023

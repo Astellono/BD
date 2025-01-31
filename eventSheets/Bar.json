@@ -30,6 +30,16 @@
 			"sid": 806142641418064
 		},
 		{
+			"eventType": "variable",
+			"name": "onDialMain",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 143333085350354
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player2",
@@ -206,9 +216,19 @@
 							"id": "set-position",
 							"objectClass": "Camera",
 							"sid": 537550530424646,
+							"disabled": true,
 							"parameters": {
 								"x": "lerp(Self.X,Player_Cutscene.X,0.05)",
 								"y": "lerp(Self.Y,Player_Cutscene.Y,0.05)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 540808713220560,
+							"parameters": {
+								"x": "Player_Cutscene.X",
+								"y": "Player_Cutscene.Y"
 							}
 						}
 					],
@@ -470,13 +490,6 @@
 								"variable": "onDial",
 								"value": "true"
 							}
-						},
-						{
-							"callFunction": "Create_mainDialoge",
-							"sid": 686552919295404,
-							"parameters": [
-								"\"\""
-							]
 						}
 					],
 					"sid": 114177942784057,
@@ -660,9 +673,9 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player_Cutscene",
-							"sid": 978011056573804,
+							"sid": 327252195340570,
 							"parameters": {
-								"object": "Table_Beer"
+								"object": "onDial"
 							}
 						}
 					],
@@ -678,9 +691,9 @@
 						{
 							"id": "move-to-layer",
 							"objectClass": "press_E",
-							"sid": 560172681193267,
+							"sid": 874514857186519,
 							"parameters": {
-								"layer": "\"UI\""
+								"layer": "\"Dialog\""
 							}
 						}
 					],
@@ -711,11 +724,32 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-on-screen",
+							"objectClass": "main_dialogue",
+							"sid": 287914467011322
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 463024515634271,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 593523971657980
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player_Cutscene",
-							"sid": 128844993427290,
+							"sid": 471682941855414,
 							"parameters": {
-								"object": "Table_Beer"
+								"object": "onDial"
 							},
 							"isInverted": true
 						}
@@ -760,9 +794,9 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player_Cutscene",
-							"sid": 893733751269137,
+							"sid": 506333463499383,
 							"parameters": {
-								"object": "Table_Beer"
+								"object": "onDial"
 							},
 							"isInverted": true
 						}
@@ -777,6 +811,231 @@
 				}
 			],
 			"sid": 753611541323240
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 490393797593022,
+					"parameters": {
+						"variable": "onDialMain"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 826267683497690,
+					"parameters": {
+						"group-name": "\"Player2\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player_Cutscene",
+					"sid": 520273478163786,
+					"parameters": {
+						"animation": "\"sitOnBarChair\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-gravity",
+					"objectClass": "Player_Cutscene",
+					"sid": 353187960009767,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"gravity": "0"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Player_Cutscene",
+					"sid": 912700353807799,
+					"parameters": {
+						"x": "613",
+						"y": "404"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "Player_Cutscene",
+					"sid": 286508177853770,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				}
+			],
+			"sid": 788229023050321
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 178755828279508,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player_Cutscene",
+					"sid": 895869292446458,
+					"parameters": {
+						"object": "Chair_Bar"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 207020132489372,
+					"parameters": {
+						"variable": "onDialMain",
+						"value": "true"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_Cutscene",
+					"sid": 555279885459913,
+					"parameters": {
+						"instance-variable": "cast_text",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 461591738067556
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_Cutscene",
+					"sid": 423041687718612,
+					"parameters": {
+						"instance-variable": "cast_text",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 891656606805208
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 804078140543972,
+					"parameters": [
+						"\"Высокомерная избалованная петушня, которая творит что хочет, слишком много свободы и слишком мало воспитания в этих грязных ублюдках\"",
+						"\"icon2\"",
+						"5"
+					]
+				}
+			],
+			"sid": 717207068191732
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_Cutscene",
+					"sid": 272751950605225,
+					"parameters": {
+						"instance-variable": "cast_text",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 177066256984790
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 301422599828441,
+					"parameters": [
+						"\"Высокомерная избалованная петушня\"",
+						"\"icon2\"",
+						"2"
+					]
+				}
+			],
+			"sid": 109176959730508
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_Cutscene",
+					"sid": 149364501304482,
+					"parameters": {
+						"instance-variable": "cast_text",
+						"comparison": 0,
+						"value": "3"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 222828104342325
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 686914907912561,
+					"parameters": [
+						"\"Высокомерная \"",
+						"\"icon2\"",
+						"1"
+					]
+				}
+			],
+			"sid": 164451847617848
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_Cutscene",
+					"sid": 707093535034030,
+					"parameters": {
+						"instance-variable": "cast_text",
+						"comparison": 0,
+						"value": "4"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 203523355468948
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Destroy_DialogeMain",
+					"sid": 333801231547553
+				}
+			],
+			"sid": 904634166933785
 		}
 	],
 	"sid": 194809940947679
