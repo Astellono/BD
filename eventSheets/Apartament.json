@@ -1,0 +1,151 @@
+{
+	"name": "Apartament",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Dialogue"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 576358369977521,
+					"parameters": {
+						"object": "door1"
+					}
+				},
+				{
+					"id": "compare-x",
+					"objectClass": "Player",
+					"sid": 771847638094235,
+					"parameters": {
+						"comparison": 3,
+						"x-co-ordinate": "679"
+					}
+				},
+				{
+					"id": "compare-y",
+					"objectClass": "Player",
+					"sid": 323018320232439,
+					"parameters": {
+						"comparison": 3,
+						"y-co-ordinate": "490"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 681467416831395,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 444532334011520,
+					"parameters": {
+						"animation": "\"noWeaponIdle\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 308766249293447,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 488921744314201,
+					"parameters": {
+						"object-to-create": "BlueGuy",
+						"layer": "4",
+						"x": "737",
+						"y": "489",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Shadow2",
+					"sid": 753499059059342
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "door1",
+					"sid": 549510417385956,
+					"parameters": {
+						"frame-number": "1"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "BlueGuy",
+					"sid": 392729101139876,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 916932174925257,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 770169454191227,
+					"parameters": {
+						"variable": "onDial",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 806842416287194,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BlueGuy",
+							"sid": 991872684734011,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 797745710708780,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"737",
+								"450"
+							]
+						}
+					],
+					"sid": 770301751758654
+				}
+			]
+		}
+	],
+	"sid": 164580079911713
+}
