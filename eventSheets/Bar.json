@@ -243,6 +243,66 @@
 						}
 					],
 					"sid": 895176340288334
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Shadow",
+							"sid": 252753980604359
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 167749135927960,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "44"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "Shadow",
+							"sid": 933293079116799,
+							"behaviorType": "Угасание",
+							"parameters": {
+								"fade-in-time": "2"
+							}
+						}
+					],
+					"sid": 352389719694412
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 738416174973101,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 5,
+								"value": "44"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "Shadow",
+							"sid": 354217777026542,
+							"behaviorType": "Угасание",
+							"parameters": {
+								"fade-in-time": "2"
+							}
+						}
+					],
+					"sid": 562235789642918,
+					"disabled": true
 				}
 			],
 			"sid": 760869306016351
@@ -548,9 +608,9 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 213126186459552,
+									"sid": 495767252805890,
 									"parameters": [
-										"\"kall_kalli4 задонатил 100 рублей\"",
+										"\"Медуза распустилась совсем!\"",
 										"484",
 										"369"
 									]
@@ -575,9 +635,9 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 940260831729453,
+									"sid": 694871207805208,
 									"parameters": [
-										"\"Да что же они так насвинячились\"",
+										"\"Ну вот, уже Вихорькова петь начали, а это ведь только первый бар.\"",
 										"428",
 										"380"
 									]
@@ -656,9 +716,9 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 314377159711176,
+									"sid": 870114417869745,
 									"parameters": [
-										"\"Я курю и мне похуй! Я бухаю и мне похуй!\"",
+										"\"Яспер Моглот задонатил 100 рублей\"",
 										"484",
 										"369"
 									]
@@ -681,9 +741,136 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-key-pressed",
+							"objectClass": "Клавиатура",
+							"sid": 232742287137785,
+							"parameters": {
+								"key": 69
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 910415043736919,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "57"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 128456194833965,
+							"parameters": {
+								"object": "Girl"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 650870172157287,
+							"parameters": {
+								"variable": "onDial"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Girl",
+							"sid": 245651905928002,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 923413929492636,
+							"parameters": {
+								"variable": "onDial",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 286956707195729,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Girl",
+									"sid": 778017153274753,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 925107262916799,
+									"parameters": [
+										"\"Не сегодня\"",
+										"Player_Cutscene.X ",
+										"Player_Cutscene.Y -50"
+									]
+								}
+							],
+							"sid": 650542499364583
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Girl",
+									"sid": 811439015633405,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 484391867598609,
+									"parameters": [
+										"\"...\"",
+										"Player_Cutscene.X ",
+										"Player_Cutscene.Y -50"
+									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Girl",
+									"sid": 712620445832289,
+									"parameters": {
+										"instance-variable": "textframe",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 367010364708354
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
 							"sid": 304363846681573,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 1,
@@ -862,15 +1049,6 @@
 							}
 						},
 						{
-							"id": "set-animation",
-							"objectClass": "Player_Cutscene",
-							"sid": 554275296127876,
-							"parameters": {
-								"animation": "\"sitOnBarChair\"",
-								"from": "beginning"
-							}
-						},
-						{
 							"id": "set-gravity",
 							"objectClass": "Player_Cutscene",
 							"sid": 664782061857568,
@@ -988,6 +1166,15 @@
 								"\"Fedor1\"",
 								"2"
 							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Cutscene",
+							"sid": 691233264799026,
+							"parameters": {
+								"animation": "\"sitOnBarChair\"",
+								"from": "beginning"
+							}
 						},
 						{
 							"id": "set-animation",
@@ -2756,6 +2943,30 @@
 								"\"Mark4\"",
 								"3"
 							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Cutscene",
+							"sid": 175452382949277,
+							"parameters": {
+								"animation": "\"sitOnBarChairEvil\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Shadow",
+							"sid": 233650646079691,
+							"parameters": {
+								"x": "10",
+								"y": "0"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Shadow",
+							"sid": 824268694763862,
+							"behaviorType": "Угасание"
 						}
 					],
 					"sid": 333945339699081
@@ -2948,6 +3159,20 @@
 								"\"Fedor1\"",
 								"1"
 							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Cutscene",
+							"sid": 354980843269718,
+							"parameters": {
+								"animation": "\"sitOnBarChair\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Shadow",
+							"sid": 170544521179200
 						}
 					],
 					"sid": 671898606502132
