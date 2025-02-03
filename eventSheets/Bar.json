@@ -40,6 +40,16 @@
 			"sid": 143333085350354
 		},
 		{
+			"eventType": "variable",
+			"name": "StopSkip",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 764618788086663
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player2",
@@ -671,6 +681,16 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 304363846681573,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 1,
+								"value": "57"
+							}
+						},
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Player_Cutscene",
 							"sid": 327252195340570,
@@ -813,238 +833,2436 @@
 			"sid": 753611541323240
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "ActivDialog",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 490393797593022,
-					"parameters": {
-						"variable": "onDialMain"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 544027357101342,
+							"parameters": {
+								"variable": "onDialMain"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 963252979954804,
+							"parameters": {
+								"group-name": "\"Player2\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Cutscene",
+							"sid": 554275296127876,
+							"parameters": {
+								"animation": "\"sitOnBarChair\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-gravity",
+							"objectClass": "Player_Cutscene",
+							"sid": 664782061857568,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"gravity": "0"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Player_Cutscene",
+							"sid": 636814025532297,
+							"parameters": {
+								"x": "613",
+								"y": "404"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player_Cutscene",
+							"sid": 613751793464416,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 895511982793080
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Клавиатура",
+							"sid": 381866258918723,
+							"parameters": {
+								"key": 69
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 415551972108307,
+							"parameters": {
+								"object": "Chair_Bar"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 117319085197810,
+							"parameters": {
+								"variable": "onDialMain"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 485979973863340,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 1,
+								"value": "57"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 647238720562326,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "true"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Player_Cutscene",
+							"sid": 252808484441686,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 481514361021005
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 176619761398135,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 484500197011952
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 286013203465751,
+							"parameters": [
+								"\"Здарова Марк, давненько тебя не было видно у нас. Как дела?\"",
+								"\"Fedor1\"",
+								"2"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Fedor",
+							"sid": 880554298013175,
+							"parameters": {
+								"animation": "\"Fedor_Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 584633789305326
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 167615577541789,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 358010375534684
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 910661354569178,
+							"parameters": [
+								"\"Привет Федь. Да всё как обычно, вот решил выбраться из дома, немого развеяться, заодно вас проведать решил, как поживаете? \"",
+								"\"Mark1\"",
+								"5"
+							]
+						}
+					],
+					"sid": 124480510665431
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 189257760794172,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "3"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 130051290622529
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 419828220277442,
+							"parameters": [
+								"\"Потихоньку, рук, конечно, не хватает, но мы с Аней справляемся.\"",
+								"\"Fedor1\"",
+								"3"
+							]
+						}
+					],
+					"sid": 713543439715749
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 514849166419177,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "4"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 644968515093076
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 795316072253767,
+							"parameters": [
+								"\"А как же тот кальянщик, что устроился месяц тому назад?\"",
+								"\"Mark3\"",
+								"2"
+							]
+						}
+					],
+					"sid": 273994296252757
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 692272491190942,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "5"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 638456618442946
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 387686882230775,
+							"parameters": [
+								"\"Кальянщик? А этот засранец переметнулся в тот клуб, что напротив открылся.\"",
+								"\"Fedor2\"",
+								"3"
+							]
+						}
+					],
+					"sid": 343976751577664
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 363340678444487,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "6"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 306740940941929
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 477796725059809,
+							"parameters": [
+								"\"Это который братьям Ермиловым принадлежит?\"",
+								"\"Mark3\"",
+								"2"
+							]
+						}
+					],
+					"sid": 402032088489296
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 146725177483917,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "7"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 274671614730781
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 723598017431704,
+							"parameters": [
+								"\"Он самый, предложили ему лучшие условия, тот и свалил как ни в чём не бывало, даже моё предложение не выслушал, говнюк.\"",
+								"\"Fedor2\"",
+								"4"
+							]
+						}
+					],
+					"sid": 306917799578011
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 507550805918359,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "8"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 311961805607756
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 516333682115098,
+							"parameters": [
+								"\"Посещаемость тоже не очень, ещё уроды какие-то повадились сюда приходить, в общем проблемы есть, но не столь серьёзные.\"",
+								"\"Fedor3\"",
+								"4"
+							]
+						}
+					],
+					"sid": 963315399161319
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 975709854312294,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "9"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 401039765699134
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 187829609822975,
+							"parameters": [
+								"\"Что-то ты сегодня мрачноватый, на работе чего случилось? \"",
+								"\"Fedor1\"",
+								"2"
+							]
+						}
+					],
+					"sid": 470270769089885
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 269538887653490,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "10"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 818119695084666
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 761564812079959,
+							"parameters": [
+								"\"Да случилось, я с неё уволился.\"",
+								"\"Mark2\"",
+								"1"
+							]
+						}
+					],
+					"sid": 635980874329446
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 266216832007511,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "11"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 645845487072436
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 586846514658325,
+							"parameters": [
+								"\"Хм, ну смотри, на пособии долго не просидишь. Нужно чем-то заниматься, а то ты и так днями из дома не выходишь.\"",
+								"\"Fedor4\"",
+								"4"
+							]
+						}
+					],
+					"sid": 146900537878661
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 696346927179847,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "12"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 299449416393150
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 599805124951892,
+							"parameters": [
+								"\"Ты бы лучше не обо мне волновался, а о том парне, что сейчас свои лёгкие выплюнет.\"",
+								"\"Mark1\"",
+								"3"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "HookahMan",
+							"sid": 755123109243709,
+							"parameters": {
+								"animation": "\"Kashel\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 827929186771189
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 475612202018014,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "13"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 342152658775035
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 678219439323404,
+							"parameters": [
+								"\"Вот блядь и вправду. Ань! Подойди на 2 столик, пожалуйста.\"",
+								"\"Fedor5\"",
+								"3"
+							]
+						}
+					],
+					"sid": 324080021052197
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 328862017743305,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "14"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 977216998633797
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 933372089760492,
+							"parameters": [
+								"\"Уже бегу! \"",
+								"\"Any1\"",
+								"1"
+							]
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 873564010811477,
+							"parameters": {
+								"object-to-create": "Any",
+								"layer": "3",
+								"x": "1062",
+								"y": "405",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Any",
+							"sid": 627532067658553,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Any",
+							"sid": 964880215774504,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 854690602139845
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 823371195509233,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "14"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 926928513099725,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Any",
+									"sid": 123955708051502,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "660"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "Any",
+									"sid": 826273244741105,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "horizontal",
+										"speed": "0"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Any",
+									"sid": 752428962801138,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player_Cutscene",
+									"sid": 635858005614256,
+									"parameters": {
+										"instance-variable": "cast_text",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 737761889642432,
+									"parameters": {
+										"variable": "StopSkip",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 716841077921002
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Any",
+									"sid": 203898808098117,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "660"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "Any",
+									"sid": 725602804100527,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "horizontal",
+										"speed": "-150"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 316732440883685,
+									"parameters": {
+										"variable": "StopSkip",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 684930355058967
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 672415505134322,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "15"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 575770887836264
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 599458651271369,
+							"parameters": [
+								"\"Ого, Привет Марк! Давно не виделись.\"",
+								"\"Any1\"",
+								"1"
+							]
+						}
+					],
+					"sid": 239912368005218
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 785828211138207,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "16"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 669116414952269
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 663402373126075,
+							"parameters": [
+								"\"Привет, беги скорее, а то парень задахнёться\"",
+								"\"Mark1\"",
+								"2"
+							]
+						}
+					],
+					"sid": 120544540362446
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 170741802926330,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "17"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 508765658327551
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 721850357578580,
+							"parameters": [
+								"\"Да, да\"",
+								"\"Any1\"",
+								"1"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Any",
+							"sid": 317961616470864,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Any",
+							"sid": 969218230562752,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "-150"
+							}
+						}
+					],
+					"sid": 262006390768726
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Any",
+							"sid": 326618981037751,
+							"parameters": {
+								"comparison": 2,
+								"x-co-ordinate": "323"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Any",
+							"sid": 689977368511243,
+							"behaviorType": "НастраиваемоеДвижение"
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Any",
+							"sid": 473517102921580,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 437217650309173
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 180239646063177,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "18"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 947216133823646
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 523379452261199,
+							"parameters": [
+								"\"Я как понимаю Аня теперь ещё и обязанности кальянщика на себя взяла, да? \"",
+								"\"Mark1\"",
+								"3"
+							]
+						}
+					],
+					"sid": 896231460629990
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 867231863242080,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "19"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 855405723499390
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 985162673367875,
+							"parameters": [
+								"\"Да, с тех пор как свалил тот говнюк, Аня вызвалась помочь мне, пока я не найду замену. \"",
+								"\"Fedor3\"",
+								"3"
+							]
+						}
+					],
+					"sid": 211415092247810
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 727268035290380,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "20"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 775409432339061
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 889887791078973,
+							"parameters": [
+								"\"Она всегда нам помогала в трудную минуту.\"",
+								"\"Mark2\"",
+								"1"
+							]
+						}
+					],
+					"sid": 162198502782479
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 479229783036609,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "21"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 791821796282326
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 966578055157863,
+							"parameters": [
+								"\"Дааа, на то ведь и нужны друзья, верно? Одну минуту.\"",
+								"\"Fedor1\"",
+								"2"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Fedor",
+							"sid": 810842502161242,
+							"parameters": {
+								"animation": "\"Fedor_Mobile\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 880568452472557
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 120560576889090,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "22"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 413516929345821
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 695544288624732,
+							"parameters": [
+								"\"И к новостям криминальной хроники, сегодня в парке на юге города был найден труп Юрия Александрова, он разыскивался за серию жестоких убийств, ему приписывается порядка 40 убийств.\"",
+								"\"TV\"",
+								"4"
+							]
+						}
+					],
+					"sid": 543926038924044
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 833660462403080,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "23"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 792589522014860
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 622486893338622,
+							"parameters": [
+								"\"По предварительным данным он скончался от колотых ран в грудь острым предметом, само оружие убийство не было найдено.\"",
+								"\"TV\"",
+								"3"
+							]
+						}
+					],
+					"sid": 719277166450963
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 829939242157087,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "24"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 915563162512293
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 720317308977826,
+							"parameters": [
+								"\"Но сотрудники убойного отдела продолжают расследовать место преступления.\"",
+								"\"TV\"",
+								"2"
+							]
+						}
+					],
+					"sid": 570840417813022
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 987635109921342,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "25"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 269458092986124
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 752961320428469,
+							"parameters": [
+								"\"И к другим новостям.\"",
+								"\"TV\"",
+								"1"
+							]
+						}
+					],
+					"sid": 933026272186891
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 923673353633046,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "26"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 975835901261367
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 146132787270153,
+							"parameters": [
+								"\"Вот чёрт, они нашли труп, я, конечно, подозревал, что рано или поздно его найдут, но не думал, что так быстро. Мне казалось, я отнес его в достаточно укромное место.\"",
+								"\"Mark4\"",
+								"4"
+							]
+						}
+					],
+					"sid": 145813923551848
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 836905897570182,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "27"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 795985072380276
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 630995186807840,
+							"parameters": [
+								"\"Теперь время на раздумье остается все меньше.\"",
+								"\"Mark4\"",
+								"1"
+							]
+						}
+					],
+					"sid": 416932134495730
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 861420093753058,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "28"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 522357457904742
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 227736402747503,
+							"parameters": [
+								"\"Так странно, ещё вчера я хотел покончить с собой и тут появляется человек, который с большим желанием хочет мне в этом помочь, как вдруг я начинаю бороться за собственную жизнь.\"",
+								"\"Mark4\"",
+								"3"
+							]
+						}
+					],
+					"sid": 841731626022105
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 759669297796712,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "29"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 695562318603314
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 779050367281673,
+							"parameters": [
+								"\"Видимо стоило оказаться на самом краю пропасти, чтобы начать ценить собственную жизнь или возможно, стоило отнять чужую, чтобы обрести свою, как посмотреть…\"",
+								"\"Mark4\"",
+								"3"
+							]
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 628810179262519,
+							"parameters": {
+								"object-to-create": "Vest",
+								"layer": "3",
+								"x": "182",
+								"y": "405",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 210439363770427,
+							"parameters": {
+								"object-to-create": "Fat",
+								"layer": "3",
+								"x": "221",
+								"y": "405",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Vest",
+							"sid": 221014126489065,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Fat",
+							"sid": 129004932117084,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 663079168412987,
+							"parameters": {
+								"variable": "StopSkip",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 644221762134608
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 148563241874531,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "29"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 784511392625890,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Fat",
+									"sid": 729900226887522,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "720"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Fat",
+									"sid": 806251962115988,
+									"behaviorType": "НастраиваемоеДвижение"
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Fat",
+									"sid": 109213955692761,
+									"parameters": {
+										"state": "mirrored"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Fat",
+									"sid": 322550726516194,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 236842356047843,
+									"parameters": {
+										"variable": "StopSkip",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 223620063263589
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 173967968086122,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "30"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 842988487272721
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 968914561582843,
+							"parameters": [
+								"\"Здарова Феденька, ну что, скоро отожмем с Ермиловами твоих клиентов?\"",
+								"\"Fat1\"",
+								"2"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Fedor",
+							"sid": 418460579401313,
+							"parameters": {
+								"animation": "\"Fedor_Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Fedor",
+							"sid": 330503827862118,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 745824042291605
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 199677004413562,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "31"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 755607786386081
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 158442466974597,
+							"parameters": [
+								"\"Уверен, клиентов хватит на нас обоих, тем более направленность моего заведения…\"",
+								"\"Fedor3\"",
+								"2"
+							]
+						}
+					],
+					"sid": 813510238663306
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 439459400758379,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "32"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 882212679983671
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 412638465327154,
+							"parameters": [
+								"\"Да пизди больше про свою направленность, кому нужна эта унылая безвкусная помойка, скоро тут совсем никто кроме этого задрота и той альтухи появляться не будет.\"",
+								"\"Fat1\"",
+								"3"
+							]
+						}
+					],
+					"sid": 742222779080043
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 186022551548606,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "33"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 544740539573250
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 705895869446402,
+							"parameters": [
+								"\"Что же ты тогда забыл в нашей “безвкусной помойки”? \"",
+								"\"Fedor2\"",
+								"1"
+							]
+						}
+					],
+					"sid": 739735635212554
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 172313419044857,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "34"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 634521202704377
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 358085331512314,
+							"parameters": [
+								"\"Санитарный день у нас по понедельникам и вообще тебя это ебать не должно.\"",
+								"\"Fat1\"",
+								"2"
+							]
+						}
+					],
+					"sid": 312679578056830
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 881367065130541,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "35"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 982117757515539
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 236288111870247,
+							"parameters": [
+								"\"Я сюда напиться пришел, а не про бизнес свой базарить.\r\nА ты че вылупился Маркуша?\"",
+								"\"Fat1\"",
+								"2"
+							]
+						}
+					],
+					"sid": 643313333113388
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 243656776749229,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "36"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 565717087939855
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 135306725139614,
+							"parameters": [
+								"\"...\"",
+								"\"Mark4\"",
+								"1"
+							]
+						}
+					],
+					"sid": 100968653040582
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 755302589324120,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "37"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 549695544242165
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 804497412510995,
+							"parameters": [
+								"\"Язык в жопу засунул?\"",
+								"\"Fat1\"",
+								"1"
+							]
+						}
+					],
+					"sid": 541305289934761
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 616688880886468,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "38"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 567696786139368
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 833795986754670,
+							"parameters": [
+								"\"Вспомнил как я тебе рожу начистил, после того как альтуху вашу аттрахал пару лет назад на вписке да?\"",
+								"\"Fat2\"",
+								"2"
+							]
+						}
+					],
+					"sid": 830458605121770
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 940041253816711,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "39"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 101618255893913
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 526631132437128,
+							"parameters": [
+								"\"Не без помощи своих подсосов ты мне тогда навалял.\"",
+								"\"Mark2\"",
+								"1"
+							]
+						}
+					],
+					"sid": 347577602361162
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 696995629944080,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "40"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 991975957981360
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 303776268040020,
+							"parameters": [
+								"\"Ты попизди мне тут ещё, в миг на месту поставлю\"",
+								"\"Fat2\"",
+								"1"
+							]
+						}
+					],
+					"sid": 545474674861203
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 642697094131568,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "41"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 715384605181177
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 987741027196630,
+							"parameters": [
+								"\"Ладно, скучные вы тут какие-то, налей-ка лучше выпить и тащи за мой стол борода.\"",
+								"\"Fat2\"",
+								"2"
+							]
+						}
+					],
+					"sid": 544333483219830
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 694053896934256,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "42"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 780050101482699
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 585741132574097,
+							"parameters": [
+								"\"Интересно, у жирдяя фишка такая, деньги в сумке таскать?\"",
+								"\"Mark3\"",
+								"1"
+							]
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Fedor",
+							"sid": 579210473898121,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Fat",
+							"sid": 266733384692080,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Fat",
+							"sid": 225253806462195,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Fat",
+							"sid": 158875340325124,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 225886280386867
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 609832871156528,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "43"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 922579823490501
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 190188450157827,
+							"parameters": [
+								"\"Без понятия, деньги есть деньги, таскай он их хоть в своей жирной заднице, я бы у него их у него с радостью принял.\"",
+								"\"Fedor4\"",
+								"2"
+							]
+						}
+					],
+					"sid": 391472460695027
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 298109738052375,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "44"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 974929532744055
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 103161351599391,
+							"parameters": [
+								"\"Опять слышу отдаленные звуки шума в моей голове, ком подступает к горлу, потроха в животе потихоньку начинают сворачиваться в узел.\"",
+								"\"Mark4\"",
+								"3"
+							]
+						}
+					],
+					"sid": 333945339699081
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 849234010458806,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "45"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 637046628313766
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 690462347826391,
+							"parameters": [
+								"\"Часто я думаю о том, что люди мне симпатичны, просто я плохо коммуницирую с ними, но, когда я сталкиваюсь с таким самодовольным плюющим на все быдлом, думаю только о том, как выбивал бы \"",
+								"\"Mark4\"",
+								"4"
+							]
+						}
+					],
+					"sid": 664018806854283
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 225276732826682,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "46"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 287500855208366
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 634880798967260,
+							"parameters": [
+								"\"Желательно не спеша, смаковать это все, чтобы другим было в назидание. \"",
+								"\"Mark4\"",
+								"3"
+							]
+						}
+					],
+					"sid": 432908689010819
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 242037411291323,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "47"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 511843245727848
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 905404074075146,
+							"parameters": [
+								"\"Иногда мне самому становиться страшно от своих мыслей, но с каждым выпитым стаканом, я понимаю, что бояться будут они, за свое здоровье и свои деньги.\"",
+								"\"Mark4\"",
+								"3"
+							]
+						}
+					],
+					"sid": 364406448112006
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 275138902938673,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "48"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 583298514189953
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 104830348176421,
+							"parameters": [
+								"\"Из сумки у толстяка торчит не мало купюр, думаю на первое время этого должно хватить, чтобы осесть где-нибудь подальше отсюда, пока полиция ещё не успела на меня выйти.\"",
+								"\"Mark4\"",
+								"3"
+							]
+						}
+					],
+					"sid": 516655114096754
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 241070466904689,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "49"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 404292681249958
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 593684485661279,
+							"parameters": [
+								"\"Переломаю ноги этим напившимся скотинам и дело с концом. \"",
+								"\"Mark4\"",
+								"2"
+							]
+						}
+					],
+					"sid": 927499756406513
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 109849943864596,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "50"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 815267068107252
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 928593140498416,
+							"parameters": [
+								"\"На кого это ты так засмотрелся Марк? \"",
+								"\"Fedor1\"",
+								"1"
+							]
+						}
+					],
+					"sid": 671898606502132
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 768476902686748,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "51"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 226917604846377
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 801160821625347,
+							"parameters": [
+								"\"Неужто та девчонка понравилась, может подойдешь познакомишься? \"",
+								"\"Fedor1\"",
+								"2"
+							]
+						}
+					],
+					"sid": 924923152226854
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 761152275613553,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "52"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 152092760011960
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 448073293747396,
+							"parameters": [
+								"\"Да уж, она и в правду ничего.\"",
+								"\"Mark4\"",
+								"1"
+							]
+						}
+					],
+					"sid": 672723208239287
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 764615268393065,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "53"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 457103101263342
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 970933484787326,
+							"parameters": [
+								"\"Хмф…\"",
+								"\"Mark4\"",
+								"2"
+							]
+						}
+					],
+					"sid": 381005307113842
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 289010795920650,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "54"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 717326254633224
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 415651120223927,
+							"parameters": [
+								"\"Будто бы из этого, когда-то был толк.\"",
+								"\"Mark4\"",
+								"1"
+							]
+						}
+					],
+					"sid": 822408741864234
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 872452932631798,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "55"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 172419718827320
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 262528849636006,
+							"parameters": [
+								"\"Не, ты же знаешь, девушкам я не нравлюсь.\"",
+								"\"Mark3\"",
+								"1"
+							]
+						}
+					],
+					"sid": 979064308769421
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 893313356306048,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "56"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 379099079567691
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 503722553475836,
+							"parameters": [
+								"\"Пойду лучше домой отосплюсь и начну искать себе новую работу.\"",
+								"\"Mark1\"",
+								"2"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Table_Bar",
+							"sid": 418430257327975,
+							"parameters": {
+								"animation": "\"Chel2\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 158434422953329
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 745259471713382,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "57"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 669624444535980
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 131577167036659,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 312292572553963,
+							"parameters": {
+								"group-name": "\"Player2\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 708965340044936
 				}
 			],
-			"actions": [
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 826267683497690,
-					"parameters": {
-						"group-name": "\"Player2\"",
-						"state": "deactivated"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Player_Cutscene",
-					"sid": 520273478163786,
-					"parameters": {
-						"animation": "\"sitOnBarChair\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-gravity",
-					"objectClass": "Player_Cutscene",
-					"sid": 353187960009767,
-					"behaviorType": "Платформер",
-					"parameters": {
-						"gravity": "0"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "Player_Cutscene",
-					"sid": 912700353807799,
-					"parameters": {
-						"x": "613",
-						"y": "404"
-					}
-				},
-				{
-					"id": "set-mirrored",
-					"objectClass": "Player_Cutscene",
-					"sid": 286508177853770,
-					"parameters": {
-						"state": "not-mirrored"
-					}
-				}
-			],
-			"sid": 788229023050321
+			"sid": 871969449983051
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Setup1",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-key-pressed",
-					"objectClass": "Клавиатура",
-					"sid": 178755828279508,
-					"parameters": {
-						"key": 69
-					}
-				},
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "Player_Cutscene",
-					"sid": 895869292446458,
-					"parameters": {
-						"object": "Chair_Bar"
-					}
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 117263949105573,
-					"parameters": {
-						"variable": "onDialMain"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 207020132489372,
-					"parameters": {
-						"variable": "onDialMain",
-						"value": "true"
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Player_Cutscene",
-					"sid": 555279885459913,
-					"parameters": {
-						"instance-variable": "cast_text",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 461591738067556
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player_Cutscene",
-					"sid": 423041687718612,
-					"parameters": {
-						"instance-variable": "cast_text",
-						"comparison": 0,
-						"value": "1"
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 891656606805208
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Create_mainDialoge",
-					"sid": 875341085328245,
-					"parameters": [
-						"\"Здарова Марк, давненько тебя не было видно у нас. Как дела?\"",
-						"\"icon2\"",
-						"5"
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Player_Cutscene",
+							"sid": 232988598350129
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Test",
+							"sid": 853643217342429,
+							"parameters": {
+								"x": "200",
+								"y": "200"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Test",
+							"sid": 372782332746106,
+							"parameters": {
+								"text": "\"[color=#ff0000]\" &\n\"CustText: \" & Player_Cutscene.cast_text & \n\n\n\n\"[/color]\"\n"
+							}
+						}
+					],
+					"sid": 700928955900673,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 621806579335353
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Player_Cutscene",
+									"sid": 524138991339637,
+									"parameters": {
+										"object": "Test",
+										"layer": "\"UI\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 587888334073860
+						}
 					]
 				}
 			],
-			"sid": 717207068191732
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player_Cutscene",
-					"sid": 272751950605225,
-					"parameters": {
-						"instance-variable": "cast_text",
-						"comparison": 0,
-						"value": "2"
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 177066256984790
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Create_mainDialoge",
-					"sid": 301422599828441,
-					"parameters": [
-						"\"Высокомерная избалованная петушня\"",
-						"\"icon2\"",
-						"2"
-					]
-				}
-			],
-			"sid": 109176959730508
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player_Cutscene",
-					"sid": 149364501304482,
-					"parameters": {
-						"instance-variable": "cast_text",
-						"comparison": 0,
-						"value": "3"
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 222828104342325
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Create_mainDialoge",
-					"sid": 686914907912561,
-					"parameters": [
-						"\"Высокомерная \"",
-						"\"icon2\"",
-						"1"
-					]
-				}
-			],
-			"sid": 164451847617848
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player_Cutscene",
-					"sid": 707093535034030,
-					"parameters": {
-						"instance-variable": "cast_text",
-						"comparison": 0,
-						"value": "4"
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 203523355468948
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Destroy_DialogeMain",
-					"sid": 333801231547553
-				}
-			],
-			"sid": 904634166933785
+			"sid": 134509877915248
 		}
 	],
 	"sid": 194809940947679

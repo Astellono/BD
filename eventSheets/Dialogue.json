@@ -79,6 +79,15 @@
 					}
 				},
 				{
+					"id": "set-font-face",
+					"objectClass": "dialogText",
+					"sid": 571296046582331,
+					"parameters": {
+						"font-face": "\"Pixel\"",
+						"style": "normal"
+					}
+				},
+				{
 					"id": "set-font-color",
 					"objectClass": "dialogText",
 					"sid": 522473465889505,
@@ -125,15 +134,6 @@
 					"parameters": {
 						"width": "56",
 						"height": "38"
-					}
-				},
-				{
-					"id": "set-font-face",
-					"objectClass": "dialogText",
-					"sid": 129696207836440,
-					"parameters": {
-						"font-face": "\"Roboto\"",
-						"style": "normal"
 					}
 				},
 				{
@@ -314,11 +314,25 @@
 					"id": "create-object",
 					"objectClass": "System",
 					"sid": 212947016033443,
+					"disabled": true,
 					"parameters": {
 						"object-to-create": "main_dialogue",
 						"layer": "\"UI\"",
 						"x": "172",
 						"y": "ViewportBottom(0) - 75",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 281063830716703,
+					"parameters": {
+						"object-to-create": "main_dialogue",
+						"layer": "\"UI\"",
+						"x": "Player_Cutscene.x -225.5",
+						"y": "Player_Cutscene.y +20",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -369,9 +383,9 @@
 				{
 					"id": "set-line-height",
 					"objectClass": "dialogMainText",
-					"sid": 266026180552900,
+					"sid": 652354010362889,
 					"parameters": {
-						"line-height": "2"
+						"line-height": "-2"
 					}
 				},
 				{
@@ -411,18 +425,18 @@
 				{
 					"id": "set-font-face",
 					"objectClass": "dialogMainText",
-					"sid": 717909507971902,
+					"sid": 454905826128958,
 					"parameters": {
-						"font-face": "\"Roboto\"",
+						"font-face": "\"Pixel\"",
 						"style": "normal"
 					}
 				},
 				{
 					"id": "set-font-size",
 					"objectClass": "dialogMainText",
-					"sid": 163230194958340,
+					"sid": 459506700366199,
 					"parameters": {
-						"size-pt": "10"
+						"size-pt": "8"
 					}
 				},
 				{
@@ -498,6 +512,15 @@
 					"id": "is-running-typewriter-text",
 					"objectClass": "dialogMainText",
 					"sid": 897050933516440,
+					"isInverted": true
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 275634484947433,
+					"parameters": {
+						"variable": "StopSkip"
+					},
 					"isInverted": true
 				}
 			],
