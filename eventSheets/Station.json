@@ -1,0 +1,66 @@
+{
+	"name": "Station",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "actual"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 596371869866092
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 642687029651234,
+					"parameters": {
+						"object-to-create": "Shadow3",
+						"layer": "1",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 830472082835930
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Shadow3",
+					"sid": 922005474052387
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 647229004849503,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "3",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 473994881500347
+		}
+	],
+	"sid": 254775127056567
+}

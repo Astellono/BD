@@ -240,6 +240,14 @@
 								"comparison": 4,
 								"value": "0"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Camera",
+							"sid": 151959645778567,
+							"parameters": {
+								"instance-variable": "onPlayer"
+							}
 						}
 					],
 					"actions": [
@@ -5943,333 +5951,109 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "openDoor",
+			"title": "door",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "setupDoor",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
+					"eventType": "block",
+					"conditions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-visible",
-									"objectClass": "door1",
-									"sid": 770265338508441
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "door1",
-									"sid": 140312970332711,
-									"parameters": {
-										"instance-variable": "distanceToPlayer",
-										"value": "Self.X-Player.X"
-									}
-								}
-							],
-							"sid": 515139151328327,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "door1",
-											"sid": 757138203651192,
-											"parameters": {
-												"instance-variable": "distanceToPlayer",
-												"comparison": 2,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "door1",
-											"sid": 725388490511760,
-											"parameters": {
-												"instance-variable": "distanceToPlayer",
-												"value": "Self.distanceToPlayer*-1"
-											}
-										}
-									],
-									"sid": 508971126586458
-								}
-							]
+							"id": "on-collision-with-another-object",
+							"objectClass": "door1",
+							"sid": 324154160685773,
+							"parameters": {
+								"object": "Player"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Player",
+							"sid": 549628586247266,
+							"parameters": {
+								"animation": "weapon & \"Dash\""
+							}
 						}
 					],
-					"sid": 531553634435982
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "door1",
+							"sid": 137030568966010,
+							"parameters": {
+								"instance-variable": "open",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "door1",
+							"sid": 208938938258942,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "door1",
+							"sid": 749026824438554,
+							"behaviorType": "Твёрдый",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 421516097675364
 				},
 				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "moveDoor",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
+					"eventType": "block",
+					"conditions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Клавиатура",
-									"sid": 690217564087633,
-									"parameters": {
-										"key": 69
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "door1",
-									"sid": 854209394964502,
-									"parameters": {
-										"instance-variable": "distanceToPlayer",
-										"comparison": 2,
-										"value": "100"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 911820486868252,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "door1",
-											"sid": 368470782653794,
-											"parameters": {
-												"instance-variable": "open"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "door1",
-											"sid": 408316056762270,
-											"parameters": {
-												"instance-variable": "open",
-												"value": "true"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "door1",
-											"sid": 723328558122971,
-											"parameters": {
-												"frame-number": "1"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "door1",
-											"sid": 228560060035500,
-											"behaviorType": "Твёрдый",
-											"parameters": {
-												"state": "disabled"
-											}
-										}
-									],
-									"sid": 312738282508829
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 192395700057575
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation-frame",
-											"objectClass": "door1",
-											"sid": 105745346352910,
-											"parameters": {
-												"frame-number": "0"
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "door1",
-											"sid": 306612431772436,
-											"parameters": {
-												"instance-variable": "open",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "door1",
-											"sid": 360230229638141,
-											"behaviorType": "Твёрдый",
-											"parameters": {
-												"state": "enabled"
-											}
-										}
-									],
-									"sid": 121096356855865
-								}
-							]
+							"id": "on-collision-with-another-object",
+							"objectClass": "door1",
+							"sid": 222114935424620,
+							"parameters": {
+								"object": "Player"
+							}
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "door1",
-									"sid": 164021494296968,
-									"parameters": {
-										"instance-variable": "open"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "door1",
-									"sid": 583553790925945,
-									"parameters": {
-										"instance-variable": "open",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "door1",
-									"sid": 537919468719666,
-									"parameters": {
-										"frame-number": "1"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "door1",
-									"sid": 617011294442891,
-									"behaviorType": "Твёрдый",
-									"parameters": {
-										"state": "disabled"
-									}
-								}
-							],
-							"sid": 521958075472190,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "door1",
-									"sid": 995734079296139,
-									"parameters": {
-										"object": "Player"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Player",
-									"sid": 137139816819040,
-									"parameters": {
-										"animation": "weapon & \"Dash\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "door1",
-									"sid": 177973816664831,
-									"parameters": {
-										"instance-variable": "open",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "door1",
-									"sid": 413065059368144,
-									"parameters": {
-										"frame-number": "1"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "door1",
-									"sid": 780792545512900,
-									"behaviorType": "Твёрдый",
-									"parameters": {
-										"state": "disabled"
-									}
-								}
-							],
-							"sid": 360230631628027
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "door1",
-									"sid": 147596983503484,
-									"parameters": {
-										"object": "Player"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Player",
-									"sid": 683651484600458,
-									"parameters": {
-										"animation": "weapon & \"Tackle\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "door1",
-									"sid": 185889311405759,
-									"parameters": {
-										"instance-variable": "open",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "door1",
-									"sid": 472108827469730,
-									"parameters": {
-										"frame-number": "1"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "door1",
-									"sid": 738983482420657,
-									"behaviorType": "Твёрдый",
-									"parameters": {
-										"state": "disabled"
-									}
-								}
-							],
-							"sid": 879536850312632
+							"id": "is-animation-playing",
+							"objectClass": "Player",
+							"sid": 504100308377295,
+							"parameters": {
+								"animation": "weapon & \"Tackle\""
+							}
 						}
 					],
-					"sid": 725540914915566
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "door1",
+							"sid": 869631708664895,
+							"parameters": {
+								"instance-variable": "open",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "door1",
+							"sid": 594416956830158,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "door1",
+							"sid": 407130418180760,
+							"behaviorType": "Твёрдый",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 779187316081608
 				}
 			],
 			"sid": 219575270947315

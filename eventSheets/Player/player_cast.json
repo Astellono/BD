@@ -1,0 +1,244 @@
+{
+	"name": "player_cast",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player_cast",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "Player_Cutscene",
+							"sid": 261360504020750,
+							"behaviorType": "Платформер"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Клавиатура",
+							"sid": 925968165773655,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player_Cutscene",
+							"sid": 128524456105804,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Player_Cutscene",
+							"sid": 590388872575737,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"max-speed": "Player_Cutscene.SpeedWalk"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player_Cutscene",
+							"sid": 699682514079275,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 575340648495890
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "Player_Cutscene",
+							"sid": 900509692116783,
+							"behaviorType": "Платформер"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Клавиатура",
+							"sid": 304330359437735,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player_Cutscene",
+							"sid": 603530774222180,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Player_Cutscene",
+							"sid": 380211687673668,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"max-speed": "Player_Cutscene.SpeedWalk"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player_Cutscene",
+							"sid": 508229998332055,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 277793886351443
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player_Cutscene",
+							"sid": 581422493907834,
+							"behaviorType": "Платформер"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Cutscene",
+							"sid": 618082194963046,
+							"parameters": {
+								"animation": "\"noWeaponWalk\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 681005845052357
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-speed",
+							"objectClass": "Player_Cutscene",
+							"sid": 462359640123150,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"comparison": 0,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Cutscene",
+							"sid": 110629830909025,
+							"parameters": {
+								"animation": "\"noWeaponIdle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 856099065997328
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 373041907006662
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 636891139903976,
+							"parameters": {
+								"variable": "HPplayer",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 537550530424646,
+							"disabled": true,
+							"parameters": {
+								"x": "lerp(Self.X,Player_Cutscene.X,0.05)",
+								"y": "lerp(Self.Y,Player_Cutscene.Y,0.05)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 540808713220560,
+							"parameters": {
+								"x": "Player_Cutscene.X",
+								"y": "Player_Cutscene.Y"
+							}
+						}
+					],
+					"sid": 895176340288334
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Shadow",
+							"sid": 252753980604359
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 167749135927960,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "44"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 352389719694412
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 738416174973101,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 5,
+								"value": "44"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 562235789642918,
+					"disabled": true
+				}
+			],
+			"sid": 760869306016351
+		}
+	],
+	"sid": 896193815678650
+}

@@ -2,6 +2,16 @@
 	"name": "Apartament",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "CameraAction",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 630314888568792
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Dialogue"
 		},
@@ -17,22 +27,18 @@
 					}
 				},
 				{
-					"id": "compare-x",
-					"objectClass": "Player",
-					"sid": 771847638094235,
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 184338655310610,
 					"parameters": {
-						"comparison": 3,
-						"x-co-ordinate": "679"
-					}
+						"variable": "onDial"
+					},
+					"isInverted": true
 				},
 				{
-					"id": "compare-y",
-					"objectClass": "Player",
-					"sid": 323018320232439,
-					"parameters": {
-						"comparison": 3,
-						"y-co-ordinate": "490"
-					}
+					"id": "is-on-screen",
+					"objectClass": "Shadow2",
+					"sid": 229945920528342
 				}
 			],
 			"actions": [
@@ -42,6 +48,15 @@
 					"sid": 681467416831395,
 					"parameters": {
 						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 556178830566914,
+					"parameters": {
+						"group-name": "\"openDoor\"",
 						"state": "deactivated"
 					}
 				},
@@ -57,15 +72,71 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 308766249293447,
+					"sid": 823471473001351,
 					"parameters": {
 						"seconds": "1"
 					}
 				},
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 915088978261135,
+					"parameters": {
+						"variable": "StopSkip",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "door1",
+					"sid": 679644560170965,
+					"parameters": {
+						"frame-number": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow2",
+					"sid": 537967222768713,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 806842416287194
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "door1",
+					"sid": 984021501426925,
+					"parameters": {
+						"comparison": 0,
+						"number": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 143192360514983
+				}
+			],
+			"actions": [
+				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 488921744314201,
+					"sid": 835293803564947,
 					"parameters": {
 						"object-to-create": "BlueGuy",
 						"layer": "4",
@@ -76,46 +147,68 @@
 					}
 				},
 				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 557937178428124,
+					"parameters": {
+						"object-to-create": "EnemyBaseball",
+						"layer": "4",
+						"x": "1000",
+						"y": "490",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 600702834978977
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-opacity",
+					"objectClass": "Shadow2",
+					"sid": 305015514487560,
+					"parameters": {
+						"comparison": 0,
+						"opacity": "0"
+					}
+				}
+			],
+			"actions": [
+				{
 					"id": "destroy",
 					"objectClass": "Shadow2",
-					"sid": 753499059059342
+					"sid": 879883951102323
 				},
 				{
-					"id": "set-animation-frame",
-					"objectClass": "door1",
-					"sid": 549510417385956,
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 738366055533474,
 					"parameters": {
-						"frame-number": "1"
+						"seconds": "1"
 					}
 				},
 				{
 					"id": "add-to-instvar",
 					"objectClass": "BlueGuy",
-					"sid": 392729101139876,
+					"sid": 787475999505029,
 					"parameters": {
 						"instance-variable": "textframe",
 						"value": "1"
 					}
 				},
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 916932174925257,
-					"parameters": {
-						"seconds": "1.0"
-					}
-				},
-				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 770169454191227,
+					"sid": 403298482071649,
 					"parameters": {
 						"variable": "onDial",
 						"value": "true"
 					}
 				}
 			],
-			"sid": 806842416287194,
+			"sid": 539424087089949,
 			"children": [
 				{
 					"eventType": "block",
@@ -123,28 +216,736 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "BlueGuy",
-							"sid": 991872684734011,
+							"sid": 118422120613721,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 0,
 								"value": "1"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 800772706351361,
+							"parameters": {
+								"variable": "onDial"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 146794472977321
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 797745710708780,
+							"sid": 375173236765592,
 							"parameters": [
 								"\"Ты кто такой нахуй?\"",
 								"737",
 								"450"
 							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 797793933601013,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 102644595154240,
+							"parameters": [
+								"\"Только за пивом собирался сгонять\"",
+								"737",
+								"450"
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 174780478080823,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 457411745733734,
+							"parameters": [
+								"\"Ну ты сам съебешь или тебе помочь?\"",
+								"737",
+								"450"
+							]
 						}
 					],
-					"sid": 770301751758654
+					"sid": 190256562461508
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 778234870281612,
+					"parameters": {
+						"variable": "onDial"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 265523650897033
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 837606194431643,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 202249216913491,
+					"parameters": {
+						"object-to-create": "press_F",
+						"layer": "6",
+						"x": "Player.X",
+						"y": "Player.Y -50",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 901123530703890
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 728115010679603,
+					"parameters": {
+						"key": 70
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 671408775470461,
+					"parameters": {
+						"variable": "onDial"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "press_F",
+					"sid": 979383907698675
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 929729985333273,
+					"parameters": {
+						"animation": "\"noWeaponLegKick\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "move-forward",
+					"objectClass": "Player",
+					"sid": 565059516100277,
+					"parameters": {
+						"distance": "7"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "press_F",
+					"sid": 532210165732039
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "BlueGuy",
+					"sid": 986783543030149,
+					"parameters": {
+						"instance-variable": "down",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 117791049069873,
+					"parameters": {
+						"variable": "StopSkip",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 166642830451242,
+					"parameters": {
+						"variable": "onDial",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 674427267553302
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Player",
+					"sid": 822040687165164,
+					"parameters": {
+						"comparison": 0,
+						"number": "4"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "BlueGuy",
+					"sid": 486821588836432,
+					"parameters": {
+						"instance-variable": "down"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "BlueGuy",
+					"sid": 503485073701092,
+					"parameters": {
+						"animation": "\"Fly\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BlueGuy",
+					"sid": 689790350322612,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "BlueGuy",
+					"sid": 481184902970362,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"control": "jump"
+					}
+				},
+				{
+					"id": "set-gravity",
+					"objectClass": "BlueGuy",
+					"sid": 538331089648067,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"gravity": "1250"
+					}
+				},
+				{
+					"id": "set-jump-strength",
+					"objectClass": "BlueGuy",
+					"sid": 402013151686278,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"jump-strength": "250"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "BlueGuy",
+					"sid": 973772745108690,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "300"
+					}
+				}
+			],
+			"sid": 802371632995702
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Player",
+					"sid": 956700556005000,
+					"parameters": {
+						"comparison": 0,
+						"number": "4"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Player",
+					"sid": 415793285526138,
+					"parameters": {
+						"animation": "\"noWeaponLegKick\""
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 379828491808261
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "shakeScreen",
+					"sid": 419814780567919
+				}
+			],
+			"sid": 565823566443003
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "BlueGuy",
+					"sid": 483999190237552,
+					"parameters": {
+						"instance-variable": "down"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "BlueGuy",
+					"sid": 198677647238897,
+					"behaviorType": "НастраиваемоеДвижение"
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BlueGuy",
+					"sid": 954463414491043,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 320083207162255
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 187823509306900,
+					"parameters": {
+						"variable": "onDial"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Destroy_Dialoge",
+					"sid": 404987727389195
+				}
+			],
+			"sid": 774394718267385
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "BlueGuy",
+					"sid": 624701261889654
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "BlueGuy",
+					"sid": 419303406194469,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "BlueGuy",
+					"sid": 493968781101762,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "noease",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 485490557587942
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "BlueGuy",
+					"sid": 545587116865513,
+					"parameters": {
+						"comparison": 5,
+						"x-co-ordinate": "860"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 396004859334641,
+					"parameters": {
+						"variable": "CameraAction"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "BlueGuy",
+					"sid": 764275996814143,
+					"parameters": {
+						"animation": "\"Dead\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"callFunction": "shakeScreen",
+					"sid": 900401830694603
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 769143343533231,
+					"parameters": {
+						"object-to-create": "Blood",
+						"layer": "4",
+						"x": "BlueGuy.X -20",
+						"y": "BlueGuy.Y -35",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 155496809758884,
+					"parameters": {
+						"object-to-create": "Blood",
+						"layer": "4",
+						"x": "BlueGuy.X -10",
+						"y": "BlueGuy.Y -30",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 965579373378272,
+					"parameters": {
+						"object-to-create": "Blood_mirror",
+						"layer": "4",
+						"x": "BlueGuy.X +20",
+						"y": "BlueGuy.Y -30",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 165227583434891,
+					"parameters": {
+						"animation": "\"WOW!\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "EnemyBaseball",
+					"sid": 543605904198082,
+					"parameters": {
+						"animation": "\"Blondin_WOW!\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Pchel",
+					"sid": 428279048144367,
+					"parameters": {
+						"animation": "\"Pchel_WOW!\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "BlueGuy",
+					"sid": 212060711363469,
+					"parameters": {
+						"instance-variable": "down",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Camera",
+					"sid": 452373773332445,
+					"parameters": {
+						"instance-variable": "onPlayer",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 464504807779322,
+					"parameters": {
+						"variable": "CameraAction",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 793293247603573,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Camera",
+					"sid": 573511763280593,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "1077",
+						"time": "3",
+						"ease": "noease",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 246843067710481
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Camera",
+					"sid": 545915815685871,
+					"parameters": {
+						"comparison": 5,
+						"x-co-ordinate": "1076"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 930849638791375,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Camera",
+					"sid": 304981083895579,
+					"parameters": {
+						"instance-variable": "onPlayer",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "EnemyBaseball",
+					"sid": 375067178840815,
+					"behaviorType": "Физика",
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 613506280325256,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 281644278531728,
+					"parameters": {
+						"group-name": "\"openDoor\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 789013586454414,
+					"parameters": {
+						"group-name": "\"Enemy\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 460375084071258
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "EnemyBaseball",
+					"sid": 218306624752879
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "EnemyBaseball",
+					"sid": 659082879559899,
+					"behaviorType": "НастраиваемоеДвижение"
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "EnemyBaseball",
+					"sid": 868460047378364,
+					"behaviorType": "Физика",
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 860190974117087,
+					"parameters": {
+						"group-name": "\"Enemy\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "EnemyBaseball",
+					"sid": 606886050686916,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "EnemyBaseball",
+					"sid": 796148380550002,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "noease",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "EnemyBaseball",
+					"sid": 434398770220885,
+					"parameters": {
+						"animation": "\"Blondin_sit\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 109715124734578
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "BlueGuy",
+					"sid": 172158323889648,
+					"parameters": {
+						"animation": "\"Dead\""
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 667426286963194
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 890911801350574,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 965571053494025,
+					"parameters": {
+						"animation": "\"Shok\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 361034595788430
 		}
 	],
 	"sid": 164580079911713
