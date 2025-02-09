@@ -2,6 +2,67 @@
 	"name": "Effect",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "vievPortX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 477234419470734
+		},
+		{
+			"eventType": "variable",
+			"name": "vievPortY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 369979750036003
+		},
+		{
+			"eventType": "variable",
+			"name": "onZoom",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 387094834441224
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 800463875246639
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 600613384418577,
+					"parameters": {
+						"variable": "vievPortX",
+						"value": "OriginalViewportWidth"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 944426168837451,
+					"parameters": {
+						"variable": "vievPortY",
+						"value": "OriginalViewportHeight"
+					}
+				}
+			],
+			"sid": 436733996472222
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -546,6 +607,95 @@
 				}
 			],
 			"sid": 819307246352369
+		},
+		{
+			"functionName": "zoomCamera",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "zoom",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 780885390667300
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 212320129491252,
+					"parameters": {
+						"variable": "vievPortX",
+						"comparison": 3,
+						"value": "zoom"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 307454774112999,
+					"parameters": {
+						"width": "vievPortX",
+						"height": "vievPortY"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 563902371159831,
+					"parameters": {
+						"variable": "vievPortX",
+						"value": "1"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 730576562503637,
+					"parameters": {
+						"variable": "vievPortY",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 897641253684851,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 703657594333648,
+							"parameters": {
+								"variable": "vievPortX",
+								"comparison": 5,
+								"value": "zoom"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 701485723227540,
+							"parameters": {
+								"variable": "onZoom",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 981493013034521
+				}
+			]
 		}
 	],
 	"sid": 163340988215681
