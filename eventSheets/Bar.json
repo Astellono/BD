@@ -10,6 +10,18 @@
 			"includeSheet": "Effect"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Sound"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "player_cast"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "door"
+		},
+		{
 			"eventType": "variable",
 			"name": "speedtext",
 			"type": "number",
@@ -52,455 +64,112 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Player2",
+			"title": "SetupBar",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-on-floor",
-							"objectClass": "Player_Cutscene",
-							"sid": 261360504020750,
-							"behaviorType": "Платформер"
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Клавиатура",
-							"sid": 925968165773655,
-							"parameters": {
-								"key": 68
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "Player_Cutscene",
-							"sid": 128524456105804,
-							"behaviorType": "Платформер",
-							"parameters": {
-								"control": "right"
-							}
-						},
-						{
-							"id": "set-max-speed",
-							"objectClass": "Player_Cutscene",
-							"sid": 590388872575737,
-							"behaviorType": "Платформер",
-							"parameters": {
-								"max-speed": "Player_Cutscene.SpeedWalk"
-							}
-						},
-						{
-							"id": "set-mirrored",
-							"objectClass": "Player_Cutscene",
-							"sid": 699682514079275,
-							"parameters": {
-								"state": "not-mirrored"
-							}
-						}
-					],
-					"sid": 575340648495890
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-on-floor",
-							"objectClass": "Player_Cutscene",
-							"sid": 900509692116783,
-							"behaviorType": "Платформер"
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Клавиатура",
-							"sid": 304330359437735,
-							"parameters": {
-								"key": 65
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "Player_Cutscene",
-							"sid": 603530774222180,
-							"behaviorType": "Платформер",
-							"parameters": {
-								"control": "left"
-							}
-						},
-						{
-							"id": "set-max-speed",
-							"objectClass": "Player_Cutscene",
-							"sid": 380211687673668,
-							"behaviorType": "Платформер",
-							"parameters": {
-								"max-speed": "Player_Cutscene.SpeedWalk"
-							}
-						},
-						{
-							"id": "set-mirrored",
-							"objectClass": "Player_Cutscene",
-							"sid": 508229998332055,
-							"parameters": {
-								"state": "mirrored"
-							}
-						}
-					],
-					"sid": 277793886351443
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving",
-							"objectClass": "Player_Cutscene",
-							"sid": 581422493907834,
-							"behaviorType": "Платформер"
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Player_Cutscene",
-							"sid": 618082194963046,
-							"parameters": {
-								"animation": "\"noWeaponWalk\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 681005845052357
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-speed",
-							"objectClass": "Player_Cutscene",
-							"sid": 462359640123150,
-							"behaviorType": "Платформер",
-							"parameters": {
-								"comparison": 0,
-								"speed": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Player_Cutscene",
-							"sid": 110629830909025,
-							"parameters": {
-								"animation": "\"noWeaponIdle\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 856099065997328
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 373041907006662
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 636891139903976,
-							"parameters": {
-								"variable": "HPplayer",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 537550530424646,
-							"disabled": true,
-							"parameters": {
-								"x": "lerp(Self.X,Player_Cutscene.X,0.05)",
-								"y": "lerp(Self.Y,Player_Cutscene.Y,0.05)"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 540808713220560,
-							"parameters": {
-								"x": "Player_Cutscene.X",
-								"y": "Player_Cutscene.Y"
-							}
-						}
-					],
-					"sid": 895176340288334
-				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-created",
 							"objectClass": "Shadow",
-							"sid": 252753980604359
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player_Cutscene",
-							"sid": 167749135927960,
-							"parameters": {
-								"instance-variable": "cast_text",
-								"comparison": 0,
-								"value": "44"
-							}
+							"sid": 217100451748494
 						}
 					],
 					"actions": [
 						{
-							"id": "set-fade-in-time",
+							"id": "tween-one-property",
 							"objectClass": "Shadow",
-							"sid": 933293079116799,
-							"behaviorType": "Угасание",
+							"sid": 573660797372701,
+							"behaviorType": "Твинанимация",
 							"parameters": {
-								"fade-in-time": "2"
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "5",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Shadow",
+							"sid": 654698589262301,
+							"parameters": {
+								"opacity": "0"
 							}
 						}
 					],
-					"sid": 352389719694412
+					"sid": 288292150453073
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
+							"id": "is-visible",
 							"objectClass": "Player_Cutscene",
-							"sid": 738416174973101,
-							"parameters": {
-								"instance-variable": "cast_text",
-								"comparison": 5,
-								"value": "44"
-							}
+							"sid": 679645651253198
 						}
 					],
 					"actions": [
 						{
-							"id": "set-fade-in-time",
-							"objectClass": "Shadow",
-							"sid": 354217777026542,
-							"behaviorType": "Угасание",
+							"id": "set-position",
+							"objectClass": "Test",
+							"sid": 931395691892757,
 							"parameters": {
-								"fade-in-time": "2"
+								"x": "200",
+								"y": "200"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Test",
+							"sid": 613537227164244,
+							"parameters": {
+								"text": "\"[color=#ff0000]\" &\n\"CustText: \" & Player_Cutscene.cast_text & \n\n\n\n\"[/color]\"\n"
 							}
 						}
 					],
-					"sid": 562235789642918,
-					"disabled": true
-				}
-			],
-			"sid": 760869306016351
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "openDoor2",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "setupDoor2",
-					"description": "",
-					"isActiveOnStart": true,
+					"sid": 708992248136384,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-visible",
-									"objectClass": "door1",
-									"sid": 404965017536103
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 102032967355739
 								}
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "door1",
-									"sid": 317542532233141,
+									"id": "spawn-another-object",
+									"objectClass": "Player_Cutscene",
+									"sid": 360982932542588,
 									"parameters": {
-										"instance-variable": "distanceToPlayer",
-										"value": "Self.X-Player_Cutscene.X"
+										"object": "Test",
+										"layer": "\"UI\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
-							"sid": 223191194226096,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "door1",
-											"sid": 294102273361943,
-											"parameters": {
-												"instance-variable": "distanceToPlayer",
-												"comparison": 2,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "door1",
-											"sid": 524089041075459,
-											"parameters": {
-												"instance-variable": "distanceToPlayer",
-												"value": "Self.distanceToPlayer*-1"
-											}
-										}
-									],
-									"sid": 378404851310137
-								}
-							]
+							"sid": 322063344019771
 						}
-					],
-					"sid": 353221626804049
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "moveDoor2",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Клавиатура",
-									"sid": 931097327237540,
-									"parameters": {
-										"key": 69
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "door1",
-									"sid": 303973928879992,
-									"parameters": {
-										"instance-variable": "distanceToPlayer",
-										"comparison": 2,
-										"value": "50"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 984290592586842,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "door1",
-											"sid": 126907145833012,
-											"parameters": {
-												"instance-variable": "open"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "door1",
-											"sid": 668303348518041,
-											"parameters": {
-												"instance-variable": "open",
-												"value": "true"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "door1",
-											"sid": 124944572662527,
-											"parameters": {
-												"frame-number": "1"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "door1",
-											"sid": 377477752122528,
-											"behaviorType": "Твёрдый",
-											"parameters": {
-												"state": "disabled"
-											}
-										}
-									],
-									"sid": 921462476719643
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 321043871341751
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation-frame",
-											"objectClass": "door1",
-											"sid": 840645886878727,
-											"parameters": {
-												"frame-number": "0"
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "door1",
-											"sid": 909875816157214,
-											"parameters": {
-												"instance-variable": "open",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "door1",
-											"sid": 196966046921392,
-											"behaviorType": "Твёрдый",
-											"parameters": {
-												"state": "enabled"
-											}
-										}
-									],
-									"sid": 583034886085232
-								}
-							]
-						}
-					],
-					"sid": 807995966925308
+					]
 				}
 			],
-			"sid": 573747891622169
+			"sid": 100810716135321
 		},
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Dialog",
+			"title": "DialogBar",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -1022,7 +691,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "ActivDialog",
+			"title": "ActivDialogBar",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -1042,9 +711,9 @@
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 963252979954804,
+							"sid": 784067998613347,
 							"parameters": {
-								"group-name": "\"Player2\"",
+								"group-name": "\"Player_cast\"",
 								"state": "deactivated"
 							}
 						},
@@ -2954,19 +2623,34 @@
 							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "Shadow",
-							"sid": 233650646079691,
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 344247638921949,
 							"parameters": {
+								"object-to-create": "Shadow",
+								"layer": "3",
 								"x": "10",
-								"y": "0"
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
-							"id": "start-fade",
+							"id": "tween-one-property",
 							"objectClass": "Shadow",
-							"sid": 824268694763862,
-							"behaviorType": "Угасание"
+							"sid": 546315148237720,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "5",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
 						}
 					],
 					"sid": 333945339699081
@@ -3170,9 +2854,30 @@
 							}
 						},
 						{
-							"id": "destroy",
+							"id": "set-animation",
+							"objectClass": "Fedor",
+							"sid": 744735801186699,
+							"parameters": {
+								"animation": "\"Fedor_Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "tween-one-property",
 							"objectClass": "Shadow",
-							"sid": 170544521179200
+							"sid": 820029623044149,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
 						}
 					],
 					"sid": 671898606502132
@@ -3410,9 +3115,9 @@
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 312292572553963,
+							"sid": 208730921883689,
 							"parameters": {
-								"group-name": "\"Player2\"",
+								"group-name": "\"Player_cast\"",
 								"state": "activated"
 							}
 						}
@@ -3421,73 +3126,6 @@
 				}
 			],
 			"sid": 871969449983051
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Setup1",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-visible",
-							"objectClass": "Player_Cutscene",
-							"sid": 232988598350129
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Test",
-							"sid": 853643217342429,
-							"parameters": {
-								"x": "200",
-								"y": "200"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Test",
-							"sid": 372782332746106,
-							"parameters": {
-								"text": "\"[color=#ff0000]\" &\n\"CustText: \" & Player_Cutscene.cast_text & \n\n\n\n\"[/color]\"\n"
-							}
-						}
-					],
-					"sid": 700928955900673,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 621806579335353
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Player_Cutscene",
-									"sid": 524138991339637,
-									"parameters": {
-										"object": "Test",
-										"layer": "\"UI\"",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 587888334073860
-						}
-					]
-				}
-			],
-			"sid": 134509877915248
 		}
 	],
 	"sid": 194809940947679

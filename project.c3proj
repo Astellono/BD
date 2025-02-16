@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Аудио",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Клавиатура",
 			"author": "Scirra",
@@ -87,6 +94,13 @@
 			"type": "behavior",
 			"id": "Timer",
 			"name": "Таймер",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Твин-анимация",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -176,7 +190,8 @@
 				"items": [
 					"security",
 					"EnemyBaseball",
-					"Maniac_Station"
+					"Maniac_Station",
+					"Pchel"
 				],
 				"subfolders": [],
 				"name": "Enemy"
@@ -244,7 +259,9 @@
 					"Tailes_BG",
 					"Tailes_BG2",
 					"Shadow",
-					"Asphalt"
+					"Asphalt",
+					"Shadow2",
+					"Shadow3"
 				],
 				"subfolders": [
 					{
@@ -348,8 +365,7 @@
 							{
 								"items": [
 									"Door_Old",
-									"Elevator",
-									"Спрайт11"
+									"Elevator"
 								],
 								"subfolders": [],
 								"name": "Doors"
@@ -369,7 +385,9 @@
 							"Star",
 							"Smoke_Bar2",
 							"Moon",
-							"Light_Lamp2"
+							"Light_Lamp2",
+							"Blood",
+							"Blood_mirror"
 						],
 						"subfolders": [],
 						"name": "Effect and Sky"
@@ -418,7 +436,11 @@
 							"Quest",
 							"press_E",
 							"dialog",
-							"main_dialogue"
+							"main_dialogue",
+							"press_F",
+							"Press_Space",
+							"press_Q",
+							"Press_Shift"
 						],
 						"subfolders": [],
 						"name": "Dialogue"
@@ -558,7 +580,9 @@
 					},
 					{
 						"items": [
-							"Спрайт2"
+							"Apartament_BG",
+							"Door_Roga",
+							"BlueGuy"
 						],
 						"subfolders": [],
 						"name": "Apartament"
@@ -574,6 +598,13 @@
 				],
 				"subfolders": [],
 				"name": "text"
+			},
+			{
+				"items": [
+					"Аудио"
+				],
+				"subfolders": [],
+				"name": "Sound"
 			}
 		]
 	},
@@ -603,11 +634,41 @@
 	"eventSheets": {
 		"items": [
 			"Bar",
-			"Dialogue",
-			"actual",
-			"Effect"
+			"Apartament",
+			"Station"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"player_cast"
+				],
+				"subfolders": [],
+				"name": "Player"
+			},
+			{
+				"items": [
+					"door"
+				],
+				"subfolders": [],
+				"name": "RoomStaff"
+			},
+			{
+				"items": [
+					"Effect",
+					"Sound",
+					"actual"
+				],
+				"subfolders": [],
+				"name": "other"
+			},
+			{
+				"items": [
+					"Dialogue"
+				],
+				"subfolders": [],
+				"name": "text"
+			}
+		]
 	},
 	"rootFileFolders": {
 		"script": {
@@ -615,7 +676,24 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "Closed.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 568071603194103,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Open.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 354306124034967,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

@@ -1,0 +1,107 @@
+{
+	"name": "Sound",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Клавиатура",
+					"sid": 746259526085540,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "compare-animation-speed",
+					"objectClass": "door1",
+					"sid": 903179339963476,
+					"parameters": {
+						"comparison": 0,
+						"number": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 960793088018352
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "door1",
+					"sid": 816711631349307,
+					"parameters": {
+						"instance-variable": "open"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 687563542649489,
+					"parameters": {
+						"audio-file": "Open",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 868719175739413
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-speed",
+					"objectClass": "door1",
+					"sid": 882464591046303,
+					"parameters": {
+						"comparison": 0,
+						"number": "1"
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Клавиатура",
+					"sid": 621989062206612,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "door1",
+					"sid": 377578900749845,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 476039638032818
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 209830787807501,
+					"parameters": {
+						"audio-file": "Closed",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 941954397732049
+		}
+	],
+	"sid": 750201717043427
+}
