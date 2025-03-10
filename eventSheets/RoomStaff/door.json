@@ -190,6 +190,111 @@
 				}
 			],
 			"sid": 573747891622169
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Bakery",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Клавиатура",
+							"sid": 506495134322317,
+							"parameters": {
+								"key": 69
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Button_Red",
+							"sid": 618176137110837,
+							"parameters": {
+								"object": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "door_closed",
+							"sid": 908996568915619,
+							"behaviorType": "Твёрдый",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "door_closed",
+							"sid": 117155245003398,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "press_E",
+							"sid": 778866129134941
+						}
+					],
+					"sid": 777786151464121
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Button_Red",
+							"sid": 281807519717184,
+							"parameters": {
+								"object": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 214168457070768,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 101332617235220
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Button_Red",
+							"sid": 877532192348262,
+							"parameters": {
+								"object": "Player"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 392158616244712,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 835314301717495
+				}
+			],
+			"sid": 114584352502277
 		}
 	],
 	"sid": 142154983788573
