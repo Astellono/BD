@@ -142,20 +142,14 @@
 				{
 					"id": "stop-animation",
 					"objectClass": "Player",
-					"sid": 763380201344829
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 717400531949680,
-					"parameters": {
-						"seconds": "2"
-					}
+					"sid": 763380201344829,
+					"disabled": true
 				},
 				{
 					"id": "start-animation",
 					"objectClass": "Player",
 					"sid": 331543937904072,
+					"disabled": true,
 					"parameters": {
 						"from": "current-frame"
 					}
@@ -163,9 +157,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 965461985545346,
+					"sid": 984201260856108,
 					"parameters": {
-						"seconds": "2"
+						"seconds": "6"
 					}
 				},
 				{
@@ -471,6 +465,11 @@
 					}
 				},
 				{
+					"id": "stop-animation",
+					"objectClass": "Maniac_Station",
+					"sid": 837451972929513
+				},
+				{
 					"id": "set-animation-frame",
 					"objectClass": "Maniac_Station",
 					"sid": 884600299412824,
@@ -521,6 +520,14 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "start-animation",
+					"objectClass": "Maniac_Station",
+					"sid": 415776364232491,
+					"parameters": {
+						"from": "current-frame"
+					}
+				},
 				{
 					"id": "set-speed",
 					"objectClass": "Player",

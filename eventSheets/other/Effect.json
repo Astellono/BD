@@ -237,6 +237,11 @@
 							"parameters": {
 								"interval-seconds": "2"
 							}
+						},
+						{
+							"id": "is-on-screen",
+							"objectClass": "Conveer_Vertical",
+							"sid": 809873656769309
 						}
 					],
 					"actions": [
@@ -696,6 +701,41 @@
 					"sid": 981493013034521
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Sheet",
+					"sid": 758912712299628,
+					"parameters": {
+						"animation": "\"Animation 1\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Sheet",
+					"sid": 308145529164947,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "overall",
+						"speed": "random(60,200)"
+					}
+				},
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "Sheet",
+					"sid": 194833863266137,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"angle": "60"
+					}
+				}
+			],
+			"sid": 149246411161033
 		}
 	],
 	"sid": 163340988215681
