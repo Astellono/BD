@@ -1,0 +1,386 @@
+{
+	"name": "Underground",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "actual"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Underground2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Nark_Watch2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Narki2",
+									"sid": 565505001680985
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Player",
+									"sid": 422937233723708,
+									"parameters": {
+										"comparison": 3,
+										"x-co-ordinate": "Narki2.X -10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Narki2",
+									"sid": 426802686751291,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 928786894783104
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Narki2",
+									"sid": 248170199520401
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Player",
+									"sid": 121583750021823,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "Narki2.X +0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Narki2",
+									"sid": 443792884441778,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 769294569216902
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Narki2",
+									"sid": 372155952493634
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Player",
+									"sid": 486985353577463,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "Narki2.X +50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Narki2",
+									"sid": 626754306991715,
+									"parameters": {
+										"frame-number": "2"
+									}
+								}
+							],
+							"sid": 151238667022326
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Narki2",
+									"sid": 794982462907833
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Player",
+									"sid": 787475228704994,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "Narki2.X +100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Narki2",
+									"sid": 328415448047872,
+									"parameters": {
+										"frame-number": "3"
+									}
+								}
+							],
+							"sid": 335825336580834
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Narki2",
+									"sid": 374312739412165
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Player",
+									"sid": 471547102875919,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "Narki2.X +150"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Narki2",
+									"sid": 898846357793003,
+									"parameters": {
+										"frame-number": "4"
+									}
+								}
+							],
+							"sid": 711397511964889
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-loader-layout-complete",
+									"objectClass": "System",
+									"sid": 306825467243195
+								}
+							],
+							"actions": [],
+							"sid": 543047767355628
+						}
+					],
+					"sid": 979874754517290
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Dance_Nark",
+							"sid": 278302111852507
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Dance_Nark",
+							"sid": 673559502042418,
+							"parameters": {
+								"frame-number": "random(1,9)"
+							}
+						}
+					],
+					"sid": 390627153131616
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Walk_Nark",
+							"sid": 393811738154797,
+							"parameters": {
+								"comparison": 3,
+								"x-co-ordinate": "7460"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-x",
+							"objectClass": "Player",
+							"sid": 384451020461652,
+							"parameters": {
+								"comparison": 5,
+								"x-co-ordinate": "7189"
+							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Player",
+							"sid": 545362942161952,
+							"parameters": {
+								"comparison": 5,
+								"y-co-ordinate": "1714"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 345958402168459,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Walk_Nark",
+							"sid": 553513007176358,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Walk_Nark",
+							"sid": 623312570299513,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 243938935443976,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Walk_Nark",
+							"sid": 989784083777039,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "-20"
+							}
+						}
+					],
+					"sid": 715839278040272
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Walk_Nark",
+							"sid": 552605729516683,
+							"parameters": {
+								"comparison": 3,
+								"x-co-ordinate": "7460"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Walk_Nark",
+							"sid": 866443040266244,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Walk_Nark",
+							"sid": 648713960658945,
+							"parameters": {
+								"animation": "\"Анимация 1\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 149952042104681
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "door1",
+							"sid": 759496008780152,
+							"parameters": {
+								"instance-variable": "open"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 102077611730078,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 838687322361101,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "Shadow3",
+									"sid": 389052270415939,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Shadow3",
+									"sid": 952842447607102
+								}
+							],
+							"sid": 762786076909775
+						}
+					]
+				}
+			],
+			"sid": 314873244592131
+		}
+	],
+	"sid": 159365679133501
+}
