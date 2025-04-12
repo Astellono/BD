@@ -377,6 +377,106 @@
 							"sid": 762786076909775
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Player",
+							"sid": 470306349116127,
+							"parameters": {
+								"comparison": 3,
+								"x-co-ordinate": "4900"
+							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Player",
+							"sid": 594127972089042,
+							"parameters": {
+								"comparison": 3,
+								"y-co-ordinate": "1323"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 687723626760686,
+							"parameters": {
+								"variable": "onDial"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 472298519409314,
+							"parameters": {
+								"variable": "onDial",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 941829722086689,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 496153374337324,
+									"parameters": {
+										"variable": "onDial"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 496502586293519,
+									"parameters": [
+										"\"Я видел его в клубе у Ермиловых\"",
+										"4590",
+										"1320"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 359516161589096,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 461844572086278,
+									"parameters": [
+										"\"Говорю тебе, он выглядит также как на рисунке\"",
+										"4590",
+										"1320"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 558105028334816,
+									"parameters": {
+										"seconds": "6"
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 391645011702701
+								}
+							],
+							"sid": 979216188875204
+						}
+					]
 				}
 			],
 			"sid": 314873244592131
