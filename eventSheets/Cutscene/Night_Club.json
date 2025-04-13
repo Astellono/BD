@@ -2,126 +2,12 @@
 	"name": "Night_Club",
 	"events": [
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-animation-playing",
-					"objectClass": "Light_Club",
-					"sid": 665271367470591,
-					"parameters": {
-						"animation": "\"Animation 1\""
-					}
-				},
-				{
-					"id": "is-within-angle",
-					"objectClass": "Light_Club",
-					"sid": 371354283086310,
-					"parameters": {
-						"within": "100",
-						"angle": "50"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-speed",
-					"objectClass": "Light_Club",
-					"sid": 469112735930236,
-					"behaviorType": "Поворот",
-					"parameters": {
-						"speed": "60"
-					}
-				}
-			],
-			"sid": 990415648070780
+			"eventType": "include",
+			"includeSheet": "actual"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-within-angle",
-					"objectClass": "Light_Club",
-					"sid": 432632601554533,
-					"parameters": {
-						"within": "0.5",
-						"angle": "50"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-speed",
-					"objectClass": "Light_Club",
-					"sid": 688261196347421,
-					"behaviorType": "Поворот",
-					"parameters": {
-						"speed": "-60"
-					}
-				}
-			],
-			"sid": 517763901878733
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-animation-playing",
-					"objectClass": "Light_Club2",
-					"sid": 273983848440607,
-					"parameters": {
-						"animation": "\"Animation 1\""
-					}
-				},
-				{
-					"id": "is-within-angle",
-					"objectClass": "Light_Club2",
-					"sid": 912297086029203,
-					"parameters": {
-						"within": "100",
-						"angle": "50"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-speed",
-					"objectClass": "Light_Club2",
-					"sid": 903296650696528,
-					"behaviorType": "Поворот",
-					"parameters": {
-						"speed": "60"
-					}
-				}
-			],
-			"sid": 635769409054898
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-within-angle",
-					"objectClass": "Light_Club2",
-					"sid": 869364912782618,
-					"parameters": {
-						"within": "0.5",
-						"angle": "50"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-speed",
-					"objectClass": "Light_Club2",
-					"sid": 976082191086073,
-					"behaviorType": "Поворот",
-					"parameters": {
-						"speed": "-60"
-					}
-				}
-			],
-			"sid": 465306273388208
+			"eventType": "include",
+			"includeSheet": "Effect"
 		},
 		{
 			"eventType": "block",
@@ -164,6 +50,31 @@
 				}
 			],
 			"sid": 401961722801198
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 341110242685621
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 599666035043279,
+					"parameters": {
+						"audio-file": "Night_Club",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 735240763979377
 		}
 	],
 	"sid": 902713123400387

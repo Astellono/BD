@@ -417,6 +417,138 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Light_Club",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Light_Club",
+							"sid": 790998647333117,
+							"parameters": {
+								"animation": "\"Animation 1\""
+							}
+						},
+						{
+							"id": "is-within-angle",
+							"objectClass": "Light_Club",
+							"sid": 879514151812931,
+							"parameters": {
+								"within": "100",
+								"angle": "50"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Light_Club",
+							"sid": 713277079803466,
+							"behaviorType": "Поворот",
+							"parameters": {
+								"speed": "60"
+							}
+						}
+					],
+					"sid": 215543458437382
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-within-angle",
+							"objectClass": "Light_Club",
+							"sid": 898699367337290,
+							"parameters": {
+								"within": "0.5",
+								"angle": "50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Light_Club",
+							"sid": 590526349111559,
+							"behaviorType": "Поворот",
+							"parameters": {
+								"speed": "-60"
+							}
+						}
+					],
+					"sid": 240084797041632
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Light_Club2",
+							"sid": 232800284484767,
+							"parameters": {
+								"animation": "\"Animation 1\""
+							}
+						},
+						{
+							"id": "is-within-angle",
+							"objectClass": "Light_Club2",
+							"sid": 655385653145274,
+							"parameters": {
+								"within": "100",
+								"angle": "50"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Light_Club2",
+							"sid": 154593480696092,
+							"behaviorType": "Поворот",
+							"parameters": {
+								"speed": "60"
+							}
+						}
+					],
+					"sid": 707257053948144
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-within-angle",
+							"objectClass": "Light_Club2",
+							"sid": 757447236334737,
+							"parameters": {
+								"within": "0.5",
+								"angle": "50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Light_Club2",
+							"sid": 897441504051541,
+							"behaviorType": "Поворот",
+							"parameters": {
+								"speed": "-60"
+							}
+						}
+					],
+					"sid": 718712193086876
+				}
+			],
+			"sid": 787008478994757
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Sky",
 			"description": "",
 			"isActiveOnStart": true,
@@ -736,209 +868,6 @@
 				}
 			],
 			"sid": 149246411161033
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Underground",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Nark_Watch",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-on-screen",
-									"objectClass": "Narki2",
-									"sid": 544329589206570
-								},
-								{
-									"id": "compare-x",
-									"objectClass": "Player",
-									"sid": 728122963018952,
-									"parameters": {
-										"comparison": 3,
-										"x-co-ordinate": "Narki2.X -10"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Narki2",
-									"sid": 108373319618252,
-									"parameters": {
-										"frame-number": "0"
-									}
-								}
-							],
-							"sid": 420192490624535
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-on-screen",
-									"objectClass": "Narki2",
-									"sid": 404246395633613
-								},
-								{
-									"id": "compare-x",
-									"objectClass": "Player",
-									"sid": 449677143510230,
-									"parameters": {
-										"comparison": 5,
-										"x-co-ordinate": "Narki2.X +0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Narki2",
-									"sid": 879619948097267,
-									"parameters": {
-										"frame-number": "1"
-									}
-								}
-							],
-							"sid": 646010962668651
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-on-screen",
-									"objectClass": "Narki2",
-									"sid": 636464487628095
-								},
-								{
-									"id": "compare-x",
-									"objectClass": "Player",
-									"sid": 314053745076913,
-									"parameters": {
-										"comparison": 5,
-										"x-co-ordinate": "Narki2.X +50"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Narki2",
-									"sid": 402706023098612,
-									"parameters": {
-										"frame-number": "2"
-									}
-								}
-							],
-							"sid": 408212788106055
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-on-screen",
-									"objectClass": "Narki2",
-									"sid": 123386763923575
-								},
-								{
-									"id": "compare-x",
-									"objectClass": "Player",
-									"sid": 471154163848556,
-									"parameters": {
-										"comparison": 5,
-										"x-co-ordinate": "Narki2.X +100"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Narki2",
-									"sid": 383648505776847,
-									"parameters": {
-										"frame-number": "3"
-									}
-								}
-							],
-							"sid": 639650669562389
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-on-screen",
-									"objectClass": "Narki2",
-									"sid": 439299517950198
-								},
-								{
-									"id": "compare-x",
-									"objectClass": "Player",
-									"sid": 786887265209148,
-									"parameters": {
-										"comparison": 5,
-										"x-co-ordinate": "Narki2.X +150"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Narki2",
-									"sid": 192999802645456,
-									"parameters": {
-										"frame-number": "4"
-									}
-								}
-							],
-							"sid": 724974246836726
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-loader-layout-complete",
-									"objectClass": "System",
-									"sid": 841659580330132
-								}
-							],
-							"actions": [],
-							"sid": 796686571625064
-						}
-					],
-					"sid": 650721755474322
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
-							"objectClass": "Dance_Nark",
-							"sid": 491832309562319
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Dance_Nark",
-							"sid": 936315436622030,
-							"parameters": {
-								"frame-number": "random(1,9)"
-							}
-						}
-					],
-					"sid": 409176077796824
-				}
-			],
-			"sid": 476136190823357
 		}
 	],
 	"sid": 163340988215681
