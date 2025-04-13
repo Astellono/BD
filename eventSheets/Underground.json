@@ -331,6 +331,11 @@
 							"parameters": {
 								"instance-variable": "open"
 							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 662455667772997
 						}
 					],
 					"actions": [
@@ -480,6 +485,464 @@
 				}
 			],
 			"sid": 314873244592131
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "End",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 191418720205909,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 663056031029172,
+							"parameters": {
+								"variable": "onDialMain"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 960278252694568
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 325733692742789,
+							"parameters": {
+								"group-name": "\"Player\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 580919523027220,
+							"parameters": {
+								"instance-variable": "onPlayer",
+								"value": "false"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Camera",
+							"sid": 919519209339182,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "9656",
+								"time": "0.2",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 480266211811632,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 900060473582565,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 208362855715418,
+							"parameters": {
+								"variable": "CameraAction",
+								"value": "true"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Player",
+							"sid": 560275435005708,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 110296748749805
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 840937876449833,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 961608647036830
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 254462192650830,
+							"parameters": [
+								"\"Очнись мудила, этот ублюдок уже в клубе, и он пришёл за нами, ВСТАВАЙ МАТЬ ТВОЮ!\"",
+								"\"Junior_Fear\"",
+								"2"
+							]
+						}
+					],
+					"sid": 746785151462691
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 469721055648568,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 198963346315154
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 241313249763739,
+							"parameters": [
+								"\"Братаааан, мои мозги… мои мозги они нахрен расплавились, братааан помоги.\"",
+								"\"Junior_Fear2\"",
+								"1"
+							]
+						}
+					],
+					"sid": 242077130123594
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 342367032479515,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "3"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 963396607978295
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 684301785034545,
+							"parameters": [
+								"\"БЛЯТЬ!\"",
+								"\"Junior_Fear\"",
+								"1"
+							]
+						}
+					],
+					"sid": 808565401579967
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 376566861892696,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "4"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 617395957806016
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 886353536406503,
+							"parameters": [
+								"\"Два по цене одного\"",
+								"\"\"",
+								"1"
+							]
+						},
+						{
+							"callFunction": "shakeScreen",
+							"sid": 213810177752790
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Door_Old",
+							"sid": 268426153664173,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 131373050774284,
+							"parameters": {
+								"audio-file": "Open",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 289836238665720,
+							"parameters": {
+								"audio-file": "Open",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Junior",
+							"sid": 727427168121616,
+							"parameters": {
+								"animation": "\"Fear\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 692868209693564
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 610743947529719,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "5"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 972354733844926
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 269062974968597,
+							"parameters": {
+								"audio-file": "Shotgun",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 282842148080937,
+							"parameters": {
+								"object-to-create": "Shot",
+								"layer": "4",
+								"x": "9300",
+								"y": "950",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 594245780128466
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Shot",
+							"sid": 960420730917402
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 953396848823321,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Shot",
+							"sid": 728602926361121,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "1000"
+							}
+						}
+					],
+					"sid": 578156219969718
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Shot",
+							"sid": 629673488738533,
+							"parameters": {
+								"object": "Junior"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Shot",
+							"sid": 414756802311275
+						},
+						{
+							"callFunction": "shakeScreen",
+							"sid": 667153302237996
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 912265053726534,
+							"parameters": {
+								"object-to-create": "Blood",
+								"layer": "4",
+								"x": "Junior.x -20",
+								"y": "Junior.y -30",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Junior",
+							"sid": 493433619557272,
+							"parameters": {
+								"animation": "\"Pain\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 550379658375347,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 161193636053237,
+							"parameters": {
+								"object-to-create": "Shadow3",
+								"layer": "4",
+								"x": "Camera.X",
+								"y": "Camera.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 102353387465385
+				}
+			],
+			"sid": 291615090675724
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 691897528272173
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 760660114097886,
+					"parameters": {
+						"audio-file": "Underground",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 521651115360271,
+			"disabled": true
 		}
 	],
 	"sid": 159365679133501
