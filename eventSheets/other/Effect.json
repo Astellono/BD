@@ -125,6 +125,41 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 334213692737081,
+					"parameters": {
+						"object": "Skvoznoe2"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 965744212140833,
+					"parameters": {
+						"object": "Skvoznoe2"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 229981985693312,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "Skvoznoe2.SpeedConveer2"
+					}
+				}
+			],
+			"sid": 327677410003076
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "is-jumping",
 					"objectClass": "Player",
 					"sid": 949233635757273,
@@ -151,268 +186,6 @@
 			],
 			"sid": 781849735021215,
 			"isOrBlock": true
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Box",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
-							"objectClass": "Box_MoveVert",
-							"sid": 219752596405360
-						}
-					],
-					"actions": [
-						{
-							"id": "set-speed",
-							"objectClass": "Box_MoveVert",
-							"sid": 453070075111248,
-							"behaviorType": "НастраиваемоеДвижение",
-							"parameters": {
-								"which": "vertical",
-								"speed": "-100"
-							}
-						}
-					],
-					"sid": 529554538910559
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-y",
-							"objectClass": "Box_MoveVert",
-							"sid": 798800802590291,
-							"parameters": {
-								"comparison": 2,
-								"y-co-ordinate": "356"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "Box_MoveVert",
-							"sid": 609912312803174,
-							"behaviorType": "Твёрдый",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "stop",
-							"objectClass": "Box_MoveVert",
-							"sid": 757300898685783,
-							"behaviorType": "НастраиваемоеДвижение"
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 411617570878923,
-							"parameters": {
-								"seconds": "2"
-							}
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Box_MoveVert",
-							"sid": 833859900730101
-						}
-					],
-					"sid": 787860113647311
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 497949135477639,
-							"parameters": {
-								"interval-seconds": "2"
-							}
-						},
-						{
-							"id": "is-on-screen",
-							"objectClass": "Conveer_Vertical",
-							"sid": 809873656769309
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 908766048848415,
-							"parameters": {
-								"object-to-create": "Box_MoveHoriz",
-								"layer": "8",
-								"x": "2196",
-								"y": "748",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 258857235667010
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
-							"objectClass": "Box_MoveHoriz",
-							"sid": 707354533359209
-						}
-					],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 130466130540796,
-							"parameters": {
-								"seconds": "1.0"
-							}
-						},
-						{
-							"id": "set-speed",
-							"objectClass": "Box_MoveHoriz",
-							"sid": 303422305740520,
-							"behaviorType": "НастраиваемоеДвижение",
-							"parameters": {
-								"which": "horizontal",
-								"speed": "100"
-							}
-						}
-					],
-					"sid": 501579981031217
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-x",
-							"objectClass": "Box_MoveHoriz",
-							"sid": 205831436969034,
-							"parameters": {
-								"comparison": 4,
-								"x-co-ordinate": "2485"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 922245202283676,
-							"parameters": {
-								"object-to-create": "Box_MoveVert",
-								"layer": "8",
-								"x": "2485",
-								"y": "695",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Box_MoveHoriz",
-							"sid": 771477688542907
-						}
-					],
-					"sid": 528555906270669
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
-							"objectClass": "Box_MoveHoriz2",
-							"sid": 885681173179478
-						}
-					],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 144261904859348,
-							"parameters": {
-								"seconds": "1.0"
-							}
-						},
-						{
-							"id": "set-speed",
-							"objectClass": "Box_MoveHoriz2",
-							"sid": 722687719719341,
-							"behaviorType": "НастраиваемоеДвижение",
-							"parameters": {
-								"which": "horizontal",
-								"speed": "100"
-							}
-						}
-					],
-					"sid": 183946631563963
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-x",
-							"objectClass": "Box_MoveHoriz2",
-							"sid": 624881452906585,
-							"parameters": {
-								"comparison": 4,
-								"x-co-ordinate": "2969"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-speed",
-							"objectClass": "Box_MoveHoriz2",
-							"sid": 891330594174021,
-							"behaviorType": "НастраиваемоеДвижение",
-							"parameters": {
-								"which": "horizontal",
-								"speed": "0"
-							}
-						}
-					],
-					"sid": 215231651134574
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-destroyed",
-							"objectClass": "Box_MoveHoriz2",
-							"sid": 166458479184225
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 233077463755297,
-							"parameters": {
-								"object-to-create": "Box_MoveHoriz2",
-								"layer": "9",
-								"x": "2702",
-								"y": "747",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 495817949229596
-				}
-			],
-			"sid": 598170269010024
 		},
 		{
 			"eventType": "group",

@@ -6,6 +6,10 @@
 			"includeSheet": "actual"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Effect"
+		},
+		{
 			"eventType": "group",
 			"disabled": true,
 			"title": "Группа1",
@@ -2046,6 +2050,276 @@
 				}
 			],
 			"sid": 321227186405324
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Box",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveVert",
+							"sid": 319545757154681
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveVert",
+							"sid": 967278330492907,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "vertical",
+								"speed": "-100"
+							}
+						}
+					],
+					"sid": 362457665728429
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Box_MoveVert",
+							"sid": 141950316484746,
+							"parameters": {
+								"comparison": 3,
+								"y-co-ordinate": "2072"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Box_MoveVert",
+							"sid": 306056679960750,
+							"behaviorType": "НастраиваемоеДвижение"
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Box_MoveVert",
+							"sid": 889588264242469,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 418844443675194,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveVert",
+							"sid": 409277700364256
+						}
+					],
+					"sid": 166909779300600
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 379132919725989,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						},
+						{
+							"id": "is-on-screen",
+							"objectClass": "Conveer_Vertical",
+							"sid": 985883125169322
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 320558395348142,
+							"parameters": {
+								"object-to-create": "Box_MoveHoriz",
+								"layer": "0",
+								"x": "1366",
+								"y": "2296",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 339540927249315
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 567352543089738
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 729871613384226,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 704566979652879,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "-100"
+							}
+						}
+					],
+					"sid": 868838081068571
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 966178366802003,
+							"parameters": {
+								"comparison": 3,
+								"x-co-ordinate": "1094"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 496066583806816
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 818330892017783,
+							"parameters": {
+								"object-to-create": "Box_MoveVert",
+								"layer": "0",
+								"x": "1094",
+								"y": "2263",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 217407610376396
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveHoriz2",
+							"sid": 563152578014697
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 874679534894258,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz2",
+							"sid": 795908401730995,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						}
+					],
+					"sid": 780043535691514
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Box_MoveHoriz2",
+							"sid": 825507721331723,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "2969"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz2",
+							"sid": 267797171601577,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "0"
+							}
+						}
+					],
+					"sid": 162720453471864
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Box_MoveHoriz2",
+							"sid": 497786691825489
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 424036823549494,
+							"parameters": {
+								"object-to-create": "Box_MoveHoriz2",
+								"layer": "9",
+								"x": "2702",
+								"y": "747",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 837459772033988
+				}
+			],
+			"sid": 714069318252611
 		}
 	],
 	"sid": 276946524812111
