@@ -1,0 +1,103 @@
+{
+	"name": "Hotel",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "actual"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Effect"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 698878412220722
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Car_Cat",
+					"sid": 684849445783651,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "-1500"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Camera",
+					"sid": 220278822879512,
+					"parameters": {
+						"instance-variable": "onPlayer",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 325635194458641
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "Car_Cat",
+					"sid": 228095853966948
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 926200533725684,
+					"parameters": {
+						"x": "Car_Cat.X",
+						"y": "Car_Cat.Y"
+					}
+				}
+			],
+			"sid": 573994996700565
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Car_Cat",
+					"sid": 777894143575458,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Car_Cat",
+					"sid": 175950290914402,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "0"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Car_Cat",
+					"sid": 542533638835991,
+					"parameters": {
+						"animation": "\"Анимация 2\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 874422970942798
+		}
+	],
+	"sid": 412618442979125
+}
