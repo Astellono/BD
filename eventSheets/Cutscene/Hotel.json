@@ -22,7 +22,7 @@
 				{
 					"id": "set-speed",
 					"objectClass": "Car_Cat",
-					"sid": 684849445783651,
+					"sid": 294429399938042,
 					"behaviorType": "НастраиваемоеДвижение",
 					"parameters": {
 						"which": "horizontal",
@@ -62,6 +62,35 @@
 				}
 			],
 			"sid": 573994996700565
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Car_Cat",
+					"sid": 728716138552500,
+					"parameters": {
+						"object": "Door_Hole"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Door_Hole",
+					"sid": 978195370324435,
+					"parameters": {
+						"animation": "\"Crash\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"callFunction": "shakeScreen",
+					"sid": 384526001834483
+				}
+			],
+			"sid": 303446178543242
 		},
 		{
 			"eventType": "block",
