@@ -10,122 +10,552 @@
 			"includeSheet": "Effect"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Car",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 698878412220722
-				}
-			],
-			"actions": [
-				{
-					"id": "set-speed",
-					"objectClass": "Car_Cat",
-					"sid": 294429399938042,
-					"behaviorType": "НастраиваемоеДвижение",
-					"parameters": {
-						"which": "horizontal",
-						"speed": "-1500"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 808661124100588
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 332469821509748,
+							"parameters": {
+								"object-to-create": "Shadow3",
+								"layer": "10",
+								"x": "Camera.X",
+								"y": "Camera.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 895412855352369,
+							"parameters": {
+								"audio-file": "Started_engine",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Goes\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 586673597758165,
+							"parameters": {
+								"instance-variable": "onPlayer",
+								"value": "false"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 687744815877928,
+							"disabled": true,
+							"parameters": {
+								"seconds": "6"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 112725888897026,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 654706980761155,
+							"parameters": {
+								"object-to-create": "Car_Cat",
+								"layer": "10",
+								"x": "5244",
+								"y": "7900",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 374717568320464
 				},
 				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Camera",
-					"sid": 220278822879512,
-					"parameters": {
-						"instance-variable": "onPlayer",
-						"value": "false"
-					}
-				}
-			],
-			"sid": 325635194458641
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-screen",
-					"objectClass": "Car_Cat",
-					"sid": 228095853966948
-				}
-			],
-			"actions": [
-				{
-					"id": "set-position",
-					"objectClass": "Camera",
-					"sid": 926200533725684,
-					"parameters": {
-						"x": "Car_Cat.X",
-						"y": "Car_Cat.Y"
-					}
-				}
-			],
-			"sid": 573994996700565
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Car_Cat",
-					"sid": 728716138552500,
-					"parameters": {
-						"object": "Door_Hole"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Door_Hole",
-					"sid": 978195370324435,
-					"parameters": {
-						"animation": "\"Crash\"",
-						"from": "beginning"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-opacity",
+							"objectClass": "Shadow3",
+							"sid": 222137226810349,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 803920050732037
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 929486239509563,
+							"parameters": {
+								"audio-file": "Raider_Car",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Goes\""
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Car_Cat",
+							"sid": 510212733208395,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "-1500"
+							}
+						}
+					],
+					"sid": 649565226504013
 				},
 				{
-					"callFunction": "shakeScreen",
-					"sid": 384526001834483
-				}
-			],
-			"sid": 303446178543242
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Car_Cat",
-					"sid": 777894143575458,
-					"parameters": {
-						"object": "Trigger_CutScene"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-speed",
-					"objectClass": "Car_Cat",
-					"sid": 175950290914402,
-					"behaviorType": "НастраиваемоеДвижение",
-					"parameters": {
-						"which": "horizontal",
-						"speed": "0"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Car_Cat",
+							"sid": 910989927936031
+						},
+						{
+							"id": "is-enabled",
+							"objectClass": "Car_Cat",
+							"sid": 396914352975723,
+							"behaviorType": "НастраиваемоеДвижение"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 459234179707077,
+							"parameters": {
+								"x": "Car_Cat.X +200",
+								"y": "Car_Cat.Y"
+							}
+						}
+					],
+					"sid": 545885533112744
 				},
 				{
-					"id": "set-animation",
-					"objectClass": "Car_Cat",
-					"sid": 542533638835991,
-					"parameters": {
-						"animation": "\"Анимация 2\"",
-						"from": "beginning"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Car_Cat",
+							"sid": 476290249351802,
+							"parameters": {
+								"object": "Door_Hole"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Door_Hole",
+							"sid": 251242544373216,
+							"parameters": {
+								"animation": "\"Crash\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 548324855871358,
+							"parameters": {
+								"audio-file": "Gless_Door_Destroy",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 266063288758375,
+							"parameters": {
+								"audio-file": "Crash_Furniture",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 162916167651528
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Door_Hole",
+							"sid": 567454627163753,
+							"parameters": {
+								"animation": "\"Crash\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Door_Hole",
+							"sid": 481512272512194,
+							"parameters": {
+								"animation": "\"Crash2\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 789247786691788
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Door_Hole",
+							"sid": 458594760303516,
+							"parameters": {
+								"animation": "\"Crash\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "shakeScreen",
+							"sid": 513629647757810
+						}
+					],
+					"sid": 564816044329056
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Car_Cat",
+							"sid": 457912841554616,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Car_Cat",
+							"sid": 324793393285210,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "0"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Car_Cat",
+							"sid": 685238657362089,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Car_Cat",
+							"sid": 279949025779997,
+							"parameters": {
+								"animation": "\"Анимация 2\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 300346828501311,
+							"parameters": {
+								"object-to-create": "Smoke_Boom",
+								"layer": "10",
+								"x": "297",
+								"y": "7888",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 222674613107054,
+							"parameters": {
+								"object-to-create": "BoomFire",
+								"layer": "10",
+								"x": "369",
+								"y": "7803",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 879523178410574,
+							"parameters": {
+								"object-to-create": "Boom2",
+								"layer": "10",
+								"x": "295",
+								"y": "7872",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 804533579007010,
+							"parameters": {
+								"object-to-create": "Exploution",
+								"layer": "10",
+								"x": "236",
+								"y": "7840",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 394790030957900,
+							"parameters": {
+								"audio-file": "Crash_Car",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 140974594575716,
+							"parameters": {
+								"tag": "\"Goes\""
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 762597035353947,
+							"parameters": {
+								"x": "Car_Cat.X +150",
+								"y": "Car_Cat.Y"
+							}
+						}
+					],
+					"sid": 762422241911643
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "BoomFire",
+							"sid": 638135094864911,
+							"parameters": {
+								"animation": "\"Animation 1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "shakeScreen",
+							"sid": 767817499484494
+						}
+					],
+					"sid": 390980225663165
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "BoomFire",
+							"sid": 733110094996656,
+							"parameters": {
+								"animation": "\"Animation 1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "BoomFire",
+							"sid": 144413223791969
+						}
+					],
+					"sid": 987931140120820
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Car_Cat",
+							"sid": 380779464965613,
+							"parameters": {
+								"object": "High_Wall_Hotel"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 730714820542825,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						},
+						{
+							"id": "is-enabled",
+							"objectClass": "Car_Cat",
+							"sid": 655518899278691,
+							"behaviorType": "НастраиваемоеДвижение"
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 884974944182172,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 948146097772499,
+							"parameters": {
+								"object-to-create": "Crash",
+								"layer": "10",
+								"x": "Car_Cat.X +random(10,200)",
+								"y": "Car_Cat.Y -10",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 725972772862401
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Crash",
+							"sid": 401250160324579,
+							"parameters": {
+								"animation": "\"Animation 1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Crash",
+							"sid": 493051632877219
+						}
+					],
+					"sid": 202776933218057
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 193216590073484,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "shakeScreen",
+							"sid": 367052460096731
+						}
+					],
+					"sid": 417994323465694
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Car_Cat",
+							"sid": 940780544566208,
+							"parameters": {
+								"object": "Reseption"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 503203266465731,
+							"parameters": {
+								"audio-file": "Crash_Glass2",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 378402415130724
 				}
 			],
-			"sid": 874422970942798
+			"sid": 302380378391519
 		}
 	],
 	"sid": 412618442979125
