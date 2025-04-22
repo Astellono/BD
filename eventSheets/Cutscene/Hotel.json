@@ -11,7 +11,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Car",
 			"description": "",
 			"isActiveOnStart": true,
@@ -100,7 +100,8 @@
 							}
 						}
 					],
-					"sid": 374717568320464
+					"sid": 374717568320464,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -144,7 +145,8 @@
 							}
 						}
 					],
-					"sid": 649565226504013
+					"sid": 649565226504013,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -172,7 +174,8 @@
 							}
 						}
 					],
-					"sid": 545885533112744
+					"sid": 545885533112744,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -221,7 +224,8 @@
 							}
 						}
 					],
-					"sid": 162916167651528
+					"sid": 162916167651528,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -246,7 +250,8 @@
 							}
 						}
 					],
-					"sid": 789247786691788
+					"sid": 789247786691788,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -266,7 +271,8 @@
 							"sid": 513629647757810
 						}
 					],
-					"sid": 564816044329056
+					"sid": 564816044329056,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -391,7 +397,8 @@
 							}
 						}
 					],
-					"sid": 762422241911643
+					"sid": 762422241911643,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -411,7 +418,8 @@
 							"sid": 767817499484494
 						}
 					],
-					"sid": 390980225663165
+					"sid": 390980225663165,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -432,7 +440,8 @@
 							"sid": 144413223791969
 						}
 					],
-					"sid": 987931140120820
+					"sid": 987931140120820,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -483,7 +492,8 @@
 							}
 						}
 					],
-					"sid": 725972772862401
+					"sid": 725972772862401,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -504,7 +514,8 @@
 							"sid": 493051632877219
 						}
 					],
-					"sid": 202776933218057
+					"sid": 202776933218057,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -524,7 +535,8 @@
 							"sid": 367052460096731
 						}
 					],
-					"sid": 417994323465694
+					"sid": 417994323465694,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -552,10 +564,329 @@
 							}
 						}
 					],
-					"sid": 378402415130724
+					"sid": 378402415130724,
+					"disabled": true
 				}
 			],
 			"sid": 302380378391519
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 588110955072134,
+					"parameters": {
+						"object": "Elektro_Shield"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Elektro_Shield",
+					"sid": 208499214297063,
+					"parameters": {
+						"tags": "\"Active\""
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 872659168815506
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 551483618695235,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "press_E",
+					"sid": 633528608096034,
+					"parameters": {
+						"x": "Player.X ",
+						"y": "Player.Y -60"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "press_E",
+					"sid": 906915888737818,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Player",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 358117655058210
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 518046290604835,
+					"parameters": {
+						"object": "Elektro_Shield"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 537231916688963
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 866321401980094,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 109681173745579
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 177202194110375,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "press_E",
+					"sid": 631174137827538
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Elevator_Door",
+					"sid": 901389221680746,
+					"parameters": {
+						"tags": "\"Active\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Elektro_Shield",
+					"sid": 233582686221094,
+					"parameters": {
+						"tags": "\"Active\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "press_E",
+					"sid": 430192893916748
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Elevator_Door",
+					"sid": 295942601105517,
+					"parameters": {
+						"frame-number": "2"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Elektro_Shield",
+					"sid": 524970800279690,
+					"parameters": {
+						"frame-number": "3"
+					}
+				}
+			],
+			"sid": 420741021275237
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-tags",
+					"objectClass": "Elevator_Door",
+					"sid": 980421221376744,
+					"parameters": {
+						"tags": "\"Active\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Elevator_Door",
+					"sid": 290974334538124,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 231664686297482,
+					"parameters": {
+						"object": "Elevator_Door"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 471006160887123
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 646840960073639,
+					"parameters": {
+						"object-to-create": "press_E",
+						"layer": "10",
+						"x": "Player.X",
+						"y": "Player.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "press_E",
+					"sid": 375885733982011,
+					"parameters": {
+						"x": "Player.X ",
+						"y": "Player.Y -60"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "press_E",
+					"sid": 173453241346858,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Player",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 932719953429648
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 562592234460310,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Elevator_Door",
+					"sid": 516864218691751,
+					"parameters": {
+						"tags": "\"Active\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Elevator_Door",
+					"sid": 239449621898552,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 363804287074242,
+					"parameters": {
+						"object": "Elevator_Door"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "press_E",
+					"sid": 210044985735826
+				},
+				{
+					"id": "move-layer",
+					"objectClass": "System",
+					"sid": 407024092391130,
+					"parameters": {
+						"layer": "\"Player\"",
+						"insert-by": "\"Light\"",
+						"where": "above"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 165786675940518,
+					"parameters": {
+						"object-to-create": "Shadow3",
+						"layer": "10",
+						"x": "Player.X",
+						"y": "Player.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Shadow3",
+					"sid": 848219817412415,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 318605520903635,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 469419995603721
 		}
 	],
 	"sid": 412618442979125
