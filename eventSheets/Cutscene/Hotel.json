@@ -11,7 +11,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "Car",
 			"description": "",
 			"isActiveOnStart": true,
@@ -29,12 +29,12 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 332469821509748,
+							"sid": 378732366148795,
 							"parameters": {
 								"object-to-create": "Shadow3",
-								"layer": "10",
+								"layer": "11",
 								"x": "Camera.X",
-								"y": "Camera.Y",
+								"y": "Camera.Y -100",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
@@ -64,7 +64,6 @@
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 687744815877928,
-							"disabled": true,
 							"parameters": {
 								"seconds": "6"
 							}
@@ -90,6 +89,7 @@
 							"id": "create-object",
 							"objectClass": "System",
 							"sid": 980066769256554,
+							"disabled": true,
 							"parameters": {
 								"object-to-create": "Car_Cat",
 								"layer": "10",
@@ -100,8 +100,7 @@
 							}
 						}
 					],
-					"sid": 374717568320464,
-					"disabled": true
+					"sid": 374717568320464
 				},
 				{
 					"eventType": "block",
@@ -145,8 +144,7 @@
 							}
 						}
 					],
-					"sid": 649565226504013,
-					"disabled": true
+					"sid": 649565226504013
 				},
 				{
 					"eventType": "block",
@@ -174,8 +172,7 @@
 							}
 						}
 					],
-					"sid": 545885533112744,
-					"disabled": true
+					"sid": 545885533112744
 				},
 				{
 					"eventType": "block",
@@ -183,7 +180,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Car_Cat",
-							"sid": 476290249351802,
+							"sid": 906855115447809,
 							"parameters": {
 								"object": "Door_Hole"
 							}
@@ -215,6 +212,7 @@
 							"id": "play",
 							"objectClass": "Аудио",
 							"sid": 266063288758375,
+							"disabled": true,
 							"parameters": {
 								"audio-file": "Crash_Furniture",
 								"loop": "not-looping",
@@ -224,8 +222,7 @@
 							}
 						}
 					],
-					"sid": 162916167651528,
-					"disabled": true
+					"sid": 162916167651528
 				},
 				{
 					"eventType": "block",
@@ -250,8 +247,7 @@
 							}
 						}
 					],
-					"sid": 789247786691788,
-					"disabled": true
+					"sid": 789247786691788
 				},
 				{
 					"eventType": "block",
@@ -263,6 +259,14 @@
 							"parameters": {
 								"animation": "\"Crash\""
 							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Car_Cat",
+							"sid": 669890789602101,
+							"parameters": {
+								"object": "Door_Hole"
+							}
 						}
 					],
 					"actions": [
@@ -271,8 +275,7 @@
 							"sid": 513629647757810
 						}
 					],
-					"sid": 564816044329056,
-					"disabled": true
+					"sid": 564816044329056
 				},
 				{
 					"eventType": "block",
@@ -318,10 +321,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 732989253319385,
+							"sid": 503611297043013,
 							"parameters": {
 								"object-to-create": "Smoke_Boom",
-								"layer": "10",
+								"layer": "11",
 								"x": "297",
 								"y": "1860",
 								"create-hierarchy": false,
@@ -331,10 +334,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 256824729537114,
+							"sid": 142316062549333,
 							"parameters": {
 								"object-to-create": "BoomFire",
-								"layer": "10",
+								"layer": "11",
 								"x": "369",
 								"y": "1803",
 								"create-hierarchy": false,
@@ -344,10 +347,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 254226006418521,
+							"sid": 424430361670343,
 							"parameters": {
 								"object-to-create": "Boom2",
-								"layer": "10",
+								"layer": "11",
 								"x": "295",
 								"y": "1871",
 								"create-hierarchy": false,
@@ -357,10 +360,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 704832266503335,
+							"sid": 386724054418049,
 							"parameters": {
 								"object-to-create": "Exploution",
-								"layer": "10",
+								"layer": "11",
 								"x": "236",
 								"y": "1840",
 								"create-hierarchy": false,
@@ -395,10 +398,47 @@
 								"x": "Car_Cat.X +150",
 								"y": "Car_Cat.Y"
 							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 884848031488112,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Car_Cat",
+							"sid": 857174040688429,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 859491200764961,
+							"parameters": {
+								"object-to-create": "Player",
+								"layer": "9",
+								"x": "Car_Cat.X",
+								"y": "Car_Cat.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 773648009410702,
+							"parameters": {
+								"instance-variable": "onPlayer",
+								"value": "true"
+							}
 						}
 					],
-					"sid": 762422241911643,
-					"disabled": true
+					"sid": 762422241911643
 				},
 				{
 					"eventType": "block",
@@ -418,8 +458,7 @@
 							"sid": 767817499484494
 						}
 					],
-					"sid": 390980225663165,
-					"disabled": true
+					"sid": 390980225663165
 				},
 				{
 					"eventType": "block",
@@ -440,8 +479,7 @@
 							"sid": 144413223791969
 						}
 					],
-					"sid": 987931140120820,
-					"disabled": true
+					"sid": 987931140120820
 				},
 				{
 					"eventType": "block",
@@ -492,8 +530,7 @@
 							}
 						}
 					],
-					"sid": 725972772862401,
-					"disabled": true
+					"sid": 725972772862401
 				},
 				{
 					"eventType": "block",
@@ -514,8 +551,7 @@
 							"sid": 493051632877219
 						}
 					],
-					"sid": 202776933218057,
-					"disabled": true
+					"sid": 202776933218057
 				},
 				{
 					"eventType": "block",
@@ -542,12 +578,17 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
+							"id": "is-overlapping-another-object",
 							"objectClass": "Car_Cat",
-							"sid": 940780544566208,
+							"sid": 101544097597260,
 							"parameters": {
 								"object": "Reseption"
 							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 426648045531042
 						}
 					],
 					"actions": [
@@ -564,8 +605,7 @@
 							}
 						}
 					],
-					"sid": 378402415130724,
-					"disabled": true
+					"sid": 378402415130724
 				}
 			],
 			"sid": 302380378391519
@@ -757,10 +797,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 646840960073639,
+					"sid": 803567382242141,
 					"parameters": {
 						"object-to-create": "press_E",
-						"layer": "10",
+						"layer": "11",
 						"x": "Player.X",
 						"y": "Player.Y",
 						"create-hierarchy": false,
@@ -838,12 +878,48 @@
 					"sid": 210044985735826
 				},
 				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 322468620595548,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 862396756550889,
+					"parameters": {
+						"group-name": "\"Setup\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 634156040146410,
+					"parameters": {
+						"x": "1715",
+						"y": "1719"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 922899703914617,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y -50"
+					}
+				},
+				{
 					"id": "move-layer",
 					"objectClass": "System",
-					"sid": 407024092391130,
+					"sid": 765403966272495,
 					"parameters": {
 						"layer": "\"Player\"",
-						"insert-by": "\"Light\"",
+						"insert-by": "\"CutScene\"",
 						"where": "above"
 					}
 				},
@@ -858,6 +934,15 @@
 						"y": "Player.Y",
 						"create-hierarchy": false,
 						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 895217609942987,
+					"parameters": {
+						"animation": "\"Wolf_Idle\"",
+						"from": "beginning"
 					}
 				},
 				{
@@ -884,9 +969,1156 @@
 						"ping-pong": "no",
 						"repeat-count": "1"
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 750419784147584,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 582076350239736,
+					"parameters": {
+						"animation": "\"Wolf_Kness2\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 667553601053343,
+					"parameters": {
+						"variable": "onDialMain",
+						"value": "true"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player",
+					"sid": 941603283278377,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
 				}
 			],
 			"sid": 469419995603721
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 567636712296565,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 819677761650501
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 850167211878754,
+					"parameters": [
+						"\"Ахх... Кажется, пакеты, которые во мне оставили, уже растворились в желудочном соке...\"",
+						"\"Mark4\"",
+						"2"
+					]
+				}
+			],
+			"sid": 717769658885374
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 629263188356199,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 733707398670751
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 284875565406235,
+					"parameters": [
+						"\"Чёрт, для каких же безумцев создавали этот наркотик? Даже если это передоз — всё равно не сходится. Тело будто онемело, чувства отключились... Будто я уже не я.\"",
+						"\"Mark4\"",
+						"2"
+					]
+				}
+			],
+			"sid": 361039301331298
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-tags",
+					"objectClass": "Elevator_Door",
+					"sid": 786423711021087,
+					"parameters": {
+						"tags": "\"Active\""
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 234432135741517,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "3"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 362950378409676
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 692691582039377,
+					"parameters": {
+						"x": "1715",
+						"y": "660"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 501141137420471,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y -71"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 341806958773503,
+					"parameters": {
+						"animation": "\"Wolf_Idle\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Camera",
+					"sid": 360385746406227,
+					"disabled": true,
+					"parameters": {
+						"instance-variable": "onPlayer",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Shadow3",
+					"sid": 785875903193072,
+					"parameters": {
+						"x": "1714",
+						"y": "637"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Elevator_Door",
+					"sid": 752469093202297,
+					"parameters": {
+						"x": "1720",
+						"y": "614"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 678631620700534,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 673479924002444,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "3",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 348760085835794,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 391416507203326,
+					"parameters": {
+						"group-name": "\"Setup\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 254204931615854,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Elevator_Door",
+					"sid": 592633535555212
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 202704089853651,
+					"parameters": {
+						"audio-file": "Open_Grid",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 381856399047100,
+					"parameters": {
+						"variable": "onDialMain",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 517963872867626
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Shadow5",
+					"sid": 936423464425428,
+					"parameters": {
+						"object": "Player"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Shadow5",
+					"sid": 942203678192875,
+					"parameters": {
+						"tags": "\"Active\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow5",
+					"sid": 878961961404635,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 131819289102460
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 651197842322555,
+					"parameters": {
+						"object": "Boss"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 575334537309133
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 866966748484184,
+					"parameters": {
+						"object-to-create": "press_E",
+						"layer": "12",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 498870633290732,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "press_E",
+					"sid": 691683127120650,
+					"parameters": {
+						"x": "Player.X ",
+						"y": "Player.Y -60"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "press_E",
+					"sid": 490170867833144,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Player",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 491086458557063
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 699205894864979,
+					"parameters": {
+						"object": "Boss"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 401856471846928
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 858337061433360,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 807763251767766
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 939317782157834,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 320546848912124,
+					"parameters": {
+						"object": "Boss"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Boss",
+					"sid": 280143144279544,
+					"parameters": {
+						"animation": "\"Dead\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 583636554692583,
+					"parameters": {
+						"variable": "onDialMain",
+						"value": "true"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "press_E",
+					"sid": 284917740733713
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 428049207875142,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Boss",
+					"sid": 830200765499897,
+					"parameters": {
+						"animation": "\"Dead\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Boss",
+					"sid": 975478921953086,
+					"parameters": {
+						"frame-number": "0"
+					}
+				},
+				{
+					"id": "stop-animation",
+					"objectClass": "Boss",
+					"sid": 558306451633502
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Player",
+					"sid": 817158917740793,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 262880339429377,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "4"
+					}
+				}
+			],
+			"sid": 841768890418731
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 350934782948054,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "4"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 518524609416708
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 793775850001133,
+					"parameters": [
+						"\"Не убивай меня! Я заплачу тебе, у меня есть деньги в сейфе под столом!\"",
+						"\"Boss2\"",
+						"2"
+					]
+				}
+			],
+			"sid": 329737513342962
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 868521348297240,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "5"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 147975400037842
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 413577259373137,
+					"parameters": [
+						"\"...\"",
+						"\"Mark4\"",
+						"2"
+					]
+				}
+			],
+			"sid": 478836051736109
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 976795758809865,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "6"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 308541699232885
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 227753688251872,
+					"parameters": [
+						"\"Слушай не убивай меня! Я ничего про тебя не знаю! Полиция тоже, мы хотели сами с тобой разобраться, поэтому сделали так, чтобы они замяли на время твоё дело.\"",
+						"\"Boss2\"",
+						"2"
+					]
+				}
+			],
+			"sid": 877223417057071
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 978449021988219,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "7"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 552742555542757
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 974611295928478,
+					"parameters": [
+						"\"Ты можешь просто взять деньги и уйти!\"",
+						"\"Boss2\"",
+						"2"
+					]
+				}
+			],
+			"sid": 796518555298492
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 215150607677233,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "8"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 400020371804820
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 671001331255609,
+					"parameters": {
+						"instance-variable": "Wolf",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Boss",
+					"sid": 122075773603019,
+					"parameters": {
+						"animation": "\"Death\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 659113120753757,
+					"parameters": {
+						"audio-file": "zvuk-miasa-bossa-2_AzrZ196E",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 955592955924725
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 661017366670908,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 348215619757509,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "8"
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Boss",
+					"sid": 243385416458483,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Boss",
+					"sid": 908578768848342,
+					"parameters": {
+						"animation": "\"Dead\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Boss",
+					"sid": 373594358191248,
+					"parameters": {
+						"frame-number": "2"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player",
+					"sid": 876214768413013,
+					"parameters": {
+						"instance-variable": "Wolf",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 111358224846763,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-button-released",
+					"objectClass": "Мышь",
+					"sid": 776323479395323,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 286101344129961,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "8"
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Boss",
+					"sid": 754989391737480,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Boss",
+					"sid": 528233777882754,
+					"parameters": {
+						"animation": "\"Dead\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Boss",
+					"sid": 957292985551499,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 135316782972658,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 688717255557894,
+					"parameters": {
+						"instance-variable": "Wolf",
+						"comparison": 0,
+						"value": "20"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Boss",
+					"sid": 324550216906609,
+					"parameters": {
+						"animation": "\"Dead2\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 609696328605320,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player",
+					"sid": 302811333180873,
+					"parameters": {
+						"instance-variable": "Wolf",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Boss",
+					"sid": 915057837584243,
+					"parameters": {
+						"animation": "\"Dead3\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 225320256492027,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 540217818948839,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 371621192755142,
+					"parameters": {
+						"instance-variable": "Wolf",
+						"comparison": 0,
+						"value": "21"
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Boss",
+					"sid": 970858103620633,
+					"parameters": {
+						"comparison": 0,
+						"number": "1"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Boss",
+					"sid": 855788370635795,
+					"parameters": {
+						"animation": "\"Dead4\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Boss",
+					"sid": 796496981129351,
+					"parameters": {
+						"frame-number": "1"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player",
+					"sid": 801637592290435,
+					"parameters": {
+						"instance-variable": "Wolf",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 829011987934389,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-button-released",
+					"objectClass": "Мышь",
+					"sid": 326428894525803,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Boss",
+					"sid": 402819470099559,
+					"parameters": {
+						"animation": "\"Dead4\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Boss",
+					"sid": 781096480360690,
+					"parameters": {
+						"comparison": 0,
+						"number": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Boss",
+					"sid": 527148997356686,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 917834826500895,
+			"disabled": true
+		},
+		{
+			"bookmark": true,
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 512215035873639,
+					"parameters": {
+						"instance-variable": "Wolf",
+						"comparison": 0,
+						"value": "40"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Boss",
+					"sid": 764592838429441,
+					"parameters": {
+						"animation": "\"Dead4\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 853642531538578,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Boss",
+					"sid": 414014697738572,
+					"parameters": {
+						"comparison": 0,
+						"number": "7"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Boss",
+					"sid": 839046102692832,
+					"parameters": {
+						"animation": "\"Death\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 684550994736537,
+					"parameters": {
+						"tag": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 242144996736690,
+					"parameters": {
+						"object-to-create": "Blood",
+						"layer": "8",
+						"x": "Boss.X +30",
+						"y": "Boss.Y ",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 748385257255671,
+					"parameters": {
+						"audio-file": "zvuk-miasa-bossa_DTmUc8rr",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"callFunction": "shakeScreen",
+					"sid": 941138719512706
+				}
+			],
+			"sid": 427232340370090
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Boss",
+					"sid": 778994898191783,
+					"parameters": {
+						"comparison": 0,
+						"number": "18"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Boss",
+					"sid": 177678782344977,
+					"parameters": {
+						"animation": "\"Death\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 467733500445159,
+					"parameters": {
+						"tag": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 420791772572859,
+					"parameters": {
+						"object-to-create": "Blood_mirror",
+						"layer": "8",
+						"x": "Boss.X +60",
+						"y": "Boss.Y ",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 909807890009368,
+					"parameters": {
+						"object-to-create": "Blood2",
+						"layer": "8",
+						"x": "Boss.X +60",
+						"y": "Boss.Y -20",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 773030058959756,
+					"parameters": {
+						"audio-file": "zvuk-miasa-bossa_DTmUc8rr",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"callFunction": "shakeScreen",
+					"sid": 905243715776691
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "Blood2",
+					"sid": 734980294348054,
+					"parameters": {
+						"state": "mirrored"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 284741371154873,
+					"parameters": {
+						"seconds": "5.5"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 692938418034581,
+					"parameters": {
+						"object-to-create": "Shadow3",
+						"layer": "12",
+						"x": "Boss.X",
+						"y": "Boss.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 764991425297206
 		}
 	],
 	"sid": 412618442979125
