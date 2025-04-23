@@ -11,7 +11,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Car",
 			"description": "",
 			"isActiveOnStart": true,
@@ -100,7 +100,8 @@
 							}
 						}
 					],
-					"sid": 374717568320464
+					"sid": 374717568320464,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -144,7 +145,8 @@
 							}
 						}
 					],
-					"sid": 649565226504013
+					"sid": 649565226504013,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -172,7 +174,8 @@
 							}
 						}
 					],
-					"sid": 545885533112744
+					"sid": 545885533112744,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -212,7 +215,6 @@
 							"id": "play",
 							"objectClass": "Аудио",
 							"sid": 266063288758375,
-							"disabled": true,
 							"parameters": {
 								"audio-file": "Crash_Furniture",
 								"loop": "not-looping",
@@ -222,7 +224,8 @@
 							}
 						}
 					],
-					"sid": 162916167651528
+					"sid": 162916167651528,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -247,7 +250,8 @@
 							}
 						}
 					],
-					"sid": 789247786691788
+					"sid": 789247786691788,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -275,7 +279,8 @@
 							"sid": 513629647757810
 						}
 					],
-					"sid": 564816044329056
+					"sid": 564816044329056,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -438,7 +443,8 @@
 							}
 						}
 					],
-					"sid": 762422241911643
+					"sid": 762422241911643,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -458,7 +464,8 @@
 							"sid": 767817499484494
 						}
 					],
-					"sid": 390980225663165
+					"sid": 390980225663165,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -479,7 +486,8 @@
 							"sid": 144413223791969
 						}
 					],
-					"sid": 987931140120820
+					"sid": 987931140120820,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -519,10 +527,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 948146097772499,
+							"sid": 776940469572144,
 							"parameters": {
 								"object-to-create": "Crash",
-								"layer": "10",
+								"layer": "11",
 								"x": "Car_Cat.X +random(10,200)",
 								"y": "Car_Cat.Y -10",
 								"create-hierarchy": false,
@@ -530,7 +538,8 @@
 							}
 						}
 					],
-					"sid": 725972772862401
+					"sid": 725972772862401,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -551,7 +560,8 @@
 							"sid": 493051632877219
 						}
 					],
-					"sid": 202776933218057
+					"sid": 202776933218057,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -571,24 +581,18 @@
 							"sid": 367052460096731
 						}
 					],
-					"sid": 417994323465694,
-					"disabled": true
+					"sid": 417994323465694
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
+							"id": "on-collision-with-another-object",
 							"objectClass": "Car_Cat",
-							"sid": 101544097597260,
+							"sid": 371772508210886,
 							"parameters": {
-								"object": "Reseption"
+								"object": "BarTable"
 							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 426648045531042
 						}
 					],
 					"actions": [
@@ -605,7 +609,8 @@
 							}
 						}
 					],
-					"sid": 378402415130724
+					"sid": 378402415130724,
+					"disabled": true
 				}
 			],
 			"sid": 302380378391519
@@ -735,6 +740,18 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 205092112947992,
+					"parameters": {
+						"audio-file": "Open_Grid",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
 				{
 					"id": "destroy",
 					"objectClass": "press_E",
