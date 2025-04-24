@@ -8,6 +8,76 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Effect"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Мышь",
+					"sid": 624116867335004,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 126848430966323
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 485306087130889,
+					"parameters": {
+						"animation": "\"Fire_Fire\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 612717366832732,
+					"parameters": {
+						"object-to-create": "Fire_Extinguisher",
+						"layer": "Player.LayerName",
+						"x": "Player.X +28",
+						"y": "Player.Y -15",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 460165592806146,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Мышь",
+					"sid": 487991596928912,
+					"parameters": {
+						"mouse-button": "left"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-rate",
+					"objectClass": "Fire_Extinguisher",
+					"sid": 545611754433782,
+					"parameters": {
+						"rate": "0"
+					}
+				}
+			],
+			"sid": 205338330528577,
+			"disabled": true
 		}
 	],
 	"sid": 327043033523309
