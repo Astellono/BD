@@ -11,20 +11,14 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "Car",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 808661124100588
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
 							"id": "create-object",
@@ -107,21 +101,77 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-opacity",
-							"objectClass": "Shadow3",
-							"sid": 222137226810349,
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 792599208898176,
 							"parameters": {
+								"instance-variable": "textframe",
 								"comparison": 0,
-								"opacity": "0"
+								"value": "6"
 							}
 						},
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 803920050732037
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "security",
+							"sid": 987120040914168,
+							"parameters": {
+								"tags": "\"Cat\""
+							}
 						}
 					],
 					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Player",
+							"sid": 556315485359345
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Camera",
+							"sid": 455260471047556,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "4815",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Camera",
+							"sid": 160445659623420,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "1900",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 378011244447369,
+							"parameters": {
+								"seconds": "2.0"
+							}
+						},
 						{
 							"id": "play",
 							"objectClass": "Аудио",
@@ -143,10 +193,19 @@
 								"which": "horizontal",
 								"speed": "-1500"
 							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Scientist",
+							"sid": 423779219404757
+						},
+						{
+							"id": "destroy",
+							"objectClass": "security",
+							"sid": 299583231229488
 						}
 					],
-					"sid": 649565226504013,
-					"disabled": true
+					"sid": 649565226504013
 				},
 				{
 					"eventType": "block",
@@ -174,8 +233,7 @@
 							}
 						}
 					],
-					"sid": 545885533112744,
-					"disabled": true
+					"sid": 545885533112744
 				},
 				{
 					"eventType": "block",
@@ -224,8 +282,7 @@
 							}
 						}
 					],
-					"sid": 162916167651528,
-					"disabled": true
+					"sid": 162916167651528
 				},
 				{
 					"eventType": "block",
@@ -250,8 +307,7 @@
 							}
 						}
 					],
-					"sid": 789247786691788,
-					"disabled": true
+					"sid": 789247786691788
 				},
 				{
 					"eventType": "block",
@@ -279,8 +335,7 @@
 							"sid": 513629647757810
 						}
 					],
-					"sid": 564816044329056,
-					"disabled": true
+					"sid": 564816044329056
 				},
 				{
 					"eventType": "block",
@@ -443,8 +498,7 @@
 							}
 						}
 					],
-					"sid": 762422241911643,
-					"disabled": true
+					"sid": 762422241911643
 				},
 				{
 					"eventType": "block",
@@ -464,8 +518,7 @@
 							"sid": 767817499484494
 						}
 					],
-					"sid": 390980225663165,
-					"disabled": true
+					"sid": 390980225663165
 				},
 				{
 					"eventType": "block",
@@ -486,8 +539,7 @@
 							"sid": 144413223791969
 						}
 					],
-					"sid": 987931140120820,
-					"disabled": true
+					"sid": 987931140120820
 				},
 				{
 					"eventType": "block",
@@ -538,8 +590,7 @@
 							}
 						}
 					],
-					"sid": 725972772862401,
-					"disabled": true
+					"sid": 725972772862401
 				},
 				{
 					"eventType": "block",
@@ -560,8 +611,7 @@
 							"sid": 493051632877219
 						}
 					],
-					"sid": 202776933218057,
-					"disabled": true
+					"sid": 202776933218057
 				},
 				{
 					"eventType": "block",
@@ -581,7 +631,8 @@
 							"sid": 367052460096731
 						}
 					],
-					"sid": 417994323465694
+					"sid": 417994323465694,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -609,11 +660,276 @@
 							}
 						}
 					],
-					"sid": 378402415130724,
-					"disabled": true
+					"sid": 378402415130724
 				}
 			],
 			"sid": 302380378391519
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Office",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 150963794593968
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 274520542587284,
+							"parameters": {
+								"instance-variable": "onPlayer",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 590755700265974,
+							"parameters": {
+								"x": "Boss.X",
+								"y": "Boss.Y"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 854438377588278,
+							"parameters": {
+								"object-to-create": "Shadow3",
+								"layer": "11",
+								"x": "Camera.X",
+								"y": "Camera.Y -100",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 423333711469808,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Boss",
+							"sid": 346886243284990,
+							"parameters": {
+								"animation": "\"Animation 1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 871601335085934,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 807357407476519,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "true"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Player",
+							"sid": 624172869390782,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 771207499647754
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 129541255056778,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 871068632594263
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 321335090804853,
+							"parameters": [
+								"\"Потрудись объяснить мне, почему он порвал цепи, словно Борецкий банку жигулей?\"",
+								"\"Boss\"",
+								"2"
+							]
+						}
+					],
+					"sid": 317048276163514
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 102722219492150,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 160446436708974
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 229682523948074,
+							"parameters": [
+								"\"Видимо я немного неправильно синтезировал вещество, а желудочный сок слишком быстро переварил пакет с порошком...\"",
+								"\"Scientists\"",
+								"2"
+							]
+						}
+					],
+					"sid": 105483103133741
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 439292972305614,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "3"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 191564287815176
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 827044695171030,
+							"parameters": [
+								"\"Немного?  Я от тебя просил лёгки стимулятор нервной системы, а не средство для превращения в универсального солдата!\"",
+								"\"Boss\"",
+								"2"
+							]
+						}
+					],
+					"sid": 497437497048339
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 207949017600290,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "4"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 685675932961157
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 513435470942393,
+							"parameters": [
+								"\"Слушайте, что вы от меня хотите, я всего лишь второкурсник, а не Гейзенберг\"",
+								"\"Scientists\"",
+								"2"
+							]
+						}
+					],
+					"sid": 492079900105812
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 967083021110447,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "5"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 690814882327211
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 163152463279975,
+							"parameters": [
+								"\"Ох, пора прекратить набирать пиздюков в телеге. Ни драться ни варить не умеете...\"",
+								"\"Boss\"",
+								"2"
+							]
+						}
+					],
+					"sid": 707405873644415
+				}
+			],
+			"sid": 322641673768125
 		},
 		{
 			"eventType": "block",
@@ -1016,10 +1332,10 @@
 				{
 					"id": "add-to-instvar",
 					"objectClass": "Player",
-					"sid": 941603283278377,
+					"sid": 780941760699496,
 					"parameters": {
 						"instance-variable": "textframe",
-						"value": "1"
+						"value": "7"
 					}
 				}
 			],
@@ -1031,11 +1347,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 567636712296565,
+					"sid": 546892994993394,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "1"
+						"value": "7"
 					}
 				},
 				{
@@ -1063,11 +1379,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 629263188356199,
+					"sid": 485492540222388,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "2"
+						"value": "8"
 					}
 				},
 				{
@@ -1103,11 +1419,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 234432135741517,
+					"sid": 796114925263363,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "3"
+						"value": "9"
 					}
 				},
 				{
@@ -1473,12 +1789,12 @@
 					}
 				},
 				{
-					"id": "set-instvar-value",
+					"id": "add-to-instvar",
 					"objectClass": "Player",
-					"sid": 262880339429377,
+					"sid": 165446248976383,
 					"parameters": {
 						"instance-variable": "textframe",
-						"value": "4"
+						"value": "1"
 					}
 				}
 			],
@@ -1490,11 +1806,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 350934782948054,
+					"sid": 502371281962200,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "4"
+						"value": "10"
 					}
 				},
 				{
@@ -1522,11 +1838,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 868521348297240,
+					"sid": 340000442222722,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "5"
+						"value": "11"
 					}
 				},
 				{
@@ -1554,11 +1870,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 976795758809865,
+					"sid": 681140861871474,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "6"
+						"value": "12"
 					}
 				},
 				{
@@ -1586,11 +1902,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 978449021988219,
+					"sid": 254919361487161,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "7"
+						"value": "13"
 					}
 				},
 				{
@@ -1618,11 +1934,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player",
-					"sid": 215150607677233,
+					"sid": 406128816883264,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "8"
+						"value": "14"
 					}
 				},
 				{
@@ -1665,311 +1981,6 @@
 				}
 			],
 			"sid": 955592955924725
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-click",
-					"objectClass": "Мышь",
-					"sid": 661017366670908,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player",
-					"sid": 348215619757509,
-					"parameters": {
-						"instance-variable": "textframe",
-						"comparison": 0,
-						"value": "8"
-					}
-				},
-				{
-					"id": "compare-animation-frame",
-					"objectClass": "Boss",
-					"sid": 243385416458483,
-					"parameters": {
-						"comparison": 0,
-						"number": "2"
-					},
-					"isInverted": true
-				},
-				{
-					"id": "is-animation-playing",
-					"objectClass": "Boss",
-					"sid": 908578768848342,
-					"parameters": {
-						"animation": "\"Dead\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Boss",
-					"sid": 373594358191248,
-					"parameters": {
-						"frame-number": "2"
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Player",
-					"sid": 876214768413013,
-					"parameters": {
-						"instance-variable": "Wolf",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 111358224846763,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-button-released",
-					"objectClass": "Мышь",
-					"sid": 776323479395323,
-					"parameters": {
-						"mouse-button": "left"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player",
-					"sid": 286101344129961,
-					"parameters": {
-						"instance-variable": "textframe",
-						"comparison": 0,
-						"value": "8"
-					}
-				},
-				{
-					"id": "compare-animation-frame",
-					"objectClass": "Boss",
-					"sid": 754989391737480,
-					"parameters": {
-						"comparison": 0,
-						"number": "2"
-					}
-				},
-				{
-					"id": "is-animation-playing",
-					"objectClass": "Boss",
-					"sid": 528233777882754,
-					"parameters": {
-						"animation": "\"Dead\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Boss",
-					"sid": 957292985551499,
-					"parameters": {
-						"frame-number": "1"
-					}
-				}
-			],
-			"sid": 135316782972658,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player",
-					"sid": 688717255557894,
-					"parameters": {
-						"instance-variable": "Wolf",
-						"comparison": 0,
-						"value": "20"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Boss",
-					"sid": 324550216906609,
-					"parameters": {
-						"animation": "\"Dead2\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 609696328605320,
-					"parameters": {
-						"seconds": "0.5"
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Player",
-					"sid": 302811333180873,
-					"parameters": {
-						"instance-variable": "Wolf",
-						"value": "1"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Boss",
-					"sid": 915057837584243,
-					"parameters": {
-						"animation": "\"Dead3\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 225320256492027,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-click",
-					"objectClass": "Мышь",
-					"sid": 540217818948839,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player",
-					"sid": 371621192755142,
-					"parameters": {
-						"instance-variable": "Wolf",
-						"comparison": 0,
-						"value": "21"
-					}
-				},
-				{
-					"id": "compare-animation-frame",
-					"objectClass": "Boss",
-					"sid": 970858103620633,
-					"parameters": {
-						"comparison": 0,
-						"number": "1"
-					},
-					"isInverted": true
-				},
-				{
-					"id": "is-animation-playing",
-					"objectClass": "Boss",
-					"sid": 855788370635795,
-					"parameters": {
-						"animation": "\"Dead4\""
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Boss",
-					"sid": 796496981129351,
-					"parameters": {
-						"frame-number": "1"
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Player",
-					"sid": 801637592290435,
-					"parameters": {
-						"instance-variable": "Wolf",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 829011987934389,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-button-released",
-					"objectClass": "Мышь",
-					"sid": 326428894525803,
-					"parameters": {
-						"mouse-button": "left"
-					}
-				},
-				{
-					"id": "is-animation-playing",
-					"objectClass": "Boss",
-					"sid": 402819470099559,
-					"parameters": {
-						"animation": "\"Dead4\""
-					},
-					"isInverted": true
-				},
-				{
-					"id": "compare-animation-frame",
-					"objectClass": "Boss",
-					"sid": 781096480360690,
-					"parameters": {
-						"comparison": 0,
-						"number": "1"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Boss",
-					"sid": 527148997356686,
-					"parameters": {
-						"frame-number": "0"
-					}
-				}
-			],
-			"sid": 917834826500895,
-			"disabled": true
-		},
-		{
-			"bookmark": true,
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player",
-					"sid": 512215035873639,
-					"parameters": {
-						"instance-variable": "Wolf",
-						"comparison": 0,
-						"value": "40"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Boss",
-					"sid": 764592838429441,
-					"parameters": {
-						"animation": "\"Dead4\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 853642531538578,
-			"disabled": true
 		},
 		{
 			"eventType": "block",
