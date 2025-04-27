@@ -78,6 +78,45 @@
 			],
 			"sid": 205338330528577,
 			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Частицы",
+					"sid": 701869330534670
+				}
+			],
+			"actions": [
+				{
+					"id": "set-init-opacity",
+					"objectClass": "Частицы",
+					"sid": 352908618938033,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Частицы",
+					"sid": 201387009754807,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 140817939350123,
+			"disabled": true
 		}
 	],
 	"sid": 327043033523309
