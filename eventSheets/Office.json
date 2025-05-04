@@ -8,6 +8,330 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Effect"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Dialogue"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 828869840073022,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 468762209116337,
+					"parameters": {
+						"variable": "onDial"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 150475570934688,
+					"parameters": {
+						"variable": "onDial",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 842359033849859,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 665974844517743
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 322874324706215,
+							"parameters": {
+								"variable": "onDial"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 839376630198788,
+							"parameters": [
+								"\"Блять! Они закрыли дверь изнутри\"",
+								"security_Cutscene.x -10",
+								"security_Cutscene.Y - 30"
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 863101004620050,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"callFunction": "Destroy_Dialoge",
+							"sid": 611812263427095
+						}
+					],
+					"sid": 418085762422734
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 792215240725819,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Trigger_CutScene",
+					"sid": 798094932005072,
+					"parameters": {
+						"tags": "\"cat1\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Cars",
+					"sid": 975225066993617,
+					"parameters": {
+						"tags": "\"Cat\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Cars",
+					"sid": 467386633415041,
+					"parameters": {
+						"animation": "\"Drive\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Mid_Brother",
+					"sid": 649134326904601
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Junior",
+					"sid": 777365900349957
+				}
+			],
+			"sid": 149546859304801
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 407508558023850,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Trigger_CutScene",
+					"sid": 545157875515532,
+					"parameters": {
+						"tags": "\"cat2\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Cars",
+					"sid": 842772172551057,
+					"parameters": {
+						"tags": "\"Cat\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Cars",
+					"sid": 178365378348772,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Cars",
+					"sid": 663238845476545,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "overall",
+						"speed": "-500"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 626196053482881,
+					"parameters": {
+						"object-to-create": "Gaz",
+						"layer": "10",
+						"x": "Cars.X +20",
+						"y": "Cars.Y +13",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 872003632622580,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 326156524589423,
+					"parameters": {
+						"variable": "onDialMain",
+						"value": "true"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player",
+					"sid": 209362517034366,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 695549472482960
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 208915434111025,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 373021484411061
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 480916559474299,
+					"parameters": [
+						"\"Гони в Андеграунд!\"",
+						"\"Junior_Fear\"",
+						"1"
+					]
+				}
+			],
+			"sid": 453423531026605
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 710728244288742,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 699764871307599
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_mainDialoge",
+					"sid": 447273528537609,
+					"parameters": [
+						"\"Чёрт! Опять упустил...\"",
+						"\"Mark1\"",
+						"1"
+					]
+				}
+			],
+			"sid": 147221082200554
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 378877818962856,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "3"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 726833766127409
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 317404837855087,
+					"parameters": {
+						"object-to-create": "Shadow3",
+						"layer": "10",
+						"x": "Player.X",
+						"y": "Player.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 668872003981973
 		}
 	],
 	"sid": 347529188029333
