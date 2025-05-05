@@ -19211,7 +19211,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "ТайловыйФон3",
+					"type": "Perila2",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
@@ -19466,7 +19466,7 @@
 					}
 				},
 				{
-					"type": "ТайловыйФон3",
+					"type": "Perila2",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
@@ -23001,6 +23001,116 @@
 						"y": 1102,
 						"width": 152,
 						"height": 73,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Player",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "noWeaponIdle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6610,
+					"sid": 611040335400729,
+					"tags": "",
+					"instanceVariables": {
+						"speedRun": 285,
+						"speedTackel": 400,
+						"speedDash": 400,
+						"rotate": 1,
+						"NoEmpty": 0,
+						"CastWeapon": "",
+						"WeaponMemory": "",
+						"spawn": false,
+						"kick": false,
+						"kickrun": false,
+						"damage": 0,
+						"Finishing": false,
+						"cdHitRun": false,
+						"weapon": "",
+						"DistanceToLift": 0,
+						"dirCastX": 0,
+						"dirCastY": 0,
+						"textframe": 0,
+						"Wolf": 0
+					},
+					"behaviors": {
+						"Платформер": {
+							"properties": {
+								"max-speed": 285,
+								"acceleration": 10000,
+								"deceleration": 10000,
+								"jump-strength": 400,
+								"gravity": 1000,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 0,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"НастраиваемоеДвижение": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 500,
+								"enabled": true
+							}
+						},
+						"Таймер": {
+							"properties": {}
+						},
+						"Пуля": {
+							"properties": {
+								"speed": 400,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": false,
+								"enabled": false
+							}
+						},
+						"Физика": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
+							}
+						},
+						"Твинанимация": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 611040335400729,
+						"expanded": true
+					},
+					"world": {
+						"x": 1456,
+						"y": 2302,
+						"width": 86,
+						"height": 86,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

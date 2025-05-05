@@ -12,6 +12,847 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Effect"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Box3",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveVert",
+							"sid": 671171854118024
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveVert",
+							"sid": 526481084006550,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "vertical",
+								"speed": "-100"
+							}
+						}
+					],
+					"sid": 612997518044098
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Box_MoveVert",
+							"sid": 836433774837951,
+							"parameters": {
+								"object": "Tonel",
+								"offset-x": "0",
+								"offset-y": "24"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Box_MoveVert",
+							"sid": 775918801286505,
+							"behaviorType": "НастраиваемоеДвижение"
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Box_MoveVert",
+							"sid": 889501829714902,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 654091618788991,
+							"disabled": true,
+							"parameters": {
+								"seconds": "2"
+							}
+						}
+					],
+					"sid": 814249089493008
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 666364980596532,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 653251400072406,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 793760869261666,
+							"parameters": {
+								"object-to-create": "Box_MoveHoriz",
+								"layer": "6",
+								"x": "Conveyor.X -138",
+								"y": "Conveyor.Y -18",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 858420207165439
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 224718123818422
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 965878547868262,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 517956907351444,
+							"parameters": {
+								"object": "Conveyor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 387192217950392,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 989034803028493,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						}
+					],
+					"sid": 265090892439840
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Prinimatel",
+							"sid": 737132585370193,
+							"parameters": {
+								"object": "Box_MoveHoriz",
+								"offset-x": "25",
+								"offset-y": "0"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 831706483291298,
+							"parameters": {
+								"object": "Conveyor"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 927743697559619,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Prinimatel",
+							"sid": 540727999787256,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 566994052835267
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 798892288719267,
+							"parameters": {
+								"object-to-create": "Box_MoveVert",
+								"layer": "6",
+								"x": "Prinimatel.X +7",
+								"y": "Prinimatel.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 219703343058462
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Box_MoveVert",
+							"sid": 152104350894347,
+							"parameters": {
+								"object": "Tonel"
+							}
+						},
+						{
+							"id": "compare-opacity",
+							"objectClass": "Box_MoveVert",
+							"sid": 793669081382872,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveVert",
+							"sid": 834509163418745
+						}
+					],
+					"sid": 864545780403126
+				}
+			],
+			"sid": 852258481704319
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Box4",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveVert2",
+							"sid": 588077048011594
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Box_MoveVert2",
+							"sid": 473537329652202,
+							"parameters": {
+								"opacity": "0"
+							}
+						}
+					],
+					"sid": 365653784577997
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 480677789415128,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Tonel",
+							"sid": 901250579424178,
+							"parameters": {
+								"tags": "\"Conveer\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 253212593381447,
+							"parameters": {
+								"object-to-create": "Box_MoveVert2",
+								"layer": "6",
+								"x": "Tonel.X",
+								"y": "Tonel.Y +24",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Box_MoveVert2",
+							"sid": 601333800298523,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 801609855161959
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-opacity",
+							"objectClass": "Box_MoveVert2",
+							"sid": 364499410212156,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveVert2",
+							"sid": 395142023295138,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "vertical",
+								"speed": "100"
+							}
+						}
+					],
+					"sid": 200601610693557
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Box_MoveVert2",
+							"sid": 675339622588455,
+							"parameters": {
+								"comparison": 5,
+								"y-co-ordinate": "Prinimatel.Y -15"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveVert2",
+							"sid": 237039641920193
+						}
+					],
+					"sid": 715321148103729
+				}
+			],
+			"sid": 599882485494987
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Box5",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 955830748919190,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 256148981509110,
+							"parameters": {
+								"tags": "\"Box3\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 969190167251890,
+							"parameters": {
+								"object-to-create": "Box_MoveHoriz",
+								"layer": "6",
+								"x": "Conveyor.X +138",
+								"y": "Conveyor.Y -18",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 791355531886106
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 605541162712635
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 876487689613461,
+							"parameters": {
+								"tags": "\"Box3\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 624550452717436,
+							"parameters": {
+								"object": "Conveyor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 701191090178893,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 323709554038577,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "-100"
+							}
+						}
+					],
+					"sid": 122013751364998
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "Prinimatel",
+							"sid": 674371218570675,
+							"parameters": {
+								"tags": "\"Box3\""
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Prinimatel",
+							"sid": 175375075731935,
+							"parameters": {
+								"object": "Box_MoveHoriz",
+								"offset-x": "-25",
+								"offset-y": "0"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 997249143291055,
+							"parameters": {
+								"object": "Conveyor"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Prinimatel",
+							"sid": 589203135534190,
+							"parameters": {
+								"tags": "\"Box3\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 490624057963650
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 379995092872161,
+							"parameters": {
+								"object-to-create": "Box_MoveVert",
+								"layer": "6",
+								"x": "Prinimatel.X -7",
+								"y": "Prinimatel.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 188268525374408
+				}
+			],
+			"sid": 102771684783646
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Box6",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 850378972001420,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Conveyor",
+							"sid": 270145701731523,
+							"parameters": {
+								"animation": "\"Conveer_Long\""
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Tonel",
+							"sid": 698668416123016,
+							"parameters": {
+								"tags": "\"Tonel\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 297177256737064,
+							"parameters": {
+								"object-to-create": "Box_MoveHoriz3",
+								"layer": "6",
+								"x": "Tonel.X",
+								"y": "Tonel.Y +2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 717202021059490
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 931921395770759
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 772770495771467,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 101388226325529,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.3",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 518865605347470
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-opacity",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 109778438437336,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 102901889489190,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						}
+					],
+					"sid": 621106127568824
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 324183577185851,
+							"parameters": {
+								"object": "Conveyor"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 847758543378012,
+							"parameters": {
+								"tags": "\"Naklon\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 179007129143488,
+							"parameters": {
+								"angle": "335"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 858136926477958,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"angle": "332"
+							}
+						}
+					],
+					"sid": 839406764139484
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 847281203571679,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 399358696894795,
+							"parameters": {
+								"angle": "0"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 989696995788078,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"angle": "0.1"
+							}
+						}
+					],
+					"sid": 875248170890845
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-opacity",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 932023066486232,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 729274002440005,
+							"parameters": {
+								"object": "Tonel",
+								"offset-x": "-40",
+								"offset-y": "0"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Tonel",
+							"sid": 912489217079965,
+							"parameters": {
+								"tags": "\"Tonel1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 564794500836646,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 994200671693853,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.3",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 390769759125868
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Tonel",
+							"sid": 201917396629462,
+							"parameters": {
+								"object": "Box_MoveHoriz3",
+								"offset-x": "40",
+								"offset-y": "0"
+							}
+						},
+						{
+							"id": "compare-opacity",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 955677240425204,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Tonel",
+							"sid": 794289586574520,
+							"parameters": {
+								"tags": "\"Tonel1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveHoriz3",
+							"sid": 276944805894706
+						}
+					],
+					"sid": 993066485229261
+				}
+			],
+			"sid": 820658809397239
 		}
 	],
 	"sid": 238487435061657
