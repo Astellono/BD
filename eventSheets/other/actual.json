@@ -6079,7 +6079,972 @@
 			"title": "Enemy_Test",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-speed",
+							"objectClass": "EnemyBaseball2",
+							"sid": 136944285446130,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"comparison": 2,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "EnemyBaseball2",
+							"sid": 292436912824029,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 333116973121402
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-speed",
+							"objectClass": "EnemyBaseball2",
+							"sid": 218636591709919,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"comparison": 4,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "EnemyBaseball2",
+							"sid": 759843974798009,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 633926719006574
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "EnemyBaseball2",
+							"sid": 333598028087062
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "EnemyBaseball2",
+							"sid": 267730128058233,
+							"parameters": {
+								"object": "Range",
+								"layer": "12",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Range",
+							"sid": 203336933790270,
+							"parameters": {
+								"width": "EnemyBaseball2.ПолеЗрения.Range * 2",
+								"height": "EnemyBaseball2.ПолеЗрения.Range * 2"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Range",
+							"sid": 724058411571285,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "EnemyBaseball2",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 797440155448998
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "EnemyBaseball2",
+							"sid": 551639974655575,
+							"behaviorType": "ПолеЗрения",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBaseball2",
+							"sid": 411662920903064,
+							"parameters": {
+								"instance-variable": "triger",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBaseball2",
+							"sid": 178701368111540,
+							"parameters": {
+								"instance-variable": "vision",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 536711387121526
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "EnemyBaseball2",
+							"sid": 926348765256740,
+							"behaviorType": "ПолеЗрения",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBaseball2",
+							"sid": 729132364234465,
+							"parameters": {
+								"instance-variable": "vision",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 237807660072061
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBaseball2",
+							"sid": 502573885595809,
+							"parameters": {
+								"instance-variable": "vision"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Range",
+							"sid": 583096085008272,
+							"parameters": {
+								"color": "rgbEx(60, 170, 60)"
+							}
+						}
+					],
+					"sid": 425458246226756
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBaseball2",
+							"sid": 892150876397980,
+							"parameters": {
+								"instance-variable": "vision"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Range",
+							"sid": 445425144255621,
+							"parameters": {
+								"color": "rgbEx(100, 0, 0)"
+							}
+						}
+					],
+					"sid": 289378754744185
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBaseball2",
+							"sid": 993447163866198,
+							"parameters": {
+								"instance-variable": "vision"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBaseball2",
+							"sid": 845127931042443,
+							"parameters": {
+								"instance-variable": "triger"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 858739195486823,
+							"parameters": {
+								"object": "EnemyBaseball2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBaseball2",
+							"sid": 586389445406365,
+							"parameters": {
+								"instance-variable": "search",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBaseball2",
+							"sid": 388892741533574,
+							"parameters": {
+								"instance-variable": "searchPlayer",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBaseball2",
+							"sid": 719169056662085,
+							"parameters": {
+								"instance-variable": "patrul",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 731700927354267,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "EnemyBaseball2",
+									"sid": 163698417197697,
+									"parameters": {
+										"comparison": 3,
+										"x-co-ordinate": "Player.X"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 741471774072693,
+									"parameters": {
+										"instance-variable": "vision"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "EnemyBaseball2",
+									"sid": 709063304949215,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "horizontal",
+										"speed": "Self.speed"
+									}
+								}
+							],
+							"sid": 260682273002571
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "EnemyBaseball2",
+									"sid": 398463179722706,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "Player.X"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 445797853002822,
+									"parameters": {
+										"instance-variable": "vision"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "EnemyBaseball2",
+									"sid": 773867775661223,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "horizontal",
+										"speed": "-Self.speed"
+									}
+								}
+							],
+							"sid": 260016496635654
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Search",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 340495742424938,
+									"parameters": {
+										"instance-variable": "vision"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 792210090599076,
+									"parameters": {
+										"instance-variable": "triger"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 574126039784305,
+									"parameters": {
+										"instance-variable": "search",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 426898046850882
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 529315065873673,
+									"parameters": {
+										"instance-variable": "search"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 250753907118725,
+							"children": [
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "searchPlayer",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball2",
+													"sid": 804822682543983,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 4,
+														"value": "-80"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball2",
+													"sid": 950679915487856,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 2,
+														"value": "80"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 254753880103787,
+													"parameters": {
+														"instance-variable": "vision"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 256870525270465,
+													"parameters": {
+														"instance-variable": "patrul"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 361480514473718
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 360189356724724,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 709683507130372,
+													"parameters": {
+														"instance-variable": "searchPlayer",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 590763171832929
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball2",
+													"sid": 325101464679056,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 2,
+														"value": "-80"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball2",
+													"sid": 566575336270364,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 4,
+														"value": "80"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 362015388608516,
+													"parameters": {
+														"instance-variable": "searchPlayer",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 127137789997415,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 630496198333475
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 638728059424916,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "start-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 632668523421065,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"duration": "2",
+																"type": "once",
+																"tag": "\"probejka\""
+															}
+														}
+													],
+													"sid": 879483822828252
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 304680508704920,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"tag": "\"probejka\""
+															}
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 218819815585960,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 385396879794738,
+															"parameters": {
+																"instance-variable": "patrul",
+																"value": "true"
+															}
+														},
+														{
+															"id": "start-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 383292826444425,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"duration": "Random(1,2)",
+																"type": "once",
+																"tag": "EnemyBaseball2.patrulTimerID"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "EnemyBaseball2",
+															"sid": 153778455064301,
+															"parameters": {
+																"instance-variable": "direction",
+																"value": "1"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 786500462364036,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"speed": "EnemyBaseball2.speedPatrul"
+															}
+														}
+													],
+													"sid": 637846924560605
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "EnemyBaseball2",
+													"sid": 837315838231012,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "Player.X"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 782524530293761,
+													"parameters": {
+														"instance-variable": "searchPlayer"
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 517634527207351,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-speed",
+													"objectClass": "EnemyBaseball2",
+													"sid": 410773786867907,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "horizontal",
+														"speed": "Self.speed"
+													}
+												}
+											],
+											"sid": 151166210857716
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "EnemyBaseball2",
+													"sid": 623591083036357,
+													"parameters": {
+														"comparison": 5,
+														"x-co-ordinate": "Player.X"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 109557463616655,
+													"parameters": {
+														"instance-variable": "searchPlayer"
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 627785633167461,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-speed",
+													"objectClass": "EnemyBaseball2",
+													"sid": 561441175434088,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "horizontal",
+														"speed": "-Self.speed"
+													}
+												}
+											],
+											"sid": 838888185675581
+										}
+									],
+									"sid": 400750166364376
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "patrul",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 690525259791267,
+													"parameters": {
+														"instance-variable": "patrul"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 838494195690405
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 899504155194301,
+													"parameters": {
+														"instance-variable": "searchPlayer",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 479465537500652,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 507811762423728,
+															"parameters": {
+																"instance-variable": "patrul"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 766399478832140
+														}
+													],
+													"actions": [
+														{
+															"id": "start-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 735529089902017,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"duration": "Random(1,2)",
+																"type": "once",
+																"tag": "\"Patrul\" & Self.UID"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 414749739711710,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"speed": "Self.speedPatrul"
+															}
+														}
+													],
+													"sid": 182755939930073,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 541869592139116,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"tag": "\"Patrul\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 875975966185145,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"speed": "Self.speedPatrul"
+															}
+														},
+														{
+															"id": "start-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 675607501668681,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"duration": "Random(1,2)",
+																"type": "once",
+																"tag": "\"Patrul2\" & Self.UID"
+															}
+														}
+													],
+													"sid": 304787004784988,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 590052745803122,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"tag": "\"Patrul2\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 269909104733466,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"speed": "-Self.speedPatrul"
+															}
+														},
+														{
+															"id": "start-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 453626317472275,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"duration": "Random(1,2)",
+																"type": "once",
+																"tag": "\"Patrul\" & Self.UID"
+															}
+														}
+													],
+													"sid": 356340155037047,
+													"disabled": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-timer",
+													"objectClass": "EnemyBaseball2",
+													"sid": 688042216418134,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"tag": "EnemyBaseball2.patrulTimerID"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 323424320718689,
+													"parameters": {
+														"instance-variable": "patrul"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "EnemyBaseball2",
+													"sid": 170922673196864,
+													"parameters": {
+														"instance-variable": "direction",
+														"value": "EnemyBaseball2.direction = -EnemyBaseball2.direction"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "EnemyBaseball2",
+													"sid": 651502188855679,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "horizontal",
+														"speed": "Self.speedPatrul * EnemyBaseball2.direction"
+													}
+												},
+												{
+													"id": "start-timer",
+													"objectClass": "EnemyBaseball2",
+													"sid": 277245735796386,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"duration": "Random(1,2)",
+														"type": "once",
+														"tag": "EnemyBaseball2.patrulTimerID"
+													}
+												}
+											],
+											"sid": 523172469629457
+										}
+									],
+									"sid": 473629373071164
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 807578984580291
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyBaseball2",
+									"sid": 371771366227445,
+									"parameters": {
+										"instance-variable": "DifY",
+										"value": "Self.Y - Player.Y"
+									}
+								}
+							],
+							"sid": 186151423220692
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 288019020229891,
+									"parameters": {
+										"object": "EnemyBaseball2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 266916083024222
+						}
+					],
+					"sid": 141115621377543
+				}
+			],
 			"sid": 528157228555554
 		}
 	],
