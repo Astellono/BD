@@ -23450,6 +23450,7 @@
 						"probejka": false,
 						"speed": 200,
 						"speedPatrul": 100,
+						"speedDamage": 200,
 						"patrulPhase": 0,
 						"patrulTimerID": false,
 						"TargetPlatform": "",
@@ -23457,7 +23458,9 @@
 						"onRamp": false,
 						"Kick": false,
 						"DifX": 0,
-						"rotate": 0
+						"rotate": 0,
+						"HP": 10,
+						"Damage": false
 					},
 					"behaviors": {
 						"Платформер": {
@@ -23465,7 +23468,7 @@
 								"max-speed": 200,
 								"acceleration": 1500,
 								"deceleration": 1500,
-								"jump-strength": 650,
+								"jump-strength": 300,
 								"gravity": 1500,
 								"max-fall-speed": 1000,
 								"double-jump": false,
@@ -23484,7 +23487,7 @@
 						"ПолеЗрения": {
 							"properties": {
 								"obstacles": "solids",
-								"range": 300,
+								"range": 600,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -23532,8 +23535,8 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 2356.706568557998,
-						"y": 485.35819986901765,
+						"x": 2305,
+						"y": 471,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
@@ -23570,6 +23573,7 @@
 						"probejka": false,
 						"speed": 200,
 						"speedPatrul": 100,
+						"speedDamage": 200,
 						"patrulPhase": 0,
 						"patrulTimerID": false,
 						"TargetPlatform": "",
@@ -23577,7 +23581,9 @@
 						"onRamp": false,
 						"Kick": false,
 						"DifX": 0,
-						"rotate": 0
+						"rotate": 0,
+						"HP": 10,
+						"Damage": false
 					},
 					"behaviors": {
 						"Платформер": {
@@ -23585,7 +23591,7 @@
 								"max-speed": 200,
 								"acceleration": 1500,
 								"deceleration": 1500,
-								"jump-strength": 650,
+								"jump-strength": 300,
 								"gravity": 1500,
 								"max-fall-speed": 1000,
 								"double-jump": false,
@@ -23604,7 +23610,7 @@
 						"ПолеЗрения": {
 							"properties": {
 								"obstacles": "solids",
-								"range": 300,
+								"range": 600,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -23652,8 +23658,131 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 2090,
-						"y": 482,
+						"x": 1858,
+						"y": 288,
+						"width": 86,
+						"height": 86,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "EnemyBaseball2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 2281,
+					"sid": 559184567839080,
+					"tags": "",
+					"instanceVariables": {
+						"vision": false,
+						"triger": false,
+						"search": false,
+						"searchPlayer": false,
+						"patrul": false,
+						"DifY": 0,
+						"probejka": false,
+						"speed": 200,
+						"speedPatrul": 100,
+						"speedDamage": 200,
+						"patrulPhase": 0,
+						"patrulTimerID": false,
+						"TargetPlatform": "",
+						"MovingToRamp": false,
+						"onRamp": false,
+						"Kick": false,
+						"DifX": 0,
+						"rotate": 0,
+						"HP": 10,
+						"Damage": false
+					},
+					"behaviors": {
+						"Платформер": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 1500,
+								"deceleration": 1500,
+								"jump-strength": 300,
+								"gravity": 1500,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 0,
+								"default-controls": true,
+								"enabled": true
+							}
+						},
+						"НастраиваемоеДвижение": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 100,
+								"enabled": true
+							}
+						},
+						"ПолеЗрения": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 600,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Твинанимация": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Таймер": {
+							"properties": {}
+						},
+						"Физика": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
+							}
+						},
+						"ПоискПути": {
+							"properties": {
+								"cell-size": 30,
+								"cell-border": -1,
+								"obstacles": "solids",
+								"max-speed": 200,
+								"acceleration": 1000,
+								"deceleration": 2000,
+								"rotate-speed": 135,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 559184567839080,
+						"expanded": true
+					},
+					"world": {
+						"x": 2035,
+						"y": 751,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
