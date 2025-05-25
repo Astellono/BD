@@ -445,58 +445,6 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Lift",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "every-tick",
-											"objectClass": "System",
-											"sid": 385039398408436
-										}
-									],
-									"actions": [],
-									"sid": 930581751764662
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-pressed",
-											"objectClass": "Клавиатура",
-											"sid": 629203525250240,
-											"parameters": {
-												"key": 87
-											}
-										}
-									],
-									"actions": [],
-									"sid": 331332525657809
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-pressed",
-											"objectClass": "Клавиатура",
-											"sid": 667124707699294,
-											"parameters": {
-												"key": 83
-											}
-										}
-									],
-									"actions": [],
-									"sid": 151805908820854
-								}
-							],
-							"sid": 205218417984789
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
 							"title": "Movesetup",
 							"description": "",
 							"isActiveOnStart": true,
@@ -1324,6 +1272,16 @@
 										"variable": "iFrame"
 									},
 									"isInverted": true
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "EnemyBaseball2",
+									"sid": 705897656519739,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player.X",
+										"y": "Player.Y"
+									}
 								}
 							],
 							"actions": [
@@ -1340,6 +1298,16 @@
 									"id": "destroy",
 									"objectClass": "HitBoxEnemy",
 									"sid": 876586894399491
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Player",
+									"sid": 987710419276308,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "overall",
+										"speed": "Player.speedDamage*EnemyBaseball2.rotate"
+									}
 								},
 								{
 									"id": "set-group-active",
@@ -1360,26 +1328,18 @@
 									}
 								},
 								{
-									"id": "reverse",
-									"objectClass": "Player",
-									"sid": 579681512938514,
-									"behaviorType": "НастраиваемоеДвижение",
-									"parameters": {
-										"axes": "both"
-									}
-								},
-								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 234606395640503,
+									"sid": 862658605288383,
 									"parameters": {
-										"seconds": "0.5"
+										"seconds": "0.2"
 									}
 								},
 								{
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
 									"sid": 741376663576609,
+									"disabled": true,
 									"parameters": {
 										"variable": "HPplayer",
 										"value": "5"
@@ -1388,13 +1348,13 @@
 								{
 									"id": "stop",
 									"objectClass": "Player",
-									"sid": 668139542364281,
+									"sid": 305872640993358,
 									"behaviorType": "НастраиваемоеДвижение"
 								},
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 274580691529131,
+									"sid": 304963042551004,
 									"parameters": {
 										"seconds": "0.5"
 									}
@@ -1418,7 +1378,77 @@
 									}
 								}
 							],
-							"sid": 503529816559697
+							"sid": 503529816559697,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player",
+									"sid": 499832382271036,
+									"parameters": {
+										"animation": "weapon & \"Damage\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 832133672520334,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 834572173116649,
+											"parameters": {
+												"instance-variable": "rotate",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Player",
+											"sid": 819148565009526,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 156821402842146
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 977785449069647,
+											"parameters": {
+												"instance-variable": "rotate",
+												"comparison": 0,
+												"value": "-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Player",
+											"sid": 421026729815812,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 532199751742109
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -1562,10 +1592,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Player",
-									"sid": 188268995319801,
+									"sid": 410761597052894,
 									"parameters": {
 										"object": "HitBox",
-										"layer": "0",
+										"layer": "12",
 										"image-point": "1",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -1859,10 +1889,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Player",
-											"sid": 294545475330581,
+											"sid": 618360510498147,
 											"parameters": {
 												"object": "HitBox",
-												"layer": "0",
+												"layer": "12",
 												"image-point": "1",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -1872,6 +1902,7 @@
 											"id": "set-visible",
 											"objectClass": "HitBox",
 											"sid": 617076809284557,
+											"disabled": true,
 											"parameters": {
 												"visibility": "invisible"
 											}
@@ -2598,29 +2629,74 @@
 						{
 							"id": "is-visible",
 							"objectClass": "UpDown",
-							"sid": 449386078315449
+							"sid": 791194568307253
 						}
 					],
 					"actions": [
 						{
 							"id": "set-instvar-value",
 							"objectClass": "UpDown",
-							"sid": 927286575033612,
+							"sid": 804842549926255,
 							"parameters": {
 								"instance-variable": "distanceToPlayer",
 								"value": "sqrt(((Self.X - Player.X)^2) + ((Self.Y - Player.Y)^2) )"
 							}
 						}
 					],
-					"sid": 494538822511349
+					"sid": 940357467995974
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBaseball2",
+							"sid": 835820294607283,
+							"parameters": {
+								"instance-variable": "MovingToRamp"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 278762596653770,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 478199083892020,
+									"parameters": {
+										"instance-variable": "DifY",
+										"comparison": 3,
+										"value": "-30"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Skvoz",
+									"sid": 286528209198163,
+									"behaviorType": "СквознаяПлатформа",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 553745017717659,
+							"isOrBlock": true
+						}
+					]
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "UpDown",
-							"sid": 658711623612867,
+							"objectClass": "Skvoz",
+							"sid": 967376071602851,
 							"parameters": {
 								"instance-variable": "distanceToPlayer",
 								"comparison": 2,
@@ -2629,8 +2705,8 @@
 						},
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "UpDown",
-							"sid": 427352688032662,
+							"objectClass": "Skvoz",
+							"sid": 621348366947176,
 							"parameters": {
 								"object": "Player"
 							},
@@ -2638,50 +2714,33 @@
 						}
 					],
 					"actions": [],
-					"sid": 873443672871558,
+					"sid": 308857836090868,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-y",
-									"objectClass": "UpDown",
-									"sid": 926493302933615,
-									"parameters": {
-										"comparison": 2,
-										"y-co-ordinate": "Player.Y"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-enabled",
-									"objectClass": "UpDown",
-									"sid": 312201519810052,
-									"behaviorType": "Твёрдый",
-									"parameters": {
-										"state": "disabled"
-									}
-								}
-							],
-							"sid": 945535474042680
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-y",
-									"objectClass": "UpDown",
-									"sid": 716630012576931,
+									"objectClass": "Skvoz",
+									"sid": 708655827872154,
 									"parameters": {
 										"comparison": 4,
 										"y-co-ordinate": "Player.Y"
 									}
 								},
 								{
+									"id": "compare-x",
+									"objectClass": "Skvoz",
+									"sid": 221553674942611,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Player.X"
+									}
+								},
+								{
 									"id": "key-is-down",
 									"objectClass": "Клавиатура",
-									"sid": 135686338870048,
+									"sid": 680525341164541,
 									"parameters": {
 										"key": 83
 									},
@@ -2691,15 +2750,15 @@
 							"actions": [
 								{
 									"id": "set-enabled",
-									"objectClass": "UpDown",
-									"sid": 714523797380034,
-									"behaviorType": "Твёрдый",
+									"objectClass": "Skvoz",
+									"sid": 370835558134630,
+									"behaviorType": "СквознаяПлатформа",
 									"parameters": {
 										"state": "enabled"
 									}
 								}
 							],
-							"sid": 357990641806477
+							"sid": 128999721428488
 						},
 						{
 							"eventType": "block",
@@ -2707,24 +2766,34 @@
 								{
 									"id": "key-is-down",
 									"objectClass": "Клавиатура",
-									"sid": 390630183681123,
+									"sid": 231697410169156,
 									"parameters": {
 										"key": 83
+									}
+								},
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "Player",
+									"sid": 325517498424906,
+									"parameters": {
+										"object": "Skvoz",
+										"offset-x": "0",
+										"offset-y": "10"
 									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-enabled",
-									"objectClass": "UpDown",
-									"sid": 210270996438345,
-									"behaviorType": "Твёрдый",
+									"objectClass": "Skvoz",
+									"sid": 817615710472978,
+									"behaviorType": "СквознаяПлатформа",
 									"parameters": {
 										"state": "disabled"
 									}
 								}
 							],
-							"sid": 645419296260202
+							"sid": 744148323080468
 						}
 					]
 				}
@@ -2950,7 +3019,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 207551189279857,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								},
@@ -3158,7 +3227,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 555394187132956,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								},
@@ -3485,7 +3554,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 443220948810468,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									}
 								},
 								{
@@ -3881,7 +3950,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 277765209875626,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								},
@@ -3983,7 +4052,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 565756026713806,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								}
@@ -4018,7 +4087,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 402480100258433,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								},
@@ -4094,7 +4163,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 714182672340652,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								}
@@ -4147,7 +4216,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 206548903195395,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								},
@@ -4268,7 +4337,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 967720839969804,
 									"parameters": {
-										"instance-variable": "death"
+										"instance-variable": "Die"
 									},
 									"isInverted": true
 								},
@@ -4407,7 +4476,7 @@
 											"objectClass": "EnemyBaseball",
 											"sid": 937836703188655,
 											"parameters": {
-												"instance-variable": "death",
+												"instance-variable": "Die",
 												"value": "true"
 											}
 										}
@@ -4465,7 +4534,7 @@
 													"objectClass": "EnemyBaseball",
 													"sid": 796098595819710,
 													"parameters": {
-														"instance-variable": "death"
+														"instance-variable": "Die"
 													},
 													"isInverted": true
 												},
@@ -4617,7 +4686,7 @@
 															"objectClass": "EnemyBaseball",
 															"sid": 936034647551556,
 															"parameters": {
-																"instance-variable": "death",
+																"instance-variable": "Die",
 																"value": "true"
 															}
 														}
@@ -4671,7 +4740,7 @@
 													"objectClass": "EnemyBaseball",
 													"sid": 892948201300387,
 													"parameters": {
-														"instance-variable": "death"
+														"instance-variable": "Die"
 													},
 													"isInverted": true
 												},
@@ -4823,7 +4892,7 @@
 															"objectClass": "EnemyBaseball",
 															"sid": 118427100618782,
 															"parameters": {
-																"instance-variable": "death",
+																"instance-variable": "Die",
 																"value": "true"
 															}
 														}
@@ -4877,7 +4946,7 @@
 													"objectClass": "EnemyBaseball",
 													"sid": 328549056516508,
 													"parameters": {
-														"instance-variable": "death"
+														"instance-variable": "Die"
 													},
 													"isInverted": true
 												},
@@ -5029,7 +5098,7 @@
 															"objectClass": "EnemyBaseball",
 															"sid": 996137146169862,
 															"parameters": {
-																"instance-variable": "death",
+																"instance-variable": "Die",
 																"value": "true"
 															}
 														}
@@ -5078,7 +5147,7 @@
 									"objectClass": "EnemyBaseball",
 									"sid": 739825606998637,
 									"parameters": {
-										"instance-variable": "death",
+										"instance-variable": "Die",
 										"value": "true"
 									}
 								}
@@ -5297,14 +5366,14 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Lifts",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "TpUpDown",
 					"description": "",
 					"isActiveOnStart": true,
@@ -5359,7 +5428,8 @@
 									}
 								}
 							],
-							"sid": 908019231969915
+							"sid": 908019231969915,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -5411,14 +5481,15 @@
 									}
 								}
 							],
-							"sid": 548254576071693
+							"sid": 548254576071693,
+							"disabled": true
 						}
 					],
 					"sid": 376265044206596
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "TpDown",
 					"description": "",
 					"isActiveOnStart": true,
@@ -5463,7 +5534,8 @@
 									}
 								}
 							],
-							"sid": 423297702047091
+							"sid": 423297702047091,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -5505,14 +5577,15 @@
 									}
 								}
 							],
-							"sid": 709208069393256
+							"sid": 709208069393256,
+							"disabled": true
 						}
 					],
 					"sid": 345929527217279
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "TpUp",
 					"description": "",
 					"isActiveOnStart": true,
@@ -5557,7 +5630,8 @@
 									}
 								}
 							],
-							"sid": 754744583954434
+							"sid": 754744583954434,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -5599,7 +5673,8 @@
 									}
 								}
 							],
-							"sid": 671076171598731
+							"sid": 671076171598731,
+							"disabled": true
 						}
 					],
 					"sid": 941829535259330
@@ -6021,6 +6096,3375 @@
 				}
 			],
 			"sid": 703789973639238
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy_Test",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "EnemyStates",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 599698114215630,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 441836230890908,
+									"parameters": {
+										"instance-variable": "Damage",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 802636695636984,
+									"parameters": {
+										"instance-variable": "search",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 504538302441381,
+									"parameters": {
+										"instance-variable": "vision",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 983765732239976,
+									"parameters": {
+										"instance-variable": "onRamp",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 920074100187025,
+									"parameters": {
+										"instance-variable": "Kick",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 369194321729378,
+									"parameters": {
+										"instance-variable": "triger",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 161661317961734,
+									"parameters": {
+										"instance-variable": "Down",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 665177530606165,
+									"parameters": {
+										"instance-variable": "Death",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyBaseball2",
+									"sid": 168000029001154,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyBaseball2",
+									"sid": 639953503082757,
+									"behaviorType": "Платформер",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 924012989874253
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "AnimationDeath",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 282957488292112,
+											"parameters": {
+												"instance-variable": "Death"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "EnemyBaseball2",
+											"sid": 105523329196756,
+											"parameters": {
+												"object": "Player"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 236036567529171,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player",
+													"sid": 717132692908707,
+													"parameters": {
+														"animation": "\"noWeaponFinishing\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 872902255184868
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 986757325110866,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 899284315261184,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "1"
+													}
+												},
+												{
+													"id": "start-animation",
+													"objectClass": "EnemyBaseball2",
+													"sid": 490441649151253,
+													"parameters": {
+														"from": "current-frame"
+													}
+												}
+											],
+											"sid": 824268090576690
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 774057153192669,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "4"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player",
+											"sid": 408134003559396,
+											"parameters": {
+												"animation": "\"noWeaponFinishing\""
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Blood",
+											"sid": 789597520417165,
+											"parameters": {
+												"animation": "\"Blood\""
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 137955437034003
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 756256766750628,
+											"parameters": {
+												"object": "EnemyBaseball2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-animation",
+											"objectClass": "Blood",
+											"sid": 718584619010311,
+											"parameters": {
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 456429552716671
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "EnemyBaseball2",
+											"sid": 655557988674551,
+											"parameters": {
+												"animation": "\"Death_Blunt\""
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "EnemyBaseball2",
+											"sid": 455227436769365,
+											"parameters": {
+												"comparison": 0,
+												"number": "3"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 715651331539935,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 0,
+												"value": "-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-animation",
+											"objectClass": "EnemyBaseball2",
+											"sid": 402818231844516
+										}
+									],
+									"sid": 717389788344428
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "EnemyBaseball2",
+											"sid": 293546927642039,
+											"parameters": {
+												"animation": "\"Death_Blunt\""
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "EnemyBaseball2",
+											"sid": 166599036625769,
+											"parameters": {
+												"comparison": 0,
+												"number": "6"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 514710041701700,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 0,
+												"value": "-2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-animation",
+											"objectClass": "EnemyBaseball2",
+											"sid": 217667362212075
+										}
+									],
+									"sid": 744548967309999
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "EnemyBaseball2",
+											"sid": 246020200683176,
+											"parameters": {
+												"animation": "\"Death_Blunt\""
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "EnemyBaseball2",
+											"sid": 898600325518449,
+											"parameters": {
+												"comparison": 0,
+												"number": "9"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 921005618613796,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 0,
+												"value": "-3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-animation",
+											"objectClass": "EnemyBaseball2",
+											"sid": 185240933909371
+										}
+									],
+									"sid": 784639787371136
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "EnemyBaseball2",
+											"sid": 280765243706529,
+											"parameters": {
+												"animation": "\"Death_Blunt\""
+											}
+										},
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "EnemyBaseball2",
+											"sid": 357538929116096,
+											"parameters": {
+												"which": "nearest",
+												"x": "Player.X",
+												"y": "Player.Y"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "EnemyBaseball2",
+											"sid": 938267430013460,
+											"parameters": {
+												"comparison": 0,
+												"number": "9"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 856268012567990,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "-4"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 329431310122142
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 366628028723108,
+											"parameters": {
+												"object": "EnemyBaseball2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 164740073043204,
+											"parameters": {
+												"object-to-create": "Blood",
+												"layer": "12",
+												"x": "EnemyBaseball2.X - 0",
+												"y": "EnemyBaseball.Y +95",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Blood",
+											"sid": 225406911861757,
+											"parameters": {
+												"animation": "\"Blood\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 218826341154246
+								}
+							],
+							"sid": 597467708860342
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Finishing",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 195745632423975,
+											"parameters": {
+												"instance-variable": "Down"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "EnemyBaseball2",
+											"sid": 811478872784106,
+											"parameters": {
+												"object": "Player"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 288638569321522,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player",
+													"sid": 290670085371783,
+													"parameters": {
+														"animation": "\"noWeaponFinishing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 861535739048998,
+													"parameters": {
+														"instance-variable": "Death",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "EnemyBaseball2",
+													"sid": 688140941074706,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "EnemyBaseball2",
+													"sid": 121702361712493,
+													"parameters": {
+														"animation": "\"Death_Blunt\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 802953417687716
+										}
+									]
+								}
+							],
+							"sid": 133087588872062
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyBaseball2",
+									"sid": 352876931271315,
+									"parameters": {
+										"object": "Wall"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 913161944860115,
+									"parameters": {
+										"instance-variable": "Rolling"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 908032501956751,
+									"parameters": {
+										"instance-variable": "Down",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 593789298245947,
+									"parameters": {
+										"instance-variable": "Rolling",
+										"value": "false"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "EnemyBaseball2",
+									"sid": 544522695749228,
+									"parameters": {
+										"distance": "30"
+									}
+								}
+							],
+							"sid": 202770113435329
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 213329513318897,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 0,
+										"value": "5"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 465082912624807,
+									"parameters": {
+										"instance-variable": "triger"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "EnemyBaseball2",
+									"sid": 833187660331632,
+									"parameters": {
+										"animation": "\"Rollin\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "EnemyBaseball2",
+									"sid": 306629205687467,
+									"parameters": {
+										"animation": "\"Down\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 526849959662138,
+									"parameters": {
+										"instance-variable": "Damage",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 100413731384723,
+									"parameters": {
+										"instance-variable": "triger",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 612034977375403,
+									"parameters": {
+										"instance-variable": "vision",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 539648801425360,
+									"parameters": {
+										"instance-variable": "search",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 258893547414933,
+									"parameters": {
+										"instance-variable": "Kick",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 698849219918656,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "EnemyBaseball2",
+											"sid": 230274036457267,
+											"parameters": {
+												"object": "UpDown",
+												"offset-x": "-10",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "EnemyBaseball2",
+											"sid": 101051537148634,
+											"parameters": {
+												"object": "UpDown",
+												"offset-x": "10",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 801130016789710,
+											"parameters": {
+												"instance-variable": "Rolling",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 310065466412860,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 224976438262717,
+													"parameters": {
+														"instance-variable": "Rolling"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "EnemyBaseball2",
+													"sid": 250662011423582,
+													"parameters": {
+														"animation": "\"onGround\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 700452410765220
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 330434922832457,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "EnemyBaseball2",
+													"sid": 677035830384839,
+													"parameters": {
+														"animation": "\"Rollin\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "EnemyBaseball2",
+													"sid": 474446661550278,
+													"behaviorType": "Платформер",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "EnemyBaseball2",
+													"sid": 832051690419829,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "vertical",
+														"speed": "EnemyBaseball2.speedDamage"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "EnemyBaseball2",
+													"sid": 148567671308482,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"angle": "UpDown.Angle"
+													}
+												}
+											],
+											"sid": 490172047917477
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 980997872527477,
+											"parameters": {
+												"instance-variable": "Damage"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 767270181651363,
+											"parameters": {
+												"instance-variable": "Rolling"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "EnemyBaseball2",
+											"sid": 957282463369569,
+											"parameters": {
+												"object": "UpDown"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "EnemyBaseball2",
+											"sid": 382364244054346,
+											"behaviorType": "Платформер",
+											"parameters": {
+												"control": "jump"
+											}
+										},
+										{
+											"id": "set-vector-x",
+											"objectClass": "EnemyBaseball2",
+											"sid": 238309590703269,
+											"behaviorType": "Платформер",
+											"parameters": {
+												"vector-x": "EnemyBaseball2.speedDamage*Player.rotate"
+											}
+										}
+									],
+									"sid": 374556165928218,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-landed",
+													"objectClass": "EnemyBaseball2",
+													"sid": 369240372858660,
+													"behaviorType": "Платформер"
+												}
+											],
+											"actions": [
+												{
+													"id": "set-vector-x",
+													"objectClass": "EnemyBaseball2",
+													"sid": 162517596368183,
+													"behaviorType": "Платформер",
+													"parameters": {
+														"vector-x": "0"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 222147683452685,
+													"parameters": {
+														"instance-variable": "Down",
+														"value": "true"
+													}
+												},
+												{
+													"id": "start-timer",
+													"objectClass": "EnemyBaseball2",
+													"sid": 437217953305874,
+													"disabled": true,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"duration": "3",
+														"type": "once",
+														"tag": "\"Up\""
+													}
+												}
+											],
+											"sid": 832683707338676
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyBaseball2",
+													"sid": 503402021527065,
+													"parameters": {
+														"instance-variable": "Down"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "EnemyBaseball2",
+													"sid": 318764671731033,
+													"parameters": {
+														"animation": "\"onGround\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "EnemyBaseball2",
+													"sid": 615612723406244,
+													"behaviorType": "Платформер",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "EnemyBaseball2",
+													"sid": 521302341083365,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"state": "disabled"
+													}
+												}
+											],
+											"sid": 781452331171191,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 623814691762581,
+									"parameters": {
+										"instance-variable": "Rolling"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 226504795536580,
+									"parameters": {
+										"instance-variable": "triger"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 897948112442453,
+									"parameters": {
+										"instance-variable": "Down"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "EnemyBaseball2",
+									"sid": 540806650514578,
+									"parameters": {
+										"animation": "\"onGround\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 605137239003230,
+									"parameters": {
+										"instance-variable": "onRamp",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyBaseball2",
+									"sid": 888067011807068,
+									"behaviorType": "Платформер",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyBaseball2",
+									"sid": 898895281209462,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "EnemyBaseball2",
+									"sid": 495184858541583,
+									"behaviorType": "Таймер",
+									"parameters": {
+										"duration": "3",
+										"type": "once",
+										"tag": "\"Up\""
+									}
+								}
+							],
+							"sid": 330166922333963
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-timer",
+									"objectClass": "EnemyBaseball2",
+									"sid": 320309395922510,
+									"behaviorType": "Таймер",
+									"parameters": {
+										"tag": "\"Up\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyBaseball2",
+									"sid": 282259693921123,
+									"behaviorType": "Платформер",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyBaseball2",
+									"sid": 184299298554849,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 862721688633347,
+									"parameters": {
+										"instance-variable": "triger",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 643805364411812,
+									"parameters": {
+										"instance-variable": "search",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 406218401516360,
+									"parameters": {
+										"instance-variable": "Damage",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 893010276656088,
+									"parameters": {
+										"instance-variable": "Down",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 725602122199673
+						}
+					],
+					"sid": 147637544892066
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "EnemyDamage",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 152720925692392,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyBaseball2",
+									"sid": 504844529504099,
+									"parameters": {
+										"object": "HitBox"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 300494189734163
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 392361021336042,
+									"parameters": {
+										"object": "EnemyBaseball2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "EnemyBaseball2",
+									"sid": 284798565447333,
+									"behaviorType": "НастраиваемоеДвижение"
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 605867469522748,
+									"parameters": {
+										"instance-variable": "Damage",
+										"value": "true"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 366995836522686,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 203868212495024,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 833473864744142,
+											"parameters": {
+												"instance-variable": "Damage"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "EnemyBaseball2",
+											"sid": 228172651348747,
+											"behaviorType": "Таймер",
+											"parameters": {
+												"duration": "0.5",
+												"type": "once",
+												"tag": "\"Damage\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 273084541006800,
+											"parameters": {
+												"instance-variable": "triger",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 839540513480275,
+											"parameters": {
+												"instance-variable": "vision",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 325600155720282,
+											"parameters": {
+												"instance-variable": "search",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 176508001685801,
+											"parameters": {
+												"instance-variable": "Kick",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "EnemyBaseball2",
+											"sid": 229570895790465,
+											"parameters": {
+												"animation": "\"Damage\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 758816323037655
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-timer",
+									"objectClass": "EnemyBaseball2",
+									"sid": 273864926856736,
+									"behaviorType": "Таймер",
+									"parameters": {
+										"tag": "\"Damage\""
+									}
+								},
+								{
+									"id": "is-falling",
+									"objectClass": "EnemyBaseball2",
+									"sid": 645316166825743,
+									"behaviorType": "Платформер",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 891740524499775,
+									"parameters": {
+										"instance-variable": "Damage",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 579713253849969
+						}
+					],
+					"sid": 784595547704006
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Fight",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 379062259804501,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 325076710881819,
+									"parameters": {
+										"instance-variable": "Damage"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 305576853253360,
+									"parameters": {
+										"instance-variable": "Down"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 806223363198910,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "EnemyBaseball2",
+											"sid": 794027577235440,
+											"parameters": {
+												"object": "Player",
+												"offset-x": "10",
+												"offset-y": "EnemyBaseball2.DifY +70"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "EnemyBaseball2",
+											"sid": 944364449998009,
+											"parameters": {
+												"object": "Player",
+												"offset-x": "-10",
+												"offset-y": "EnemyBaseball2.DifY +70"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all-timers",
+											"objectClass": "EnemyBaseball2",
+											"sid": 203880636149376,
+											"behaviorType": "Таймер"
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 607648885409866,
+											"parameters": {
+												"instance-variable": "onRamp",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 150102163891443,
+											"parameters": {
+												"instance-variable": "Kick",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 551230293135722,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 848718151353903,
+									"parameters": {
+										"instance-variable": "Kick"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 187859502814163,
+									"parameters": {
+										"instance-variable": "Damage"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 358419561102090,
+									"parameters": {
+										"instance-variable": "Down"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 412599706594520,
+									"parameters": {
+										"instance-variable": "vision",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 146898396416323,
+									"parameters": {
+										"instance-variable": "triger",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "EnemyBaseball2",
+									"sid": 635242917663974,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "overall",
+										"speed": "0"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "EnemyBaseball2",
+									"sid": 859930567321586,
+									"parameters": {
+										"animation": "\"Kick\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 252050295006334,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 304291539237025,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "EnemyBaseball2",
+											"sid": 216587831139931,
+											"parameters": {
+												"animation": "\"Kick\""
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "EnemyBaseball2",
+											"sid": 763286881379846,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 566171788524420
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 460925025612744,
+											"parameters": {
+												"object": "EnemyBaseball2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 163568290089746,
+											"parameters": {
+												"object-to-create": "HitBoxEnemy",
+												"layer": "12",
+												"x": "EnemyBaseball2.X",
+												"y": "EnemyBaseball2.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 635370611834858
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "EnemyBaseball2",
+											"sid": 361764464831366,
+											"parameters": {
+												"animation": "\"Kick\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "HitBoxEnemy",
+											"sid": 344594309103928
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 585711130315443,
+											"disabled": true,
+											"parameters": {
+												"seconds": "0.5"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 763900564975294,
+											"parameters": {
+												"instance-variable": "search",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 722261434718814,
+											"parameters": {
+												"instance-variable": "triger",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 319922844888412,
+											"parameters": {
+												"instance-variable": "Kick",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 390911563990047
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 814351274859617,
+									"parameters": {
+										"instance-variable": "Kick"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "HitBoxEnemy",
+									"sid": 574755087208627
+								}
+							],
+							"sid": 260216165197216
+						}
+					],
+					"sid": 733199220934981
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Movement",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-speed",
+									"objectClass": "EnemyBaseball2",
+									"sid": 428379492816388,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "horizontal",
+										"comparison": 2,
+										"speed": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "EnemyBaseball2",
+									"sid": 459771093331448,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 982805637103275
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-speed",
+									"objectClass": "EnemyBaseball2",
+									"sid": 893722657358040,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"which": "horizontal",
+										"comparison": 4,
+										"speed": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "EnemyBaseball2",
+									"sid": 834383631690183,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 516694746460045
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "EnemyBaseball2",
+									"sid": 182814101475780
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "EnemyBaseball2",
+									"sid": 315063374038912,
+									"parameters": {
+										"object": "Range",
+										"layer": "12",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Range",
+									"sid": 427093274147043,
+									"parameters": {
+										"width": "EnemyBaseball2.ПолеЗрения.Range * 2",
+										"height": "EnemyBaseball2.ПолеЗрения.Range * 2"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Range",
+									"sid": 123784405828324,
+									"behaviorType": "Прикрепить",
+									"parameters": {
+										"pin-to": "EnemyBaseball2",
+										"x": true,
+										"y": true,
+										"angle": false,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 426600469267346
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "EnemyBaseball2",
+									"sid": 542105694664192,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"object": "Player",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 315076097200518,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 142548212212014,
+									"parameters": {
+										"instance-variable": "Damage"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 936372054857787,
+									"parameters": {
+										"instance-variable": "Rolling"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 164116338966083,
+									"parameters": {
+										"instance-variable": "triger",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 362015128322734,
+									"parameters": {
+										"instance-variable": "vision",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 966655446334611
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "EnemyBaseball2",
+									"sid": 591230598534611,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"object": "Player",
+										"image-point": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 923827627620097,
+									"parameters": {
+										"instance-variable": "vision",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 795685107261319
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 516937235533876,
+									"parameters": {
+										"instance-variable": "vision"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Range",
+									"sid": 959608397345820,
+									"parameters": {
+										"color": "rgbEx(60, 170, 60)"
+									}
+								}
+							],
+							"sid": 559728831531579
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 441293975078017,
+									"parameters": {
+										"instance-variable": "vision"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Range",
+									"sid": 628484354468509,
+									"parameters": {
+										"color": "rgbEx(100, 0, 0)"
+									}
+								}
+							],
+							"sid": 257645250254776
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 278919246464206,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 880291379791461,
+									"parameters": {
+										"instance-variable": "vision"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 867102100900298,
+									"parameters": {
+										"instance-variable": "triger"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 713923357741857,
+									"parameters": {
+										"instance-variable": "onRamp"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 186615552406248,
+									"parameters": {
+										"instance-variable": "Kick"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 683359715094888,
+									"parameters": {
+										"instance-variable": "Rolling"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 517405665895112,
+									"parameters": {
+										"instance-variable": "Damage"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 628504984066650,
+									"parameters": {
+										"instance-variable": "Down"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "EnemyBaseball2",
+									"sid": 767293265632575,
+									"parameters": {
+										"animation": "\"Run\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 383355999289117,
+									"parameters": {
+										"instance-variable": "search",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 116198786570318,
+									"parameters": {
+										"instance-variable": "searchPlayer",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 295634012635545,
+									"parameters": {
+										"instance-variable": "patrul",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 521064025259337,
+									"parameters": {
+										"instance-variable": "MovingToRamp",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 586340524272315,
+									"parameters": {
+										"instance-variable": "probejka",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 526257093729076,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "EnemyBaseball2",
+											"sid": 941249428974873,
+											"parameters": {
+												"comparison": 3,
+												"x-co-ordinate": "Player.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-speed",
+											"objectClass": "EnemyBaseball2",
+											"sid": 583127251908591,
+											"behaviorType": "НастраиваемоеДвижение",
+											"parameters": {
+												"which": "horizontal",
+												"speed": "Self.speed"
+											}
+										}
+									],
+									"sid": 390768661039056
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "EnemyBaseball2",
+											"sid": 710969808765272,
+											"parameters": {
+												"comparison": 5,
+												"x-co-ordinate": "Player.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-speed",
+											"objectClass": "EnemyBaseball2",
+											"sid": 323404746039785,
+											"behaviorType": "НастраиваемоеДвижение",
+											"parameters": {
+												"which": "horizontal",
+												"speed": "-Self.speed"
+											}
+										}
+									],
+									"sid": 905400773439198
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Pandus",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Pandus_Damage",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [],
+									"sid": 813854306505938
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 469839410735815,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 529872589014416,
+											"parameters": {
+												"instance-variable": "search"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 205956253775804,
+											"parameters": {
+												"instance-variable": "onRamp"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 972303474332681,
+											"parameters": {
+												"instance-variable": "Damage"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 497942139930770,
+											"parameters": {
+												"instance-variable": "triger"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 284033778166233
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 483192047664486,
+											"parameters": {
+												"object": "EnemyBaseball2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 171376770511641,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball2",
+													"sid": 811667476322268,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 5,
+														"value": "100"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball2",
+													"sid": 226226371519211,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 3,
+														"value": "-100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 526884367876802,
+													"parameters": {
+														"instance-variable": "MovingToRamp",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 466952602265814,
+													"parameters": {
+														"instance-variable": "vision",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 804609851389309,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 596660764664062,
+															"parameters": {
+																"instance-variable": "MovingToRamp"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 200824155152728,
+															"parameters": {
+																"instance-variable": "onRamp"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyBaseball2",
+															"sid": 679604298008849,
+															"parameters": {
+																"object": "UpDown"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 523491535135026,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "UpDown",
+																	"sid": 260672557197709,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "EnemyBaseball2.X ",
+																		"y": "EnemyBaseball2.Y "
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 811762436033407,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "sign(UpDown.X - EnemyBaseball2.X) * EnemyBaseball2.speed"
+																	}
+																}
+															],
+															"sid": 609982499986897
+														}
+													]
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "EnemyBaseball2",
+											"sid": 403596238569661,
+											"parameters": {
+												"object": "UpDown"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 444845102917707,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 551405010871667,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "EnemyBaseball2",
+													"sid": 964168436632106,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "Player.X +30"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-x",
+													"objectClass": "EnemyBaseball2",
+													"sid": 742123737926458,
+													"parameters": {
+														"comparison": 5,
+														"x-co-ordinate": "Player.X -30"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 528872853440141,
+													"parameters": {
+														"instance-variable": "onRamp",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 923929452219583,
+													"parameters": {
+														"instance-variable": "MovingToRamp",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 496980374320970,
+													"parameters": {
+														"instance-variable": "vision",
+														"value": "false"
+													}
+												},
+												{
+													"id": "start-timer",
+													"objectClass": "EnemyBaseball2",
+													"sid": 630235716011662,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"duration": "1.2",
+														"type": "regular",
+														"tag": "\"Ramp\""
+													}
+												}
+											],
+											"sid": 151446110239096,
+											"isOrBlock": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "EnemyBaseball2",
+											"sid": 941708790944498,
+											"behaviorType": "Таймер",
+											"parameters": {
+												"tag": "\"Ramp\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 462031870996136,
+											"parameters": {
+												"instance-variable": "Damage"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 801691186249980,
+											"parameters": {
+												"instance-variable": "onRamp"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 540561443007792,
+											"parameters": {
+												"instance-variable": "search",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 795732077448750,
+											"parameters": {
+												"instance-variable": "onRamp",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 943649920887650,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 839105882818475
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 298843102766308,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "stop-all-timers",
+													"objectClass": "EnemyBaseball2",
+													"sid": 701453735596502,
+													"behaviorType": "Таймер"
+												}
+											],
+											"sid": 807843092488658
+										}
+									]
+								}
+							],
+							"sid": 362968376338079
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Search",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 780449647697609,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 880359581659321,
+											"parameters": {
+												"instance-variable": "vision"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 205589904245756,
+											"parameters": {
+												"instance-variable": "MovingToRamp"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 207650300330503,
+											"parameters": {
+												"instance-variable": "onRamp"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 157394849059994,
+											"parameters": {
+												"instance-variable": "Damage"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 439440494915672,
+											"parameters": {
+												"instance-variable": "triger"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 158744393992091,
+											"parameters": {
+												"instance-variable": "search",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 247706986725249
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball2",
+											"sid": 436894063631213,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 964013731557172,
+											"parameters": {
+												"instance-variable": "search"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 183844477611100,
+											"parameters": {
+												"instance-variable": "vision"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 655580552771478,
+											"parameters": {
+												"instance-variable": "Damage"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 299609774035145,
+											"parameters": {
+												"instance-variable": "MovingToRamp"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 703835862883711,
+											"parameters": {
+												"instance-variable": "onRamp"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 107621821001052,
+									"children": [
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "searchPlayer",
+											"description": "",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 411741480688630,
+															"parameters": {
+																"instance-variable": "DifY",
+																"comparison": 4,
+																"value": "-80"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 485932982965662,
+															"parameters": {
+																"instance-variable": "DifY",
+																"comparison": 2,
+																"value": "80"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 888508010438303,
+															"parameters": {
+																"instance-variable": "patrul"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 195808721945288,
+															"parameters": {
+																"instance-variable": "searchPlayer",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 150029777745651
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 898075371145057,
+															"parameters": {
+																"instance-variable": "searchPlayer"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 703684660297908,
+															"parameters": {
+																"instance-variable": "patrul"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 783794031675353,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 761621691341566,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 634810694380968,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 2,
+																		"value": "-80"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 239562172613648,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 4,
+																		"value": "80"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 336187983104553,
+																	"parameters": {
+																		"instance-variable": "searchPlayer",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 883774788876464,
+																	"disabled": true,
+																	"parameters": {
+																		"animation": "\"Walk\"",
+																		"from": "current-frame"
+																	}
+																},
+																{
+																	"id": "start-timer",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 588985080903784,
+																	"behaviorType": "Таймер",
+																	"parameters": {
+																		"duration": "2",
+																		"type": "regular",
+																		"tag": "\"probejka\""
+																	}
+																}
+															],
+															"sid": 773761233255635,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 373742964157967,
+															"parameters": {
+																"instance-variable": "searchPlayer"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 595016199747856,
+															"parameters": {
+																"instance-variable": "patrul"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 333348014217810
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 515219814824521,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 355889530017029,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 773254761289127,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 2,
+																		"value": "-80"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 151557991501811,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 4,
+																		"value": "80"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 826380803119861,
+																	"disabled": true,
+																	"parameters": {
+																		"animation": "\"Walk\"",
+																		"from": "current-frame"
+																	}
+																},
+																{
+																	"id": "start-timer",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 179852467389210,
+																	"behaviorType": "Таймер",
+																	"parameters": {
+																		"duration": "2",
+																		"type": "regular",
+																		"tag": "\"probejka\""
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 977238672677021,
+																	"parameters": {
+																		"instance-variable": "probejka",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 697625489333018,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-timer-running",
+															"objectClass": "EnemyBaseball2",
+															"sid": 890175198331824,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"tag": "\"probejka\""
+															}
+														},
+														{
+															"id": "compare-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 675105634013204,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"comparison": 2,
+																"speed": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 680396727378711,
+															"parameters": {
+																"instance-variable": "probejka"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 829045971033415,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 215052630987918,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 2,
+																		"value": "-80"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 752656123798831,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 4,
+																		"value": "80"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 753311414082477,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "-200"
+																	}
+																}
+															],
+															"sid": 828310598532923,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-timer-running",
+															"objectClass": "EnemyBaseball2",
+															"sid": 755564791366068,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"tag": "\"probejka\""
+															}
+														},
+														{
+															"id": "compare-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 584739052772205,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"comparison": 4,
+																"speed": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 888641726104837,
+															"parameters": {
+																"instance-variable": "probejka"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 886236682316715,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 558193474250935,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 2,
+																		"value": "-80"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 295055176870621,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 4,
+																		"value": "80"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 379808142669515,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "200"
+																	}
+																}
+															],
+															"sid": 894124264041769,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-timer",
+															"objectClass": "EnemyBaseball2",
+															"sid": 971815155302397,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"tag": "\"probejka\""
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 697604027686932,
+															"parameters": {
+																"instance-variable": "searchPlayer"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 531633817804188,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 852863990011811,
+															"parameters": {
+																"instance-variable": "searchPlayer",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 198263827456066,
+															"parameters": {
+																"instance-variable": "probejka",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 246126766903399,
+															"parameters": {
+																"instance-variable": "patrul",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 694251300325978
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-timer-running",
+															"objectClass": "EnemyBaseball2",
+															"sid": 233474726763084,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"tag": "\"probejka\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 978191617407267,
+															"parameters": {
+																"instance-variable": "searchPlayer"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 690947467590827,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 273839251652078,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 2,
+																		"value": "-80"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 308194507614657,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 4,
+																		"value": "80"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 267845437025190,
+																	"parameters": {
+																		"instance-variable": "patrul",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 834139224938958,
+															"isOrBlock": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "EnemyBaseball2",
+															"sid": 836550920154645,
+															"parameters": {
+																"comparison": 3,
+																"x-co-ordinate": "Player.X"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 706326758108554,
+															"parameters": {
+																"instance-variable": "searchPlayer"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 753279025442619,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"speed": "Self.speed"
+															}
+														}
+													],
+													"sid": 593607916661600
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "EnemyBaseball2",
+															"sid": 735734319945039,
+															"parameters": {
+																"comparison": 5,
+																"x-co-ordinate": "Player.X"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 944038835423567,
+															"parameters": {
+																"instance-variable": "searchPlayer"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-speed",
+															"objectClass": "EnemyBaseball2",
+															"sid": 684314073507751,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "horizontal",
+																"speed": "-Self.speed"
+															}
+														}
+													],
+													"sid": 166602562713254
+												}
+											],
+											"sid": 779512035057249
+										},
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "patrul",
+											"description": "",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 231417182984844,
+															"parameters": {
+																"instance-variable": "patrul"
+															}
+														},
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 390552738483532,
+															"parameters": {
+																"interval-seconds": "Random(1,4)"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball2",
+															"sid": 499343143834050,
+															"parameters": {
+																"instance-variable": "searchPlayer"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 578392349130568
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 215792329787985,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "toggle-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 780492975916506,
+															"parameters": {
+																"instance-variable": "patrulTimerID"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "EnemyBaseball2",
+															"sid": 940494958469562,
+															"parameters": {
+																"animation": "\"Walk\"",
+																"from": "current-frame"
+															}
+														}
+													],
+													"sid": 840207816678579,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 226279412380109,
+																	"parameters": {
+																		"instance-variable": "patrulTimerID"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 607558077152096,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "100"
+																	}
+																}
+															],
+															"sid": 772042365881868
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 929955996173830,
+																	"parameters": {
+																		"instance-variable": "patrulTimerID"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyBaseball2",
+																	"sid": 611583409751762,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "-100"
+																	}
+																}
+															],
+															"sid": 333169376413431
+														}
+													]
+												}
+											],
+											"sid": 460694981810619
+										}
+									]
+								}
+							],
+							"sid": 786755649175526
+						}
+					],
+					"sid": 510644892054230
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "UpDown",
+							"sid": 182644773214376
+						}
+					],
+					"actions": [
+						{
+							"id": "enabledisable-collisions",
+							"objectClass": "UpDown",
+							"sid": 562941883179863,
+							"behaviorType": "Физика",
+							"parameters": {
+								"object": "EnemyBaseball2",
+								"state": "disable"
+							}
+						}
+					],
+					"sid": 778271843769004,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 922500913791411
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "EnemyBaseball2",
+							"sid": 922385708887377,
+							"parameters": {
+								"instance-variable": "DifY",
+								"value": "Self.Y - Player.Y"
+							}
+						}
+					],
+					"sid": 883630272893732
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-width",
+							"objectClass": "EnemyBaseball2",
+							"sid": 818587775663617,
+							"parameters": {
+								"comparison": 4,
+								"width": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "EnemyBaseball2",
+							"sid": 367281156471397,
+							"parameters": {
+								"instance-variable": "rotate",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 852396211901667
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-width",
+							"objectClass": "EnemyBaseball2",
+							"sid": 545161363155298,
+							"parameters": {
+								"comparison": 2,
+								"width": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "EnemyBaseball2",
+							"sid": 290034234177126,
+							"parameters": {
+								"instance-variable": "rotate",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 289993461663973
+				}
+			],
+			"sid": 528157228555554
 		}
 	],
 	"sid": 685168423764890
