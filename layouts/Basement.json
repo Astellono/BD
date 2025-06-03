@@ -12118,7 +12118,7 @@
 					"type": "Chair",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Idle",
+						"initial-animation": "Break",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -12127,7 +12127,22 @@
 					"sid": 268563020532123,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Физика": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 268563020532123,
 						"expanded": true
@@ -12135,9 +12150,9 @@
 					"world": {
 						"x": 430,
 						"y": 1746,
-						"width": 50,
-						"height": 55,
-						"originX": 0.3333333333333333,
+						"width": 52,
+						"height": 59,
+						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -19039,20 +19054,6 @@
 						"distanceToLiftUp": 0
 					},
 					"behaviors": {
-						"Физика2": {
-							"properties": {
-								"immovable": false,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
-							}
-						},
 						"Платформер": {
 							"properties": {
 								"max-speed": 330,
