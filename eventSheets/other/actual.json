@@ -737,6 +737,15 @@
 									],
 									"actions": [
 										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 178593374211782,
+											"parameters": {
+												"instance-variable": "HeavyPunch",
+												"value": "false"
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 197938816446298,
@@ -1106,6 +1115,202 @@
 										}
 									],
 									"sid": 450660458256743
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 662162037782000,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Chair\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Player_All",
+											"sid": 562769241942057,
+											"parameters": {
+												"instance-variable": "kick",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Player_All",
+											"sid": 200384716049800,
+											"parameters": {
+												"animation": "\"ChairThrowing\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 394787513694328,
+									"children": [
+										{
+											"bookmark": true,
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player_All",
+													"sid": 702099850384820,
+													"parameters": {
+														"animation": "\"ChairThrowing\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 328793277316037,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-velocity",
+															"objectClass": "Chair",
+															"sid": 622834846306160,
+															"behaviorType": "Физика",
+															"parameters": {
+																"which": "x-velocity",
+																"comparison": 4,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-mirrored",
+															"objectClass": "Player_All",
+															"sid": 584613947421694,
+															"parameters": {
+																"state": "mirrored"
+															}
+														}
+													],
+													"sid": 629565759615385
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-velocity",
+															"objectClass": "Chair",
+															"sid": 932977609642286,
+															"behaviorType": "Физика",
+															"parameters": {
+																"which": "x-velocity",
+																"comparison": 2,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-mirrored",
+															"objectClass": "Player_All",
+															"sid": 103641691790377,
+															"parameters": {
+																"state": "not-mirrored"
+															}
+														}
+													],
+													"sid": 572088724744438
+												}
+											]
+										},
+										{
+											"bookmark": true,
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player_All",
+													"sid": 684672469480340,
+													"parameters": {
+														"animation": "\"ChairThrowing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 304610572335641,
+													"parameters": {
+														"seconds": "0.3"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 519518124069836,
+													"parameters": {
+														"object-to-create": "Chair",
+														"layer": "Player_All.LayerName",
+														"x": "Player_All.X",
+														"y": "Player_All.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Chair",
+													"sid": 360918006397732,
+													"parameters": {
+														"animation": "\"Chair\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "apply-force-towards-position",
+													"objectClass": "Chair",
+													"sid": 756732851001854,
+													"behaviorType": "Физика",
+													"parameters": {
+														"force": "1200",
+														"x": "Мышь.X",
+														"y": "Мышь.Y",
+														"image-point": "0"
+													}
+												},
+												{
+													"id": "apply-torque",
+													"objectClass": "Chair",
+													"sid": 504492416857757,
+													"behaviorType": "Физика",
+													"parameters": {
+														"torque": "3000"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 120765019116487,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 780781059097510,
+													"parameters": {
+														"instance-variable": "kick",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 188203510430970
+										}
+									]
 								}
 							]
 						},
@@ -1996,37 +2201,7 @@
 											}
 										}
 									],
-									"sid": 914127083285668,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 412069707254717,
-													"parameters": {
-														"variable": "weapon",
-														"comparison": 0,
-														"value": "\"Baseball\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Player_All",
-													"sid": 257418152873095,
-													"parameters": {
-														"animation": "\"BaseballFinishing\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 405935648446842,
-											"disabled": true
-										}
-									]
+									"sid": 914127083285668
 								},
 								{
 									"eventType": "block",
@@ -2208,6 +2383,7 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -2233,7 +2409,8 @@
 											}
 										}
 									],
-									"sid": 310996725083501
+									"sid": 310996725083501,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2259,7 +2436,8 @@
 											}
 										}
 									],
-									"sid": 458178281136712
+									"sid": 458178281136712,
+									"disabled": true
 								}
 							]
 						},
@@ -6570,7 +6748,7 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "EnemyBaseball2",
-											"sid": 133752364558766,
+											"sid": 852816910113463,
 											"parameters": {
 												"instance-variable": "Death",
 												"value": "true"
@@ -6712,6 +6890,120 @@
 												}
 											],
 											"sid": 707854310249182
+										},
+										{
+											"bookmark": true,
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-velocity",
+													"objectClass": "Chair",
+													"sid": 173508513726670,
+													"behaviorType": "Физика",
+													"parameters": {
+														"which": "overall-velocity",
+														"comparison": 4,
+														"value": "150"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Chair",
+													"sid": 280714661571299,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Chair",
+													"sid": 509209191587784,
+													"parameters": {
+														"object": "HitBox",
+														"layer": "12",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Chair",
+													"sid": 532850340555314,
+													"parameters": {
+														"animation": "\"Break\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "Chair",
+													"sid": 725899311430389,
+													"disabled": true,
+													"behaviorType": "Физика",
+													"parameters": {
+														"mode": "disabled"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 840941505416489,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball2",
+													"sid": 735165035245616,
+													"parameters": {
+														"instance-variable": "HeavyPunch",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "Chair",
+													"sid": 947273708848413,
+													"behaviorType": "Физика",
+													"parameters": {
+														"mode": "disabled"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "HitBox",
+													"sid": 433183842074454
+												}
+											],
+											"sid": 899410319606665,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "Chair",
+															"sid": 581198112170687,
+															"parameters": {
+																"comparison": 0,
+																"number": "4"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Chair",
+															"sid": 258415528419487
+														}
+													],
+													"sid": 707072459946367
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -8016,6 +8308,26 @@
 																"type": "once",
 																"tag": "\"Up\""
 															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 967352516043779,
+															"disabled": true,
+															"parameters": {
+																"instance-variable": "HeavyPunch",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 569692698540073,
+															"disabled": true,
+															"parameters": {
+																"instance-variable": "Damage",
+																"value": "false"
+															}
 														}
 													],
 													"sid": 633778166534357
@@ -8054,6 +8366,16 @@
 									"sid": 897948112442453,
 									"parameters": {
 										"instance-variable": "Down"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 693396858970235,
+									"parameters": {
+										"instance-variable": "Fear",
+										"comparison": 0,
+										"value": "0"
 									}
 								}
 							],
