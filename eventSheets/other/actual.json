@@ -1153,76 +1153,54 @@
 									"sid": 394787513694328,
 									"children": [
 										{
-											"bookmark": true,
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "is-animation-playing",
+													"id": "compare-x",
 													"objectClass": "Player_All",
-													"sid": 702099850384820,
+													"sid": 158095207089252,
 													"parameters": {
-														"animation": "\"ChairThrowing\""
+														"comparison": 2,
+														"x-co-ordinate": "Мышь.X "
 													}
 												}
 											],
-											"actions": [],
-											"sid": 328793277316037,
-											"children": [
+											"actions": [
 												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-velocity",
-															"objectClass": "Chair",
-															"sid": 622834846306160,
-															"behaviorType": "Физика",
-															"parameters": {
-																"which": "x-velocity",
-																"comparison": 4,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-mirrored",
-															"objectClass": "Player_All",
-															"sid": 584613947421694,
-															"parameters": {
-																"state": "mirrored"
-															}
-														}
-													],
-													"sid": 629565759615385
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-velocity",
-															"objectClass": "Chair",
-															"sid": 932977609642286,
-															"behaviorType": "Физика",
-															"parameters": {
-																"which": "x-velocity",
-																"comparison": 2,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-mirrored",
-															"objectClass": "Player_All",
-															"sid": 103641691790377,
-															"parameters": {
-																"state": "not-mirrored"
-															}
-														}
-													],
-													"sid": 572088724744438
+													"id": "set-mirrored",
+													"objectClass": "Player_All",
+													"sid": 356612427341120,
+													"parameters": {
+														"state": "not-mirrored"
+													}
 												}
-											]
+											],
+											"sid": 198135007622835
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Player_All",
+													"sid": 430533455364721,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "Мышь.X "
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "Player_All",
+													"sid": 423721576942076,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 609490935015892
 										},
 										{
 											"bookmark": true,
@@ -1393,9 +1371,18 @@
 											"isInverted": true
 										},
 										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_All",
+											"sid": 899880878439656,
+											"parameters": {
+												"animation": "\"ChairThrowing\""
+											},
+											"isInverted": true
+										},
+										{
 											"id": "key-is-down",
 											"objectClass": "Клавиатура",
-											"sid": 167055489397999,
+											"sid": 784854665763762,
 											"parameters": {
 												"key": 65
 											}
@@ -1405,7 +1392,7 @@
 										{
 											"id": "set-mirrored",
 											"objectClass": "Player_All",
-											"sid": 965737813124394,
+											"sid": 824744018421776,
 											"parameters": {
 												"state": "mirrored"
 											}
@@ -1435,9 +1422,18 @@
 											"isInverted": true
 										},
 										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_All",
+											"sid": 986924322831181,
+											"parameters": {
+												"animation": "\"ChairThrowing\""
+											},
+											"isInverted": true
+										},
+										{
 											"id": "key-is-down",
 											"objectClass": "Клавиатура",
-											"sid": 951518035664366,
+											"sid": 600932919229332,
 											"parameters": {
 												"key": 68
 											}
@@ -1447,7 +1443,7 @@
 										{
 											"id": "set-mirrored",
 											"objectClass": "Player_All",
-											"sid": 277940939769887,
+											"sid": 895691737865651,
 											"parameters": {
 												"state": "not-mirrored"
 											}
@@ -1565,7 +1561,8 @@
 											}
 										}
 									],
-									"sid": 594719758351528
+									"sid": 594719758351528,
+									"isOrBlock": true
 								},
 								{
 									"eventType": "block",
@@ -1591,7 +1588,8 @@
 											}
 										}
 									],
-									"sid": 990598676549253
+									"sid": 990598676549253,
+									"isOrBlock": true
 								}
 							],
 							"sid": 213023670891529
@@ -6974,36 +6972,25 @@
 													}
 												},
 												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 693049851563144,
+													"parameters": {
+														"seconds": "0.2"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Chair",
+													"sid": 833572197405076
+												},
+												{
 													"id": "destroy",
 													"objectClass": "HitBox",
 													"sid": 433183842074454
 												}
 											],
-											"sid": 899410319606665,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-animation-frame",
-															"objectClass": "Chair",
-															"sid": 581198112170687,
-															"parameters": {
-																"comparison": 0,
-																"number": "4"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "destroy",
-															"objectClass": "Chair",
-															"sid": 258415528419487
-														}
-													],
-													"sid": 707072459946367
-												}
-											]
+											"sid": 899410319606665
 										},
 										{
 											"eventType": "block",
