@@ -545,182 +545,22 @@
 									"parameters": {
 										"object": "Weapon"
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 936236477812021,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Chair\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
 							"sid": 913776495027330,
 							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_All",
-											"sid": 699804512367599,
-											"parameters": {
-												"object": "Baseball"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_All",
-											"sid": 524218239021772,
-											"parameters": {
-												"object": "Weapon"
-											}
-										},
-										{
-											"id": "pick-nearestfurthest",
-											"objectClass": "Baseball",
-											"sid": 413482020445800,
-											"parameters": {
-												"which": "nearest",
-												"x": "Player_All.X",
-												"y": "Player_All.Y"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 249180002115363,
-											"parameters": {
-												"seconds": "0.01"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 683775124057018,
-											"parameters": {
-												"variable": "weapon",
-												"value": "\"Baseball\""
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Baseball",
-											"sid": 344077655675369
-										}
-									],
-									"sid": 916115927917885,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_All",
-											"sid": 526096391605525,
-											"parameters": {
-												"object": "Knife"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_All",
-											"sid": 349883665146770,
-											"parameters": {
-												"object": "Weapon"
-											}
-										},
-										{
-											"id": "pick-nearestfurthest",
-											"objectClass": "Knife",
-											"sid": 100449543368768,
-											"parameters": {
-												"which": "nearest",
-												"x": "Player_All.X",
-												"y": "Player_All.Y"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 173078134661796,
-											"parameters": {
-												"seconds": "0.01"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 485802884029534,
-											"parameters": {
-												"variable": "weapon",
-												"value": "\"Knife\""
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Knife",
-											"sid": 361920748968909
-										}
-									],
-									"sid": 464745497756979,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_All",
-											"sid": 778865320830686,
-											"parameters": {
-												"object": "Axe"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_All",
-											"sid": 909239462799761,
-											"parameters": {
-												"object": "Weapon"
-											}
-										},
-										{
-											"id": "pick-nearestfurthest",
-											"objectClass": "Axe",
-											"sid": 350457832106532,
-											"parameters": {
-												"which": "nearest",
-												"x": "Player_All.X",
-												"y": "Player_All.Y"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 124916667504536,
-											"parameters": {
-												"seconds": "0.01"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 886733556299372,
-											"parameters": {
-												"variable": "weapon",
-												"value": "\"Axe\""
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Axe",
-											"sid": 565317048009293
-										}
-									],
-									"sid": 304172075993674,
-									"disabled": true
-								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -740,6 +580,7 @@
 											"id": "set-boolean-instvar",
 											"objectClass": "EnemyBaseball2",
 											"sid": 178593374211782,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "HeavyPunch",
 												"value": "false"
@@ -870,10 +711,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 580232968504851,
+											"sid": 238758718935720,
 											"parameters": {
 												"object-to-create": "Baseball",
-												"layer": "12",
+												"layer": "Player_All.LayerName",
 												"x": "Player_All.X",
 												"y": "Player_All.Y",
 												"create-hierarchy": false,
@@ -928,6 +769,146 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
+											"sid": 877062277409265,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Mounting\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 571162084981355,
+											"parameters": {
+												"object-to-create": "Mounting",
+												"layer": "Player_All.LayerName",
+												"x": "Player_All.X",
+												"y": "Player_All.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "apply-force-towards-position",
+											"objectClass": "Mounting",
+											"sid": 414727648087599,
+											"behaviorType": "Физика",
+											"parameters": {
+												"force": "350",
+												"x": "Мышь.X",
+												"y": "Мышь.Y",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-linear-damping",
+											"objectClass": "Mounting",
+											"sid": 232971426167795,
+											"behaviorType": "Физика",
+											"parameters": {
+												"linear-damping": "1.5"
+											}
+										},
+										{
+											"id": "apply-torque",
+											"objectClass": "Mounting",
+											"sid": 276593366992336,
+											"behaviorType": "Физика",
+											"parameters": {
+												"torque": "500"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 638423463749614,
+											"parameters": {
+												"variable": "weapon",
+												"value": "\"noWeapon\""
+											}
+										}
+									],
+									"sid": 561613681155700
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 850491269245606,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Stake\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 238229185176376,
+											"parameters": {
+												"object-to-create": "Stake",
+												"layer": "Player_All.LayerName",
+												"x": "Player_All.X",
+												"y": "Player_All.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "apply-force-towards-position",
+											"objectClass": "Stake",
+											"sid": 852890289548856,
+											"behaviorType": "Физика",
+											"parameters": {
+												"force": "100",
+												"x": "Мышь.X",
+												"y": "Мышь.Y",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-linear-damping",
+											"objectClass": "Stake",
+											"sid": 841067749754761,
+											"behaviorType": "Физика",
+											"parameters": {
+												"linear-damping": "1.5"
+											}
+										},
+										{
+											"id": "apply-torque",
+											"objectClass": "Stake",
+											"sid": 243663370802561,
+											"behaviorType": "Физика",
+											"parameters": {
+												"torque": "500"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 982646420713231,
+											"parameters": {
+												"variable": "weapon",
+												"value": "\"noWeapon\""
+											}
+										}
+									],
+									"sid": 132622095093024
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
 											"sid": 706715054396379,
 											"parameters": {
 												"variable": "weapon",
@@ -940,10 +921,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 706771696113336,
+											"sid": 762015716266266,
 											"parameters": {
 												"object-to-create": "Knife",
-												"layer": "12",
+												"layer": "Player_All.LayerName",
 												"x": "Player_All.X",
 												"y": "Player_All.Y",
 												"create-hierarchy": false,
@@ -998,7 +979,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 932504814203055,
+											"sid": 828759416610888,
 											"parameters": {
 												"variable": "weapon",
 												"comparison": 0,
@@ -1008,113 +989,217 @@
 									],
 									"actions": [
 										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 776836693333515,
+											"id": "set-boolean-instvar",
+											"objectClass": "Player_All",
+											"sid": 987761641935404,
 											"parameters": {
-												"object-to-create": "Axe",
-												"layer": "12",
-												"x": "Player_All.X",
-												"y": "Player_All.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
+												"instance-variable": "kick",
+												"value": "true"
 											}
 										},
 										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 160102972497182,
+											"id": "set-animation",
+											"objectClass": "Player_All",
+											"sid": 660709552590091,
 											"parameters": {
-												"object-to-create": "BladeAxe",
-												"layer": "12",
-												"x": "Axe.X",
-												"y": "Axe.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 294265835757802,
-											"parameters": {
-												"object-to-create": "HandleAxe",
-												"layer": "12",
-												"x": "Axe.X",
-												"y": "Axe.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "pin-to-object-imagepoint",
-											"objectClass": "BladeAxe",
-											"sid": 724864739894562,
-											"behaviorType": "Прикрепить",
-											"parameters": {
-												"pin-to": "Axe",
-												"image-point": "1",
-												"angle": true,
-												"width-type": "no",
-												"height-type": "no",
-												"z": false
-											}
-										},
-										{
-											"id": "pin-to-object-imagepoint",
-											"objectClass": "HandleAxe",
-											"sid": 865827100805995,
-											"behaviorType": "Прикрепить",
-											"parameters": {
-												"pin-to": "Axe",
-												"image-point": "2",
-												"angle": true,
-												"width-type": "no",
-												"height-type": "no",
-												"z": false
-											}
-										},
-										{
-											"id": "apply-force-towards-position",
-											"objectClass": "Axe",
-											"sid": 574473773350727,
-											"behaviorType": "Физика",
-											"parameters": {
-												"force": "600",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
-												"image-point": "0"
-											}
-										},
-										{
-											"id": "set-linear-damping",
-											"objectClass": "Axe",
-											"sid": 754275626584946,
-											"behaviorType": "Физика",
-											"parameters": {
-												"linear-damping": "1.2"
-											}
-										},
-										{
-											"id": "apply-torque",
-											"objectClass": "Axe",
-											"sid": 101169569424568,
-											"behaviorType": "Физика",
-											"parameters": {
-												"torque": "800"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 123305728966235,
-											"parameters": {
-												"variable": "weapon",
-												"value": "\"noWeapon\""
+												"animation": "\"AxeThrowing\"",
+												"from": "beginning"
 											}
 										}
 									],
-									"sid": 450660458256743
+									"sid": 819198587839892,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Player_All",
+													"sid": 201807710904070,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "Мышь.X "
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "Player_All",
+													"sid": 515512052426739,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												}
+											],
+											"sid": 564883918207873
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Player_All",
+													"sid": 633638691230170,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "Мышь.X "
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "Player_All",
+													"sid": 497829234394584,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 877935462360050
+										},
+										{
+											"bookmark": true,
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player_All",
+													"sid": 755093659473698,
+													"parameters": {
+														"animation": "\"AxeThrowing\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 776819991200258,
+													"parameters": {
+														"seconds": "0.3"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 737107996058664,
+													"parameters": {
+														"object-to-create": "Axe",
+														"layer": "Player_All.LayerName",
+														"x": "Player_All.X",
+														"y": "Player_All.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 822779751970972,
+													"parameters": {
+														"object-to-create": "BladeAxe",
+														"layer": "Player_All.LayerName",
+														"x": "Axe.X",
+														"y": "Axe.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 355057934769548,
+													"parameters": {
+														"object-to-create": "HandleAxe",
+														"layer": "Player_All.LayerName",
+														"x": "Axe.X",
+														"y": "Axe.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-imagepoint",
+													"objectClass": "BladeAxe",
+													"sid": 757148827516189,
+													"behaviorType": "Прикрепить",
+													"parameters": {
+														"pin-to": "Axe",
+														"image-point": "1",
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "pin-to-object-imagepoint",
+													"objectClass": "HandleAxe",
+													"sid": 288529209431910,
+													"behaviorType": "Прикрепить",
+													"parameters": {
+														"pin-to": "Axe",
+														"image-point": "2",
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "apply-force-towards-position",
+													"objectClass": "Axe",
+													"sid": 425864321921846,
+													"behaviorType": "Физика",
+													"parameters": {
+														"force": "600",
+														"x": "Мышь.X",
+														"y": "Мышь.Y",
+														"image-point": "0"
+													}
+												},
+												{
+													"id": "set-linear-damping",
+													"objectClass": "Axe",
+													"sid": 901225846221482,
+													"behaviorType": "Физика",
+													"parameters": {
+														"linear-damping": "1.2"
+													}
+												},
+												{
+													"id": "apply-torque",
+													"objectClass": "Axe",
+													"sid": 858828737291805,
+													"behaviorType": "Физика",
+													"parameters": {
+														"torque": "800"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 483121345171798,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 329900234391579,
+													"parameters": {
+														"instance-variable": "kick",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 629961492034046
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -1225,14 +1310,13 @@
 													}
 												},
 												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 519518124069836,
+													"id": "spawn-another-object",
+													"objectClass": "Player_All",
+													"sid": 354005767524222,
 													"parameters": {
-														"object-to-create": "Chair",
+														"object": "Chair",
 														"layer": "Player_All.LayerName",
-														"x": "Player_All.X",
-														"y": "Player_All.Y",
+														"image-point": "1",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
@@ -2155,6 +2239,7 @@
 							"sid": 372762047074453
 						},
 						{
+							"bookmark": true,
 							"eventType": "group",
 							"disabled": false,
 							"title": "Final",
@@ -2186,6 +2271,17 @@
 												"instance-variable": "kick"
 											},
 											"isInverted": true
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 719801303442053,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Mounting\""
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
@@ -2200,6 +2296,123 @@
 										}
 									],
 									"sid": 914127083285668
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Клавиатура",
+											"sid": 412755134832768,
+											"parameters": {
+												"key": 32
+											}
+										},
+										{
+											"id": "is-on-floor",
+											"objectClass": "Player_All",
+											"sid": 901313543914268,
+											"behaviorType": "Платформер"
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Player_All",
+											"sid": 308040990835545,
+											"parameters": {
+												"instance-variable": "kick"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 768697172811165,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Mounting\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Player_All",
+											"sid": 678879565143716,
+											"parameters": {
+												"animation": "weapon & \"Finishing\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 234682912488346,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-nearestfurthest",
+													"objectClass": "Enemys",
+													"sid": 790461029784996,
+													"parameters": {
+														"which": "nearest",
+														"x": "Player_All.X ",
+														"y": "Player_All.Y "
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball2",
+													"sid": 760790329537559,
+													"parameters": {
+														"instance-variable": "HP",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position-to-another-object",
+													"objectClass": "Player_All",
+													"sid": 173259735602502,
+													"parameters": {
+														"object": "Enemys",
+														"image-point-optional": "1"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 878718323709044,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Enemys",
+													"sid": 965226427864468,
+													"parameters": {
+														"animation": "\"MountingFinishing\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "stop-animation",
+													"objectClass": "Enemys",
+													"sid": 354324806433475
+												},
+												{
+													"id": "stop-animation",
+													"objectClass": "Player_All",
+													"sid": 908907516861110
+												}
+											],
+											"sid": 277689391046267
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -2225,6 +2438,55 @@
 										}
 									],
 									"sid": 478304477604320
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-click",
+											"objectClass": "Мышь",
+											"sid": 256731651479845,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_All",
+											"sid": 711688785935805,
+											"parameters": {
+												"animation": "\"MountingFinishing\""
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Enemys",
+											"sid": 784092359995557,
+											"parameters": {
+												"animation": "\"MountingFinishing\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Player_All",
+											"sid": 977921134325546,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Enemys",
+											"sid": 931740329972669,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 340380704536687
 								}
 							],
 							"sid": 630242679580008
@@ -2581,10 +2843,10 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Player_All",
-									"sid": 653318937772978,
+									"sid": 552502991584669,
 									"parameters": {
 										"object": "HitBox",
-										"layer": "12",
+										"layer": "Player_All.LayerName",
 										"image-point": "1",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -6845,10 +7107,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Baseball",
-													"sid": 562316099756039,
+													"sid": 515273295629573,
 													"parameters": {
 														"object": "HitBox",
-														"layer": "12",
+														"layer": "Player_All.LayerName",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -6890,6 +7152,186 @@
 											"sid": 707854310249182
 										},
 										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-velocity",
+													"objectClass": "Mounting",
+													"sid": 219673927954182,
+													"behaviorType": "Физика",
+													"parameters": {
+														"which": "overall-velocity",
+														"comparison": 4,
+														"value": "150"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Mounting",
+													"sid": 626882081247575,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-enabled",
+													"objectClass": "EnemyBaseball2",
+													"sid": 998199003273869,
+													"behaviorType": "Физика",
+													"parameters": {
+														"mode": "enabled"
+													}
+												},
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Mounting",
+													"sid": 605396509490867,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "EnemyBaseball2",
+														"state": "enable"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Mounting",
+													"sid": 224096899870584,
+													"parameters": {
+														"object": "HitBox",
+														"layer": "Player_All.LayerName",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 812757849411727,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Mounting",
+													"sid": 466275707093383,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "EnemyBaseball2",
+														"state": "disable"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "EnemyBaseball2",
+													"sid": 822253043790646,
+													"behaviorType": "Физика",
+													"parameters": {
+														"mode": "disabled"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "HitBox",
+													"sid": 220338082452778
+												}
+											],
+											"sid": 157235531305895
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-velocity",
+													"objectClass": "Stake",
+													"sid": 416286210684316,
+													"behaviorType": "Физика",
+													"parameters": {
+														"which": "overall-velocity",
+														"comparison": 4,
+														"value": "150"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Stake",
+													"sid": 809990742477660,
+													"parameters": {
+														"object": "EnemyBaseball2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-enabled",
+													"objectClass": "EnemyBaseball2",
+													"sid": 180521517100561,
+													"behaviorType": "Физика",
+													"parameters": {
+														"mode": "enabled"
+													}
+												},
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Stake",
+													"sid": 817788628012028,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "EnemyBaseball2",
+														"state": "enable"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Stake",
+													"sid": 854012026917251,
+													"parameters": {
+														"object": "HitBox",
+														"layer": "Player_All.LayerName",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 571654688378243,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "enabledisable-collisions",
+													"objectClass": "Stake",
+													"sid": 149398344191337,
+													"behaviorType": "Физика",
+													"parameters": {
+														"object": "EnemyBaseball2",
+														"state": "disable"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "EnemyBaseball2",
+													"sid": 628428581332395,
+													"behaviorType": "Физика",
+													"parameters": {
+														"mode": "disabled"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "HitBox",
+													"sid": 105615665814382
+												}
+											],
+											"sid": 594663929878095
+										},
+										{
 											"bookmark": true,
 											"eventType": "block",
 											"conditions": [
@@ -6911,16 +7353,33 @@
 													"parameters": {
 														"object": "EnemyBaseball2"
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 360883682375464
 												}
 											],
 											"actions": [
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Chair",
-													"sid": 509209191587784,
+													"sid": 480964701009294,
+													"parameters": {
+														"object": "Stake",
+														"layer": "Player_All.LayerName",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Chair",
+													"sid": 698064666900695,
 													"parameters": {
 														"object": "HitBox",
-														"layer": "12",
+														"layer": "Player_All.LayerName",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -6933,16 +7392,6 @@
 													"parameters": {
 														"animation": "\"Break\"",
 														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Chair",
-													"sid": 725899311430389,
-													"disabled": true,
-													"behaviorType": "Физика",
-													"parameters": {
-														"mode": "disabled"
 													}
 												},
 												{
@@ -7183,10 +7632,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "HandleAxe",
-													"sid": 933671809733922,
+													"sid": 766859258502994,
 													"parameters": {
 														"object": "HitBox",
-														"layer": "12",
+														"layer": "Player_All.LayerName",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -7285,7 +7734,34 @@
 													}
 												}
 											],
-											"sid": 685418261783826
+											"sid": 685418261783826,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 438704043685672
+														}
+													],
+													"actions": [
+														{
+															"id": "spawn-another-object",
+															"objectClass": "HitBox",
+															"sid": 615554244018738,
+															"parameters": {
+																"object": "Stake",
+																"layer": "Player_All.LayerName",
+																"image-point": "0",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 968646200397262
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -7812,7 +8288,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "EnemyBaseball2",
-															"sid": 481178096025710,
+															"sid": 138906794671150,
 															"parameters": {
 																"instance-variable": "Finishing",
 																"comparison": 0,
@@ -7823,7 +8299,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "EnemyBaseball2",
-															"sid": 667414955877906,
+															"sid": 545642403647316,
 															"parameters": {
 																"instance-variable": "Finishing",
 																"comparison": 0,
@@ -7834,7 +8310,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "EnemyBaseball2",
-															"sid": 819449146141140,
+															"sid": 360499318593397,
 															"parameters": {
 																"instance-variable": "Finishing",
 																"comparison": 0,
@@ -7845,12 +8321,12 @@
 														{
 															"id": "trigger-once-while-true",
 															"objectClass": "System",
-															"sid": 553741111531703
+															"sid": 362404852073698
 														},
 														{
 															"id": "for-each",
 															"objectClass": "System",
-															"sid": 191052383916358,
+															"sid": 140690918202172,
 															"parameters": {
 																"object": "EnemyBaseball2"
 															}
@@ -7860,7 +8336,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "EnemyBaseball2",
-															"sid": 689669649239217,
+															"sid": 431706562808330,
 															"parameters": {
 																"instance-variable": "HP",
 																"value": "0"
@@ -7869,7 +8345,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "EnemyBaseball2",
-															"sid": 365770289838690,
+															"sid": 628495648857304,
 															"parameters": {
 																"instance-variable": "Finishing",
 																"value": "\"Knife\""
@@ -7878,7 +8354,7 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "EnemyBaseball2",
-															"sid": 487554451959803,
+															"sid": 956737755379170,
 															"parameters": {
 																"instance-variable": "Fear",
 																"value": "1"
@@ -7887,7 +8363,7 @@
 														{
 															"id": "set-animation",
 															"objectClass": "EnemyBaseball2",
-															"sid": 262760343355446,
+															"sid": 527583217444105,
 															"parameters": {
 																"animation": "\"KnifeFinishing\"",
 																"from": "current-frame"
@@ -7895,6 +8371,202 @@
 														}
 													],
 													"sid": 939971931028829
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_All",
+															"sid": 676798904741549,
+															"parameters": {
+																"animation": "\"StakeFinishing\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 454040824841034,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"comparison": 0,
+																"value": "\"Baseball\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 509996206912087,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"comparison": 0,
+																"value": "\"Axe\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 811086283507137,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"comparison": 0,
+																"value": "\"noWeapon\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 916436375786971
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 169515474746253,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "EnemyBaseball2",
+															"sid": 119155105711975,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "EnemyBaseball2",
+															"sid": 538737942311088,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"value": "\"Stake\""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 224878158523995,
+															"parameters": {
+																"instance-variable": "Fear",
+																"value": "1"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "EnemyBaseball2",
+															"sid": 502275235908094,
+															"parameters": {
+																"animation": "\"StakeFinishing\"",
+																"from": "current-frame"
+															}
+														}
+													],
+													"sid": 909114939263665
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_All",
+															"sid": 601418755535004,
+															"parameters": {
+																"animation": "\"AxeFinishing\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 177767473631864,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"comparison": 0,
+																"value": "\"Baseball\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 910702086172634,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"comparison": 0,
+																"value": "\"Knife\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball2",
+															"sid": 345049863277263,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"comparison": 0,
+																"value": "\"noWeapon\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 542321028657716
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 424260715361270,
+															"parameters": {
+																"object": "EnemyBaseball2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "EnemyBaseball2",
+															"sid": 263030087212969,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "EnemyBaseball2",
+															"sid": 831009972496702,
+															"parameters": {
+																"instance-variable": "Finishing",
+																"value": "\"Axe\""
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "EnemyBaseball2",
+															"sid": 348505682065298,
+															"parameters": {
+																"instance-variable": "Fear",
+																"value": "1"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "EnemyBaseball2",
+															"sid": 749199809352929,
+															"parameters": {
+																"animation": "\"AxeFinishing\"",
+																"from": "current-frame"
+															}
+														}
+													],
+													"sid": 188395149582835
 												}
 											]
 										}
