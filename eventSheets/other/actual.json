@@ -1388,6 +1388,15 @@
 									],
 									"actions": [
 										{
+											"id": "set-instvar-value",
+											"objectClass": "Shot",
+											"sid": 291949940432313,
+											"parameters": {
+												"instance-variable": "Hit",
+												"value": "Random(100)"
+											}
+										},
+										{
 											"callFunction": "shakeScreen",
 											"sid": 569025535224175
 										},
@@ -1395,6 +1404,7 @@
 											"id": "play",
 											"objectClass": "Аудио",
 											"sid": 425712573804442,
+											"disabled": true,
 											"parameters": {
 												"audio-file": "Beretta",
 												"loop": "not-looping",
@@ -1424,14 +1434,35 @@
 										{
 											"id": "set-angle-of-motion",
 											"objectClass": "Shot",
-											"sid": 594444474742958,
+											"sid": 193294450063107,
 											"behaviorType": "Пуля",
 											"parameters": {
-												"angle": "Pistol.Angle"
+												"angle": "Pistol.Angle +  random(-20, 20)"
 											}
 										}
 									],
 									"sid": 583627298566679
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot",
+											"sid": 832949146206008,
+											"parameters": {
+												"object": "Wall"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Shot",
+											"sid": 989345144879461
+										}
+									],
+									"sid": 391298647592336
 								}
 							],
 							"sid": 330411211784563
@@ -1477,11 +1508,125 @@
 										"value": "\"Axe\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 341165133064091,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Pistol\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
 							"sid": 913776495027330,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 589242048026076,
+											"parameters": {
+												"object": "Pistol"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 801158018191903,
+											"parameters": {
+												"seconds": "0.01"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 772679248101342,
+											"parameters": {
+												"variable": "weapon",
+												"value": "Weapon.AnimationName"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Player_All",
+											"sid": 305854204203268,
+											"parameters": {
+												"object": "HeadPlayer",
+												"layer": "Player_All.LayerName",
+												"image-point": "2",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Pistol",
+											"sid": 132847445085358,
+											"parameters": {
+												"animation": "\"Pistol2\"",
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "stop-animation",
+											"objectClass": "Pistol",
+											"sid": 674573576037261
+										},
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "HeadPlayer",
+											"sid": 580106632848943,
+											"behaviorType": "Прикрепить",
+											"parameters": {
+												"pin-to": "Player_All",
+												"image-point": "2",
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "Pistol",
+											"sid": 928756609189233,
+											"behaviorType": "Прикрепить2",
+											"parameters": {
+												"pin-to": "Player_All",
+												"image-point": "1",
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "move-to-layer",
+											"objectClass": "Pistol",
+											"sid": 453021072524729,
+											"parameters": {
+												"layer": "Player_All.LayerName"
+											}
+										},
+										{
+											"id": "set-flipped",
+											"objectClass": "Pistol",
+											"sid": 118835272285902,
+											"parameters": {
+												"state": "not-flipped"
+											}
+										}
+									],
+									"sid": 623283547670072
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -1494,6 +1639,16 @@
 												"x": "Player_All.X",
 												"y": "Player_All.Y"
 											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 367283184113708,
+											"disabled": true,
+											"parameters": {
+												"object": "Pistol"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
@@ -1531,96 +1686,6 @@
 										}
 									],
 									"sid": 544428495590895
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_All",
-											"sid": 382205157498507,
-											"parameters": {
-												"object": "Pistol"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Player_All",
-											"sid": 130825295674041,
-											"parameters": {
-												"object": "HeadPlayer",
-												"layer": "Player_All.LayerName",
-												"image-point": "2",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Player_All",
-											"sid": 749561811105024,
-											"parameters": {
-												"object": "Pistol",
-												"layer": "Player_All.LayerName",
-												"image-point": "0",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Pistol",
-											"sid": 644049826821902,
-											"parameters": {
-												"animation": "\"Pistol2\"",
-												"from": "current-frame"
-											}
-										},
-										{
-											"id": "stop-animation",
-											"objectClass": "Pistol",
-											"sid": 706256849622439
-										},
-										{
-											"id": "pin-to-object-imagepoint",
-											"objectClass": "HeadPlayer",
-											"sid": 435000506619702,
-											"behaviorType": "Прикрепить",
-											"parameters": {
-												"pin-to": "Player_All",
-												"image-point": "2",
-												"angle": true,
-												"width-type": "no",
-												"height-type": "no",
-												"z": false
-											}
-										},
-										{
-											"id": "pin-to-object-imagepoint",
-											"objectClass": "Pistol",
-											"sid": 149289806904018,
-											"behaviorType": "Прикрепить2",
-											"parameters": {
-												"pin-to": "Player_All",
-												"image-point": "1",
-												"angle": true,
-												"width-type": "no",
-												"height-type": "no",
-												"z": false
-											}
-										},
-										{
-											"id": "set-flipped",
-											"objectClass": "Pistol",
-											"sid": 198463886769936,
-											"parameters": {
-												"state": "not-flipped"
-											}
-										}
-									],
-									"sid": 254991557626227
 								}
 							]
 						},
@@ -1699,6 +1764,24 @@
 										"mouse-button": "right",
 										"click-type": "clicked"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 446113419157970,
+									"parameters": {
+										"variable": "inDash"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 788376052681128,
+									"parameters": {
+										"variable": "inTackel"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -1927,53 +2010,44 @@
 												"comparison": 0,
 												"value": "\"Pistol\""
 											}
-										},
-										{
-											"id": "is-pinned",
-											"objectClass": "HeadPlayer",
-											"sid": 678366971305163,
-											"disabled": true,
-											"behaviorType": "Прикрепить"
-										},
-										{
-											"id": "is-pinned",
-											"objectClass": "Pistol",
-											"sid": 413864166410991,
-											"disabled": true,
-											"behaviorType": "Прикрепить2"
 										}
 									],
 									"actions": [
 										{
-											"id": "destroy",
+											"id": "unpin",
 											"objectClass": "Pistol",
-											"sid": 586150938281276
+											"sid": 338495332958157,
+											"behaviorType": "Прикрепить2"
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 996409360793308,
+											"parameters": {
+												"seconds": "0.05"
+											}
 										},
 										{
 											"id": "destroy",
 											"objectClass": "HeadPlayer",
-											"sid": 740527186131194
+											"sid": 528209715861832
 										},
 										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 848927414910894,
+											"id": "set-animation",
+											"objectClass": "Pistol",
+											"sid": 626496801647939,
 											"parameters": {
-												"object-to-create": "Pistol",
-												"layer": "Player_All.LayerName",
-												"x": "Player_All.X",
-												"y": "Player_All.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
+												"animation": "\"Pistol\"",
+												"from": "beginning"
 											}
 										},
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Pistol",
-											"sid": 650225473633075,
+											"sid": 163965930083534,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "100",
+												"force": "600",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -1991,7 +2065,7 @@
 										{
 											"id": "apply-torque",
 											"objectClass": "Pistol",
-											"sid": 475484629544894,
+											"sid": 555372737881645,
 											"behaviorType": "Физика",
 											"parameters": {
 												"torque": "500"
@@ -10871,6 +10945,16 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Shot",
+									"sid": 523929583641176,
+									"parameters": {
+										"instance-variable": "Hit",
+										"comparison": 3,
+										"value": "30"
+									}
+								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "EnemyBaseball2",
