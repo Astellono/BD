@@ -1275,6 +1275,22 @@
 												"comparison": 0,
 												"value": "\"Extinguisher\""
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Extinguisher",
+											"sid": 269971687385843,
+											"parameters": {
+												"instance-variable": "Bubble",
+												"comparison": 3,
+												"value": "200"
+											}
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Extinguisher",
+											"sid": 734450071890538,
+											"behaviorType": "Прикрепить2"
 										}
 									],
 									"actions": [
@@ -1337,6 +1353,15 @@
 											"id": "destroy",
 											"objectClass": "Fire_Extinguisher",
 											"sid": 351668728124999
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Extinguisher",
+											"sid": 748763483586726,
+											"parameters": {
+												"instance-variable": "Bubble",
+												"value": "1"
+											}
 										}
 									],
 									"sid": 289591640140173
@@ -1372,6 +1397,290 @@
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Shotgun",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-pinned",
+													"objectClass": "Shotgun",
+													"sid": 334851415821368,
+													"behaviorType": "Прикрепить2"
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle-toward-position",
+													"objectClass": "Shotgun",
+													"sid": 382443241438787,
+													"parameters": {
+														"x": "Мышь.X",
+														"y": "Мышь.Y"
+													}
+												}
+											],
+											"sid": 264958483974433,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "Player_All",
+															"sid": 276097336782091,
+															"parameters": {
+																"comparison": 4,
+																"x-co-ordinate": "Мышь.X"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-flipped",
+															"objectClass": "Shotgun",
+															"sid": 618578165513478,
+															"parameters": {
+																"state": "flipped"
+															}
+														},
+														{
+															"id": "set-mirrored",
+															"objectClass": "HeadPlayer",
+															"sid": 180325618794999,
+															"parameters": {
+																"state": "mirrored"
+															}
+														}
+													],
+													"sid": 744696575351646
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "Player_All",
+															"sid": 935645142997170,
+															"parameters": {
+																"comparison": 2,
+																"x-co-ordinate": "Мышь.X"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-flipped",
+															"objectClass": "Shotgun",
+															"sid": 592510517510023,
+															"parameters": {
+																"state": "not-flipped"
+															}
+														},
+														{
+															"id": "set-mirrored",
+															"objectClass": "HeadPlayer",
+															"sid": 363179797381463,
+															"parameters": {
+																"state": "not-mirrored"
+															}
+														}
+													],
+													"sid": 105384085376394
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-click",
+													"objectClass": "Мышь",
+													"sid": 474778956391366,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked"
+													}
+												},
+												{
+													"id": "is-pinned",
+													"objectClass": "Shotgun",
+													"sid": 786547901515038,
+													"behaviorType": "Прикрепить2"
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Shotgun",
+													"sid": 475013258248531,
+													"parameters": {
+														"instance-variable": "Pistol",
+														"comparison": 3,
+														"value": "0"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "start-animation",
+													"objectClass": "Shotgun",
+													"sid": 732723344608338,
+													"parameters": {
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Shotgun",
+													"sid": 668124564326730,
+													"parameters": {
+														"object": "Shot",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Shotgun",
+													"sid": 931669540394854,
+													"parameters": {
+														"object": "Shot",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Shotgun",
+													"sid": 532819381934880,
+													"parameters": {
+														"object": "Shot",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Shotgun",
+													"sid": 726984322853875,
+													"parameters": {
+														"object": "Shot",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Shotgun",
+													"sid": 653708168866691,
+													"parameters": {
+														"object": "Shot",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 878019230842251
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-created",
+													"objectClass": "Shot",
+													"sid": 546613187976425
+												},
+												{
+													"id": "is-pinned",
+													"objectClass": "Shotgun",
+													"sid": 588917949227325,
+													"behaviorType": "Прикрепить2"
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Shotgun",
+													"sid": 108118340642256,
+													"parameters": {
+														"instance-variable": "Pistol",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shot",
+													"sid": 852977516285030,
+													"parameters": {
+														"instance-variable": "Hit",
+														"value": "Random(100)"
+													}
+												},
+												{
+													"callFunction": "shakeScreen",
+													"sid": 912292440647747
+												},
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 895616371395684,
+													"disabled": true,
+													"parameters": {
+														"audio-file": "Beretta",
+														"loop": "not-looping",
+														"volume": "-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "Shot",
+													"sid": 210090688981284,
+													"behaviorType": "Пуля",
+													"parameters": {
+														"state": "enabled"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "Shot",
+													"sid": 560360091051134,
+													"behaviorType": "Пуля",
+													"parameters": {
+														"speed": "1000"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Shot",
+													"sid": 341576883485635,
+													"behaviorType": "Пуля",
+													"parameters": {
+														"angle": "Shotgun.Angle +  random(-20, 20)"
+													}
+												}
+											],
+											"sid": 299703287879401
+										}
+									],
+									"sid": 674747262117273
+								},
 								{
 									"eventType": "group",
 									"disabled": false,
@@ -1491,10 +1800,10 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Pistol",
-													"sid": 452767628351031,
+													"sid": 325143247599840,
 													"parameters": {
 														"instance-variable": "Pistol",
-														"comparison": 0,
+														"comparison": 3,
 														"value": "0"
 													},
 													"isInverted": true
@@ -1540,6 +1849,12 @@
 													"id": "on-created",
 													"objectClass": "Shot",
 													"sid": 543843436054822
+												},
+												{
+													"id": "is-pinned",
+													"objectClass": "Pistol",
+													"sid": 263257613744658,
+													"behaviorType": "Прикрепить2"
 												}
 											],
 											"actions": [
@@ -1709,6 +2024,25 @@
 											"parameters": {
 												"object": "Pistol"
 											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 182923532728978,
+											"parameters": {
+												"object": "Shotgun"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "Pistol",
+											"sid": 391021206158469,
+											"parameters": {
+												"which": "nearest",
+												"x": "Player_All.X",
+												"y": "Player_All.Y"
+											}
 										}
 									],
 									"actions": [
@@ -1718,6 +2052,16 @@
 											"sid": 332603053317953,
 											"parameters": {
 												"seconds": "0.01"
+											}
+										},
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Pistol",
+											"sid": 993708085203634,
+											"behaviorType": "Физика",
+											"parameters": {
+												"object": "Weapon",
+												"state": "disable"
 											}
 										},
 										{
@@ -1813,9 +2157,266 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Player_All",
-											"sid": 207057293852321,
+											"sid": 884618743955640,
+											"parameters": {
+												"object": "Shotgun"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 968048001829703,
 											"parameters": {
 												"object": "Pistol"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "Shotgun",
+											"sid": 884608549942513,
+											"parameters": {
+												"which": "nearest",
+												"x": "Player_All.X",
+												"y": "Player_All.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 313908825781198,
+											"parameters": {
+												"seconds": "0.01"
+											}
+										},
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Shotgun",
+											"sid": 896839506590893,
+											"behaviorType": "Физика",
+											"parameters": {
+												"object": "Weapon",
+												"state": "disable"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 206417544779915,
+											"parameters": {
+												"variable": "weapon",
+												"value": "\"Shotgun\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Player_All",
+											"sid": 668308886180115,
+											"parameters": {
+												"object": "HeadPlayer",
+												"layer": "Player_All.LayerName",
+												"image-point": "2",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Shotgun",
+											"sid": 408014010810604,
+											"parameters": {
+												"animation": "\"Shotgun1\"",
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "stop-animation",
+											"objectClass": "Shotgun",
+											"sid": 497688054196766
+										},
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "HeadPlayer",
+											"sid": 962909326119794,
+											"behaviorType": "Прикрепить",
+											"parameters": {
+												"pin-to": "Player_All",
+												"image-point": "2",
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "Shotgun",
+											"sid": 859970196224544,
+											"behaviorType": "Прикрепить2",
+											"parameters": {
+												"pin-to": "Player_All",
+												"image-point": "1",
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "move-to-layer",
+											"objectClass": "Shotgun",
+											"sid": 393717119283115,
+											"parameters": {
+												"layer": "Player_All.LayerName"
+											}
+										},
+										{
+											"id": "move-to-top",
+											"objectClass": "Shotgun",
+											"sid": 218707238286159
+										},
+										{
+											"id": "set-flipped",
+											"objectClass": "Shotgun",
+											"sid": 356251729102233,
+											"parameters": {
+												"state": "not-flipped"
+											}
+										}
+									],
+									"sid": 362282686969389
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 772325302126727,
+											"parameters": {
+												"object": "Extinguisher"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 598827135722576,
+											"parameters": {
+												"object": "Pistol"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 725745718681161,
+											"parameters": {
+												"object": "Shotgun"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "Extinguisher",
+											"sid": 723167303876370,
+											"parameters": {
+												"which": "nearest",
+												"x": "Player_All.X",
+												"y": "Player_All.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 280044948151585,
+											"parameters": {
+												"seconds": "0.01"
+											}
+										},
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Extinguisher",
+											"sid": 509547365316722,
+											"behaviorType": "Физика",
+											"parameters": {
+												"object": "Weapon",
+												"state": "disable"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 488635275664990,
+											"parameters": {
+												"variable": "weapon",
+												"value": "Weapon.AnimationName"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Extinguisher",
+											"sid": 536820118397261,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "Extinguisher",
+											"sid": 694662108313636,
+											"behaviorType": "Прикрепить2",
+											"parameters": {
+												"pin-to": "Player_All",
+												"image-point": "3",
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										}
+									],
+									"sid": 302907372059614
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 767138973527275,
+											"parameters": {
+												"object": "Pistol"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 527491827992844,
+											"parameters": {
+												"object": "Shotgun"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 388829946971632,
+											"parameters": {
+												"object": "Extinguisher"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Weapon",
+											"sid": 828593733536614,
+											"parameters": {
+												"object": "Extinguisher"
 											},
 											"isInverted": true
 										}
@@ -1824,7 +2425,7 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "EnemyBaseball2",
-											"sid": 302299394624051,
+											"sid": 203764771940381,
 											"disabled": true,
 											"parameters": {
 												"instance-variable": "HeavyPunch",
@@ -1834,7 +2435,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 407359457570758,
+											"sid": 138103353658895,
 											"parameters": {
 												"seconds": "0.01"
 											}
@@ -1842,7 +2443,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 701584561966724,
+											"sid": 182300217898196,
 											"parameters": {
 												"variable": "weapon",
 												"value": "Weapon.AnimationName"
@@ -1851,10 +2452,10 @@
 										{
 											"id": "destroy",
 											"objectClass": "Weapon",
-											"sid": 937365518553079
+											"sid": 892661766272794
 										}
 									],
-									"sid": 660910245349717
+									"sid": 312206362815321
 								}
 							]
 						},
@@ -1970,6 +2571,101 @@
 										}
 									],
 									"sid": 392575703828650
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 502628837467817,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Extinguisher\""
+											}
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Extinguisher",
+											"sid": 466010924570370,
+											"behaviorType": "Прикрепить2"
+										}
+									],
+									"actions": [
+										{
+											"id": "unpin",
+											"objectClass": "Extinguisher",
+											"sid": 556217710896299,
+											"behaviorType": "Прикрепить2"
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 797624293848864,
+											"parameters": {
+												"seconds": "0.05"
+											}
+										},
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Extinguisher",
+											"sid": 152498402336367,
+											"behaviorType": "Физика",
+											"parameters": {
+												"object": "Weapon",
+												"state": "enable"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Extinguisher",
+											"sid": 714198605392524,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "apply-force-towards-position",
+											"objectClass": "Extinguisher",
+											"sid": 812977886876200,
+											"behaviorType": "Физика",
+											"parameters": {
+												"force": "500",
+												"x": "Мышь.X",
+												"y": "Мышь.Y",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-linear-damping",
+											"objectClass": "Extinguisher",
+											"sid": 724139052309258,
+											"behaviorType": "Физика",
+											"parameters": {
+												"linear-damping": "1.5"
+											}
+										},
+										{
+											"id": "apply-torque",
+											"objectClass": "Extinguisher",
+											"sid": 240394111626003,
+											"behaviorType": "Физика",
+											"parameters": {
+												"torque": "500"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 806046947702058,
+											"parameters": {
+												"variable": "weapon",
+												"value": "\"noWeapon\""
+											}
+										}
+									],
+									"sid": 387221825050774
 								},
 								{
 									"eventType": "block",
@@ -2124,6 +2820,12 @@
 												"comparison": 0,
 												"value": "\"Pistol\""
 											}
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Pistol",
+											"sid": 167106188312532,
+											"behaviorType": "Прикрепить2"
 										}
 									],
 									"actions": [
@@ -2139,6 +2841,16 @@
 											"sid": 996409360793308,
 											"parameters": {
 												"seconds": "0.05"
+											}
+										},
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Pistol",
+											"sid": 344797339993541,
+											"behaviorType": "Физика",
+											"parameters": {
+												"object": "Weapon",
+												"state": "enable"
 											}
 										},
 										{
@@ -2196,6 +2908,108 @@
 										}
 									],
 									"sid": 359424204823580
+								},
+								{
+									"bookmark": true,
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 148324484493484,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Shotgun\""
+											}
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Shotgun",
+											"sid": 111107358060365,
+											"behaviorType": "Прикрепить2"
+										}
+									],
+									"actions": [
+										{
+											"id": "unpin",
+											"objectClass": "Shotgun",
+											"sid": 490320654538211,
+											"behaviorType": "Прикрепить2"
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 276109983365754,
+											"parameters": {
+												"seconds": "0.05"
+											}
+										},
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Shotgun",
+											"sid": 344177016013381,
+											"behaviorType": "Физика",
+											"parameters": {
+												"object": "Weapon",
+												"state": "enable"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "HeadPlayer",
+											"sid": 126198675189164
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Shotgun",
+											"sid": 439734743966326,
+											"parameters": {
+												"animation": "\"Shotgun\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "apply-force-towards-position",
+											"objectClass": "Shotgun",
+											"sid": 199266339411916,
+											"behaviorType": "Физика",
+											"parameters": {
+												"force": "700",
+												"x": "Мышь.X",
+												"y": "Мышь.Y",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-linear-damping",
+											"objectClass": "Shotgun",
+											"sid": 215696202367296,
+											"behaviorType": "Физика",
+											"parameters": {
+												"linear-damping": "1.5"
+											}
+										},
+										{
+											"id": "apply-torque",
+											"objectClass": "Shotgun",
+											"sid": 970114457708448,
+											"behaviorType": "Физика",
+											"parameters": {
+												"torque": "500"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 536305390371940,
+											"parameters": {
+												"variable": "weapon",
+												"value": "\"noWeapon\""
+											}
+										}
+									],
+									"sid": 757071225969909
 								},
 								{
 									"eventType": "block",
@@ -2927,6 +3741,15 @@
 													"parameters": {
 														"key": 17
 													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Клавиатура",
+													"sid": 424138250805423,
+													"parameters": {
+														"key": 17
+													},
+													"isInverted": true
 												}
 											],
 											"actions": [
@@ -3031,6 +3854,15 @@
 													"parameters": {
 														"key": 17
 													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Клавиатура",
+													"sid": 463361199305783,
+													"parameters": {
+														"key": 17
+													},
+													"isInverted": true
 												}
 											],
 											"actions": [
@@ -4102,6 +4934,17 @@
 										"value": "\"Extinguisher\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 813356053210356,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Shotgun\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -4298,6 +5141,17 @@
 												"variable": "weapon",
 												"comparison": 0,
 												"value": "\"Pistol\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 727614401387445,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Shotgun\""
 											},
 											"isInverted": true
 										},
@@ -4562,6 +5416,17 @@
 												"variable": "weapon",
 												"comparison": 0,
 												"value": "\"Pistol\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 925748096558591,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Shotgun\""
 											},
 											"isInverted": true
 										}
@@ -9025,6 +9890,139 @@
 											"sid": 576818204585898
 										}
 									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBaseball2",
+									"sid": 107237164623874,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyBaseball2",
+									"sid": 396135207933857,
+									"parameters": {
+										"object": "Fire_Extinguisher"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "EnemyBaseball2",
+									"sid": 906138213434083,
+									"parameters": {
+										"instance-variable": "Death"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "EnemyBaseball2",
+									"sid": 277727960690996,
+									"behaviorType": "НастраиваемоеДвижение"
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBaseball2",
+									"sid": 480093240400788,
+									"parameters": {
+										"instance-variable": "Damage",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 113257703984451,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball2",
+											"sid": 984659196151371,
+											"parameters": {
+												"instance-variable": "Damage"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "EnemyBaseball2",
+											"sid": 603619896379379,
+											"behaviorType": "Таймер",
+											"parameters": {
+												"duration": "1",
+												"type": "once",
+												"tag": "\"Damage\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 706177431080890,
+											"parameters": {
+												"instance-variable": "triger",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 873514034616939,
+											"parameters": {
+												"instance-variable": "vision",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 485969241338745,
+											"parameters": {
+												"instance-variable": "search",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 411552575063180,
+											"parameters": {
+												"instance-variable": "Kick",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball2",
+											"sid": 376569902027299,
+											"parameters": {
+												"instance-variable": "onRamp",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "EnemyBaseball2",
+											"sid": 633053068501138,
+											"parameters": {
+												"animation": "\"Damage\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 586037560394952
 								}
 							]
 						},
