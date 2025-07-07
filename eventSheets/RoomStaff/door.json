@@ -4,14 +4,14 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "openDoor2",
+			"title": "Door_Metal",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "setupDoor2",
+					"title": "setupDoor_Metal",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -20,18 +20,18 @@
 							"conditions": [
 								{
 									"id": "is-visible",
-									"objectClass": "door1",
+									"objectClass": "Door_Metal",
 									"sid": 404965017536103
 								}
 							],
 							"actions": [
 								{
 									"id": "set-instvar-value",
-									"objectClass": "door1",
-									"sid": 317542532233141,
+									"objectClass": "Door_Metal",
+									"sid": 670554784745874,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
-										"value": "Self.X-Player_Cutscene.X"
+										"value": "Self.X-Player_All.X"
 									}
 								}
 							],
@@ -42,7 +42,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "door1",
+											"objectClass": "Door_Metal",
 											"sid": 294102273361943,
 											"parameters": {
 												"instance-variable": "distanceToPlayer",
@@ -54,7 +54,7 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "door1",
+											"objectClass": "Door_Metal",
 											"sid": 524089041075459,
 											"parameters": {
 												"instance-variable": "distanceToPlayer",
@@ -65,6 +65,57 @@
 									"sid": 378404851310137
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Door_Metal",
+									"sid": 816834120947493
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door_Metal",
+									"sid": 498018776628452,
+									"parameters": {
+										"instance-variable": "distanceToEnemy",
+										"value": "Self.X-Enemys.X"
+									}
+								}
+							],
+							"sid": 915190324523999,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 977027026807093,
+											"parameters": {
+												"instance-variable": "distanceToEnemy",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Door_Metal",
+											"sid": 650344621767334,
+											"parameters": {
+												"instance-variable": "distanceToEnemy",
+												"value": "Self.distanceToEnemy*-1"
+											}
+										}
+									],
+									"sid": 822117361279006
+								}
+							]
 						}
 					],
 					"sid": 353221626804049
@@ -72,10 +123,80 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "moveDoor2",
+					"title": "moveDoor_Metal",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Door_Metal",
+									"sid": 442815311208176,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "Player_All.X"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_Metal",
+									"sid": 854168665280774,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Door_Metal",
+									"sid": 146113039252873,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 990640109326364
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Door_Metal",
+									"sid": 231581136998417,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Player_All.X"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_Metal",
+									"sid": 678518527825169,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Door_Metal",
+									"sid": 190951628279787,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 657068025585104
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -89,7 +210,7 @@
 								},
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "door1",
+									"objectClass": "Door_Metal",
 									"sid": 303973928879992,
 									"parameters": {
 										"instance-variable": "distanceToPlayer",
@@ -106,7 +227,7 @@
 									"conditions": [
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "door1",
+											"objectClass": "Door_Metal",
 											"sid": 126907145833012,
 											"parameters": {
 												"instance-variable": "open"
@@ -117,7 +238,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "door1",
+											"objectClass": "Door_Metal",
 											"sid": 668303348518041,
 											"parameters": {
 												"instance-variable": "open",
@@ -126,7 +247,7 @@
 										},
 										{
 											"id": "set-animation-frame",
-											"objectClass": "door1",
+											"objectClass": "Door_Metal",
 											"sid": 124944572662527,
 											"parameters": {
 												"frame-number": "1"
@@ -134,7 +255,7 @@
 										},
 										{
 											"id": "set-enabled",
-											"objectClass": "door1",
+											"objectClass": "Door_Metal",
 											"sid": 377477752122528,
 											"behaviorType": "Твёрдый",
 											"parameters": {
@@ -143,53 +264,1008 @@
 										}
 									],
 									"sid": 921462476719643
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 372487815389295,
+									"parameters": {
+										"variable": "inDash"
+									}
 								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_Metal",
+									"sid": 784119976094833,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player_All.X",
+										"y": "Player_All.Y"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 509056251558611,
+							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 321043871341751
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 754160905217382,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 777611994904287,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 4,
+												"value": "-50"
+											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-animation-frame",
-											"objectClass": "door1",
-											"sid": 840645886878727,
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_Metal",
+											"sid": 337658610895657,
 											"parameters": {
-												"frame-number": "0"
+												"instance-variable": "open",
+												"value": "true"
 											}
 										},
 										{
-											"id": "set-boolean-instvar",
-											"objectClass": "door1",
-											"sid": 909875816157214,
+											"id": "set-animation-frame",
+											"objectClass": "Door_Metal",
+											"sid": 385645509699159,
 											"parameters": {
-												"instance-variable": "open",
-												"value": "false"
+												"frame-number": "1"
 											}
 										},
 										{
 											"id": "set-enabled",
-											"objectClass": "door1",
-											"sid": 196966046921392,
+											"objectClass": "Door_Metal",
+											"sid": 131952990089718,
 											"behaviorType": "Твёрдый",
 											"parameters": {
-												"state": "enabled"
+												"state": "disabled"
 											}
 										}
 									],
-									"sid": 583034886085232
+									"sid": 746633985691329
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 967675978142640,
+									"parameters": {
+										"variable": "inTackel"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_Metal",
+									"sid": 564774220508604,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player_All.X",
+										"y": "Player_All.Y"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 349644850620744,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 779483584639758,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 459846689913025,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 4,
+												"value": "-50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_Metal",
+											"sid": 406003512127234,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_Metal",
+											"sid": 703764239933292,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_Metal",
+											"sid": 410814651868637,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 539927201757182
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Metal",
+									"sid": 568455027085009,
+									"parameters": {
+										"instance-variable": "distanceToEnemy",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Metal",
+									"sid": 293945846154794,
+									"parameters": {
+										"instance-variable": "distanceToEnemy",
+										"comparison": 4,
+										"value": "-50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Door_Metal",
+									"sid": 126597703603780,
+									"parameters": {
+										"instance-variable": "open",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Door_Metal",
+									"sid": 384104167746963,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_Metal",
+									"sid": 274415417239872,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 202038017134253
 						}
 					],
 					"sid": 807995966925308
 				}
 			],
 			"sid": 573747891622169
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Door_Old",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "setupDoor_Old",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Door_Old",
+									"sid": 510090594056978
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door_Old",
+									"sid": 962221365814819,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"value": "Self.X-Player_All.X"
+									}
+								}
+							],
+							"sid": 271528321449565,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 952707251841218,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Door_Old",
+											"sid": 672661152413319,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"value": "Self.distanceToPlayer*-1"
+											}
+										}
+									],
+									"sid": 348669751507011
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Door_Old",
+									"sid": 158206867726503
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door_Old",
+									"sid": 694915346522110,
+									"parameters": {
+										"instance-variable": "distanceToEnemy",
+										"value": "Self.X-Enemys.X"
+									}
+								}
+							],
+							"sid": 529396194600308,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 819618817737406,
+											"parameters": {
+												"instance-variable": "distanceToEnemy",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Door_Old",
+											"sid": 409122623005148,
+											"parameters": {
+												"instance-variable": "distanceToEnemy",
+												"value": "Self.distanceToEnemy*-1"
+											}
+										}
+									],
+									"sid": 265824795987951
+								}
+							]
+						}
+					],
+					"sid": 920426521645157
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "moveDoor_Old",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Door_Old",
+									"sid": 456749638942586,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "Player_All.X"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_Old",
+									"sid": 131995666795880,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Door_Old",
+									"sid": 903052208589832,
+									"parameters": {
+										"animation": "\"Crash\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Door_Old",
+									"sid": 683596291830297,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 971027531423807
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Door_Old",
+									"sid": 871022121752720,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Player_All.X"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_Old",
+									"sid": 819013331756718,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Door_Old",
+									"sid": 948547680621324,
+									"parameters": {
+										"animation": "\"Crash\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Door_Old",
+									"sid": 730842472942633,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 828577200535020
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 644725708875635,
+									"parameters": {
+										"key": 69
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 926147023119744,
+									"parameters": {
+										"instance-variable": "distanceToPlayer",
+										"comparison": 2,
+										"value": "50"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 862839354213536,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Door_Old",
+											"sid": 174118290520295,
+											"parameters": {
+												"instance-variable": "open"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_Old",
+											"sid": 381750103532671,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_Old",
+											"sid": 801765917746539,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_Old",
+											"sid": 978457941832774,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 334359866227590
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 177034530313676,
+									"parameters": {
+										"variable": "inDash"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_Old",
+									"sid": 125569635311553,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player_All.X",
+										"y": "Player_All.Y"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 232847037660761,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 412482657717705,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 627927985343344,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 4,
+												"value": "-50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_Old",
+											"sid": 898426727577776,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_Old",
+											"sid": 311146513970889,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_Old",
+											"sid": 564823481963985,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 938188559342659
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 846061332035496,
+									"parameters": {
+										"variable": "inTackel"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_Old",
+									"sid": 820526815345062,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player_All.X",
+										"y": "Player_All.Y"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 101702904969849,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 499322554107394,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 745659715736600,
+											"parameters": {
+												"instance-variable": "distanceToPlayer",
+												"comparison": 4,
+												"value": "-50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_Old",
+											"sid": 829170845754328,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_Old",
+											"sid": 820653994870757,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_Old",
+											"sid": 172259501262760,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 224001272026849
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 996957605613561,
+									"parameters": {
+										"instance-variable": "distanceToEnemy",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 194294553404561,
+									"parameters": {
+										"instance-variable": "distanceToEnemy",
+										"comparison": 4,
+										"value": "-50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Door_Old",
+									"sid": 476892531561205,
+									"parameters": {
+										"instance-variable": "open",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Door_Old",
+									"sid": 102854900200304,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_Old",
+									"sid": 862585044718949,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 959823328738361
+						}
+					],
+					"sid": 908702446724466
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "damageDoor_Old",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Shot",
+									"sid": 860074730988044,
+									"parameters": {
+										"object": "Door_Old"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 357453346197774,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Shot",
+									"sid": 211593232675923,
+									"parameters": {
+										"object": "Shepki",
+										"layer": "Player_All.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Door_Old",
+									"sid": 886717164154319,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "2"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_Old",
+									"sid": 827267641232091,
+									"parameters": {
+										"distance": "2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 710530549384536,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_Old",
+									"sid": 790117572049287,
+									"parameters": {
+										"distance": "-2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 562410068791330,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shepki",
+									"sid": 102229589588059
+								}
+							],
+							"sid": 741524841918871
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "HitBox",
+									"sid": 205707968165122,
+									"parameters": {
+										"object": "Door_Old"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 300171751335586,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HitBox",
+									"sid": 957337849829034,
+									"parameters": {
+										"object": "Shepki",
+										"layer": "Player_All.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Door_Old",
+									"sid": 602667573895354,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "1"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_Old",
+									"sid": 924720044198176,
+									"parameters": {
+										"distance": "2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 470294149689846,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_Old",
+									"sid": 493966615682611,
+									"parameters": {
+										"distance": "-2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 809180770595402,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shepki",
+									"sid": 687304578600557
+								}
+							],
+							"sid": 906115800980683,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 397124824797207,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Axe\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Door_Old",
+											"sid": 961115038622556,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "4"
+											}
+										}
+									],
+									"sid": 508770103806949
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 292292296120521,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Mont\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Door_Old",
+											"sid": 826934799915292,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 355390373140242
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 567929938214154,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Door_Old",
+									"sid": 828968042663365,
+									"parameters": {
+										"animation": "\"Crash\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_Old",
+									"sid": 468209771277082,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 777531252278016
+						}
+					],
+					"sid": 738323070849114
+				}
+			],
+			"sid": 733717692979356
 		},
 		{
 			"eventType": "group",

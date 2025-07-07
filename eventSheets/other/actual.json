@@ -1306,6 +1306,687 @@
 						{
 							"eventType": "group",
 							"disabled": false,
+							"title": "Active Props",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Weapon",
+											"sid": 384117607733131,
+											"parameters": {
+												"object": "Window_roof"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot",
+											"sid": 416556709740125,
+											"parameters": {
+												"object": "Window_roof"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Window_roof",
+											"sid": 317434443806621,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 619906425425013,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Window_roof",
+													"sid": 584398339896305,
+													"parameters": {
+														"animation": "\"Window_Destroy\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 229313798280576
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 689332365758141,
+													"parameters": {
+														"object": "Window_roof"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 686585299431047,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 113311483625163,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "2",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 984720569314211,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "3",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 689454796809802,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "4",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Window_roof",
+													"sid": 884281436562682,
+													"parameters": {
+														"animation": "\"Window_Destroy\"",
+														"from": "current-frame"
+													}
+												}
+											],
+											"sid": 621510833520865
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_All",
+											"sid": 931360983245923,
+											"parameters": {
+												"animation": "weapon & \"Finishing\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 580536760954234,
+											"parameters": {
+												"first-value": "Window_roof.X +100",
+												"comparison": 4,
+												"second-value": "Player_All.X"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 380329108324288,
+											"parameters": {
+												"first-value": "Window_roof.X -100",
+												"comparison": 2,
+												"second-value": "Player_All.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Window_roof",
+											"sid": 387387469392447,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 505569871828474,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Window_roof",
+													"sid": 834331211702807,
+													"parameters": {
+														"animation": "\"Window_Destroy\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 675797798298145
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 248858739646173,
+													"parameters": {
+														"object": "Window_roof"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 123873912324288,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 676436908184934,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "2",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 174906997147314,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "3",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Window_roof",
+													"sid": 545134247697521,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "4",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Window_roof",
+													"sid": 687017097100716,
+													"parameters": {
+														"animation": "\"Window_Destroy\"",
+														"from": "current-frame"
+													}
+												}
+											],
+											"sid": 794736880621862
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Weapon",
+											"sid": 367948805826952,
+											"parameters": {
+												"object": "Glass"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot",
+											"sid": 379586369263858,
+											"parameters": {
+												"object": "Glass"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 299512870156645,
+											"parameters": {
+												"object": "Glass"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Enemys",
+											"sid": 400152191633708,
+											"parameters": {
+												"object": "Glass"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 859908952653656,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Glass",
+													"sid": 170890291568522,
+													"parameters": {
+														"animation": "\"Glass_Destroy\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 149253599350819
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 304213897871914,
+													"parameters": {
+														"object": "Glass"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Glass",
+													"sid": 218678824453398,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Glass",
+													"sid": 908586376198859,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "2",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Glass",
+													"sid": 340096240373814,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "3",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Glass",
+													"sid": 126369459347090,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "4",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Glass",
+													"sid": 434698232965613,
+													"parameters": {
+														"animation": "\"Glass_Destroy\"",
+														"from": "current-frame"
+													}
+												}
+											],
+											"sid": 565672219396357
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Weapon",
+											"sid": 379924740898651,
+											"parameters": {
+												"object": "Lamp"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot",
+											"sid": 839619278851123,
+											"parameters": {
+												"object": "Lamp"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 536047407891761,
+											"parameters": {
+												"object": "Lamp"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Enemys",
+											"sid": 826369588231245,
+											"parameters": {
+												"object": "Lamp"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 764736366902356,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Lamp",
+													"sid": 151157711383495,
+													"parameters": {
+														"object": "Light_Lamp2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Light_Lamp2",
+													"sid": 354754528597432
+												}
+											],
+											"sid": 777629311161738
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Lamp",
+													"sid": 549937893226226,
+													"parameters": {
+														"animation": "\"lamp_destroy\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 238835571977079
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 279432455222843,
+													"parameters": {
+														"object": "Lamp"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Lamp",
+													"sid": 433680182018328,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Lamp",
+													"sid": 505525333640794,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "2",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Lamp",
+													"sid": 120431500251924,
+													"parameters": {
+														"animation": "\"lamp_destroy\"",
+														"from": "current-frame"
+													}
+												}
+											],
+											"sid": 126443593363926
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Weapon",
+											"sid": 291145668100674,
+											"parameters": {
+												"object": "Lamp_Hanging"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot",
+											"sid": 870026595268106,
+											"parameters": {
+												"object": "Lamp_Hanging"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 397731394988901,
+											"parameters": {
+												"object": "Lamp_Hanging"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Enemys",
+											"sid": 793460788714169,
+											"parameters": {
+												"object": "Lamp_Hanging"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 618605865235850,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Lamp_Hanging",
+													"sid": 312157429058057,
+													"parameters": {
+														"object": "Light_Stolb"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Light_Stolb",
+													"sid": 376628148456769
+												}
+											],
+											"sid": 177761394342450
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 608636341685397
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 694465841145240,
+													"parameters": {
+														"object": "Lamp_Hanging"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Lamp_Hanging",
+													"sid": 732073432623237,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Shot",
+													"sid": 504941312022022
+												}
+											],
+											"sid": 547798141304796
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "GlassWeapon",
+											"sid": 332929436618007,
+											"parameters": {
+												"object": "Wall"
+											}
+										},
+										{
+											"id": "compare-velocity",
+											"objectClass": "GlassWeapon",
+											"sid": 448912535491521,
+											"behaviorType": "Физика",
+											"parameters": {
+												"which": "overall-velocity",
+												"comparison": 5,
+												"value": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "GlassWeapon",
+											"sid": 386355088255522,
+											"parameters": {
+												"animation": "\"GlassDestroy\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "GlassWeapon",
+											"sid": 444493944951961,
+											"behaviorType": "Физика",
+											"parameters": {
+												"mode": "disabled"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 384665843393998,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "GlassWeapon",
+											"sid": 987010739837951
+										}
+									],
+									"sid": 296184385514298
+								}
+							],
+							"sid": 960349760279260
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
 							"title": "Extinguisher",
 							"description": "",
 							"isActiveOnStart": true,
@@ -3836,7 +4517,6 @@
 							"sid": 499113868431750
 						},
 						{
-							"bookmark": true,
 							"eventType": "block",
 							"conditions": [
 								{
@@ -6715,7 +7395,7 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 324154160685773,
 							"parameters": {
 								"object": "Player1"
@@ -6733,7 +7413,7 @@
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 137030568966010,
 							"parameters": {
 								"instance-variable": "open",
@@ -6742,7 +7422,7 @@
 						},
 						{
 							"id": "set-animation-frame",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 208938938258942,
 							"parameters": {
 								"frame-number": "1"
@@ -6750,7 +7430,7 @@
 						},
 						{
 							"id": "set-enabled",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 749026824438554,
 							"behaviorType": "Твёрдый",
 							"parameters": {
@@ -6765,7 +7445,7 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 222114935424620,
 							"parameters": {
 								"object": "Player1"
@@ -6783,7 +7463,7 @@
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 869631708664895,
 							"parameters": {
 								"instance-variable": "open",
@@ -6792,7 +7472,7 @@
 						},
 						{
 							"id": "set-animation-frame",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 594416956830158,
 							"parameters": {
 								"frame-number": "1"
@@ -6800,7 +7480,7 @@
 						},
 						{
 							"id": "set-enabled",
-							"objectClass": "door1",
+							"objectClass": "Door_Metal",
 							"sid": 407130418180760,
 							"behaviorType": "Твёрдый",
 							"parameters": {

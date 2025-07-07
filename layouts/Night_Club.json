@@ -1627,7 +1627,7 @@
 					}
 				},
 				{
-					"type": "door1",
+					"type": "Door_Metal",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -1640,7 +1640,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"distanceToPlayer": 0,
-						"open": false
+						"open": false,
+						"distanceToEnemy": 0
 					},
 					"behaviors": {
 						"Твёрдый": {
@@ -1659,8 +1660,8 @@
 						"y": 1152,
 						"width": -61,
 						"height": 99,
-						"originX": 0.5,
-						"originY": 0.5,
+						"originX": 0.11475409836065574,
+						"originY": 0.494949494949495,
 						"color": [
 							1,
 							1,
@@ -2798,8 +2799,20 @@
 					"uid": 1540,
 					"sid": 983538930125156,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 983538930125156,
 						"expanded": true
@@ -2809,7 +2822,7 @@
 						"y": 1346,
 						"width": 67.83333333333334,
 						"height": 107.5,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -3616,8 +3629,20 @@
 					"uid": 1550,
 					"sid": 377590547039332,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 377590547039332,
 						"expanded": true
@@ -3627,7 +3652,7 @@
 						"y": 1346,
 						"width": 67.83333333333334,
 						"height": 107.5,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -3686,8 +3711,20 @@
 					"uid": 1564,
 					"sid": 491750002528181,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 491750002528181,
 						"expanded": true
@@ -3697,7 +3734,7 @@
 						"y": 1143,
 						"width": 67.83333333333334,
 						"height": 107.5,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -3756,8 +3793,20 @@
 					"uid": 1578,
 					"sid": 302095186928135,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 302095186928135,
 						"expanded": true
@@ -3767,7 +3816,7 @@
 						"y": 1143,
 						"width": 67.83333333333334,
 						"height": 108.36,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -4212,8 +4261,20 @@
 					"uid": 1581,
 					"sid": 512533398516554,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 512533398516554,
 						"expanded": true
@@ -4223,7 +4284,7 @@
 						"y": 1143,
 						"width": 67.83333333333334,
 						"height": 108.36,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -5258,51 +5319,6 @@
 					}
 				},
 				{
-					"type": "Glass",
-					"properties": {
-						"initially-visible": true,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0,
-						"enable-tile-randomization": false,
-						"x-random": 1,
-						"y-random": 1,
-						"angle-random": 1,
-						"blend-margin-x": 0.1,
-						"blend-margin-y": 0.1
-					},
-					"uid": 1520,
-					"sid": 102647958942579,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 102647958942579,
-						"expanded": true
-					},
-					"world": {
-						"x": 1784,
-						"y": 1266,
-						"width": 9,
-						"height": 124,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "UpDown",
 					"properties": {
 						"initially-visible": false,
@@ -5989,8 +6005,20 @@
 					"uid": 1635,
 					"sid": 520851038244078,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 520851038244078,
 						"expanded": true
@@ -6000,7 +6028,7 @@
 						"y": 634,
 						"width": 67.83333333333334,
 						"height": 107.5,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -6094,8 +6122,20 @@
 					"uid": 1639,
 					"sid": 746260973157096,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 746260973157096,
 						"expanded": true
@@ -6105,7 +6145,7 @@
 						"y": 944,
 						"width": 67.83333333333334,
 						"height": 107.5,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -6614,8 +6654,20 @@
 					"uid": 1675,
 					"sid": 812651820531124,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 812651820531124,
 						"expanded": true
@@ -6625,7 +6677,7 @@
 						"y": 634,
 						"width": 67.83333333333334,
 						"height": 108,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -7114,8 +7166,20 @@
 					"uid": 1705,
 					"sid": 842413102727151,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 842413102727151,
 						"expanded": true
@@ -7125,7 +7189,7 @@
 						"y": 399,
 						"width": 67.83333333333334,
 						"height": 108,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
 						"color": [
 							1,
@@ -7409,8 +7473,20 @@
 					"uid": 1732,
 					"sid": 932471196447847,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"distanceToPlayer": 0,
+						"distanceToEnemy": 0,
+						"open": false,
+						"HP": 10
+					},
+					"behaviors": {
+						"Твёрдый": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 932471196447847,
 						"expanded": true
@@ -7420,53 +7496,8 @@
 						"y": 201,
 						"width": 67.83333333333334,
 						"height": 108,
-						"originX": 0.8181818181818182,
+						"originX": 0.09090909090909091,
 						"originY": 0.5813953488372093,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Glass",
-					"properties": {
-						"initially-visible": true,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0,
-						"enable-tile-randomization": false,
-						"x-random": 1,
-						"y-random": 1,
-						"angle-random": 1,
-						"blend-margin-x": 0.1,
-						"blend-margin-y": 0.1
-					},
-					"uid": 1740,
-					"sid": 829903967890469,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 829903967890469,
-						"expanded": true
-					},
-					"world": {
-						"x": 4917,
-						"y": 32,
-						"width": 9,
-						"height": 213,
-						"originX": 0,
-						"originY": 0,
 						"color": [
 							1,
 							1,
