@@ -149,19 +149,6 @@
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 557937178428124,
-					"parameters": {
-						"object-to-create": "EnemyBaseball",
-						"layer": "4",
-						"x": "1000",
-						"y": "490",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
 				}
 			],
 			"sid": 600702834978977
@@ -701,15 +688,6 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "EnemyBaseball",
-					"sid": 543605904198082,
-					"parameters": {
-						"animation": "\"Blondin_WOW!\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-animation",
 					"objectClass": "Pchel",
 					"sid": 428279048144367,
 					"parameters": {
@@ -804,15 +782,6 @@
 					}
 				},
 				{
-					"id": "set-enabled",
-					"objectClass": "EnemyBaseball",
-					"sid": 375067178840815,
-					"behaviorType": "Физика",
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
 					"id": "set-group-active",
 					"objectClass": "System",
 					"sid": 613506280325256,
@@ -844,29 +813,8 @@
 		},
 		{
 			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "EnemyBaseball",
-					"sid": 218306624752879
-				}
-			],
+			"conditions": [],
 			"actions": [
-				{
-					"id": "stop",
-					"objectClass": "EnemyBaseball",
-					"sid": 659082879559899,
-					"behaviorType": "НастраиваемоеДвижение"
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "EnemyBaseball",
-					"sid": 868460047378364,
-					"behaviorType": "Физика",
-					"parameters": {
-						"mode": "disabled"
-					}
-				},
 				{
 					"id": "set-group-active",
 					"objectClass": "System",
@@ -874,40 +822,6 @@
 					"parameters": {
 						"group-name": "\"Enemy\"",
 						"state": "deactivated"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "EnemyBaseball",
-					"sid": 606886050686916,
-					"parameters": {
-						"opacity": "0"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "EnemyBaseball",
-					"sid": 796148380550002,
-					"behaviorType": "Твинанимация",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetOpacity",
-						"end-value": "100",
-						"time": "1",
-						"ease": "noease",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "EnemyBaseball",
-					"sid": 434398770220885,
-					"parameters": {
-						"animation": "\"Blondin_sit\"",
-						"from": "beginning"
 					}
 				}
 			],
