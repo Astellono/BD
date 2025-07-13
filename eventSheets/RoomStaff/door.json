@@ -963,6 +963,16 @@
 												"instance-variable": "open"
 											},
 											"isInverted": true
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Door_Old",
+											"sid": 793655770738966,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
@@ -976,24 +986,129 @@
 											}
 										},
 										{
+											"id": "set-enabled",
+											"objectClass": "Door_Old",
+											"sid": 635202210717022,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 525207424057670,
+											"parameters": {
+												"seconds": "0.01"
+											}
+										},
+										{
 											"id": "set-animation-frame",
 											"objectClass": "Door_Old",
 											"sid": 801765917746539,
 											"parameters": {
 												"frame-number": "1"
 											}
+										}
+									],
+									"sid": 334359866227590
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 970852276219636,
+									"parameters": {
+										"key": 69
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 273025043885460,
+									"parameters": {
+										"instance-variable": "distanceToPlayerX",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 286050583669325,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"comparison": 2,
+										"value": "50"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 613840614689730,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Door_Old",
+											"sid": 227489066228182,
+											"parameters": {
+												"instance-variable": "open"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Door_Old",
+											"sid": 281599644374307,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_Old",
+											"sid": 838486858922384,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "false"
+											}
 										},
 										{
 											"id": "set-enabled",
 											"objectClass": "Door_Old",
-											"sid": 978457941832774,
+											"sid": 505734317294951,
 											"behaviorType": "Твёрдый",
 											"parameters": {
-												"state": "disabled"
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 211196938020909,
+											"parameters": {
+												"seconds": "0.01"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_Old",
+											"sid": 574174843481300,
+											"parameters": {
+												"frame-number": "0"
 											}
 										}
 									],
-									"sid": 334359866227590
+									"sid": 837474070939445
 								}
 							]
 						},
@@ -1163,9 +1278,18 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Enemys",
+									"sid": 559733451821590,
+									"parameters": {
+										"object": "Door_Old"
+									}
+								},
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "Door_Old",
-									"sid": 996957605613561,
+									"sid": 157767486785634,
+									"disabled": true,
 									"parameters": {
 										"instance-variable": "distanceToEnemyX",
 										"comparison": 2,
@@ -1175,11 +1299,23 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Door_Old",
-									"sid": 194294553404561,
+									"sid": 878484352676744,
+									"disabled": true,
 									"parameters": {
-										"instance-variable": "distanceToEnemyX",
-										"comparison": 4,
-										"value": "-50"
+										"instance-variable": "distanceToEnemyY",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_Old",
+									"sid": 819366531336500,
+									"disabled": true,
+									"parameters": {
+										"which": "nearest",
+										"x": "Enemys.X",
+										"y": "Enemys.Y"
 									}
 								}
 							],
@@ -1741,6 +1877,50 @@
 			],
 			"sid": 216669251549345,
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UpDown",
+					"sid": 381671664718769
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "UpDown",
+					"sid": 549109323614855,
+					"parameters": {
+						"instance-variable": "distanceToEnemyY",
+						"value": "Self.Y - Enemys.Y"
+					}
+				}
+			],
+			"sid": 270119243124850
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UpDown",
+					"sid": 633515389252513
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "UpDown",
+					"sid": 165861508117127,
+					"parameters": {
+						"instance-variable": "distanceToEnemyX",
+						"value": "Self.X-Enemys.X"
+					}
+				}
+			],
+			"sid": 940129293231342
 		}
 	],
 	"sid": 142154983788573

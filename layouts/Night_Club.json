@@ -5427,7 +5427,9 @@
 					"sid": 831688057538021,
 					"tags": "",
 					"instanceVariables": {
-						"distanceToPlayer": 0
+						"distanceToPlayer": 0,
+						"distanceToEnemyY": 0,
+						"distanceToEnemyX": 0
 					},
 					"behaviors": {
 						"Твёрдый": {
@@ -5527,7 +5529,9 @@
 					"sid": 239141943992372,
 					"tags": "",
 					"instanceVariables": {
-						"distanceToPlayer": 0
+						"distanceToPlayer": 0,
+						"distanceToEnemyY": 0,
+						"distanceToEnemyX": 0
 					},
 					"behaviors": {
 						"Твёрдый": {
@@ -6936,7 +6940,9 @@
 					"sid": 440648004595449,
 					"tags": "",
 					"instanceVariables": {
-						"distanceToPlayer": 0
+						"distanceToPlayer": 0,
+						"distanceToEnemyY": 0,
+						"distanceToEnemyX": 0
 					},
 					"behaviors": {
 						"Твёрдый": {
@@ -7001,7 +7007,9 @@
 					"sid": 116198954632575,
 					"tags": "",
 					"instanceVariables": {
-						"distanceToPlayer": 0
+						"distanceToPlayer": 0,
+						"distanceToEnemyY": 0,
+						"distanceToEnemyX": 0
 					},
 					"behaviors": {
 						"Твёрдый": {
@@ -10619,7 +10627,9 @@
 					"sid": 357839250495715,
 					"tags": "",
 					"instanceVariables": {
-						"distanceToPlayer": 0
+						"distanceToPlayer": 0,
+						"distanceToEnemyY": 0,
+						"distanceToEnemyX": 0
 					},
 					"behaviors": {
 						"Твёрдый": {
@@ -26975,76 +26985,6 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 1096,
-					"sid": 895335277040269,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 895335277040269,
-						"expanded": true
-					},
-					"world": {
-						"x": 2692,
-						"y": 1544,
-						"width": -150,
-						"height": 90,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Crowd",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 1097,
-					"sid": 771138513634907,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 771138513634907,
-						"expanded": true
-					},
-					"world": {
-						"x": 2595,
-						"y": 1544,
-						"width": -150,
-						"height": 90,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Crowd",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
 					"uid": 1098,
 					"sid": 984564639825410,
 					"tags": "",
@@ -29537,6 +29477,41 @@
 					}
 				},
 				{
+					"type": "Crowd",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1097,
+					"sid": 771138513634907,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 771138513634907,
+						"expanded": true
+					},
+					"world": {
+						"x": 2595,
+						"y": 1544,
+						"width": -150,
+						"height": 90,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "Player_Mask",
 					"properties": {
 						"initially-visible": true,
@@ -29571,7 +29546,9 @@
 						"textframe": 0,
 						"Wolf": 0,
 						"Baseball": false,
-						"Mounting": 0
+						"Mounting": 0,
+						"UpDownX": 0,
+						"UpDownY": 0
 					},
 					"behaviors": {
 						"НастраиваемоеДвижение": {
@@ -29634,9 +29611,79 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 199,
-						"y": 1520,
+						"x": 2623,
+						"y": 1532,
 						"width": 86,
+						"height": 86,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Crowd",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1096,
+					"sid": 895335277040269,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 895335277040269,
+						"expanded": true
+					},
+					"world": {
+						"x": 2692,
+						"y": 1544,
+						"width": -150,
+						"height": 90,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "security",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "security_idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1991,
+					"sid": 329192752098094,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 329192752098094,
+						"expanded": true
+					},
+					"world": {
+						"x": 2958,
+						"y": 1547,
+						"width": -86,
 						"height": 86,
 						"originX": 0.5,
 						"originY": 0.5,
