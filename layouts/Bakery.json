@@ -12502,69 +12502,6 @@
 						"angle": 0,
 						"zElevation": 0
 					}
-				},
-				{
-					"type": "Door_Old",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 162,
-					"sid": 940868636611866,
-					"tags": "",
-					"instanceVariables": {
-						"distanceToPlayerX": 0,
-						"distanceToPlayerY": 0,
-						"open": false,
-						"HP": 10,
-						"distanceToEnemyX": 0,
-						"distanceToEnemyY": 0
-					},
-					"behaviors": {
-						"Твёрдый": {
-							"properties": {
-								"enabled": true,
-								"tags": ""
-							}
-						},
-						"Физика": {
-							"properties": {
-								"immovable": false,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 940868636611866,
-						"expanded": true
-					},
-					"world": {
-						"x": 4751,
-						"y": 486,
-						"width": 67.83333333333334,
-						"height": 116.10000000000001,
-						"originX": 0.09090909090909091,
-						"originY": 0.5813953488372093,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
 				}
 			],
 			"sid": 728943443364993,
@@ -24268,8 +24205,8 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 3994,
-						"y": 452,
+						"x": 3400,
+						"y": 463,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
@@ -24285,40 +24222,58 @@
 					}
 				},
 				{
-					"type": "UpDown",
+					"type": "EnemySecurity",
 					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
+						"initially-visible": true,
+						"initial-animation": "Idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 683,
-					"sid": 568073588116506,
+					"uid": 684,
+					"sid": 719972334823257,
 					"tags": "",
 					"instanceVariables": {
-						"distanceToPlayer": 0,
-						"distanceToEnemyY": 0,
-						"distanceToEnemyX": 0
+						"vision": false,
+						"triger": false,
+						"search": false,
+						"searchPlayer": false,
+						"patrul": false,
+						"DifY": 0,
+						"probejka": false,
+						"speed": 200,
+						"speedPatrul": 100,
+						"speedDamage": 150,
+						"patrulTimerID": false,
+						"MovingToRamp": false,
+						"onRamp": false,
+						"Kick": false,
+						"DifX": 0,
+						"rotate": 0,
+						"HP": 10,
+						"Damage": false,
+						"Down": false,
+						"Death": false,
+						"Rolling": false,
+						"Rough": 0,
+						"UpDownY": 200,
+						"Finishing": "",
+						"HeavyPunch": false,
+						"Drop": 0,
+						"Fear": false
 					},
 					"behaviors": {
-						"Твёрдый": {
+						"Платформер": {
 							"properties": {
-								"enabled": true,
-								"tags": "UpDown"
-							}
-						},
-						"Физика": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
+								"max-speed": 200,
+								"acceleration": 1500,
+								"deceleration": 1500,
+								"jump-strength": 300,
+								"gravity": 1500,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 0,
+								"default-controls": true,
 								"enabled": true
 							}
 						},
@@ -24328,26 +24283,56 @@
 								"pixels-per-step": 5,
 								"enabled": true
 							}
+						},
+						"ПолеЗрения": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 600,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Твинанимация": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Таймер": {
+							"properties": {}
+						},
+						"Физика": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
+							}
 						}
 					},
 					"instanceFolderItem": {
-						"sid": 568073588116506,
+						"sid": 719972334823257,
 						"expanded": true
 					},
 					"world": {
-						"x": 2496.991214385516,
-						"y": 454.89149007818645,
-						"width": 19,
-						"height": 295,
-						"originX": 0.5116279069767442,
-						"originY": 0.5116279069767442,
+						"x": 3150,
+						"y": 480,
+						"width": 86,
+						"height": 86,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"angle": 0.8726646259971648,
+						"angle": 0,
 						"zElevation": 0
 					}
 				}
@@ -24666,8 +24651,8 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 2366,
-						"y": 298,
+						"x": 3301,
+						"y": 286,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
@@ -24692,7 +24677,7 @@
 						"live-preview": false
 					},
 					"uid": 485,
-					"sid": 101687015365059,
+					"sid": 284898468053620,
 					"tags": "",
 					"instanceVariables": {
 						"vision": false,
@@ -24777,12 +24762,12 @@
 						}
 					},
 					"instanceFolderItem": {
-						"sid": 101687015365059,
+						"sid": 284898468053620,
 						"expanded": true
 					},
 					"world": {
-						"x": 2173,
-						"y": 743,
+						"x": 2962,
+						"y": 474,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
@@ -25381,8 +25366,8 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 2333,
-						"y": 477,
+						"x": 2854,
+						"y": 448,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
@@ -25646,8 +25631,8 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 2226,
-						"y": 522,
+						"x": 2731,
+						"y": 491,
 						"width": 49,
 						"height": 16,
 						"originX": 0.5,
