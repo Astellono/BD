@@ -7422,13 +7422,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 604523771710520,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 753343017238840,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 5,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 3,
+														"value": "0"
 													}
 												},
 												{
@@ -7541,13 +7541,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 669410112292745,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 510467174140767,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 5,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 3,
+														"value": "0"
 													}
 												},
 												{
@@ -7636,13 +7636,13 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 997205691277389,
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball",
+															"sid": 598307845902767,
 															"parameters": {
-																"variable": "Fear",
-																"comparison": 5,
-																"value": "20"
+																"instance-variable": "Fear",
+																"comparison": 3,
+																"value": "0"
 															}
 														},
 														{
@@ -7692,13 +7692,13 @@
 													}
 												},
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 525876358644757,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 368170647232124,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 5,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 3,
+														"value": "0"
 													}
 												},
 												{
@@ -7761,13 +7761,13 @@
 													"isInverted": true
 												},
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 927926992799993,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 736985144195762,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 5,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 3,
+														"value": "0"
 													}
 												}
 											],
@@ -10773,73 +10773,19 @@
 													}
 												},
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 430694971125480,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 564731852352390,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 5,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 3,
+														"value": "0"
 													}
 												}
 											],
 											"actions": [],
 											"sid": 541383158274904,
 											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Player_All",
-															"sid": 752270593989165,
-															"parameters": {
-																"animation": "weapon & \"Finisghing\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "EnemyBaseball",
-															"sid": 110981822069419,
-															"parameters": {
-																"animation": "weapon & \"Finishing\""
-															}
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 746755157900185
-														},
-														{
-															"id": "for-each",
-															"objectClass": "System",
-															"sid": 120135565125506,
-															"parameters": {
-																"object": "EnemyBaseball"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-instvar",
-															"objectClass": "EnemyBaseball",
-															"sid": 969419267641032,
-															"parameters": {
-																"instance-variable": "Rough",
-																"value": "1"
-															}
-														},
-														{
-															"id": "start-animation",
-															"objectClass": "EnemyBaseball",
-															"sid": 354672415795611,
-															"parameters": {
-																"from": "current-frame"
-															}
-														}
-													],
-													"sid": 531745969753442
-												},
 												{
 													"eventType": "block",
 													"conditions": [
@@ -11006,6 +10952,71 @@
 												}
 											],
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player_All",
+													"sid": 525627690477067,
+													"parameters": {
+														"animation": "weapon & \"Finishing\""
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player_All",
+													"sid": 979897881767073,
+													"parameters": {
+														"object": "Enemys"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 334712015020491
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 425914232728744,
+													"parameters": {
+														"object": "EnemyBaseball"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 461680041515339,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "has-los-to-object",
+															"objectClass": "EnemyBaseball",
+															"sid": 375660920857749,
+															"behaviorType": "ПолеЗрения",
+															"parameters": {
+																"object": "Player_All",
+																"image-point": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "EnemyBaseball",
+															"sid": 255843637487649,
+															"parameters": {
+																"instance-variable": "Fear",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 721572978898160
+												}
+											]
 										}
 									],
 									"sid": 244097637689156
@@ -11037,13 +11048,13 @@
 													}
 												},
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 467451131509130,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 905643760126448,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 5,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 3,
+														"value": "0"
 													}
 												}
 											],
@@ -13529,13 +13540,13 @@
 											"isInverted": true
 										},
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 117580998849170,
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball",
+											"sid": 671810862949022,
 											"parameters": {
-												"variable": "Fear",
-												"comparison": 2,
-												"value": "20"
+												"instance-variable": "Fear",
+												"comparison": 4,
+												"value": "0"
 											}
 										},
 										{
@@ -13669,13 +13680,13 @@
 											"isInverted": true
 										},
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 975984579965531,
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball",
+											"sid": 775947817807784,
 											"parameters": {
-												"variable": "Fear",
-												"comparison": 2,
-												"value": "20"
+												"instance-variable": "Fear",
+												"comparison": 4,
+												"value": "0"
 											}
 										},
 										{
@@ -15648,13 +15659,13 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 683472811891348,
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball",
+											"sid": 119068612348754,
 											"parameters": {
-												"variable": "Fear",
-												"comparison": 2,
-												"value": "20"
+												"instance-variable": "Fear",
+												"comparison": 4,
+												"value": "0"
 											}
 										},
 										{
@@ -15873,13 +15884,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 961413582688759,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 351477819726683,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 2,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 4,
+														"value": "0"
 													}
 												},
 												{
@@ -15913,13 +15924,13 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 810820840474074,
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball",
+											"sid": 814467668405132,
 											"parameters": {
-												"variable": "Fear",
-												"comparison": 2,
-												"value": "20"
+												"instance-variable": "Fear",
+												"comparison": 4,
+												"value": "0"
 											}
 										},
 										{
@@ -16150,13 +16161,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 401502331982807,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 902445255074239,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 2,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 4,
+														"value": "0"
 													}
 												},
 												{
@@ -16571,13 +16582,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 671675733750815,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 689984246985321,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 2,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 4,
+														"value": "0"
 													}
 												},
 												{
@@ -16652,13 +16663,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 824687104091778,
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBaseball",
+													"sid": 985868762060706,
 													"parameters": {
-														"variable": "Fear",
-														"comparison": 2,
-														"value": "20"
+														"instance-variable": "Fear",
+														"comparison": 4,
+														"value": "0"
 													}
 												},
 												{
@@ -17480,13 +17491,13 @@
 											"isInverted": true
 										},
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 400216153427830,
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball",
+											"sid": 977430649118510,
 											"parameters": {
-												"variable": "Fear",
-												"comparison": 2,
-												"value": "20"
+												"instance-variable": "Fear",
+												"comparison": 4,
+												"value": "0"
 											}
 										}
 									],
