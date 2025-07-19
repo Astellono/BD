@@ -1037,6 +1037,18 @@
 									],
 									"actions": [
 										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 963907346452944,
+											"parameters": {
+												"audio-file": "Mounting",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "set-animation",
 											"objectClass": "Player_All",
 											"sid": 849687317188089,
@@ -1092,6 +1104,18 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 685703226438824,
+													"parameters": {
+														"audio-file": "Mounting",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
 												{
 													"id": "spawn-another-object",
 													"objectClass": "EnemyBaseball",
@@ -1303,6 +1327,287 @@
 						}
 					],
 					"sid": 511224060716720
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Мышь",
+							"sid": 271533956840107,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 930030021454771,
+							"parameters": {
+								"audio-file": "Wave",
+								"loop": "not-looping",
+								"volume": "-5",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 945421724112431
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Мышь",
+							"sid": 804782216966008,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 705409142732280,
+							"parameters": {
+								"variable": "weapon",
+								"comparison": 0,
+								"value": "\"noWeapon\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 582096875088246,
+							"parameters": {
+								"audio-file": "Cast",
+								"loop": "not-looping",
+								"volume": "-5",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 341976728689458
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Baseball",
+							"sid": 305413418495935,
+							"parameters": {
+								"object": "Wall"
+							}
+						},
+						{
+							"id": "compare-velocity",
+							"objectClass": "Baseball",
+							"sid": 100116339610145,
+							"behaviorType": "Физика",
+							"parameters": {
+								"which": "overall-velocity",
+								"comparison": 4,
+								"value": "50"
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Аудио",
+							"sid": 219785062970300,
+							"parameters": {
+								"tag": "\"Damage\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 356966472547680,
+							"parameters": {
+								"audio-file": "BaseballFall",
+								"loop": "not-looping",
+								"volume": "-5",
+								"stereo-pan": "0",
+								"tag-optional": "\"Damage\""
+							}
+						}
+					],
+					"sid": 626015859459662
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-velocity",
+							"objectClass": "Weapon",
+							"sid": 940852223598966,
+							"behaviorType": "Физика",
+							"parameters": {
+								"which": "overall-velocity",
+								"comparison": 4,
+								"value": "50"
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Аудио",
+							"sid": 410567892997372,
+							"parameters": {
+								"tag": "\"Damage\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 402390102160786,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Brick",
+									"sid": 687257571342542,
+									"parameters": {
+										"object": "Wall"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Stake",
+									"sid": 365476977181737,
+									"parameters": {
+										"object": "Wall"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Shotgun",
+									"sid": 957291838681244,
+									"parameters": {
+										"object": "Wall"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Pistol",
+									"sid": 866794540365347,
+									"parameters": {
+										"object": "Wall"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Chair",
+									"sid": 698467736933661,
+									"parameters": {
+										"object": "Wall"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Knife",
+									"sid": 446226791964344,
+									"parameters": {
+										"object": "Wall"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Аудио",
+									"sid": 118724708316497,
+									"parameters": {
+										"audio-file": "BaseballFly",
+										"loop": "not-looping",
+										"volume": "-5",
+										"stereo-pan": "0",
+										"tag-optional": "\"Damage\""
+									}
+								}
+							],
+							"sid": 642357091692437,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-velocity",
+							"objectClass": "Weapon",
+							"sid": 170460513654966,
+							"behaviorType": "Физика",
+							"parameters": {
+								"which": "overall-velocity",
+								"comparison": 4,
+								"value": "50"
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Аудио",
+							"sid": 720741177338643,
+							"parameters": {
+								"tag": "\"Damage\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 261036553814546,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Mounting",
+									"sid": 705728092137289,
+									"parameters": {
+										"object": "Wall"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Extinguisher",
+									"sid": 460526041435999,
+									"parameters": {
+										"object": "Wall"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Аудио",
+									"sid": 370176261484864,
+									"parameters": {
+										"audio-file": "MetallProps",
+										"loop": "not-looping",
+										"volume": "-5",
+										"stereo-pan": "0",
+										"tag-optional": "\"Damage\""
+									}
+								}
+							],
+							"sid": 891174312148128,
+							"isOrBlock": true
+						}
+					]
 				}
 			],
 			"sid": 267889843435882
@@ -1707,6 +2012,18 @@
 														"animation": "\"Glass_Destroy\"",
 														"from": "current-frame"
 													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 144084730843502,
+													"parameters": {
+														"audio-file": "GlessDestroy",
+														"loop": "not-looping",
+														"volume": "-8",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 565672219396357
@@ -1816,6 +2133,18 @@
 													"parameters": {
 														"animation": "\"lamp_destroy\"",
 														"from": "current-frame"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 838833140710610,
+													"parameters": {
+														"audio-file": "Gless",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
 													}
 												}
 											],
@@ -1943,6 +2272,18 @@
 											}
 										},
 										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 393875619754146,
+											"parameters": {
+												"audio-file": "Gless",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "set-enabled",
 											"objectClass": "GlassWeapon",
 											"sid": 444493944951961,
@@ -1981,16 +2322,28 @@
 										{
 											"id": "compare-velocity",
 											"objectClass": "Bottle",
-											"sid": 275285926634759,
+											"sid": 300601561660304,
 											"behaviorType": "Физика",
 											"parameters": {
 												"which": "overall-velocity",
 												"comparison": 4,
-												"value": "150"
+												"value": "100"
 											}
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 990379981747902,
+											"parameters": {
+												"audio-file": "Gless",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "set-enabled",
 											"objectClass": "Bottle",
@@ -2051,12 +2404,12 @@
 										{
 											"id": "compare-velocity",
 											"objectClass": "Rose",
-											"sid": 841410470275824,
+											"sid": 726654587271735,
 											"behaviorType": "Физика",
 											"parameters": {
 												"which": "overall-velocity",
 												"comparison": 4,
-												"value": "150"
+												"value": "100"
 											}
 										}
 									],
@@ -2077,6 +2430,18 @@
 											"parameters": {
 												"animation": "\"Crash\"",
 												"from": "beginning"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 613181243093921,
+											"parameters": {
+												"audio-file": "Gless",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										},
 										{
@@ -2417,6 +2782,18 @@
 													}
 												},
 												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 247589912887446,
+													"parameters": {
+														"audio-file": "Shotgun",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "spawn-another-object",
 													"objectClass": "Shotgun",
 													"sid": 668124564326730,
@@ -2516,19 +2893,6 @@
 												{
 													"callFunction": "shakeScreen",
 													"sid": 912292440647747
-												},
-												{
-													"id": "play",
-													"objectClass": "Аудио",
-													"sid": 895616371395684,
-													"disabled": true,
-													"parameters": {
-														"audio-file": "Beretta",
-														"loop": "not-looping",
-														"volume": "-10",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
 												},
 												{
 													"id": "set-enabled",
@@ -2757,7 +3121,6 @@
 													"id": "play",
 													"objectClass": "Аудио",
 													"sid": 508730242396452,
-													"disabled": true,
 													"parameters": {
 														"audio-file": "Beretta",
 														"loop": "not-looping",
@@ -5806,7 +6169,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -5945,9 +6308,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 357541760069589,
+									"sid": 817804681825284,
 									"parameters": {
-										"seconds": "0.5"
+										"seconds": "0.3"
 									}
 								},
 								{
@@ -5969,7 +6332,8 @@
 									}
 								}
 							],
-							"sid": 217280940565278
+							"sid": 217280940565278,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -6134,9 +6498,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 792434002004286,
+									"sid": 994632859278719,
 									"parameters": {
-										"seconds": "0.5"
+										"seconds": "0.3"
 									}
 								},
 								{
@@ -6158,7 +6522,8 @@
 									}
 								}
 							],
-							"sid": 745289774572657
+							"sid": 745289774572657,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -6212,6 +6577,7 @@
 							],
 							"actions": [],
 							"sid": 589157513393336,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -6364,6 +6730,7 @@
 										}
 									],
 									"sid": 786399763422600,
+									"disabled": true,
 									"isOrBlock": true
 								}
 							]
@@ -6382,6 +6749,7 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -6407,7 +6775,8 @@
 											}
 										}
 									],
-									"sid": 310996725083501
+									"sid": 310996725083501,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -6433,7 +6802,8 @@
 											}
 										}
 									],
-									"sid": 458178281136712
+									"sid": 458178281136712,
+									"disabled": true
 								}
 							]
 						},
@@ -6479,7 +6849,8 @@
 									}
 								}
 							],
-							"sid": 377992490181740
+							"sid": 377992490181740,
+							"disabled": true
 						}
 					],
 					"sid": 497987264139268
@@ -8532,6 +8903,11 @@
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 724351775929474
 														}
 													],
 													"actions": [
@@ -8564,6 +8940,18 @@
 																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 877396235651593,
+															"parameters": {
+																"audio-file": "BaseballFall",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -8622,6 +9010,11 @@
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 587792806578399
 														}
 													],
 													"actions": [
@@ -8654,6 +9047,18 @@
 																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 545261678983413,
+															"parameters": {
+																"audio-file": "MetallProps",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -8718,6 +9123,11 @@
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 857873069756623
 														}
 													],
 													"actions": [
@@ -8750,6 +9160,18 @@
 																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 707223514691124,
+															"parameters": {
+																"audio-file": "BaseballFly",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -8808,6 +9230,11 @@
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 886644521904371
 														}
 													],
 													"actions": [
@@ -8840,6 +9267,18 @@
 																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 720353620889860,
+															"parameters": {
+																"audio-file": "BaseballFly",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -8898,6 +9337,11 @@
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 823286045839308
 														}
 													],
 													"actions": [
@@ -8930,6 +9374,18 @@
 																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 709626789858174,
+															"parameters": {
+																"audio-file": "MetallProps",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -8988,6 +9444,11 @@
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 554389205488295
 														}
 													],
 													"actions": [
@@ -9020,6 +9481,18 @@
 																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 939659530216993,
+															"parameters": {
+																"audio-file": "BaseballFly",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -9078,6 +9551,11 @@
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 177610926025188
 														}
 													],
 													"actions": [
@@ -9110,6 +9588,18 @@
 																"image-point": "0",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 140396348539057,
+															"parameters": {
+																"audio-file": "BaseballFly",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -9171,6 +9661,18 @@
 														}
 													],
 													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 439298956414761,
+															"parameters": {
+																"audio-file": "Gless",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
+															}
+														},
 														{
 															"id": "set-enabled",
 															"objectClass": "EnemyBaseball",
@@ -9320,6 +9822,18 @@
 															"parameters": {
 																"animation": "\"Break\"",
 																"from": "beginning"
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 555140990856026,
+															"parameters": {
+																"audio-file": "ChairCrash",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
 															}
 														},
 														{
@@ -9477,6 +9991,18 @@
 																	}
 																},
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 847596742339244,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "EnemyBaseball",
 																	"sid": 500925533049132,
@@ -9553,6 +10079,18 @@
 																	"parameters": {
 																		"instance-variable": "Damage",
 																		"value": "true"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 750991110436374,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
 																	}
 																},
 																{
@@ -9867,6 +10405,18 @@
 																	}
 																},
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 762000780348279,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "destroy",
 																	"objectClass": "GlassWeapon",
 																	"sid": 233983788102764
@@ -9937,6 +10487,18 @@
 																	"parameters": {
 																		"instance-variable": "HP",
 																		"value": "0"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 970360378448902,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
 																	}
 																},
 																{
@@ -10151,6 +10713,18 @@
 																	}
 																},
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 712078783684819,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "EnemyBaseball",
 																	"sid": 335488038475845,
@@ -10248,6 +10822,18 @@
 																	"parameters": {
 																		"instance-variable": "HP",
 																		"value": "0"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 248424307388515,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
 																	}
 																},
 																{
@@ -10482,6 +11068,18 @@
 																	}
 																},
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 182025949832337,
+																	"parameters": {
+																		"audio-file": "Axe",
+																		"loop": "not-looping",
+																		"volume": "-7",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "EnemyBaseball",
 																	"sid": 151036321262659,
@@ -10579,6 +11177,18 @@
 																	"parameters": {
 																		"instance-variable": "Finishing",
 																		"value": "\"Axe\""
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 906116747693425,
+																	"parameters": {
+																		"audio-file": "Axe",
+																		"loop": "not-looping",
+																		"volume": "-7",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
 																	}
 																},
 																{
@@ -11287,6 +11897,26 @@
 													"disabled": true
 												}
 											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-tag-playing",
+													"objectClass": "Аудио",
+													"sid": 559337905759712,
+													"parameters": {
+														"tag": "\"Damage\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 707845393118605
+												}
+											],
+											"actions": [],
+											"sid": 631663918351653
 										}
 									],
 									"sid": 244097637689156
@@ -11490,6 +12120,18 @@
 																		"animation": "\"noWeaponFinishing\"",
 																		"from": "current-frame"
 																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 380107254336898,
+																	"parameters": {
+																		"audio-file": "FinishingnoWeapon",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
 																}
 															],
 															"sid": 783487703317834,
@@ -11661,6 +12303,18 @@
 																		"animation": "\"BaseballFinishing\"",
 																		"from": "current-frame"
 																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 377316817609742,
+																	"parameters": {
+																		"audio-file": "BaseballFinishing",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
 																}
 															],
 															"sid": 790048025576810,
@@ -11820,6 +12474,18 @@
 																	"parameters": {
 																		"animation": "\"KnifeFinishing\"",
 																		"from": "current-frame"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 188352379818235,
+																	"parameters": {
+																		"audio-file": "KnifeFinishing",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
 																	}
 																}
 															],
@@ -12019,6 +12685,18 @@
 																	}
 																},
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 184497637324966,
+																	"parameters": {
+																		"audio-file": "KnifeFinishing",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
+																},
+																{
 																	"id": "set-animation-frame",
 																	"objectClass": "EnemyBaseball",
 																	"sid": 611941937197583,
@@ -12199,6 +12877,18 @@
 																	"parameters": {
 																		"animation": "\"DeathRose\"",
 																		"from": "current-frame"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 928212113441946,
+																	"parameters": {
+																		"audio-file": "KnifeFinishing",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
 																	}
 																},
 																{
@@ -12395,6 +13085,18 @@
 																	"parameters": {
 																		"instance-variable": "Rough",
 																		"value": "1"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 278042941617984,
+																	"parameters": {
+																		"audio-file": "KnifeFinishing",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
 																	}
 																},
 																{
@@ -12612,6 +13314,18 @@
 																		"animation": "\"ExtinguisherFinishing\"",
 																		"from": "current-frame"
 																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 272787362281714,
+																	"parameters": {
+																		"audio-file": "BaseballFinishing",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
 																}
 															],
 															"sid": 581814237341581,
@@ -12818,6 +13532,18 @@
 																	"parameters": {
 																		"animation": "\"BrickFinishing\"",
 																		"from": "current-frame"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 892239054072358,
+																	"parameters": {
+																		"audio-file": "FinishingnoWeapon",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
 																	}
 																}
 															],
@@ -13036,6 +13762,30 @@
 																	"parameters": {
 																		"animation": "\"AxeFinishing\"",
 																		"from": "current-frame"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 774352696127238,
+																	"parameters": {
+																		"audio-file": "AxeFinishing",
+																		"loop": "not-looping",
+																		"volume": "0",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 578482490488527,
+																	"parameters": {
+																		"audio-file": "Kick",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
 																	}
 																}
 															],
@@ -14409,6 +15159,31 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 355556626456763
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 304097119956455,
+															"parameters": {
+																"audio-file": "Kick",
+																"loop": "not-looping",
+																"volume": "-10",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 321659558370004
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
 															"id": "is-boolean-instance-variable-set",
 															"objectClass": "EnemyBaseball",
 															"sid": 465733199281845,
@@ -14608,6 +15383,22 @@
 													"parameters": {
 														"instance-variable": "HP",
 														"value": "2"
+													}
+												},
+												{
+													"callFunction": "shakeScreen",
+													"sid": 630008364668406
+												},
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 188769620328063,
+													"parameters": {
+														"audio-file": "KickBaseball",
+														"loop": "not-looping",
+														"volume": "-7",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
 													}
 												}
 											],
@@ -15926,6 +16717,24 @@
 												"offset-y": "0"
 											},
 											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "EnemyBaseball",
+											"sid": 576129614036761,
+											"parameters": {
+												"animation": "\"Damage\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "EnemyBaseball",
+											"sid": 241585814437683,
+											"parameters": {
+												"animation": "\"Down\""
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [],
@@ -16148,6 +16957,16 @@
 											"sid": 829652571676428,
 											"parameters": {
 												"instance-variable": "Rolling"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball",
+											"sid": 311714878424833,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "Kick"
 											},
 											"isInverted": true
 										},
@@ -18100,7 +18919,7 @@
 												{
 													"id": "is-overlapping-at-offset",
 													"objectClass": "EnemyBaseball",
-													"sid": 700636651080569,
+													"sid": 457983946719520,
 													"parameters": {
 														"object": "Player_All",
 														"offset-x": "30",
@@ -18110,7 +18929,7 @@
 												{
 													"id": "is-overlapping-at-offset",
 													"objectClass": "EnemyBaseball",
-													"sid": 589372232261424,
+													"sid": 265671989563673,
 													"parameters": {
 														"object": "Player_All",
 														"offset-x": "-30",
@@ -18290,41 +19109,6 @@
 																}
 															],
 															"sid": 658090779632603
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "on-animation-finished",
-																	"objectClass": "EnemyBaseball",
-																	"sid": 362702148273372,
-																	"parameters": {
-																		"animation": "\"Kick\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "EnemyBaseball",
-																	"sid": 163798818792099,
-																	"parameters": {
-																		"instance-variable": "Kick",
-																		"value": "false"
-																	}
-																},
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "EnemyBaseball",
-																	"sid": 831983572671743,
-																	"disabled": true,
-																	"parameters": {
-																		"instance-variable": "search",
-																		"value": "true"
-																	}
-																}
-															],
-															"sid": 587345770364595
 														}
 													]
 												}
@@ -18332,6 +19116,41 @@
 											"isOrBlock": true
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "EnemyBaseball",
+											"sid": 710574549919728,
+											"parameters": {
+												"animation": "\"Kick\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball",
+											"sid": 453884949461135,
+											"parameters": {
+												"instance-variable": "Kick",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "EnemyBaseball",
+											"sid": 678312599761379,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "search",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 589359226716016
 								}
 							],
 							"sid": 760810267917425
@@ -18699,6 +19518,15 @@
 									"disabled": true,
 									"parameters": {
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyBaseball",
+									"sid": 380653564436171,
+									"parameters": {
+										"instance-variable": "speed",
+										"value": "random(185,225)"
 									}
 								}
 							],

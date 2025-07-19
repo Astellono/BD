@@ -345,6 +345,16 @@
 												"instance-variable": "open"
 											},
 											"isInverted": true
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Door_Old",
+											"sid": 473852256856226,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
@@ -358,24 +368,153 @@
 											}
 										},
 										{
+											"id": "set-enabled",
+											"objectClass": "Door_Metal",
+											"sid": 992906550446790,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 541342605328469,
+											"parameters": {
+												"audio-file": "MetallDoorOpen",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 980779083223066,
+											"parameters": {
+												"seconds": "0.01"
+											}
+										},
+										{
 											"id": "set-animation-frame",
 											"objectClass": "Door_Metal",
-											"sid": 124944572662527,
+											"sid": 279594489994308,
 											"parameters": {
 												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 921462476719643
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Клавиатура",
+									"sid": 276319759442745,
+									"parameters": {
+										"key": 69
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Metal",
+									"sid": 508029556785958,
+									"parameters": {
+										"instance-variable": "distanceToPlayerX",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Metal",
+									"sid": 947567810040602,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"comparison": 2,
+										"value": "50"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 319516606536286,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Door_Metal",
+											"sid": 217018050274465,
+											"parameters": {
+												"instance-variable": "open"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Door_Metal",
+											"sid": 309199616508857,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_Metal",
+											"sid": 963550142404345,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "false"
 											}
 										},
 										{
 											"id": "set-enabled",
 											"objectClass": "Door_Metal",
-											"sid": 377477752122528,
+											"sid": 708879224506238,
 											"behaviorType": "Твёрдый",
 											"parameters": {
-												"state": "disabled"
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 476256242196646,
+											"parameters": {
+												"audio-file": "MetallDoorClosed",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 459675282016471,
+											"parameters": {
+												"seconds": "0.01"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_Metal",
+											"sid": 123420484717726,
+											"parameters": {
+												"frame-number": "0"
 											}
 										}
 									],
-									"sid": 921462476719643
+									"sid": 627893223250825
 								}
 							]
 						},
@@ -410,7 +549,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Metal",
-											"sid": 754160905217382,
+											"sid": 587927793401710,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
 												"comparison": 2,
@@ -420,11 +559,57 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Metal",
-											"sid": 777611994904287,
+											"sid": 433627671477974,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "is-enabled",
+											"objectClass": "Door_Metal",
+											"sid": 414511158491295,
+											"behaviorType": "Твёрдый"
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 620142864765581,
+											"parameters": {
+												"audio-file": "OpenSmash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 494098224159438
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 248807954281007,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
-												"comparison": 4,
-												"value": "-50"
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 387739614009798,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
 											}
 										}
 									],
@@ -491,7 +676,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Metal",
-											"sid": 779483584639758,
+											"sid": 864951673444078,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
 												"comparison": 2,
@@ -501,11 +686,57 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Metal",
-											"sid": 459846689913025,
+											"sid": 823823634924940,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "is-enabled",
+											"objectClass": "Door_Metal",
+											"sid": 663025765655294,
+											"behaviorType": "Твёрдый"
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 786493905819270,
+											"parameters": {
+												"audio-file": "OpenSmash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 754937464386442
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 281990298515081,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
-												"comparison": 4,
-												"value": "-50"
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Metal",
+											"sid": 662049128999319,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
 											}
 										}
 									],
@@ -995,6 +1226,18 @@
 											}
 										},
 										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 594365931892243,
+											"parameters": {
+												"audio-file": "OpenDoor",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 525207424057670,
@@ -1092,6 +1335,18 @@
 											}
 										},
 										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 274639908270226,
+											"parameters": {
+												"audio-file": "ClosedDoor",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 211196938020909,
@@ -1143,7 +1398,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Old",
-											"sid": 412482657717705,
+											"sid": 380972228171060,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
 												"comparison": 2,
@@ -1153,11 +1408,57 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Old",
-											"sid": 627927985343344,
+											"sid": 149758446160409,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "is-enabled",
+											"objectClass": "Door_Old",
+											"sid": 257646609029563,
+											"behaviorType": "Твёрдый"
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 557245939757635,
+											"parameters": {
+												"audio-file": "OpenSmash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 193694904249285
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 883914113915595,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
-												"comparison": 4,
-												"value": "-50"
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 245281588409335,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
 											}
 										}
 									],
@@ -1224,7 +1525,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Old",
-											"sid": 499322554107394,
+											"sid": 579363159040583,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
 												"comparison": 2,
@@ -1234,11 +1535,57 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Door_Old",
-											"sid": 745659715736600,
+											"sid": 743945330961768,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "is-enabled",
+											"objectClass": "Door_Old",
+											"sid": 462137542146293,
+											"behaviorType": "Твёрдый"
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 484616400706837,
+											"parameters": {
+												"audio-file": "OpenSmash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 796158563784156
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 219850676356063,
 											"parameters": {
 												"instance-variable": "distanceToPlayerX",
-												"comparison": 4,
-												"value": "-50"
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_Old",
+											"sid": 358246821284312,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
 											}
 										}
 									],
