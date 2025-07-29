@@ -1,0 +1,801 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Pause",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 312377033324314
+		},
+		{
+			"eventType": "variable",
+			"name": "Sound",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 813758751189423
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collors",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Мышь",
+							"sid": 718334514962528,
+							"parameters": {
+								"object": "Setting"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Setting",
+							"sid": 834152009502022,
+							"parameters": {
+								"color": "rgbEx(70, 0, 0)"
+							}
+						}
+					],
+					"sid": 714402834266844
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Мышь",
+							"sid": 109909563646194,
+							"parameters": {
+								"object": "Setting"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Setting",
+							"sid": 419863723477285,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 734089313780445
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Мышь",
+							"sid": 775570498236980,
+							"parameters": {
+								"object": "Continue"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Continue",
+							"sid": 976834861057228,
+							"parameters": {
+								"color": "rgbEx(70, 0, 0)"
+							}
+						}
+					],
+					"sid": 907075244397298
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Мышь",
+							"sid": 766808415640832,
+							"parameters": {
+								"object": "Continue"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Continue",
+							"sid": 480210395355560,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 671119348896937
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Мышь",
+							"sid": 835008865335400,
+							"parameters": {
+								"object": "Exit"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Exit",
+							"sid": 758982845319079,
+							"parameters": {
+								"color": "rgbEx(70, 0, 0)"
+							}
+						}
+					],
+					"sid": 175404645706173
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Мышь",
+							"sid": 174415825052572,
+							"parameters": {
+								"object": "Exit"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Exit",
+							"sid": 530132137501920,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 436456302500279
+				}
+			],
+			"sid": 127171161719769
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 177354403762705,
+					"parameters": {
+						"key": 27
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 139482201928645,
+					"parameters": {
+						"variable": "Pause"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Exit",
+					"sid": 456959703826187,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Setting",
+					"sid": 196559135493683,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Continue",
+					"sid": 925119489074380,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 498783366155173,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 813171191436699,
+					"parameters": {
+						"variable": "Pause",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 126012214028989,
+					"parameters": {
+						"time-scale": "0"
+					}
+				}
+			],
+			"sid": 598958774270289
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 738638103756556,
+					"parameters": {
+						"key": 27
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 372153787805831,
+					"parameters": {
+						"variable": "Pause"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 484013547568937,
+					"parameters": {
+						"time-scale": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 815787022052848,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 627054572449469,
+					"parameters": {
+						"variable": "Pause",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Exit",
+					"sid": 714745529801488,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Setting",
+					"sid": 431886152414413,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Continue",
+					"sid": 722924437296114,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 321569696951067
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 719367345139414
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 326935947514766,
+					"parameters": {
+						"variable": "Pause"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 764374405791489,
+					"parameters": {
+						"object-to-create": "Continue",
+						"layer": "LayerIndex(\"HUD\")",
+						"x": "Camera.X",
+						"y": "Camera.Y -60",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 865010893679619,
+					"parameters": {
+						"object-to-create": "Setting",
+						"layer": "LayerIndex(\"HUD\")",
+						"x": "Camera.X",
+						"y": "Camera.Y +10",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 165713399862553,
+					"parameters": {
+						"object-to-create": "Exit",
+						"layer": "LayerIndex(\"HUD\")",
+						"x": "Camera.X",
+						"y": "Camera.Y +80",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 578918084508156,
+					"parameters": {
+						"object-to-create": "Ползунок",
+						"layer": "LayerIndex(\"HUD\")",
+						"x": "Camera.X",
+						"y": "Camera.Y +80",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Setting",
+					"sid": 992909845529003,
+					"parameters": {
+						"scale": "0.5"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Continue",
+					"sid": 844312143880843,
+					"parameters": {
+						"scale": "0.5"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Exit",
+					"sid": 334622533806363,
+					"parameters": {
+						"scale": "0.5"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Setting",
+					"sid": 275130093775136,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Exit",
+					"sid": 329001330470177,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Continue",
+					"sid": 828678987971864,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Exit",
+					"sid": 498283500283982,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Setting",
+					"sid": 814132396783408,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Continue",
+					"sid": 663066392049404,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Ползунок",
+					"sid": 911949431251160,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-value",
+					"objectClass": "Ползунок",
+					"sid": 873051098764872,
+					"parameters": {
+						"value": "100"
+					}
+				}
+			],
+			"sid": 609585351866465
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 233698348776689,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Мышь",
+					"sid": 268337042033162,
+					"parameters": {
+						"object": "Continue"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 790824510778643,
+					"parameters": {
+						"variable": "Pause"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 454841517317858,
+					"parameters": {
+						"time-scale": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 648339640394425,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 931396853230586,
+					"parameters": {
+						"variable": "Pause",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Exit",
+					"sid": 915358642279990,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Setting",
+					"sid": 198491455550501,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Continue",
+					"sid": 475849626967567,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 822485531363810
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 327661848534322,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Мышь",
+					"sid": 333552951026556,
+					"parameters": {
+						"object": "Setting"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 608976214101044,
+					"parameters": {
+						"variable": "Pause"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Exit",
+					"sid": 573755199135931,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Setting",
+					"sid": 811669642500004,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Continue",
+					"sid": 737411939907155,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Continue",
+					"sid": 921720401755278,
+					"parameters": {
+						"object": "Music",
+						"layer": "LayerIndex(\"HUD\")",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Ползунок",
+					"sid": 765005707276591,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Music",
+					"sid": 290678105461835,
+					"parameters": {
+						"scale": "0.5"
+					}
+				}
+			],
+			"sid": 837100983227169
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Аудио",
+					"sid": 415640621823427,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-volume",
+					"objectClass": "Аудио",
+					"sid": 943178553465174,
+					"parameters": {
+						"tag": "\"music\"",
+						"db": "Sound"
+					}
+				}
+			],
+			"sid": 920728959091580,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "Ползунок",
+							"sid": 192931926600857,
+							"parameters": {
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "Ползунок",
+							"sid": 672927873370324,
+							"parameters": {
+								"comparison": 4,
+								"value": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-muted",
+							"objectClass": "Аудио",
+							"sid": 599221622811719,
+							"parameters": {
+								"tag": "\"music\"",
+								"state": "muted"
+							}
+						}
+					],
+					"sid": 338594247779428
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "Ползунок",
+							"sid": 992699551423164,
+							"parameters": {
+								"comparison": 0,
+								"value": "0"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "Ползунок",
+							"sid": 611826177149381,
+							"parameters": {
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-muted",
+							"objectClass": "Аудио",
+							"sid": 202008064740345,
+							"parameters": {
+								"tag": "\"music\"",
+								"state": "unmuted"
+							}
+						}
+					],
+					"sid": 955742471590645
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 955880355574871
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 163008490445410,
+					"parameters": {
+						"variable": "Sound",
+						"value": "Аудио.Volume(\"music\")"
+					}
+				}
+			],
+			"sid": 295181573291394
+		}
+	],
+	"sid": 511565052530936
+}

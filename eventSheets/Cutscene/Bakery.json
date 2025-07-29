@@ -2,8 +2,18 @@
 	"name": "Bakery",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "Music",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 831015089741882
+		},
+		{
 			"eventType": "include",
-			"includeSheet": "Dialogue"
+			"includeSheet": "actual"
 		},
 		{
 			"eventType": "group",
@@ -1466,12 +1476,38 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-start-of-layout",
+					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 797968150648109
+					"sid": 625299334963754,
+					"parameters": {
+						"variable": "Music"
+					},
+					"isInverted": true
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 839199701748282,
+					"parameters": {
+						"audio-file": "Bakery",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 723813429173122,
+					"parameters": {
+						"variable": "Music",
+						"value": "true"
+					}
+				}
+			],
 			"sid": 670237527271180
 		}
 	],
