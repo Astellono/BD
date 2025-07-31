@@ -77,6 +77,15 @@
 								{
 									"id": "compare-text",
 									"objectClass": "Text_Menu",
+									"sid": 732863005229295,
+									"parameters": {
+										"text-to-compare": "\"Начать заново\"",
+										"case-sensitivity": "ignore-case"
+									}
+								},
+								{
+									"id": "compare-text",
+									"objectClass": "Text_Menu",
 									"sid": 806397636933679,
 									"parameters": {
 										"text-to-compare": "\"выход\"",
@@ -221,6 +230,36 @@
 						}
 					],
 					"sid": 423057443082873
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Text_Menu",
+							"sid": 302970209467719
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "Text_Menu",
+							"sid": 925205406629938,
+							"parameters": {
+								"text-to-compare": "\"Пауза\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-font-color",
+							"objectClass": "Text_Menu",
+							"sid": 588113122840173,
+							"parameters": {
+								"color": "rgbEx(50, 0, 0)"
+							}
+						}
+					],
+					"sid": 801370396053380
 				}
 			],
 			"sid": 127171161719769
@@ -408,6 +447,21 @@
 						"height-type": "no",
 						"z": false
 					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Menu_Box",
+					"sid": 965744400517276,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
 				}
 			],
 			"sid": 687519329073019
@@ -469,6 +523,15 @@
 					}
 				},
 				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 170718222943555,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "activated"
+					}
+				},
+				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 483940439848996,
@@ -479,6 +542,45 @@
 				}
 			],
 			"sid": 130582364255658
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 963389822429456,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Мышь",
+					"sid": 336647720555192,
+					"parameters": {
+						"object": "Text_Menu"
+					}
+				},
+				{
+					"id": "compare-text",
+					"objectClass": "Text_Menu",
+					"sid": 204039037937091,
+					"parameters": {
+						"text-to-compare": "\"Начать заново\"",
+						"case-sensitivity": "ignore-case"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 134108175354395
+				}
+			],
+			"sid": 725839278012483
 		},
 		{
 			"eventType": "comment",
@@ -604,6 +706,7 @@
 							"id": "is-tag-playing",
 							"objectClass": "Аудио",
 							"sid": 564560899817543,
+							"disabled": true,
 							"parameters": {
 								"tag": "\"audio\""
 							}
@@ -612,6 +715,7 @@
 							"id": "is-tag-playing",
 							"objectClass": "Аудио",
 							"sid": 928145867442899,
+							"disabled": true,
 							"parameters": {
 								"tag": "\"Damage\""
 							}
@@ -620,9 +724,15 @@
 							"id": "is-tag-playing",
 							"objectClass": "Аудио",
 							"sid": 400382554740184,
+							"disabled": true,
 							"parameters": {
 								"tag": "\"Fire\""
 							}
+						},
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 155732695927129
 						}
 					],
 					"actions": [
