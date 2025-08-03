@@ -642,6 +642,15 @@
 								"variable": "Audio",
 								"value": "2.5"
 							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 159377589366681,
+							"parameters": {
+								"key": "\"Audio\"",
+								"value": "Audio"
+							}
 						}
 					],
 					"sid": 251134647693706
@@ -695,6 +704,15 @@
 								"variable": "Audio",
 								"value": "2.5"
 							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 261846317034624,
+							"parameters": {
+								"key": "\"Audio\"",
+								"value": "Audio"
+							}
 						}
 					],
 					"sid": 733377883044352
@@ -702,33 +720,6 @@
 				{
 					"eventType": "block",
 					"conditions": [
-						{
-							"id": "is-tag-playing",
-							"objectClass": "Аудио",
-							"sid": 564560899817543,
-							"disabled": true,
-							"parameters": {
-								"tag": "\"audio\""
-							}
-						},
-						{
-							"id": "is-tag-playing",
-							"objectClass": "Аудио",
-							"sid": 928145867442899,
-							"disabled": true,
-							"parameters": {
-								"tag": "\"Damage\""
-							}
-						},
-						{
-							"id": "is-tag-playing",
-							"objectClass": "Аудио",
-							"sid": 400382554740184,
-							"disabled": true,
-							"parameters": {
-								"tag": "\"Fire\""
-							}
-						},
 						{
 							"id": "every-tick",
 							"objectClass": "System",
@@ -1199,6 +1190,60 @@
 						}
 					],
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 793390571991527
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 450023622921150,
+							"parameters": {
+								"key": "\"Audio\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 258185160467189,
+							"parameters": {
+								"key": "\"Audio\""
+							}
+						}
+					],
+					"sid": 599108718749124
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 571098393918506,
+							"parameters": {
+								"key": "\"Audio\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 227996930447360,
+							"parameters": {
+								"variable": "Audio",
+								"value": "ЛокальноеХранилище.ItemValue"
+							}
+						}
+					],
+					"sid": 696999977614706
 				}
 			],
 			"sid": 944415657712585
@@ -1214,19 +1259,16 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-tag-playing",
-							"objectClass": "Аудио",
-							"sid": 574511809694772,
-							"parameters": {
-								"tag": "\"music\""
-							}
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 174116153993242
 						}
 					],
 					"actions": [
 						{
 							"id": "set-volume",
 							"objectClass": "Аудио",
-							"sid": 982232783222881,
+							"sid": 851865425204541,
 							"parameters": {
 								"tag": "\"music\"",
 								"db": "Sound"
@@ -1681,6 +1723,15 @@
 								"variable": "Sound",
 								"value": "2.5"
 							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 659243901571419,
+							"parameters": {
+								"key": "\"Sound\"",
+								"value": "Sound"
+							}
 						}
 					],
 					"sid": 308293204395951
@@ -1734,9 +1785,72 @@
 								"variable": "Sound",
 								"value": "2.5"
 							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 103382791390956,
+							"parameters": {
+								"key": "\"Sound\"",
+								"value": "Sound"
+							}
 						}
 					],
 					"sid": 757642288880213
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 855777394584886
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 114123895809288,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 319468076197042,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						}
+					],
+					"sid": 724754762176036
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "ЛокальноеХранилище",
+							"sid": 339423371266774,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 133061982281377,
+							"parameters": {
+								"variable": "Sound",
+								"value": "ЛокальноеХранилище.ItemValue"
+							}
+						}
+					],
+					"sid": 553191828559596
 				}
 			],
 			"sid": 449691978955507

@@ -1123,13 +1123,13 @@
 												{
 													"id": "play",
 													"objectClass": "Аудио",
-													"sid": 685703226438824,
+													"sid": 374822474161992,
 													"parameters": {
 														"audio-file": "Mounting",
 														"loop": "not-looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"audio\""
 													}
 												},
 												{
@@ -1348,6 +1348,45 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "EnemyKnife",
+							"sid": 466875588619236,
+							"parameters": {
+								"instance-variable": "Drop",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "EnemyKnife",
+							"sid": 317363788778981,
+							"parameters": {
+								"object": "Knife",
+								"layer": "Player_All.LayerName",
+								"image-point": "0",
+								"create-hierarchy": true,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "EnemyKnife",
+							"sid": 672147921979129,
+							"parameters": {
+								"instance-variable": "Drop",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 503071228423665
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-animation-playing",
 							"objectClass": "Player_All",
 							"sid": 238621875099663,
@@ -1530,6 +1569,17 @@
 								"tag": "\"Damage\""
 							},
 							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 939837406835729,
+							"parameters": {
+								"variable": "Audio",
+								"comparison": 0,
+								"value": "-25"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -1626,6 +1676,17 @@
 							"sid": 720741177338643,
 							"parameters": {
 								"tag": "\"Damage\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 613157561948557,
+							"parameters": {
+								"variable": "Audio",
+								"comparison": 0,
+								"value": "-25"
 							},
 							"isInverted": true
 						}
@@ -6445,8 +6506,8 @@
 								},
 								{
 									"id": "pick-nearestfurthest",
-									"objectClass": "EnemyBaseball",
-									"sid": 137787300991684,
+									"objectClass": "Enemys",
+									"sid": 485436607093867,
 									"parameters": {
 										"which": "nearest",
 										"x": "Player_All.X",
@@ -6505,11 +6566,11 @@
 								{
 									"id": "set-speed",
 									"objectClass": "Player_All",
-									"sid": 956192247550426,
+									"sid": 242115532520857,
 									"behaviorType": "НастраиваемоеДвижение",
 									"parameters": {
 										"which": "overall",
-										"speed": "Player_All.speedDamage*EnemyBaseball.rotate"
+										"speed": "Player_All.speedDamage*Enemys.RotateEnemy"
 									}
 								},
 								{
@@ -6542,7 +6603,6 @@
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
 									"sid": 406558855741105,
-									"disabled": true,
 									"parameters": {
 										"variable": "HPplayer",
 										"value": "5"
@@ -6637,8 +6697,8 @@
 								},
 								{
 									"id": "pick-nearestfurthest",
-									"objectClass": "EnemyBaseball",
-									"sid": 412347393374872,
+									"objectClass": "Enemys",
+									"sid": 622142223575075,
 									"parameters": {
 										"which": "nearest",
 										"x": "Player_All.X",
@@ -6694,11 +6754,11 @@
 								{
 									"id": "set-speed",
 									"objectClass": "Player_All",
-									"sid": 490651696138113,
+									"sid": 566333407994367,
 									"behaviorType": "НастраиваемоеДвижение",
 									"parameters": {
 										"which": "overall",
-										"speed": "Player_All.speedDamage*EnemyBaseball.rotate"
+										"speed": "Player_All.speedDamage*Enemys.RotateEnemy"
 									}
 								},
 								{
@@ -6804,8 +6864,8 @@
 								},
 								{
 									"id": "pick-nearestfurthest",
-									"objectClass": "EnemyBaseball",
-									"sid": 428940938658674,
+									"objectClass": "Enemys",
+									"sid": 320861497663519,
 									"parameters": {
 										"which": "nearest",
 										"x": "Player_All.X",
@@ -6882,11 +6942,11 @@
 										{
 											"id": "set-speed",
 											"objectClass": "Player_All",
-											"sid": 943102332053576,
+											"sid": 578953685237361,
 											"behaviorType": "НастраиваемоеДвижение",
 											"parameters": {
 												"which": "overall",
-												"speed": "Player_All.speedDamage*EnemyBaseball.rotate"
+												"speed": "Player_All.speedDamage*Enemys.RotateEnemy"
 											}
 										},
 										{
@@ -6919,7 +6979,6 @@
 											"id": "subtract-from-eventvar",
 											"objectClass": "System",
 											"sid": 737728979179077,
-											"disabled": true,
 											"parameters": {
 												"variable": "HPplayer",
 												"value": "5"
@@ -6989,6 +7048,16 @@
 									"parameters": {
 										"animation": "weapon & \"Damage\""
 									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Player_All",
+									"sid": 651030623920308,
+									"parameters": {
+										"which": "nearest",
+										"x": "Enemys.X",
+										"y": "Enemys.Y"
+									}
 								}
 							],
 							"actions": [],
@@ -6999,36 +7068,10 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "EnemyBaseball",
-											"sid": 213651951086939,
+											"objectClass": "Enemys",
+											"sid": 634611792417376,
 											"parameters": {
-												"instance-variable": "rotate",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-mirrored",
-											"objectClass": "Player_All",
-											"sid": 436690035835871,
-											"parameters": {
-												"state": "mirrored"
-											}
-										}
-									],
-									"sid": 310996725083501
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "EnemyBaseball",
-											"sid": 391577382278212,
-											"parameters": {
-												"instance-variable": "rotate",
+												"instance-variable": "RotateEnemy",
 												"comparison": 0,
 												"value": "-1"
 											}
@@ -7036,15 +7079,45 @@
 									],
 									"actions": [
 										{
-											"id": "set-mirrored",
+											"id": "set-instvar-value",
 											"objectClass": "Player_All",
-											"sid": 141872210206668,
+											"sid": 506687238164920,
 											"parameters": {
-												"state": "not-mirrored"
+												"instance-variable": "rotate",
+												"value": "1"
 											}
 										}
 									],
-									"sid": 458178281136712
+									"sid": 310996725083501,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemys",
+											"sid": 778305307799248,
+											"parameters": {
+												"instance-variable": "RotateEnemy",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player_All",
+											"sid": 955845274559700,
+											"parameters": {
+												"instance-variable": "rotate",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 458178281136712,
+									"isOrBlock": true
 								},
 								{
 									"eventType": "block",
@@ -7106,11 +7179,76 @@
 									}
 								},
 								{
+									"id": "spawn-another-object",
+									"objectClass": "Player_All",
+									"sid": 461993182474441,
+									"parameters": {
+										"object": "Button_R",
+										"layer": "Player_All.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Button_R",
+									"sid": 690894898391222,
+									"parameters": {
+										"scale": "0.08"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyBaseball",
+									"sid": 297521773433296,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "EnemyBaseball",
+									"sid": 997980854918003,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "EnemyKnife",
+									"sid": 967305359228039,
+									"behaviorType": "НастраиваемоеДвижение",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "EnemyKnife",
+									"sid": 358277777793528,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
 									"id": "set-group-active",
 									"objectClass": "System",
 									"sid": 409093456347682,
 									"parameters": {
 										"group-name": "\"Player\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 686109810710709,
+									"parameters": {
+										"group-name": "\"Enemy & Fear\"",
 										"state": "deactivated"
 									}
 								}
@@ -7590,10 +7728,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Player_All",
-											"sid": 876444020700020,
+											"sid": 119502526572729,
 											"parameters": {
 												"object": "HitBox",
-												"layer": "12",
+												"layer": "Player_All.LayerName",
 												"image-point": "1",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -7926,10 +8064,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Player_All",
-											"sid": 945593867887105,
+											"sid": 969437605653452,
 											"parameters": {
 												"object": "HitBox",
-												"layer": "12",
+												"layer": "Player_All.LayerName",
 												"image-point": "1",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -7956,9 +8094,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 765231602246386,
+											"sid": 568422933589631,
 											"parameters": {
-												"seconds": "0.001"
+												"seconds": "0.1"
 											}
 										},
 										{
@@ -8095,10 +8233,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Player_All",
-											"sid": 911966064651927,
+											"sid": 222121547381487,
 											"parameters": {
 												"object": "HitBox",
-												"layer": "12",
+												"layer": "Player_All.LayerName",
 												"image-point": "1",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -20038,10 +20176,10 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 533349429918002,
+																	"sid": 657861057133178,
 																	"parameters": {
 																		"object-to-create": "HitBoxEnemy",
-																		"layer": "12",
+																		"layer": "EnemyBaseball.LayerName",
 																		"x": "EnemyBaseball.X",
 																		"y": "EnemyBaseball.Y",
 																		"create-hierarchy": false,
@@ -24229,6 +24367,14 @@
 																	"sid": 585038800357609,
 																	"parameters": {
 																		"animation": "\"DeathAxe\""
+																	}
+																},
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyKnife",
+																	"sid": 224353975313460,
+																	"parameters": {
+																		"object": "Wall_Blood"
 																	}
 																}
 															],
@@ -32114,12 +32260,12 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 720388914861415,
+																	"sid": 140195290267538,
 																	"parameters": {
 																		"object-to-create": "HitBoxEnemy",
-																		"layer": "12",
-																		"x": "EnemyKnife.X",
-																		"y": "EnemyKnife.Y",
+																		"layer": "EnemyKnife.LayerName",
+																		"x": "EnemyKnife.ImagePointX(\"Kick\")",
+																		"y": "EnemyKnife.ImagePointY(\"Kick\")",
 																		"create-hierarchy": false,
 																		"template-name": "\"\""
 																	}
@@ -43218,51 +43364,72 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
-							"sid": 617851831496111,
+							"id": "compare-width",
+							"objectClass": "Enemys",
+							"sid": 432537889129928,
 							"parameters": {
-								"key": 70
+								"comparison": 4,
+								"width": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 744930099739988,
+							"parameters": {
+								"object": "Enemys"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 755546796970877,
+							"id": "set-instvar-value",
+							"objectClass": "Enemys",
+							"sid": 771418486482745,
 							"parameters": {
-								"variable": "FearEnemyBaseball",
-								"value": "20"
+								"instance-variable": "RotateEnemy",
+								"value": "1"
 							}
 						}
 					],
-					"sid": 666370542393631
+					"sid": 948086860863841
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-width",
+							"objectClass": "Enemys",
+							"sid": 964562737811317,
+							"parameters": {
+								"comparison": 2,
+								"width": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 895961375579160,
+							"parameters": {
+								"object": "Enemys"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemys",
+							"sid": 214411940503103,
+							"parameters": {
+								"instance-variable": "RotateEnemy",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 514822268217522
 				}
 			],
 			"sid": 982727270659351
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 258561302564677
-				}
-			],
-			"actions": [
-				{
-					"id": "set-fullscreen-scaling",
-					"objectClass": "System",
-					"sid": 583303990891556,
-					"parameters": {
-						"fullscreen-scaling": "high-quality"
-					}
-				}
-			],
-			"sid": 938360752275816,
-			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -43305,13 +43472,7 @@
 		},
 		{
 			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 932654976135021
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
 					"id": "set-instvar-value",
