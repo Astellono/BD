@@ -17,7 +17,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "Bakery_Cut",
 			"description": "",
 			"isActiveOnStart": true,
@@ -27,7 +27,7 @@
 					"conditions": [
 						{
 							"id": "compare-y",
-							"objectClass": "Player1",
+							"objectClass": "Player_All",
 							"sid": 828349751777211,
 							"parameters": {
 								"comparison": 5,
@@ -36,7 +36,7 @@
 						},
 						{
 							"id": "compare-x",
-							"objectClass": "Player1",
+							"objectClass": "Player_All",
 							"sid": 950798504498496,
 							"parameters": {
 								"comparison": 3,
@@ -91,7 +91,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Player1",
+							"objectClass": "Player_All",
 							"sid": 308502376782130,
 							"parameters": {
 								"animation": "\"noWeaponIdle\"",
@@ -99,8 +99,7 @@
 							}
 						}
 					],
-					"sid": 927397144645750,
-					"disabled": true
+					"sid": 927397144645750
 				},
 				{
 					"eventType": "block",
@@ -121,6 +120,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Scientist",
+							"sid": 310459380530308,
+							"parameters": {
+								"animation": "\"Animation 1\"",
+								"from": "beginning"
+							}
+						},
 						{
 							"id": "stop-animation",
 							"objectClass": "Scientist",
@@ -205,7 +213,6 @@
 						}
 					],
 					"sid": 371133214600205,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -237,8 +244,7 @@
 									]
 								}
 							],
-							"sid": 535879015906114,
-							"disabled": true
+							"sid": 535879015906114
 						}
 					]
 				},
@@ -289,7 +295,6 @@
 						}
 					],
 					"sid": 259320494742444,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -321,8 +326,7 @@
 									]
 								}
 							],
-							"sid": 201403787579064,
-							"disabled": true
+							"sid": 201403787579064
 						}
 					]
 				},
@@ -446,7 +450,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Player1",
+							"objectClass": "Player_All",
 							"sid": 217280254409080,
 							"parameters": {
 								"animation": "\"noWeaponDamage\"",
@@ -752,8 +756,7 @@
 							}
 						}
 					],
-					"sid": 470907525254155,
-					"disabled": true
+					"sid": 470907525254155
 				},
 				{
 					"eventType": "block",
@@ -845,8 +848,7 @@
 							}
 						}
 					],
-					"sid": 897695917542145,
-					"disabled": true
+					"sid": 897695917542145
 				},
 				{
 					"eventType": "block",
@@ -904,7 +906,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Player1",
+							"objectClass": "Player_All",
 							"sid": 314346462071829,
 							"parameters": {
 								"animation": "\"Cough\"",
@@ -921,7 +923,7 @@
 						},
 						{
 							"id": "set-position",
-							"objectClass": "Player1",
+							"objectClass": "Player_All",
 							"sid": 904598374972181,
 							"parameters": {
 								"x": "1000",
@@ -960,8 +962,7 @@
 							}
 						}
 					],
-					"sid": 781799608032989,
-					"disabled": true
+					"sid": 781799608032989
 				},
 				{
 					"eventType": "block",
@@ -1049,8 +1050,8 @@
 							"sid": 629759218502156,
 							"parameters": [
 								"\"Оххх бляяя...\"",
-								"Player1.X",
-								"Player1.Y"
+								"Player_All.X",
+								"Player_All.Y"
 							]
 						},
 						{
@@ -1063,8 +1064,7 @@
 							}
 						}
 					],
-					"sid": 801271139756850,
-					"disabled": true
+					"sid": 801271139756850
 				},
 				{
 					"eventType": "block",
@@ -1117,11 +1117,19 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Player1",
-							"sid": 172249752370356,
+							"objectClass": "Player_All",
+							"sid": 743142459196495,
 							"parameters": {
-								"animation": "\"Death\"",
+								"animation": "\"noWeaponDamage\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Player_All",
+							"sid": 787418068131113,
+							"parameters": {
+								"frame-number": "2"
 							}
 						},
 						{
@@ -1164,8 +1172,8 @@
 							"parameters": {
 								"object-to-create": "Shadow3",
 								"layer": "13",
-								"x": "Player1.X",
-								"y": "Player1.Y",
+								"x": "Player_All.X",
+								"y": "Player_All.Y",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
@@ -1196,15 +1204,14 @@
 							}
 						}
 					],
-					"sid": 109388244711308,
-					"disabled": true
+					"sid": 109388244711308
 				}
 			],
 			"sid": 150674779937279
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Box2",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1230,7 +1237,8 @@
 							}
 						}
 					],
-					"sid": 989215519614518
+					"sid": 989215519614518,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1283,7 +1291,8 @@
 							"sid": 906953116453823
 						}
 					],
-					"sid": 444727210603432
+					"sid": 444727210603432,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1317,7 +1326,8 @@
 							}
 						}
 					],
-					"sid": 967115064977342
+					"sid": 967115064977342,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1348,7 +1358,8 @@
 							}
 						}
 					],
-					"sid": 723666536559030
+					"sid": 723666536559030,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1383,7 +1394,8 @@
 							"sid": 958772961359378
 						}
 					],
-					"sid": 204946477676262
+					"sid": 204946477676262,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1414,7 +1426,8 @@
 							}
 						}
 					],
-					"sid": 353538779755660
+					"sid": 353538779755660,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1441,7 +1454,8 @@
 							}
 						}
 					],
-					"sid": 977928261512694
+					"sid": 977928261512694,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1467,10 +1481,420 @@
 							}
 						}
 					],
-					"sid": 763510402254228
+					"sid": 763510402254228,
+					"disabled": true
 				}
 			],
 			"sid": 627548507581600
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Box7",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveVert",
+							"sid": 789912682740668
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveVert",
+							"sid": 426126427947298,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "vertical",
+								"speed": "-100"
+							}
+						}
+					],
+					"sid": 645647873875743
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Box_MoveVert",
+							"sid": 808337551788439,
+							"parameters": {
+								"object": "Tonel",
+								"offset-x": "0",
+								"offset-y": "24"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Box_MoveVert",
+							"sid": 217888000911431,
+							"behaviorType": "НастраиваемоеДвижение"
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Box_MoveVert",
+							"sid": 509475378957338,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 617655448171787,
+							"disabled": true,
+							"parameters": {
+								"seconds": "2"
+							}
+						}
+					],
+					"sid": 703887862251154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 112216673993859,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 920917016443416,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 972073027912732,
+							"parameters": {
+								"object-to-create": "Box_MoveHoriz",
+								"layer": "LayerIndex(\"Box_Move\")",
+								"x": "Conveyor.X -138",
+								"y": "Conveyor.Y -18",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 578927624447172
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 569582128212676
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 184517170536393,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 724150486445009,
+							"parameters": {
+								"object": "Conveyor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 295946379858206,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 445705615602502,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						}
+					],
+					"sid": 120769620440062
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Prinimatel",
+							"sid": 390241277482304,
+							"parameters": {
+								"object": "Box_MoveHoriz",
+								"offset-x": "25",
+								"offset-y": "0"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 864655313207525,
+							"parameters": {
+								"object": "Conveyor"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Conveyor",
+							"sid": 855355659277257,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Prinimatel",
+							"sid": 292441684497892,
+							"parameters": {
+								"tags": "\"Box1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveHoriz",
+							"sid": 535884194349024
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 770794741857036,
+							"parameters": {
+								"object-to-create": "Box_MoveVert",
+								"layer": "LayerIndex(\"Box_Move\")",
+								"x": "Prinimatel.X +5",
+								"y": "Prinimatel.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 695166080252884
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Box_MoveVert",
+							"sid": 376490466811491,
+							"parameters": {
+								"object": "Tonel"
+							}
+						},
+						{
+							"id": "compare-opacity",
+							"objectClass": "Box_MoveVert",
+							"sid": 109376881979547,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Box_MoveVert",
+							"sid": 282709999085305
+						}
+					],
+					"sid": 758905161045201
+				}
+			],
+			"sid": 515558916400697
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Bakery2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Клавиатура",
+							"sid": 418594907709487,
+							"parameters": {
+								"key": 69
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Button_Red",
+							"sid": 381910619276439,
+							"parameters": {
+								"object": "Player_All"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "door_closed",
+							"sid": 485580077302191,
+							"behaviorType": "Твёрдый",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "door_closed",
+							"sid": 582566110288314,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "press_E",
+							"sid": 353099779231242
+						}
+					],
+					"sid": 212691003295301,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Stair",
+									"sid": 386418320106891,
+									"parameters": {
+										"animation": "\"Ladder\""
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Stair",
+									"sid": 927014690543674,
+									"parameters": {
+										"tags": "\"Cut\""
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "UpDown",
+									"sid": 590019300327329,
+									"parameters": {
+										"tags": "\"Cut\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "Stair",
+									"sid": 268460244479831,
+									"parameters": {
+										"angle": "20"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "UpDown",
+									"sid": 956100879947147
+								}
+							],
+							"sid": 375663821414985
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Button_Red",
+							"sid": 147111568244613,
+							"parameters": {
+								"object": "Player_All"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 927616836869445,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 469767772935814
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Button_Red",
+							"sid": 204690327726926,
+							"parameters": {
+								"object": "Player_All"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 563294775211723,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 130134711313561
+				}
+			],
+			"sid": 934795726921344
 		},
 		{
 			"eventType": "block",

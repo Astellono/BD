@@ -1178,6 +1178,15 @@
 										"comparison": 2,
 										"value": "50"
 									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_Old",
+									"sid": 362422944585768,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -1288,6 +1297,15 @@
 										"comparison": 2,
 										"value": "50"
 									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_Old",
+									"sid": 909930666896849,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -1387,6 +1405,15 @@
 										"x": "Player_All.X",
 										"y": "Player_All.Y"
 									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_Old",
+									"sid": 399677697406745,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -1514,6 +1541,15 @@
 										"x": "Player_All.X",
 										"y": "Player_All.Y"
 									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_Old",
+									"sid": 630701095079987,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -1631,6 +1667,15 @@
 									"parameters": {
 										"object": "Door_Old"
 									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_Old",
+									"sid": 653479814061954,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
 								},
 								{
 									"id": "compare-instance-variable",
@@ -1995,6 +2040,15 @@
 									"parameters": {
 										"state": "disabled"
 									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_Old",
+									"sid": 904548177452092,
+									"behaviorType": "Физика",
+									"parameters": {
+										"mode": "disabled"
+									}
 								}
 							],
 							"sid": 777531252278016
@@ -2004,111 +2058,6 @@
 				}
 			],
 			"sid": 733717692979356
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Bakery",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
-							"sid": 506495134322317,
-							"parameters": {
-								"key": 69
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Button_Red",
-							"sid": 618176137110837,
-							"parameters": {
-								"object": "Player1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "door_closed",
-							"sid": 908996568915619,
-							"behaviorType": "Твёрдый",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "door_closed",
-							"sid": 117155245003398,
-							"parameters": {
-								"frame-number": "1"
-							}
-						},
-						{
-							"id": "destroy",
-							"objectClass": "press_E",
-							"sid": 778866129134941
-						}
-					],
-					"sid": 777786151464121
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Button_Red",
-							"sid": 281807519717184,
-							"parameters": {
-								"object": "Player1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "press_E",
-							"sid": 214168457070768,
-							"parameters": {
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 101332617235220
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Button_Red",
-							"sid": 877532192348262,
-							"parameters": {
-								"object": "Player1"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "press_E",
-							"sid": 392158616244712,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 835314301717495
-				}
-			],
-			"sid": 114584352502277
 		},
 		{
 			"eventType": "block",
