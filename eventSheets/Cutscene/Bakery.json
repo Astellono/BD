@@ -70,10 +70,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 102744036852076,
+							"sid": 924877072786775,
 							"parameters": {
 								"object-to-create": "Scientist",
-								"layer": "10",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "4824",
 								"y": "890",
 								"create-hierarchy": false,
@@ -96,6 +96,35 @@
 							"parameters": {
 								"animation": "\"noWeaponIdle\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 842128499901162,
+							"parameters": {
+								"variable": "Music",
+								"value": "false"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 996404375275052,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 124001978151042,
+							"parameters": {
+								"audio-file": "It couldn't be shittier",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Suspense\""
 							}
 						}
 					],
@@ -191,7 +220,8 @@
 							"objectClass": "System",
 							"sid": 994917280626008,
 							"parameters": {
-								"seconds": "2"
+								"seconds": "2",
+								"use-timescale": true
 							}
 						},
 						{
@@ -360,11 +390,24 @@
 							}
 						},
 						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 750319859226555,
+							"parameters": {
+								"audio-file": "Gless_Door_Destroy",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						},
+						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 595493828673318,
 							"parameters": {
-								"seconds": "0.1"
+								"seconds": "0.1",
+								"use-timescale": true
 							}
 						},
 						{
@@ -381,7 +424,8 @@
 							"objectClass": "System",
 							"sid": 201601147679406,
 							"parameters": {
-								"seconds": "0.1"
+								"seconds": "0.1",
+								"use-timescale": true
 							}
 						},
 						{
@@ -389,12 +433,32 @@
 							"sid": 948890515627211
 						},
 						{
+							"callFunction": "shakeScreen",
+							"sid": 661131740618920
+						},
+						{
+							"callFunction": "shakeScreen",
+							"sid": 945282189047844
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 525731185588250,
+							"parameters": {
+								"audio-file": "BOOM!",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 670644546197694,
+							"sid": 432216746296848,
 							"parameters": {
 								"object-to-create": "Boom",
-								"layer": "10",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "Laba.X",
 								"y": "Laba.Y",
 								"create-hierarchy": false,
@@ -404,10 +468,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 481195189092053,
+							"sid": 609401044778384,
 							"parameters": {
 								"object-to-create": "BoomFire",
-								"layer": "10",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "Laba.X +50",
 								"y": "Laba.Y -20",
 								"create-hierarchy": false,
@@ -419,16 +483,17 @@
 							"objectClass": "System",
 							"sid": 740516601321783,
 							"parameters": {
-								"seconds": "0.1"
+								"seconds": "0.1",
+								"use-timescale": true
 							}
 						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 588977926960599,
+							"sid": 260647644173695,
 							"parameters": {
 								"object-to-create": "Fire",
-								"layer": "12",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "4922",
 								"y": "870",
 								"create-hierarchy": false,
@@ -438,10 +503,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 520554394079369,
+							"sid": 276949062295676,
 							"parameters": {
 								"object-to-create": "Fire",
-								"layer": "9",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "4775",
 								"y": "882",
 								"create-hierarchy": false,
@@ -469,10 +534,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 342247854243359,
+							"sid": 597545012364836,
 							"parameters": {
 								"object-to-create": "Blood",
-								"layer": "8",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "Scientist.X +50",
 								"y": "Scientist.Y -30",
 								"create-hierarchy": false,
@@ -482,10 +547,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 828578779300315,
+							"sid": 957855276964514,
 							"parameters": {
 								"object-to-create": "Blood",
-								"layer": "8",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "Scientist.X -50",
 								"y": "Scientist.Y -30",
 								"create-hierarchy": false,
@@ -495,10 +560,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 738141490603123,
+							"sid": 113685648330713,
 							"parameters": {
 								"object-to-create": "Blood_mirror",
-								"layer": "8",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "Scientist.X ",
 								"y": "Scientist.Y -10",
 								"create-hierarchy": false,
@@ -508,10 +573,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 657382128220238,
+							"sid": 645830927268564,
 							"parameters": {
 								"object-to-create": "Fire_Big",
-								"layer": "12",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "4832",
 								"y": "892",
 								"create-hierarchy": false,
@@ -545,16 +610,17 @@
 							"objectClass": "System",
 							"sid": 157368233376280,
 							"parameters": {
-								"seconds": "2"
+								"seconds": "2",
+								"use-timescale": true
 							}
 						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 260906033571021,
+							"sid": 380139777509858,
 							"parameters": {
 								"object-to-create": "Smoke_Bar2",
-								"layer": "12",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "5070",
 								"y": "850",
 								"create-hierarchy": false,
@@ -589,10 +655,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 190506155388858,
+							"sid": 318548658992604,
 							"parameters": {
 								"object-to-create": "Smoke_Bar2",
-								"layer": "12",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "5070",
 								"y": "850",
 								"create-hierarchy": false,
@@ -627,10 +693,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 128925953720033,
+							"sid": 297553271965226,
 							"parameters": {
 								"object-to-create": "Smoke_Bar2",
-								"layer": "12",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "5070",
 								"y": "860",
 								"create-hierarchy": false,
@@ -665,10 +731,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 342903705101898,
+							"sid": 680815472012779,
 							"parameters": {
 								"object-to-create": "Smoke_Bar2",
-								"layer": "12",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "5070",
 								"y": "830",
 								"create-hierarchy": false,
@@ -703,10 +769,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 222804729734681,
+							"sid": 851848563515883,
 							"parameters": {
 								"object-to-create": "Smoke_Bar2",
-								"layer": "12",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "5070",
 								"y": "830",
 								"create-hierarchy": false,
@@ -743,7 +809,8 @@
 							"objectClass": "System",
 							"sid": 833410804609113,
 							"parameters": {
-								"seconds": "5"
+								"seconds": "5",
+								"use-timescale": true
 							}
 						},
 						{
@@ -781,11 +848,11 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 297269749426025,
+							"sid": 562629035905800,
 							"parameters": {
 								"object-to-create": "Blockage",
-								"layer": "10",
-								"x": "1300",
+								"layer": "LayerIndex(\"Dialog\")",
+								"x": "1400",
 								"y": "745",
 								"create-hierarchy": false,
 								"template-name": "\"\""
@@ -803,10 +870,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 363736612438320,
+							"sid": 859829107317974,
 							"parameters": {
 								"object-to-create": "Light_Cutscene",
-								"layer": "12",
+								"layer": "LayerIndex(\"Trip\")",
 								"x": "Laba.X",
 								"y": "Laba.Y",
 								"create-hierarchy": false,
@@ -875,7 +942,8 @@
 							"objectClass": "System",
 							"sid": 292153838841538,
 							"parameters": {
-								"seconds": "2"
+								"seconds": "2",
+								"use-timescale": true
 							}
 						},
 						{
@@ -987,23 +1055,32 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 634321459914223,
+							"sid": 221790818309810,
 							"parameters": {
 								"object-to-create": "Exploution",
-								"layer": "12",
-								"x": "1300",
+								"layer": "LayerIndex(\"Dialog\")",
+								"x": "1400",
 								"y": "722",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
 						},
 						{
+							"id": "set-enabled",
+							"objectClass": "Exploution",
+							"sid": 998056056465330,
+							"behaviorType": "Физика",
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 697308895342367,
+							"sid": 957222541145626,
 							"parameters": {
 								"object-to-create": "Trip",
-								"layer": "13",
+								"layer": "LayerIndex(\"Trip\")",
 								"x": "1000",
 								"y": "750",
 								"create-hierarchy": false,
@@ -1021,10 +1098,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 487406458734273,
+							"sid": 619645195422624,
 							"parameters": {
 								"object-to-create": "Car",
-								"layer": "10",
+								"layer": "LayerIndex(\"Dialog\")",
 								"x": "654",
 								"y": "752",
 								"create-hierarchy": false,
@@ -1100,7 +1177,8 @@
 							"objectClass": "System",
 							"sid": 976265232912984,
 							"parameters": {
-								"seconds": "5"
+								"seconds": "5",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1112,7 +1190,8 @@
 							"objectClass": "System",
 							"sid": 987558855061403,
 							"parameters": {
-								"seconds": "1"
+								"seconds": "1",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1137,7 +1216,8 @@
 							"objectClass": "System",
 							"sid": 565297934630544,
 							"parameters": {
-								"seconds": "3"
+								"seconds": "3",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1162,16 +1242,17 @@
 							"objectClass": "System",
 							"sid": 458104788978015,
 							"parameters": {
-								"seconds": "3"
+								"seconds": "3",
+								"use-timescale": true
 							}
 						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 119303635885246,
+							"sid": 569598094312000,
 							"parameters": {
 								"object-to-create": "Shadow3",
-								"layer": "13",
+								"layer": "LayerIndex(\"Trip\")",
 								"x": "Player_All.X",
 								"y": "Player_All.Y",
 								"create-hierarchy": false,
@@ -1282,7 +1363,8 @@
 							"objectClass": "System",
 							"sid": 589569387230026,
 							"parameters": {
-								"seconds": "2"
+								"seconds": "2",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1344,7 +1426,8 @@
 							"objectClass": "System",
 							"sid": 212662340900686,
 							"parameters": {
-								"seconds": "1.0"
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1412,7 +1495,8 @@
 							"objectClass": "System",
 							"sid": 757661610523275,
 							"parameters": {
-								"seconds": "1.0"
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1561,7 +1645,8 @@
 							"sid": 617655448171787,
 							"disabled": true,
 							"parameters": {
-								"seconds": "2"
+								"seconds": "2",
+								"use-timescale": true
 							}
 						}
 					],
@@ -1635,7 +1720,8 @@
 							"objectClass": "System",
 							"sid": 295946379858206,
 							"parameters": {
-								"seconds": "1.0"
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1773,6 +1859,18 @@
 					],
 					"actions": [
 						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 826130742442112,
+							"parameters": {
+								"audio-file": "Open_Grid",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						},
+						{
 							"id": "set-enabled",
 							"objectClass": "door_closed",
 							"sid": 485580077302191,
@@ -1900,6 +1998,11 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 401950317266565
+				},
+				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 625299334963754,
@@ -1910,6 +2013,14 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 283552688163869,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
 				{
 					"id": "play",
 					"objectClass": "Аудио",
