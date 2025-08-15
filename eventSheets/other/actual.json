@@ -6557,7 +6557,8 @@
 													}
 												}
 											],
-											"sid": 720912312419754
+											"sid": 720912312419754,
+											"isOrBlock": true
 										}
 									]
 								},
@@ -6670,7 +6671,8 @@
 													}
 												}
 											],
-											"sid": 708943467004153
+											"sid": 708943467004153,
+											"isOrBlock": true
 										}
 									]
 								},
@@ -7384,7 +7386,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -7557,8 +7559,7 @@
 									}
 								}
 							],
-							"sid": 217280940565278,
-							"disabled": true
+							"sid": 217280940565278
 						},
 						{
 							"eventType": "block",
@@ -7757,8 +7758,7 @@
 									}
 								}
 							],
-							"sid": 745289774572657,
-							"disabled": true
+							"sid": 745289774572657
 						},
 						{
 							"eventType": "block",
@@ -7812,7 +7812,6 @@
 							],
 							"actions": [],
 							"sid": 589157513393336,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -7975,7 +7974,6 @@
 										}
 									],
 									"sid": 786399763422600,
-									"disabled": true,
 									"isOrBlock": true
 								}
 							]
@@ -8004,7 +8002,6 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8032,7 +8029,6 @@
 										}
 									],
 									"sid": 310996725083501,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8061,7 +8057,6 @@
 										}
 									],
 									"sid": 458178281136712,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8087,8 +8082,7 @@
 											}
 										}
 									],
-									"sid": 106933512128252,
-									"disabled": true
+									"sid": 106933512128252
 								}
 							]
 						},
@@ -8146,7 +8140,6 @@
 								}
 							],
 							"sid": 377992490181740,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8190,8 +8183,7 @@
 											}
 										}
 									],
-									"sid": 216693764442584,
-									"disabled": true
+									"sid": 216693764442584
 								},
 								{
 									"eventType": "block",
@@ -8235,8 +8227,7 @@
 											}
 										}
 									],
-									"sid": 589694636770370,
-									"disabled": true
+									"sid": 589694636770370
 								},
 								{
 									"eventType": "block",
@@ -8252,8 +8243,7 @@
 											}
 										}
 									],
-									"sid": 799978535918360,
-									"disabled": true
+									"sid": 799978535918360
 								}
 							]
 						}
@@ -12120,6 +12110,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 852100642085896,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
 																	"sid": 260685000880013,
@@ -12501,6 +12503,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 626392710851935,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
 																	"sid": 219802401072795,
@@ -12820,6 +12834,18 @@
 																}
 															],
 															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 971895946588151,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
 																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
@@ -18242,7 +18268,16 @@
 											"children": [
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyBaseball",
+															"sid": 724450109284857,
+															"parameters": {
+																"object": "Wall_Blood"
+															}
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -18335,7 +18370,16 @@
 											"children": [
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyBaseball",
+															"sid": 402940398397854,
+															"parameters": {
+																"object": "Wall_Blood"
+															}
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -24035,6 +24079,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 496890255495897,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
 																	"sid": 193556503407514,
@@ -24416,6 +24472,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 887637189687578,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
 																	"sid": 583398279777892,
@@ -24752,6 +24820,18 @@
 																}
 															],
 															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 750184781811406,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
 																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
@@ -29613,7 +29693,16 @@
 															"children": [
 																{
 																	"eventType": "block",
-																	"conditions": [],
+																	"conditions": [
+																		{
+																			"id": "is-overlapping-another-object",
+																			"objectClass": "EnemyKnife",
+																			"sid": 838769647122212,
+																			"parameters": {
+																				"object": "Wall_Blood"
+																			}
+																		}
+																	],
 																	"actions": [
 																		{
 																			"id": "spawn-another-object",
@@ -30204,7 +30293,16 @@
 													"children": [
 														{
 															"eventType": "block",
-															"conditions": [],
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyKnife",
+																	"sid": 970408244683486,
+																	"parameters": {
+																		"object": "Wall_Blood"
+																	}
+																}
+															],
 															"actions": [
 																{
 																	"id": "spawn-another-object",
@@ -30297,7 +30395,16 @@
 													"children": [
 														{
 															"eventType": "block",
-															"conditions": [],
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyKnife",
+																	"sid": 941779494056876,
+																	"parameters": {
+																		"object": "Wall_Blood"
+																	}
+																}
+															],
 															"actions": [
 																{
 																	"id": "spawn-another-object",
@@ -31489,7 +31596,16 @@
 													"children": [
 														{
 															"eventType": "block",
-															"conditions": [],
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyKnife",
+																	"sid": 936934889693224,
+																	"parameters": {
+																		"object": "Wall_Blood"
+																	}
+																}
+															],
 															"actions": [
 																{
 																	"id": "spawn-another-object",
@@ -31582,7 +31698,16 @@
 													"children": [
 														{
 															"eventType": "block",
-															"conditions": [],
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyKnife",
+																	"sid": 458087062070527,
+																	"parameters": {
+																		"object": "Wall_Blood"
+																	}
+																}
+															],
 															"actions": [
 																{
 																	"id": "spawn-another-object",
@@ -37341,6 +37466,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 999977542899834,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
 																	"sid": 217694654342582,
@@ -37722,6 +37859,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 483349891153252,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
 																	"sid": 807269475229132,
@@ -38058,6 +38207,18 @@
 																}
 															],
 															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 864480744344357,
+																	"parameters": {
+																		"audio-file": "Knife",
+																		"loop": "not-looping",
+																		"volume": "-5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
 																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
@@ -43818,7 +43979,16 @@
 											"children": [
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyFurious",
+															"sid": 327765950511242,
+															"parameters": {
+																"object": "Wall_Blood"
+															}
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -43926,7 +44096,16 @@
 											"children": [
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyFurious",
+															"sid": 575789121867847,
+															"parameters": {
+																"object": "Wall_Blood"
+															}
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -59118,15 +59297,15 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-velocity",
-									"objectClass": "Bottle",
-									"sid": 701476476394389,
-									"behaviorType": "Физика",
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 722995808194423,
 									"parameters": {
-										"which": "overall-velocity",
-										"comparison": 4,
-										"value": "150"
-									}
+										"variable": "Audio",
+										"comparison": 0,
+										"value": "-25"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -59135,6 +59314,17 @@
 								{
 									"eventType": "block",
 									"conditions": [
+										{
+											"id": "compare-velocity",
+											"objectClass": "Bottle",
+											"sid": 230293511650124,
+											"behaviorType": "Физика",
+											"parameters": {
+												"which": "overall-velocity",
+												"comparison": 4,
+												"value": "150"
+											}
+										},
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Bottle",
@@ -59215,6 +59405,17 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "compare-velocity",
+											"objectClass": "Bottle",
+											"sid": 234519184283543,
+											"behaviorType": "Физика",
+											"parameters": {
+												"which": "overall-velocity",
+												"comparison": 4,
+												"value": "150"
+											}
+										},
+										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Bottle",
 											"sid": 944686962621278,
@@ -59293,6 +59494,17 @@
 								{
 									"eventType": "block",
 									"conditions": [
+										{
+											"id": "compare-velocity",
+											"objectClass": "Bottle",
+											"sid": 893349086997101,
+											"behaviorType": "Физика",
+											"parameters": {
+												"which": "overall-velocity",
+												"comparison": 4,
+												"value": "150"
+											}
+										},
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Bottle",
@@ -59675,350 +59887,15 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-velocity",
-									"objectClass": "Knife",
-									"sid": 498839943794224,
-									"behaviorType": "Физика",
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 531224734711611,
 									"parameters": {
-										"which": "overall-velocity",
-										"comparison": 4,
-										"value": "150"
-									}
-								},
-								{
-									"id": "compare-velocity",
-									"objectClass": "GlassWeapon",
-									"sid": 829915038297282,
-									"behaviorType": "Физика",
-									"parameters": {
-										"which": "overall-velocity",
-										"comparison": 4,
-										"value": "150"
-									}
-								},
-								{
-									"id": "compare-velocity",
-									"objectClass": "Rose",
-									"sid": 816482761275412,
-									"behaviorType": "Физика",
-									"parameters": {
-										"which": "overall-velocity",
-										"comparison": 4,
-										"value": "150"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 890166572547570,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Rose",
-											"sid": 299987051044226,
-											"parameters": {
-												"object": "EnemyBaseball"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Knife",
-											"sid": 563289494174178,
-											"parameters": {
-												"object": "EnemyBaseball"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "GlassWeapon",
-											"sid": 441294619787826,
-											"parameters": {
-												"object": "EnemyBaseball"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 455295064510918,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyBaseball",
-													"sid": 634222670105682,
-													"parameters": {
-														"instance-variable": "Death"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyBaseball",
-													"sid": 403147035606171,
-													"parameters": {
-														"instance-variable": "Down"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 950265658665869,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-tag-playing",
-															"objectClass": "Аудио",
-															"sid": 457282023346831,
-															"parameters": {
-																"tag": "\"Damage\""
-															},
-															"isInverted": true
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 143052506181701
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Аудио",
-															"sid": 519562952266699,
-															"parameters": {
-																"audio-file": "Knife",
-																"loop": "not-looping",
-																"volume": "-5",
-																"stereo-pan": "0",
-																"tag-optional": "\"Damage\""
-															}
-														}
-													],
-													"sid": 894103876407238
-												}
-											]
-										}
-									],
-									"isOrBlock": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Rose",
-											"sid": 191237879678089,
-											"parameters": {
-												"object": "EnemyKnife"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Knife",
-											"sid": 439161658960369,
-											"parameters": {
-												"object": "EnemyKnife"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "GlassWeapon",
-											"sid": 298292332837564,
-											"parameters": {
-												"object": "EnemyKnife"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 398830955359266,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 717538206202396,
-													"parameters": {
-														"instance-variable": "Death"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 820119931678563,
-													"parameters": {
-														"instance-variable": "Down"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 758331172319178,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-tag-playing",
-															"objectClass": "Аудио",
-															"sid": 559700756962155,
-															"parameters": {
-																"tag": "\"Damage\""
-															},
-															"isInverted": true
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 240991415894821
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Аудио",
-															"sid": 201678246424245,
-															"parameters": {
-																"audio-file": "Knife",
-																"loop": "not-looping",
-																"volume": "-5",
-																"stereo-pan": "0",
-																"tag-optional": "\"Damage\""
-															}
-														}
-													],
-													"sid": 475678068914828
-												}
-											]
-										}
-									],
-									"isOrBlock": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Rose",
-											"sid": 823895670768205,
-											"parameters": {
-												"object": "EnemyFurious"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Knife",
-											"sid": 207753517550595,
-											"parameters": {
-												"object": "EnemyFurious"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "GlassWeapon",
-											"sid": 962471374994586,
-											"parameters": {
-												"object": "EnemyFurious"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 857776134004634,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyFurious",
-													"sid": 738760158510776,
-													"parameters": {
-														"instance-variable": "Death"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyFurious",
-													"sid": 618682561236397,
-													"parameters": {
-														"instance-variable": "Down"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 233958797150852,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-tag-playing",
-															"objectClass": "Аудио",
-															"sid": 160471121815076,
-															"parameters": {
-																"tag": "\"Damage\""
-															},
-															"isInverted": true
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 261834481719625
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Аудио",
-															"sid": 158172029312186,
-															"parameters": {
-																"audio-file": "Knife",
-																"loop": "not-looping",
-																"volume": "-5",
-																"stereo-pan": "0",
-																"tag-optional": "\"Damage\""
-															}
-														}
-													],
-													"sid": 547589787525524
-												}
-											]
-										}
-									],
-									"isOrBlock": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "BladeAxe",
-									"sid": 359916752746254,
-									"parameters": {
-										"object": "EnemyBaseball"
-									}
-								},
-								{
-									"id": "compare-velocity",
-									"objectClass": "Axe",
-									"sid": 823516117671964,
-									"behaviorType": "Физика",
-									"parameters": {
-										"which": "overall-velocity",
-										"comparison": 4,
-										"value": "150"
-									}
+										"variable": "Audio",
+										"comparison": 0,
+										"value": "-25"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -60028,9 +59905,20 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-overlapping-another-object",
+											"id": "compare-velocity",
+											"objectClass": "Axe",
+											"sid": 744872418898785,
+											"behaviorType": "Физика",
+											"parameters": {
+												"which": "overall-velocity",
+												"comparison": 4,
+												"value": "150"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
 											"objectClass": "BladeAxe",
-											"sid": 401050032576471,
+											"sid": 980742910607102,
 											"parameters": {
 												"object": "EnemyBaseball"
 											}
@@ -60107,9 +59995,20 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "compare-velocity",
+											"objectClass": "Axe",
+											"sid": 273883066941883,
+											"behaviorType": "Физика",
+											"parameters": {
+												"which": "overall-velocity",
+												"comparison": 4,
+												"value": "150"
+											}
+										},
+										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "BladeAxe",
-											"sid": 483574287298604,
+											"sid": 438002083527867,
 											"parameters": {
 												"object": "EnemyKnife"
 											}
@@ -60165,7 +60064,7 @@
 														{
 															"id": "play",
 															"objectClass": "Аудио",
-															"sid": 934280631634280,
+															"sid": 357653342106621,
 															"parameters": {
 																"audio-file": "Axe",
 																"loop": "not-looping",
@@ -60179,12 +60078,22 @@
 												}
 											]
 										}
-									],
-									"isOrBlock": true
+									]
 								},
 								{
 									"eventType": "block",
 									"conditions": [
+										{
+											"id": "compare-velocity",
+											"objectClass": "Axe",
+											"sid": 964777589662301,
+											"behaviorType": "Физика",
+											"parameters": {
+												"which": "overall-velocity",
+												"comparison": 4,
+												"value": "150"
+											}
+										},
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "BladeAxe",
