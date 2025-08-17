@@ -4,8 +4,22 @@
 	"name": "BD",
 	"runtime": "c3",
 	"useWorker": "auto",
-	"bundleAddons": false,
+	"bundleAddons": true,
 	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Массив",
+			"author": "Scirra",
+			"bundled": false
+		},
 		{
 			"type": "plugin",
 			"id": "Audio",
@@ -226,7 +240,8 @@
 			"Текст",
 			"Текст2",
 			"Browser",
-			"ЛокальноеХранилище"
+			"ЛокальноеХранилище",
+			"Flag"
 		],
 		"subfolders": [
 			{
@@ -941,7 +956,9 @@
 				"items": [
 					"dialogText",
 					"dialogMainText",
-					"Test"
+					"Test",
+					"AJAX",
+					"Lang"
 				],
 				"subfolders": [],
 				"name": "text"
@@ -1663,7 +1680,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "Lang.json",
+					"type": "application/json",
+					"sid": 653484686059849,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -1720,7 +1746,7 @@
 		"webgpu": "auto",
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
-		"framerateMode": "vsync",
+		"framerateMode": "unlimited-tick",
 		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "2d",

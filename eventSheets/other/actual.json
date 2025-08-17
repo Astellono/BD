@@ -71,7 +71,7 @@
 			"eventType": "variable",
 			"name": "FearEnemyBaseball",
 			"type": "number",
-			"initialValue": "20",
+			"initialValue": "25",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -316,18 +316,8 @@
 							"id": "set-visible",
 							"objectClass": "HitBox",
 							"sid": 219666984272123,
-							"disabled": true,
 							"parameters": {
 								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "hpEnemyText",
-							"sid": 997966649633460,
-							"disabled": true,
-							"parameters": {
-								"text": "Player1.cdHitRun"
 							}
 						}
 					],
@@ -391,18 +381,6 @@
 							"disabled": true
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-visible",
-							"objectClass": "hBar",
-							"sid": 415921136714347
-						}
-					],
-					"actions": [],
-					"sid": 161113365660287
 				},
 				{
 					"eventType": "block",
@@ -4992,10 +4970,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Baseball",
-											"sid": 461513463319063,
+											"sid": 722446204679559,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "300",
+												"force": "600",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -5097,10 +5075,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Extinguisher",
-											"sid": 812977886876200,
+											"sid": 400249418675936,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "500",
+												"force": "800",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -5167,10 +5145,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Mounting",
-											"sid": 414727648087599,
+											"sid": 433126406017339,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "350",
+												"force": "600",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -6191,10 +6169,10 @@
 								{
 									"id": "apply-force-towards-position",
 									"objectClass": "Axe",
-									"sid": 430574658271880,
+									"sid": 595405308314783,
 									"behaviorType": "Физика",
 									"parameters": {
-										"force": "600",
+										"force": "1000",
 										"x": "Мышь.X",
 										"y": "Мышь.Y",
 										"image-point": "0"
@@ -6212,10 +6190,10 @@
 								{
 									"id": "apply-torque",
 									"objectClass": "Axe",
-									"sid": 966085558889342,
+									"sid": 120354167310683,
 									"behaviorType": "Физика",
 									"parameters": {
-										"torque": "800"
+										"torque": "1200"
 									}
 								},
 								{
@@ -7386,7 +7364,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -7559,7 +7537,8 @@
 									}
 								}
 							],
-							"sid": 217280940565278
+							"sid": 217280940565278,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7758,7 +7737,8 @@
 									}
 								}
 							],
-							"sid": 745289774572657
+							"sid": 745289774572657,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7812,6 +7792,7 @@
 							],
 							"actions": [],
 							"sid": 589157513393336,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -7974,6 +7955,7 @@
 										}
 									],
 									"sid": 786399763422600,
+									"disabled": true,
 									"isOrBlock": true
 								}
 							]
@@ -8002,6 +7984,7 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8029,6 +8012,7 @@
 										}
 									],
 									"sid": 310996725083501,
+									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8057,6 +8041,7 @@
 										}
 									],
 									"sid": 458178281136712,
+									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8082,7 +8067,8 @@
 											}
 										}
 									],
-									"sid": 106933512128252
+									"sid": 106933512128252,
+									"disabled": true
 								}
 							]
 						},
@@ -8140,6 +8126,7 @@
 								}
 							],
 							"sid": 377992490181740,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8183,7 +8170,8 @@
 											}
 										}
 									],
-									"sid": 216693764442584
+									"sid": 216693764442584,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -8227,7 +8215,8 @@
 											}
 										}
 									],
-									"sid": 589694636770370
+									"sid": 589694636770370,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -8243,7 +8232,8 @@
 											}
 										}
 									],
-									"sid": 799978535918360
+									"sid": 799978535918360,
+									"disabled": true
 								}
 							]
 						}
@@ -9739,6 +9729,51 @@
 								}
 							],
 							"sid": 586779625148038,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyFurious",
+							"sid": 456456036896292,
+							"parameters": {
+								"instance-variable": "MovingToRamp"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 814964056359647,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyFurious",
+									"sid": 487646451935554,
+									"parameters": {
+										"instance-variable": "DifY",
+										"comparison": 3,
+										"value": "-30"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Skvoz",
+									"sid": 695169707047597,
+									"behaviorType": "СквознаяПлатформа",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 384341993742302,
 							"isOrBlock": true
 						}
 					]
@@ -13172,6 +13207,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 712238286600050,
+																	"parameters": {
+																		"audio-file": "Axe",
+																		"loop": "not-looping",
+																		"volume": "-7",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
+																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
 																	"sid": 322009979611856,
@@ -13412,9 +13459,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 326536258263289,
+																					"sid": 432572292286108,
 																					"parameters": {
-																						"angle": "EnemyBaseball.НастраиваемоеДвижение.dx  * -EnemyBaseball.НастраиваемоеДвижение.dy -220* EnemyBaseball.rotate"
+																						"angle": "EnemyBaseball.НастраиваемоеДвижение.dx  * -EnemyBaseball.НастраиваемоеДвижение.dy +220* EnemyBaseball.rotate"
 																					}
 																				}
 																			],
@@ -21816,7 +21863,6 @@
 									"id": "set-visible",
 									"objectClass": "GlassBox",
 									"sid": 598474036491724,
-									"disabled": true,
 									"parameters": {
 										"visibility": "invisible"
 									}
@@ -24303,9 +24349,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 414713993717432,
+																					"sid": 807618279688281,
 																					"parameters": {
-																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy -220* EnemyKnife.rotate"
+																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy +220* EnemyKnife.rotate"
 																					}
 																				}
 																			],
@@ -24735,9 +24781,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 347242319799317,
+																					"sid": 641883370462620,
 																					"parameters": {
-																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy -220* EnemyKnife.rotate"
+																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy +220* EnemyKnife.rotate"
 																					}
 																				}
 																			],
@@ -25084,9 +25130,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 113526277910103,
+																					"sid": 211634663391177,
 																					"parameters": {
-																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy -220* EnemyKnife.rotate"
+																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy +220* EnemyKnife.rotate"
 																					}
 																				}
 																			],
@@ -25174,6 +25220,18 @@
 																}
 															],
 															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 760386823486810,
+																	"parameters": {
+																		"audio-file": "Axe",
+																		"loop": "not-looping",
+																		"volume": "-7",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
 																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
@@ -25337,6 +25395,11 @@
 																},
 																{
 																	"id": "destroy",
+																	"objectClass": "Axe",
+																	"sid": 990397293746914
+																},
+																{
+																	"id": "destroy",
 																	"objectClass": "BladeAxe",
 																	"sid": 882547507533163
 																},
@@ -25410,9 +25473,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 800992974206780,
+																					"sid": 370247609737031,
 																					"parameters": {
-																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy -220* EnemyKnife.rotate"
+																						"angle": "EnemyKnife.НастраиваемоеДвижение.dx  * -EnemyKnife.НастраиваемоеДвижение.dy +220* EnemyKnife.rotate"
 																					}
 																				}
 																			],
@@ -35154,7 +35217,6 @@
 									"id": "set-visible",
 									"objectClass": "GlassBox",
 									"sid": 738215909894709,
-									"disabled": true,
 									"parameters": {
 										"visibility": "invisible"
 									}
@@ -37690,9 +37752,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 253144988275246,
+																					"sid": 105717787177185,
 																					"parameters": {
-																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy -220* EnemyFurious.rotate"
+																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy +220* EnemyFurious.rotate"
 																					}
 																				}
 																			],
@@ -38122,9 +38184,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 800663308483799,
+																					"sid": 118715258337067,
 																					"parameters": {
-																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy -220* EnemyFurious.rotate"
+																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy +220* EnemyFurious.rotate"
 																					}
 																				}
 																			],
@@ -38471,9 +38533,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 718028442290158,
+																					"sid": 775004385226327,
 																					"parameters": {
-																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy -220* EnemyFurious.rotate"
+																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy +220* EnemyFurious.rotate"
 																					}
 																				}
 																			],
@@ -38617,6 +38679,18 @@
 																}
 															],
 															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 757719764054765,
+																	"parameters": {
+																		"audio-file": "Axe",
+																		"loop": "not-looping",
+																		"volume": "-7",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Damage\""
+																	}
+																},
 																{
 																	"id": "subtract-from-eventvar",
 																	"objectClass": "System",
@@ -38858,9 +38932,9 @@
 																				{
 																					"id": "set-angle",
 																					"objectClass": "BloodAll",
-																					"sid": 770029965124636,
+																					"sid": 264784008816652,
 																					"parameters": {
-																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy -220* EnemyFurious.rotate"
+																						"angle": "EnemyFurious.НастраиваемоеДвижение.dx  * -EnemyFurious.НастраиваемоеДвижение.dy +220* EnemyFurious.rotate"
 																					}
 																				}
 																			],
@@ -47378,7 +47452,6 @@
 									"id": "set-visible",
 									"objectClass": "GlassBox",
 									"sid": 797893560746553,
-									"disabled": true,
 									"parameters": {
 										"visibility": "invisible"
 									}
@@ -59875,295 +59948,6 @@
 														}
 													],
 													"sid": 831891324129254
-												}
-											]
-										}
-									],
-									"isOrBlock": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 531224734711611,
-									"parameters": {
-										"variable": "Audio",
-										"comparison": 0,
-										"value": "-25"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 478243756479237,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-velocity",
-											"objectClass": "Axe",
-											"sid": 744872418898785,
-											"behaviorType": "Физика",
-											"parameters": {
-												"which": "overall-velocity",
-												"comparison": 4,
-												"value": "150"
-											}
-										},
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "BladeAxe",
-											"sid": 980742910607102,
-											"parameters": {
-												"object": "EnemyBaseball"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 702375334325703,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyBaseball",
-													"sid": 440562837046181,
-													"parameters": {
-														"instance-variable": "Death"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyBaseball",
-													"sid": 533277903966410,
-													"parameters": {
-														"instance-variable": "Down"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 136420368354522,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-tag-playing",
-															"objectClass": "Аудио",
-															"sid": 802138036372751,
-															"parameters": {
-																"tag": "\"Damage\""
-															},
-															"isInverted": true
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 765223811272218
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Аудио",
-															"sid": 856671172993878,
-															"parameters": {
-																"audio-file": "Axe",
-																"loop": "not-looping",
-																"volume": "-7",
-																"stereo-pan": "0",
-																"tag-optional": "\"Damage\""
-															}
-														}
-													],
-													"sid": 823538579768173
-												}
-											]
-										}
-									],
-									"isOrBlock": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-velocity",
-											"objectClass": "Axe",
-											"sid": 273883066941883,
-											"behaviorType": "Физика",
-											"parameters": {
-												"which": "overall-velocity",
-												"comparison": 4,
-												"value": "150"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "BladeAxe",
-											"sid": 438002083527867,
-											"parameters": {
-												"object": "EnemyKnife"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 805851031216386,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 309164644258442,
-													"parameters": {
-														"instance-variable": "Death"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 917309893593074,
-													"parameters": {
-														"instance-variable": "Down"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 920339565275098,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-tag-playing",
-															"objectClass": "Аудио",
-															"sid": 711746405116992,
-															"parameters": {
-																"tag": "\"Damage\""
-															},
-															"isInverted": true
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 715558330405963
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Аудио",
-															"sid": 357653342106621,
-															"parameters": {
-																"audio-file": "Axe",
-																"loop": "not-looping",
-																"volume": "-7",
-																"stereo-pan": "0",
-																"tag-optional": "\"Damage\""
-															}
-														}
-													],
-													"sid": 401513026877427
-												}
-											]
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-velocity",
-											"objectClass": "Axe",
-											"sid": 964777589662301,
-											"behaviorType": "Физика",
-											"parameters": {
-												"which": "overall-velocity",
-												"comparison": 4,
-												"value": "150"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "BladeAxe",
-											"sid": 441499193487611,
-											"parameters": {
-												"object": "EnemyFurious"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 794228584784709,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyFurious",
-													"sid": 786229655949978,
-													"parameters": {
-														"instance-variable": "Death"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyFurious",
-													"sid": 311038777022207,
-													"parameters": {
-														"instance-variable": "Down"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 649674702880559,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-tag-playing",
-															"objectClass": "Аудио",
-															"sid": 333947729301171,
-															"parameters": {
-																"tag": "\"Damage\""
-															},
-															"isInverted": true
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 476281797812105
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Аудио",
-															"sid": 187032437031897,
-															"parameters": {
-																"audio-file": "Axe",
-																"loop": "not-looping",
-																"volume": "-7",
-																"stereo-pan": "0",
-																"tag-optional": "\"Damage\""
-															}
-														}
-													],
-													"sid": 625168517201672
 												}
 											]
 										}

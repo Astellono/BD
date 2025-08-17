@@ -32,6 +32,16 @@
 			"sid": 649583857387072
 		},
 		{
+			"eventType": "variable",
+			"name": "Language",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 978152544537073
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Collors",
@@ -57,12 +67,11 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-text",
+									"id": "has-tags",
 									"objectClass": "Text_Menu",
-									"sid": 462675924430366,
+									"sid": 532515250176006,
 									"parameters": {
-										"text-to-compare": "\"продолжить\"",
-										"case-sensitivity": "ignore-case"
+										"tags": "\"Continue\""
 									}
 								},
 								{
@@ -464,6 +473,21 @@
 						"height-type": "no",
 						"z": false
 					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Flag",
+					"sid": 842020077355556,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
 				}
 			],
 			"sid": 687519329073019
@@ -472,20 +496,21 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-click",
+					"id": "on-object-clicked",
 					"objectClass": "Мышь",
-					"sid": 535843582404281,
+					"sid": 927817914471677,
 					"parameters": {
 						"mouse-button": "left",
-						"click-type": "clicked"
+						"click-type": "clicked",
+						"object-clicked": "Text_Menu"
 					}
 				},
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Мышь",
-					"sid": 637638888627389,
+					"id": "has-tags",
+					"objectClass": "Text_Menu",
+					"sid": 473850959990182,
 					"parameters": {
-						"object": "Text_Menu"
+						"tags": "\"Continue\""
 					}
 				},
 				{
@@ -494,15 +519,6 @@
 					"sid": 362550818329496,
 					"parameters": {
 						"layer": "LayerIndex(\"HUD\")"
-					}
-				},
-				{
-					"id": "compare-text",
-					"objectClass": "Text_Menu",
-					"sid": 680439240881702,
-					"parameters": {
-						"text-to-compare": "\"Продолжить\"",
-						"case-sensitivity": "ignore-case"
 					}
 				}
 			],
@@ -2406,6 +2422,128 @@
 				}
 			],
 			"sid": 885446676342106
+		},
+		{
+			"eventType": "comment",
+			"text": "Translation"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 518668403887920
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 338722597216354,
+					"parameters": {
+						"tag": "\"Lang\"",
+						"file": "Lang.json"
+					}
+				}
+			],
+			"sid": 673693798463164
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 880497519137076,
+					"parameters": {
+						"tag": "\"Lang\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "Lang",
+					"sid": 607065444694269,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"callFunction": "Text",
+					"sid": 496585709463896
+				}
+			],
+			"sid": 581798810837010
+		},
+		{
+			"functionName": "Text",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_Menu",
+					"sid": 665318380185663,
+					"parameters": {
+						"text": "Lang.At(Language,Self.Lang)"
+					}
+				}
+			],
+			"sid": 972606361071679
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 640320610765138,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Мышь",
+					"sid": 892311324227931,
+					"parameters": {
+						"object": "Flag"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 225420306061666,
+					"parameters": {
+						"variable": "Language",
+						"value": "Language=0?1:0"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Flag",
+					"sid": 741909305112143,
+					"parameters": {
+						"frame-number": "Language"
+					}
+				},
+				{
+					"callFunction": "Text",
+					"sid": 183057676961053
+				}
+			],
+			"sid": 389830958720793
 		}
 	],
 	"sid": 511565052530936
