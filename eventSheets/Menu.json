@@ -35,7 +35,7 @@
 			"eventType": "variable",
 			"name": "Language",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -75,30 +75,27 @@
 									}
 								},
 								{
-									"id": "compare-text",
+									"id": "has-tags",
 									"objectClass": "Text_Menu",
-									"sid": 481673626056968,
+									"sid": 275836179916165,
 									"parameters": {
-										"text-to-compare": "\"помощь\"",
-										"case-sensitivity": "ignore-case"
+										"tags": "\"Help\""
 									}
 								},
 								{
-									"id": "compare-text",
+									"id": "has-tags",
 									"objectClass": "Text_Menu",
-									"sid": 732863005229295,
+									"sid": 850944662326261,
 									"parameters": {
-										"text-to-compare": "\"Начать заново\"",
-										"case-sensitivity": "ignore-case"
+										"tags": "\"Restart\""
 									}
 								},
 								{
-									"id": "compare-text",
+									"id": "has-tags",
 									"objectClass": "Text_Menu",
-									"sid": 806397636933679,
+									"sid": 476255518705839,
 									"parameters": {
-										"text-to-compare": "\"выход\"",
-										"case-sensitivity": "ignore-case"
+										"tags": "\"Exit\""
 									}
 								}
 							],
@@ -431,11 +428,26 @@
 				},
 				{
 					"id": "pin-to-object-properties",
+					"objectClass": "borders",
+					"sid": 499069003381977,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
 					"objectClass": "Menu",
 					"sid": 819448499122070,
 					"behaviorType": "Прикрепить",
 					"parameters": {
-						"pin-to": "Camera",
+						"pin-to": "borders",
 						"x": true,
 						"y": true,
 						"angle": true,
@@ -450,7 +462,7 @@
 					"sid": 227156264466991,
 					"behaviorType": "Прикрепить",
 					"parameters": {
-						"pin-to": "Camera",
+						"pin-to": "borders",
 						"x": true,
 						"y": true,
 						"angle": true,
@@ -465,7 +477,7 @@
 					"sid": 965744400517276,
 					"behaviorType": "Прикрепить",
 					"parameters": {
-						"pin-to": "Camera",
+						"pin-to": "borders",
 						"x": true,
 						"y": true,
 						"angle": true,
@@ -480,7 +492,7 @@
 					"sid": 842020077355556,
 					"behaviorType": "Прикрепить",
 					"parameters": {
-						"pin-to": "Camera",
+						"pin-to": "borders",
 						"x": true,
 						"y": true,
 						"angle": true,
@@ -491,6 +503,47 @@
 				}
 			],
 			"sid": 687519329073019
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 268256548069250
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "borders",
+					"sid": 448574363498008,
+					"disabled": true,
+					"parameters": {
+						"x": "Player_All.X",
+						"y": "Player_All.Y"
+					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "borders",
+					"sid": 379745355813649,
+					"disabled": true,
+					"parameters": {
+						"x": "clamp(Self.X, 0, LayoutWidth - Self.Width)"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "borders",
+					"sid": 605113643312149,
+					"disabled": true,
+					"parameters": {
+						"y": "clamp(Self.Y, 0, LayoutHeight - self.Height)"
+					}
+				}
+			],
+			"sid": 771566540557060
 		},
 		{
 			"eventType": "block",
@@ -574,20 +627,21 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-click",
+					"id": "on-object-clicked",
 					"objectClass": "Мышь",
-					"sid": 963389822429456,
+					"sid": 639871992198535,
 					"parameters": {
 						"mouse-button": "left",
-						"click-type": "clicked"
+						"click-type": "clicked",
+						"object-clicked": "Text_Menu"
 					}
 				},
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Мышь",
-					"sid": 336647720555192,
+					"id": "has-tags",
+					"objectClass": "Text_Menu",
+					"sid": 212503094234357,
 					"parameters": {
-						"object": "Text_Menu"
+						"tags": "\"Restart\""
 					}
 				},
 				{
@@ -597,15 +651,6 @@
 					"parameters": {
 						"layer": "LayerIndex(\"HUD\")"
 					}
-				},
-				{
-					"id": "compare-text",
-					"objectClass": "Text_Menu",
-					"sid": 204039037937091,
-					"parameters": {
-						"text-to-compare": "\"Начать заново\"",
-						"case-sensitivity": "ignore-case"
-					}
 				}
 			],
 			"actions": [
@@ -613,6 +658,14 @@
 					"id": "restart-layout",
 					"objectClass": "System",
 					"sid": 134108175354395
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 138175378076987,
+					"parameters": {
+						"time-scale": "1"
+					}
 				}
 			],
 			"sid": 725839278012483
@@ -2021,12 +2074,13 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-click",
+					"id": "on-object-clicked",
 					"objectClass": "Мышь",
-					"sid": 251794551207256,
+					"sid": 238748947242637,
 					"parameters": {
 						"mouse-button": "left",
-						"click-type": "clicked"
+						"click-type": "clicked",
+						"object-clicked": "Resol"
 					}
 				},
 				{
@@ -2034,14 +2088,6 @@
 					"objectClass": "Browser",
 					"sid": 685552724595100,
 					"isInverted": true
-				},
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Мышь",
-					"sid": 309347564283738,
-					"parameters": {
-						"object": "Resol"
-					}
 				},
 				{
 					"id": "layer-is-visible",
@@ -2069,26 +2115,19 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-click",
+					"id": "on-object-clicked",
 					"objectClass": "Мышь",
-					"sid": 347464338903420,
+					"sid": 620029752916687,
 					"parameters": {
 						"mouse-button": "left",
-						"click-type": "clicked"
+						"click-type": "clicked",
+						"object-clicked": "Resol"
 					}
 				},
 				{
 					"id": "is-fullscreen",
 					"objectClass": "Browser",
 					"sid": 184077016466668
-				},
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Мышь",
-					"sid": 873645309100049,
-					"parameters": {
-						"object": "Resol"
-					}
 				},
 				{
 					"id": "layer-is-visible",
@@ -2161,9 +2200,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-start-of-layout",
+					"id": "on-loader-layout-complete",
 					"objectClass": "System",
-					"sid": 326776745783089
+					"sid": 512957794933815
 				}
 			],
 			"actions": [
@@ -2219,29 +2258,21 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-click",
+					"id": "on-object-clicked",
 					"objectClass": "Мышь",
-					"sid": 452351483059623,
+					"sid": 242873710061399,
 					"parameters": {
 						"mouse-button": "left",
-						"click-type": "clicked"
+						"click-type": "clicked",
+						"object-clicked": "Text_Menu"
 					}
 				},
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Мышь",
-					"sid": 534278329409855,
-					"parameters": {
-						"object": "Text_Menu"
-					}
-				},
-				{
-					"id": "compare-text",
+					"id": "has-tags",
 					"objectClass": "Text_Menu",
-					"sid": 925590357602762,
+					"sid": 802974609982862,
 					"parameters": {
-						"text-to-compare": "\"Помощь\"",
-						"case-sensitivity": "ignore-case"
+						"tags": "\"Help\""
 					}
 				},
 				{
@@ -2255,26 +2286,11 @@
 			],
 			"actions": [
 				{
-					"id": "set-visible",
-					"objectClass": "Tutorial",
-					"sid": 975217414749022,
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 969694960567810,
 					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Tutorial_BG",
-					"sid": 578584253686168,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Text_Tutorial",
-					"sid": 896835398471571,
-					"parameters": {
+						"layer": "LayerIndex(\"Tutorial\")",
 						"visibility": "visible"
 					}
 				}
@@ -2290,138 +2306,41 @@
 					"sid": 155929023834282
 				},
 				{
-					"id": "is-on-screen",
-					"objectClass": "Tutorial",
-					"sid": 689458666807091
-				},
-				{
-					"id": "is-on-screen",
-					"objectClass": "Tutorial_BG",
-					"sid": 536940094358670
+					"id": "on-any-click",
+					"objectClass": "Мышь",
+					"sid": 754655496699172
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 377766264683614,
+			"children": [
 				{
-					"id": "set-visible",
-					"objectClass": "Tutorial",
-					"sid": 416124265270041,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Tutorial_BG",
-					"sid": 650478914304094,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Text_Tutorial",
-					"sid": 833539674564422,
-					"parameters": {
-						"visibility": "invisible"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 143651837903439,
+							"parameters": {
+								"layer": "LayerIndex(\"Tutorial\")"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 571080233447328,
+							"parameters": {
+								"layer": "LayerIndex(\"Tutorial\")",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 758821271304528
 				}
 			],
-			"sid": 377766264683614
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-any-key-pressed",
-					"objectClass": "Клавиатура",
-					"sid": 305111470032198
-				},
-				{
-					"id": "is-on-screen",
-					"objectClass": "Tutorial",
-					"sid": 836286061374557
-				},
-				{
-					"id": "is-on-layer",
-					"objectClass": "Tutorial",
-					"sid": 466048491808072,
-					"parameters": {
-						"layer": "\"Tutorial\""
-					}
-				},
-				{
-					"id": "is-on-layer",
-					"objectClass": "Tutorial_BG",
-					"sid": 340235647096969,
-					"parameters": {
-						"layer": "\"Tutorial\""
-					}
-				},
-				{
-					"id": "is-on-screen",
-					"objectClass": "Tutorial_BG",
-					"sid": 192000800340006
-				},
-				{
-					"id": "is-on-layer",
-					"objectClass": "Text_Tutorial",
-					"sid": 207089118870391,
-					"parameters": {
-						"layer": "\"Tutorial\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "move-to-layer",
-					"objectClass": "Tutorial_BG",
-					"sid": 852790292203089,
-					"parameters": {
-						"layer": "\"HUD\""
-					}
-				},
-				{
-					"id": "move-to-layer",
-					"objectClass": "Tutorial",
-					"sid": 431886184260001,
-					"parameters": {
-						"layer": "\"HUD\""
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Tutorial",
-					"sid": 739922600054884,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Tutorial_BG",
-					"sid": 900131807711801,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "move-to-layer",
-					"objectClass": "Text_Tutorial",
-					"sid": 599930886292913,
-					"parameters": {
-						"layer": "\"HUD\""
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Text_Tutorial",
-					"sid": 122571961970806,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				}
-			],
-			"sid": 885446676342106
+			"isOrBlock": true
 		},
 		{
 			"eventType": "comment",
@@ -2495,6 +2414,22 @@
 					"parameters": {
 						"text": "Lang.At(Language,Self.Lang)"
 					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Tutorial",
+					"sid": 279539592190742,
+					"parameters": {
+						"text": "Lang.At(Language,Self.Lang)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "dialogText",
+					"sid": 922293751010961,
+					"parameters": {
+						"text": "Lang.At(Language,Self.Lang)"
+					}
 				}
 			],
 			"sid": 972606361071679
@@ -2503,20 +2438,21 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-click",
+					"id": "on-object-clicked",
 					"objectClass": "Мышь",
-					"sid": 640320610765138,
+					"sid": 879813996901646,
 					"parameters": {
 						"mouse-button": "left",
-						"click-type": "clicked"
+						"click-type": "clicked",
+						"object-clicked": "Flag"
 					}
 				},
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Мышь",
-					"sid": 892311324227931,
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 439899758685207,
 					"parameters": {
-						"object": "Flag"
+						"layer": "\"HUD\""
 					}
 				}
 			],

@@ -71,7 +71,7 @@
 			"eventType": "variable",
 			"name": "FearEnemyBaseball",
 			"type": "number",
-			"initialValue": "25",
+			"initialValue": "30",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -192,10 +192,10 @@
 						{
 							"id": "set-position",
 							"objectClass": "Camera",
-							"sid": 317496426962677,
+							"sid": 846922365548374,
 							"parameters": {
-								"x": "lerp(Self.X,Player_All.X,0.05)",
-								"y": "lerp(Self.Y,Player_All.Y-50,0.05)"
+								"x": "lerp(Self.X,Player_All.X,0.025)",
+								"y": "lerp(Self.Y,Player_All.Y-50,0.025)"
 							}
 						}
 					],
@@ -210,6 +210,16 @@
 							"sid": 530768254867518,
 							"parameters": {
 								"key": 82
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 129239736286199,
+							"parameters": {
+								"variable": "HPplayer",
+								"comparison": 3,
+								"value": "0"
 							}
 						}
 					],
@@ -7329,7 +7339,26 @@
 											}
 										}
 									],
-									"sid": 914127083285668
+									"sid": 914127083285668,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 225512924120603
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "shakeScreen",
+													"sid": 442361625590842
+												}
+											],
+											"sid": 759064480295302
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -7364,7 +7393,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -7537,8 +7566,7 @@
 									}
 								}
 							],
-							"sid": 217280940565278,
-							"disabled": true
+							"sid": 217280940565278
 						},
 						{
 							"eventType": "block",
@@ -7737,8 +7765,7 @@
 									}
 								}
 							],
-							"sid": 745289774572657,
-							"disabled": true
+							"sid": 745289774572657
 						},
 						{
 							"eventType": "block",
@@ -7792,7 +7819,6 @@
 							],
 							"actions": [],
 							"sid": 589157513393336,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -7955,7 +7981,6 @@
 										}
 									],
 									"sid": 786399763422600,
-									"disabled": true,
 									"isOrBlock": true
 								}
 							]
@@ -7984,7 +8009,6 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8012,7 +8036,6 @@
 										}
 									],
 									"sid": 310996725083501,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8041,7 +8064,6 @@
 										}
 									],
 									"sid": 458178281136712,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8067,8 +8089,7 @@
 											}
 										}
 									],
-									"sid": 106933512128252,
-									"disabled": true
+									"sid": 106933512128252
 								}
 							]
 						},
@@ -8126,7 +8147,6 @@
 								}
 							],
 							"sid": 377992490181740,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8170,8 +8190,7 @@
 											}
 										}
 									],
-									"sid": 216693764442584,
-									"disabled": true
+									"sid": 216693764442584
 								},
 								{
 									"eventType": "block",
@@ -8215,8 +8234,7 @@
 											}
 										}
 									],
-									"sid": 589694636770370,
-									"disabled": true
+									"sid": 589694636770370
 								},
 								{
 									"eventType": "block",
@@ -8232,8 +8250,7 @@
 											}
 										}
 									],
-									"sid": 799978535918360,
-									"disabled": true
+									"sid": 799978535918360
 								}
 							]
 						}
@@ -58216,45 +58233,6 @@
 		},
 		{
 			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "Wall",
-					"sid": 723506050437680
-				}
-			],
-			"actions": [
-				{
-					"id": "set-immovable",
-					"objectClass": "Wall",
-					"sid": 960544306424773,
-					"behaviorType": "Физика",
-					"parameters": {
-						"setting": "immovable"
-					}
-				}
-			],
-			"sid": 555843497184024
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 999812759448552,
-					"parameters": {
-						"variable": "FearEnemyBaseball",
-						"comparison": 5,
-						"value": "20"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 527898348714900
-		},
-		{
-			"eventType": "block",
 			"conditions": [],
 			"actions": [
 				{
@@ -59981,14 +59959,6 @@
 									"isInverted": true
 								},
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "HitBox",
-									"sid": 973971458440980,
-									"parameters": {
-										"object": "Enemys"
-									}
-								},
-								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
 									"sid": 988148633164442
@@ -59999,6 +59969,7 @@
 									"id": "play",
 									"objectClass": "Аудио",
 									"sid": 698734677056643,
+									"disabled": true,
 									"parameters": {
 										"audio-file": "Kick",
 										"loop": "not-looping",
@@ -60008,7 +59979,216 @@
 									}
 								}
 							],
-							"sid": 690808427049621
+							"sid": 690808427049621,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "HitBox",
+											"sid": 511204921148408,
+											"parameters": {
+												"object": "EnemyFurious"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyFurious",
+											"sid": 536402548311911,
+											"parameters": {
+												"instance-variable": "Death"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyFurious",
+											"sid": 696285329643564,
+											"parameters": {
+												"instance-variable": "Down"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 502170814400792,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-tag-playing",
+													"objectClass": "Аудио",
+													"sid": 809487539354909,
+													"parameters": {
+														"tag": "\"Damage\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 622419052727428
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 885097651611734,
+													"parameters": {
+														"audio-file": "Kick",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"Damage\""
+													}
+												}
+											],
+											"sid": 119133344366385
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "HitBox",
+											"sid": 892929191550401,
+											"parameters": {
+												"object": "EnemyBaseball"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball",
+											"sid": 450294095691751,
+											"parameters": {
+												"instance-variable": "Death"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball",
+											"sid": 126403408576513,
+											"parameters": {
+												"instance-variable": "Down"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 963341781826478,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-tag-playing",
+													"objectClass": "Аудио",
+													"sid": 328620935184153,
+													"parameters": {
+														"tag": "\"Damage\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 957818742877820
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 355172518167122,
+													"parameters": {
+														"audio-file": "Kick",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"Damage\""
+													}
+												}
+											],
+											"sid": 910114833080283
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "HitBox",
+											"sid": 222234848576444,
+											"parameters": {
+												"object": "EnemyKnife"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyKnife",
+											"sid": 269802843152500,
+											"parameters": {
+												"instance-variable": "Death"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyKnife",
+											"sid": 489030747542660,
+											"parameters": {
+												"instance-variable": "Down"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 284031240239935,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-tag-playing",
+													"objectClass": "Аудио",
+													"sid": 943289797649586,
+													"parameters": {
+														"tag": "\"Damage\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 410579196013649
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Аудио",
+													"sid": 171244460560091,
+													"parameters": {
+														"audio-file": "Kick",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"Damage\""
+													}
+												}
+											],
+											"sid": 344475110864167
+										}
+									]
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -60437,6 +60617,49 @@
 				}
 			],
 			"sid": 131823778113644
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Wall",
+					"sid": 678079859597545
+				}
+			],
+			"actions": [
+				{
+					"id": "set-immovable",
+					"objectClass": "Wall",
+					"sid": 162688446008581,
+					"behaviorType": "Физика",
+					"parameters": {
+						"setting": "immovable"
+					}
+				}
+			],
+			"sid": 914545559228527
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "HitBoxEnemy",
+					"sid": 892925328730706
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "HitBoxEnemy",
+					"sid": 213541669873209,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 762694288788143
 		}
 	],
 	"sid": 685168423764890

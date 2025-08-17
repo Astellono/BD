@@ -16,6 +16,10 @@
 			"includeSheet": "actual"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Menu"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Bakery_Cut",
@@ -240,6 +244,15 @@
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "dialogText",
+							"sid": 985046110609034,
+							"parameters": {
+								"instance-variable": "Lang",
+								"value": "17"
+							}
 						}
 					],
 					"sid": 371133214600205,
@@ -266,11 +279,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 262237342191512,
+									"sid": 512854409966108,
 									"parameters": [
-										"\"Стой!\"",
+										"dialogText.Text",
 										"4810",
-										"840"
+										"840",
+										"17",
+										"1"
 									]
 								}
 							],
@@ -305,6 +320,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "dialogText",
+							"sid": 707138827010991,
+							"parameters": {
+								"instance-variable": "Lang",
+								"value": "18"
+							}
+						},
 						{
 							"id": "add-to-instvar",
 							"objectClass": "Scientist",
@@ -348,11 +372,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 561685909725429,
+									"sid": 425550929146967,
 									"parameters": [
-										"\"Ты меня не получишь говнюк!\"",
+										"dialogText.Text",
 										"4810",
-										"840"
+										"840",
+										"18",
+										"1"
 									]
 								}
 							],
@@ -1124,12 +1150,23 @@
 						},
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 629759218502156,
+							"sid": 747009846239775,
 							"parameters": [
-								"\"Оххх бляяя...\"",
+								"dialogText.Text",
 								"Player_All.X",
-								"Player_All.Y"
+								"Player_All.Y",
+								"19",
+								"2"
 							]
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "dialogText",
+							"sid": 155290597250366,
+							"parameters": {
+								"instance-variable": "Lang",
+								"value": "19"
+							}
 						},
 						{
 							"id": "add-to-instvar",
