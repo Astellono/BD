@@ -216,6 +216,7 @@
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 129239736286199,
+							"disabled": true,
 							"parameters": {
 								"variable": "HPplayer",
 								"comparison": 3,
@@ -331,66 +332,8 @@
 							}
 						}
 					],
-					"sid": 471804292297280
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-visible",
-							"objectClass": "Player1",
-							"sid": 326866215153403
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "stateEnemyText",
-							"sid": 735323156975424,
-							"parameters": {
-								"x": "Player1.X-15",
-								"y": "Player1.Y -200"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "stateEnemyText",
-							"sid": 117425436212893,
-							"parameters": {
-								"text": "\"[color=#ff0000]\" &\n\"XDir: \" & Player1.dirCastX & \n\"\nYDir: \" & Player1.dirCastY &\n\n\"[/color]\"\n"
-							}
-						}
-					],
-					"sid": 437975129956378,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 241914784841641
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Player1",
-									"sid": 364122595189123,
-									"parameters": {
-										"object": "stateEnemyText",
-										"layer": "\"Слой 1\"",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 286168341870189,
-							"disabled": true
-						}
-					]
+					"sid": 471804292297280,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2623,6 +2566,15 @@
 											}
 										},
 										{
+											"id": "compare-animation-frame",
+											"objectClass": "Player_All",
+											"sid": 389931537908001,
+											"parameters": {
+												"comparison": 0,
+												"number": "2"
+											}
+										},
+										{
 											"id": "compare-two-values",
 											"objectClass": "System",
 											"sid": 580536760954234,
@@ -2640,6 +2592,16 @@
 												"first-value": "Window_roof.X -100",
 												"comparison": 2,
 												"second-value": "Player_All.X"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 448014269936546,
+											"parameters": {
+												"first-value": "Window_roof.Y",
+												"comparison": 4,
+												"second-value": "Player_All.Y"
 											}
 										}
 									],
@@ -5085,10 +5047,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Extinguisher",
-											"sid": 400249418675936,
+											"sid": 841105591322259,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "800",
+												"force": "1600",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -5225,10 +5187,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Stake",
-											"sid": 852890289548856,
+											"sid": 681480229577865,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "100",
+												"force": "200",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -5295,10 +5257,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Brick",
-											"sid": 381129721619978,
+											"sid": 596213327237882,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "200",
+												"force": "400",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -5365,10 +5327,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Bottle",
-											"sid": 428052671501253,
+											"sid": 919279714518245,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "200",
+												"force": "400",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -5727,10 +5689,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "GlassWeapon",
-											"sid": 545830130466200,
+											"sid": 659934779170444,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "150",
+												"force": "450",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -5797,10 +5759,10 @@
 										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Rose",
-											"sid": 476903817905969,
+											"sid": 811662970062664,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "150",
+												"force": "450",
 												"x": "Мышь.X",
 												"y": "Мышь.Y",
 												"image-point": "0"
@@ -6278,10 +6240,10 @@
 								{
 									"id": "apply-force-towards-position",
 									"objectClass": "Chair",
-									"sid": 340920171366382,
+									"sid": 174310395829017,
 									"behaviorType": "Физика",
 									"parameters": {
-										"force": "1200",
+										"force": "1600",
 										"x": "Мышь.X",
 										"y": "Мышь.Y",
 										"image-point": "0"
@@ -7393,7 +7355,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -7566,7 +7528,8 @@
 									}
 								}
 							],
-							"sid": 217280940565278
+							"sid": 217280940565278,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7765,7 +7728,8 @@
 									}
 								}
 							],
-							"sid": 745289774572657
+							"sid": 745289774572657,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7819,6 +7783,7 @@
 							],
 							"actions": [],
 							"sid": 589157513393336,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -7981,6 +7946,7 @@
 										}
 									],
 									"sid": 786399763422600,
+									"disabled": true,
 									"isOrBlock": true
 								}
 							]
@@ -8009,6 +7975,7 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8036,6 +8003,7 @@
 										}
 									],
 									"sid": 310996725083501,
+									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8064,6 +8032,7 @@
 										}
 									],
 									"sid": 458178281136712,
+									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -8089,7 +8058,8 @@
 											}
 										}
 									],
-									"sid": 106933512128252
+									"sid": 106933512128252,
+									"disabled": true
 								}
 							]
 						},
@@ -8147,6 +8117,7 @@
 								}
 							],
 							"sid": 377992490181740,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -8190,7 +8161,8 @@
 											}
 										}
 									],
-									"sid": 216693764442584
+									"sid": 216693764442584,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -8234,7 +8206,8 @@
 											}
 										}
 									],
-									"sid": 589694636770370
+									"sid": 589694636770370,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -8250,7 +8223,8 @@
 											}
 										}
 									],
-									"sid": 799978535918360
+									"sid": 799978535918360,
+									"disabled": true
 								}
 							]
 						}
@@ -11280,7 +11254,7 @@
 														{
 															"id": "compare-velocity",
 															"objectClass": "Extinguisher",
-															"sid": 149613654472855,
+															"sid": 281913743386677,
 															"behaviorType": "Физика",
 															"parameters": {
 																"which": "overall-velocity",
@@ -11291,7 +11265,7 @@
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "Extinguisher",
-															"sid": 725206549572501,
+															"sid": 982638043836713,
 															"parameters": {
 																"object": "EnemyBaseball"
 															}
@@ -11299,33 +11273,31 @@
 														{
 															"id": "trigger-once-while-true",
 															"objectClass": "System",
-															"sid": 587792806578399
+															"sid": 466481601463108
+														},
+														{
+															"id": "pick-random-instance",
+															"objectClass": "System",
+															"sid": 546914216306270,
+															"parameters": {
+																"object": "EnemyBaseball"
+															}
 														}
 													],
 													"actions": [
 														{
 															"id": "set-enabled",
 															"objectClass": "EnemyBaseball",
-															"sid": 148910040759645,
+															"sid": 447171262707828,
 															"behaviorType": "Физика",
 															"parameters": {
 																"mode": "enabled"
 															}
 														},
 														{
-															"id": "enabledisable-collisions",
-															"objectClass": "Extinguisher",
-															"sid": 825138600447985,
-															"behaviorType": "Физика",
-															"parameters": {
-																"object": "EnemyBaseball",
-																"state": "enable"
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "Extinguisher",
-															"sid": 777194522118120,
+															"sid": 578600609144758,
 															"parameters": {
 																"object": "HitBox",
 																"layer": "Player_All.LayerName",
@@ -11335,18 +11307,37 @@
 															}
 														},
 														{
+															"id": "enabledisable-collisions",
+															"objectClass": "Extinguisher",
+															"sid": 664693483946659,
+															"behaviorType": "Физика",
+															"parameters": {
+																"object": "EnemyBaseball",
+																"state": "enable"
+															}
+														},
+														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 172223482011945,
+															"sid": 349706863319148,
 															"parameters": {
 																"seconds": "0.1",
 																"use-timescale": true
 															}
 														},
 														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball",
+															"sid": 545062064516374,
+															"parameters": {
+																"instance-variable": "HeavyPunch",
+																"value": "true"
+															}
+														},
+														{
 															"id": "enabledisable-collisions",
 															"objectClass": "Extinguisher",
-															"sid": 126105097962982,
+															"sid": 823062846390670,
 															"behaviorType": "Физика",
 															"parameters": {
 																"object": "EnemyBaseball",
@@ -11354,9 +11345,18 @@
 															}
 														},
 														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 608251376895136,
+															"parameters": {
+																"seconds": "0.2",
+																"use-timescale": true
+															}
+														},
+														{
 															"id": "set-enabled",
 															"objectClass": "EnemyBaseball",
-															"sid": 972706994468403,
+															"sid": 694935979413652,
 															"behaviorType": "Физика",
 															"parameters": {
 																"mode": "disabled"
@@ -11365,10 +11365,10 @@
 														{
 															"id": "destroy",
 															"objectClass": "HitBox",
-															"sid": 645196566905135
+															"sid": 579116395755347
 														}
 													],
-													"sid": 797468259978178
+													"sid": 614608918135556
 												},
 												{
 													"eventType": "block",
@@ -13678,6 +13678,14 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "on-collision-with-another-object",
+															"objectClass": "HitBox",
+															"sid": 849026690146477,
+															"parameters": {
+																"object": "EnemyBaseball"
+															}
+														},
+														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
 															"sid": 921001938718116,
@@ -13693,14 +13701,6 @@
 															"sid": 157736255315524,
 															"parameters": {
 																"instance-variable": "kick"
-															}
-														},
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "HitBox",
-															"sid": 778021307964662,
-															"parameters": {
-																"object": "EnemyBaseball"
 															}
 														}
 													],
@@ -16304,6 +16304,7 @@
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "EnemyBaseball",
 											"sid": 471170216613151,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "triger"
 											},
@@ -17204,6 +17205,14 @@
 											}
 										},
 										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "EnemyBaseball",
+											"sid": 564570836840923,
+											"parameters": {
+												"object": "HitBox"
+											}
+										},
+										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "EnemyBaseball",
 											"sid": 878469052977983,
@@ -17245,19 +17254,19 @@
 									],
 									"actions": [
 										{
-											"id": "stop",
-											"objectClass": "EnemyBaseball",
-											"sid": 839459031511307,
-											"behaviorType": "НастраиваемоеДвижение"
-										},
-										{
 											"id": "set-boolean-instvar",
 											"objectClass": "EnemyBaseball",
-											"sid": 700079250563831,
+											"sid": 521406943649196,
 											"parameters": {
 												"instance-variable": "Damage",
 												"value": "true"
 											}
+										},
+										{
+											"id": "stop",
+											"objectClass": "EnemyBaseball",
+											"sid": 839459031511307,
+											"behaviorType": "НастраиваемоеДвижение"
 										}
 									],
 									"sid": 395478770273999,
@@ -23259,102 +23268,6 @@
 													"conditions": [
 														{
 															"id": "compare-velocity",
-															"objectClass": "Extinguisher",
-															"sid": 528277072366238,
-															"behaviorType": "Физика",
-															"parameters": {
-																"which": "overall-velocity",
-																"comparison": 4,
-																"value": "150"
-															}
-														},
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Extinguisher",
-															"sid": 754214384224957,
-															"parameters": {
-																"object": "EnemyKnife"
-															}
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 960394583275408
-														}
-													],
-													"actions": [
-														{
-															"id": "set-enabled",
-															"objectClass": "EnemyKnife",
-															"sid": 959100735475288,
-															"behaviorType": "Физика",
-															"parameters": {
-																"mode": "enabled"
-															}
-														},
-														{
-															"id": "enabledisable-collisions",
-															"objectClass": "Extinguisher",
-															"sid": 223104056253554,
-															"behaviorType": "Физика",
-															"parameters": {
-																"object": "EnemyKnife",
-																"state": "enable"
-															}
-														},
-														{
-															"id": "spawn-another-object",
-															"objectClass": "Extinguisher",
-															"sid": 112675273829001,
-															"parameters": {
-																"object": "HitBox",
-																"layer": "Player_All.LayerName",
-																"image-point": "0",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 593807300103331,
-															"parameters": {
-																"seconds": "0.1",
-																"use-timescale": true
-															}
-														},
-														{
-															"id": "enabledisable-collisions",
-															"objectClass": "Extinguisher",
-															"sid": 772908995253966,
-															"behaviorType": "Физика",
-															"parameters": {
-																"object": "EnemyKnife",
-																"state": "disable"
-															}
-														},
-														{
-															"id": "set-enabled",
-															"objectClass": "EnemyKnife",
-															"sid": 511449261344540,
-															"behaviorType": "Физика",
-															"parameters": {
-																"mode": "disabled"
-															}
-														},
-														{
-															"id": "destroy",
-															"objectClass": "HitBox",
-															"sid": 821812880913413
-														}
-													],
-													"sid": 902950936583935
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-velocity",
 															"objectClass": "Pistol",
 															"sid": 792127360405236,
 															"behaviorType": "Физика",
@@ -24079,6 +23992,128 @@
 														}
 													],
 													"sid": 875112506120112
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-velocity",
+															"objectClass": "Extinguisher",
+															"sid": 433845907805301,
+															"behaviorType": "Физика",
+															"parameters": {
+																"which": "overall-velocity",
+																"comparison": 4,
+																"value": "150"
+															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Extinguisher",
+															"sid": 259352192072960,
+															"parameters": {
+																"object": "EnemyKnife"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 732011448977449
+														},
+														{
+															"id": "pick-random-instance",
+															"objectClass": "System",
+															"sid": 108513587106599,
+															"parameters": {
+																"object": "EnemyKnife"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-enabled",
+															"objectClass": "EnemyKnife",
+															"sid": 402470167508700,
+															"behaviorType": "Физика",
+															"parameters": {
+																"mode": "enabled"
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Extinguisher",
+															"sid": 978040004851338,
+															"parameters": {
+																"object": "HitBox",
+																"layer": "Player_All.LayerName",
+																"image-point": "0",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "enabledisable-collisions",
+															"objectClass": "Extinguisher",
+															"sid": 321866888716292,
+															"behaviorType": "Физика",
+															"parameters": {
+																"object": "EnemyKnife",
+																"state": "enable"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 400633514501673,
+															"parameters": {
+																"seconds": "0.1",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyKnife",
+															"sid": 415656103251858,
+															"parameters": {
+																"instance-variable": "HeavyPunch",
+																"value": "true"
+															}
+														},
+														{
+															"id": "enabledisable-collisions",
+															"objectClass": "Extinguisher",
+															"sid": 521773722393460,
+															"behaviorType": "Физика",
+															"parameters": {
+																"object": "EnemyKnife",
+																"state": "disable"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 232364512050378,
+															"parameters": {
+																"seconds": "0.2",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-enabled",
+															"objectClass": "EnemyKnife",
+															"sid": 215543505484368,
+															"behaviorType": "Физика",
+															"parameters": {
+																"mode": "disabled"
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "HitBox",
+															"sid": 425503376282391
+														}
+													],
+													"sid": 500257016580824
 												},
 												{
 													"eventType": "block",
@@ -25692,6 +25727,14 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "on-collision-with-another-object",
+															"objectClass": "HitBox",
+															"sid": 730338959026341,
+															"parameters": {
+																"object": "EnemyKnife"
+															}
+														},
+														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
 															"sid": 384674384845189,
@@ -25707,14 +25750,6 @@
 															"sid": 267615963173203,
 															"parameters": {
 																"instance-variable": "kick"
-															}
-														},
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "HitBox",
-															"sid": 987152138003325,
-															"parameters": {
-																"object": "EnemyKnife"
 															}
 														}
 													],
@@ -28335,6 +28370,7 @@
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "EnemyKnife",
 											"sid": 463549436534548,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "triger"
 											},
@@ -39151,6 +39187,14 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "on-collision-with-another-object",
+															"objectClass": "HitBox",
+															"sid": 222088688525761,
+															"parameters": {
+																"object": "EnemyFurious"
+															}
+														},
+														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
 															"sid": 603672357602028,
@@ -39166,14 +39210,6 @@
 															"sid": 426448741601378,
 															"parameters": {
 																"instance-variable": "kick"
-															}
-														},
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "HitBox",
-															"sid": 565762245083833,
-															"parameters": {
-																"object": "EnemyFurious"
 															}
 														}
 													],
@@ -58250,39 +58286,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Enemys_Damage",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "HitBox",
-							"sid": 626978941170750,
-							"parameters": {
-								"object": "Enemys"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "HitBox",
-							"sid": 212675581075280
-						}
-					],
-					"sid": 319090630040214,
-					"disabled": true,
-					"isOrBlock": true
-				}
-			],
-			"sid": 179205337892516
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Sound",
 			"description": "",
 			"isActiveOnStart": true,
@@ -59080,9 +59083,9 @@
 														{
 															"id": "play",
 															"objectClass": "Аудио",
-															"sid": 688668008195239,
+															"sid": 581666463758251,
 															"parameters": {
-																"audio-file": "BaseballFly",
+																"audio-file": "Kick",
 																"loop": "not-looping",
 																"volume": "0",
 																"stereo-pan": "0",
@@ -59366,22 +59369,19 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-velocity",
+											"id": "on-collision-with-another-object",
 											"objectClass": "Bottle",
-											"sid": 230293511650124,
-											"behaviorType": "Физика",
+											"sid": 848165747065699,
 											"parameters": {
-												"which": "overall-velocity",
-												"comparison": 4,
-												"value": "150"
+												"object": "EnemyBaseball"
 											}
 										},
 										{
-											"id": "is-overlapping-another-object",
+											"id": "is-animation-playing",
 											"objectClass": "Bottle",
-											"sid": 247621412897059,
+											"sid": 830668942473147,
 											"parameters": {
-												"object": "EnemyBaseball"
+												"animation": "\"Crash\""
 											}
 										}
 									],
@@ -59449,29 +59449,25 @@
 												}
 											]
 										}
-									],
-									"isOrBlock": true
+									]
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-velocity",
+											"id": "on-collision-with-another-object",
 											"objectClass": "Bottle",
-											"sid": 234519184283543,
-											"behaviorType": "Физика",
+											"sid": 285657428775588,
 											"parameters": {
-												"which": "overall-velocity",
-												"comparison": 4,
-												"value": "150"
+												"object": "EnemyKnife"
 											}
 										},
 										{
-											"id": "is-overlapping-another-object",
+											"id": "is-animation-playing",
 											"objectClass": "Bottle",
-											"sid": 944686962621278,
+											"sid": 233590337884626,
 											"parameters": {
-												"object": "EnemyKnife"
+												"animation": "\"Crash\""
 											}
 										}
 									],
@@ -59539,29 +59535,25 @@
 												}
 											]
 										}
-									],
-									"isOrBlock": true
+									]
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-velocity",
+											"id": "on-collision-with-another-object",
 											"objectClass": "Bottle",
-											"sid": 893349086997101,
-											"behaviorType": "Физика",
+											"sid": 130916348509199,
 											"parameters": {
-												"which": "overall-velocity",
-												"comparison": 4,
-												"value": "150"
+												"object": "EnemyFurious"
 											}
 										},
 										{
-											"id": "is-overlapping-another-object",
+											"id": "is-animation-playing",
 											"objectClass": "Bottle",
-											"sid": 608938511465990,
+											"sid": 178845905219230,
 											"parameters": {
-												"object": "EnemyFurious"
+												"animation": "\"Crash\""
 											}
 										}
 									],
@@ -59629,8 +59621,7 @@
 												}
 											]
 										}
-									],
-									"isOrBlock": true
+									]
 								}
 							]
 						},
@@ -59961,7 +59952,19 @@
 								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
-									"sid": 988148633164442
+									"sid": 988148633164442,
+									"disabled": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 297872981909210,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Baseball\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -60124,10 +60127,10 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "HitBox",
-											"sid": 222234848576444,
+											"objectClass": "EnemyKnife",
+											"sid": 540537019442449,
 											"parameters": {
-												"object": "EnemyKnife"
+												"object": "HitBox"
 											}
 										},
 										{
@@ -60660,6 +60663,37 @@
 				}
 			],
 			"sid": 762694288788143
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "HitBox",
+					"sid": 958168322925047,
+					"parameters": {
+						"object": "Enemys"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 942147404110241,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "HitBox",
+					"sid": 254129834261094
+				}
+			],
+			"sid": 479724050402715,
+			"isOrBlock": true
 		}
 	],
 	"sid": 685168423764890

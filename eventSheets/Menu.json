@@ -293,6 +293,49 @@
 			],
 			"actions": [
 				{
+					"id": "pin-to-object-properties",
+					"objectClass": "borders",
+					"sid": 319581010932351,
+					"disabled": true,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "borders",
+					"sid": 550831419074675,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "borders",
+					"sid": 893284689737480,
+					"parameters": {
+						"x": "lerp(Self.X,Player_All.X,0.025)",
+						"y": "lerp(Self.Y,Player_All.Y-50,0.025)"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Camera",
+					"sid": 559290976305750,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 383594000256194,
@@ -361,6 +404,34 @@
 			],
 			"actions": [
 				{
+					"id": "set-position",
+					"objectClass": "borders",
+					"sid": 195318621286625,
+					"disabled": true,
+					"parameters": {
+						"x": "Camera.X",
+						"y": "Camera.Y"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "borders",
+					"sid": 524876948323443,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Camera",
+					"sid": 725687192762397,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 905753493796523,
@@ -424,21 +495,6 @@
 					"parameters": {
 						"layer": "LayerIndex(\"HUD\")",
 						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "pin-to-object-properties",
-					"objectClass": "borders",
-					"sid": 499069003381977,
-					"behaviorType": "Прикрепить",
-					"parameters": {
-						"pin-to": "Camera",
-						"x": true,
-						"y": true,
-						"angle": true,
-						"width-type": "no",
-						"height-type": "no",
-						"z": false
 					}
 				},
 				{
@@ -577,6 +633,24 @@
 			],
 			"actions": [
 				{
+					"id": "set-enabled",
+					"objectClass": "borders",
+					"sid": 410451665677777,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Camera",
+					"sid": 550623483443093,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 765623115292056,
@@ -654,6 +728,24 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "borders",
+					"sid": 419199564637926,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Camera",
+					"sid": 750000134003199,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
 				{
 					"id": "restart-layout",
 					"objectClass": "System",
