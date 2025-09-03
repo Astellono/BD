@@ -36,9 +36,18 @@
 					],
 					"actions": [
 						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 665599040645211,
+							"parameters": {
+								"group-name": "\"Player\"",
+								"state": "deactivated"
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 841262534561097,
+							"sid": 169284944413480,
 							"parameters": {
 								"object-to-create": "Player_All",
 								"layer": "1",
@@ -110,15 +119,6 @@
 							"sid": 726379258761543,
 							"parameters": {
 								"x": "400"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 444572308091346,
-							"parameters": {
-								"group-name": "\"Player\"",
-								"state": "deactivated"
 							}
 						},
 						{
@@ -450,7 +450,8 @@
 							"objectClass": "System",
 							"sid": 371369212696267,
 							"parameters": {
-								"seconds": "0.2"
+								"seconds": "0.2",
+								"use-timescale": true
 							}
 						},
 						{
@@ -471,7 +472,8 @@
 							"objectClass": "System",
 							"sid": 639978184791572,
 							"parameters": {
-								"seconds": "1"
+								"seconds": "1",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1179,7 +1181,8 @@
 							"objectClass": "System",
 							"sid": 150244801842079,
 							"parameters": {
-								"seconds": "1.0"
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -1398,7 +1401,8 @@
 							"objectClass": "System",
 							"sid": 410189915219316,
 							"parameters": {
-								"seconds": "1.0"
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2070,7 +2074,8 @@
 							"objectClass": "System",
 							"sid": 129712206337614,
 							"parameters": {
-								"seconds": "3"
+								"seconds": "3",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2209,7 +2214,8 @@
 							"objectClass": "System",
 							"sid": 418844443675194,
 							"parameters": {
-								"seconds": "2"
+								"seconds": "2",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2272,7 +2278,8 @@
 							"objectClass": "System",
 							"sid": 729871613384226,
 							"parameters": {
-								"seconds": "1.0"
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2338,7 +2345,8 @@
 							"objectClass": "System",
 							"sid": 874679534894258,
 							"parameters": {
-								"seconds": "1.0"
+								"seconds": "1.0",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2417,7 +2425,7 @@
 			"conditions": [
 				{
 					"id": "compare-x",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 387959142509703,
 					"parameters": {
 						"comparison": 5,
@@ -2426,7 +2434,7 @@
 				},
 				{
 					"id": "compare-y",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 424654272677850,
 					"parameters": {
 						"comparison": 3,
@@ -2460,7 +2468,7 @@
 			"conditions": [
 				{
 					"id": "compare-x",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 272695913807377,
 					"parameters": {
 						"comparison": 5,
@@ -2469,7 +2477,7 @@
 				},
 				{
 					"id": "compare-y",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 975714353135067,
 					"parameters": {
 						"comparison": 3,
@@ -2528,7 +2536,9 @@
 							"parameters": [
 								"\"Я не вижу его на камерах!\"",
 								"security_Cutscene.x +10",
-								"security_Cutscene.Y - 30"
+								"security_Cutscene.Y - 30",
+								"0",
+								"0"
 							]
 						},
 						{
@@ -2536,7 +2546,8 @@
 							"objectClass": "System",
 							"sid": 784412195646621,
 							"parameters": {
-								"seconds": "5"
+								"seconds": "5",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2545,7 +2556,9 @@
 							"parameters": [
 								"\"Мы забрикодировали все выходы, он  не пройдёт\"",
 								"security_Cutscene.x +150",
-								"security_Cutscene.Y -30"
+								"security_Cutscene.Y -30",
+								"0",
+								"0"
 							]
 						},
 						{
@@ -2553,7 +2566,8 @@
 							"objectClass": "System",
 							"sid": 180996085554689,
 							"parameters": {
-								"seconds": "4"
+								"seconds": "4",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2562,7 +2576,9 @@
 							"parameters": [
 								"\"Да ты прав, ему некуда идти.\"",
 								"security_Cutscene.x +10",
-								"security_Cutscene.Y - 30"
+								"security_Cutscene.Y - 30",
+								"0",
+								"0"
 							]
 						},
 						{
@@ -2570,7 +2586,8 @@
 							"objectClass": "System",
 							"sid": 461235533206485,
 							"parameters": {
-								"seconds": "4"
+								"seconds": "4",
+								"use-timescale": true
 							}
 						},
 						{
@@ -2579,7 +2596,9 @@
 							"parameters": [
 								"\"А ту дрянь, что мы в него заталкали, скоро перестанет действовать\"",
 								"security_Cutscene.x +10",
-								"security_Cutscene.Y - 30"
+								"security_Cutscene.Y - 30",
+								"0",
+								"0"
 							]
 						},
 						{
@@ -2587,7 +2606,8 @@
 							"objectClass": "System",
 							"sid": 859860819993430,
 							"parameters": {
-								"seconds": "5"
+								"seconds": "5",
+								"use-timescale": true
 							}
 						},
 						{

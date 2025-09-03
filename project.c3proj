@@ -1,11 +1,25 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 40702,
+	"savedWithRelease": 44902,
 	"name": "BD",
 	"runtime": "c3",
 	"useWorker": "auto",
-	"bundleAddons": false,
+	"bundleAddons": true,
 	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Массив",
+			"author": "Scirra",
+			"bundled": false
+		},
 		{
 			"type": "plugin",
 			"id": "Audio",
@@ -15,8 +29,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Browser",
+			"name": "Браузер",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Клавиатура",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Локальное хранилище",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -141,6 +169,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "bound",
+			"name": "Ограничить сценой",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "custom",
 			"name": "Настраиваемое движение",
 			"author": "Scirra",
@@ -165,6 +200,13 @@
 			"id": "solid",
 			"name": "Твёрдый",
 			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pulse",
+			"name": "Пульс",
+			"author": "Danguafer/Silexars",
 			"bundled": false
 		},
 		{
@@ -203,13 +245,15 @@
 			"hBar",
 			"stateEnemyText",
 			"Текст",
-			"Текст2"
+			"Текст2",
+			"Browser",
+			"ЛокальноеХранилище",
+			"Flag"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"Player_Cutscene",
-					"Player1",
 					"Player",
 					"Player_Mask"
 				],
@@ -225,13 +269,17 @@
 					"security_Cutscene",
 					"Range",
 					"EnemyBaseball",
-					"EnemySecurity"
+					"EnemySecurity",
+					"EnemyKnife",
+					"EnemyFurious"
 				],
 				"subfolders": [
 					{
 						"items": [
 							"HeadBlondin",
-							"HeadPlayer"
+							"HeadPlayer",
+							"HeadKnife",
+							"HeadFurious"
 						],
 						"subfolders": [],
 						"name": "Head"
@@ -257,7 +305,8 @@
 					"Shotgun",
 					"GlassWeapon",
 					"Rose",
-					"Pistol_Enemy"
+					"Pistol_Enemy",
+					"DeskAsk"
 				],
 				"subfolders": [],
 				"name": "Weapon"
@@ -913,7 +962,9 @@
 				"items": [
 					"dialogText",
 					"dialogMainText",
-					"Test"
+					"Test",
+					"AJAX",
+					"Lang"
 				],
 				"subfolders": [],
 				"name": "text"
@@ -951,9 +1002,28 @@
 				],
 				"subfolders": [],
 				"name": "Blood"
+			},
+			{
+				"items": [
+					"Text_Menu",
+					"Arrow",
+					"Numbers_Music",
+					"Numbers_Audio",
+					"Resol",
+					"Arrow2",
+					"Tutorial",
+					"Tutorial_BG",
+					"Text_Tutorial",
+					"Menu_Box",
+					"Button_R",
+					"borders"
+				],
+				"subfolders": [],
+				"name": "Menu"
 			}
 		]
 	},
+	"functionsName": "Functions",
 	"autosaveData": null,
 	"containers": [],
 	"families": {
@@ -963,33 +1033,52 @@
 			"onDial",
 			"Player_All",
 			"Weapon",
-			"Wall_Blood"
+			"Wall_Blood",
+			"Door",
+			"Head",
+			"Menu",
+			"GlassCrash"
 		],
 		"subfolders": []
 	},
 	"layouts": {
-		"items": [
-			"Test_elevator",
-			"Abandonment",
-			"Bar",
-			"Police_station",
-			"Mark_Flat",
-			"Bakery",
-			"Station",
-			"Apartament",
-			"Night_Club",
-			"Garage",
-			"Underground",
-			"Basement",
-			"Hotel",
-			"Tower",
-			"Office",
-			"Warehouse"
-		],
-		"subfolders": []
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"Test_elevator",
+					"Abandonment",
+					"Bar",
+					"Police_station",
+					"Mark_Flat",
+					"Bakery",
+					"Station",
+					"Apartament",
+					"Night_Club",
+					"Garage",
+					"Underground",
+					"Basement",
+					"Hotel",
+					"Tower",
+					"Office",
+					"Warehouse"
+				],
+				"subfolders": [],
+				"name": "Levels"
+			},
+			{
+				"items": [
+					"Start_Screen"
+				],
+				"subfolders": [],
+				"name": "Menu"
+			}
+		]
 	},
 	"eventSheets": {
-		"items": [],
+		"items": [
+			"Menu"
+		],
 		"subfolders": [
 			{
 				"items": [
@@ -1254,27 +1343,35 @@
 					"file-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "Damage.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 931809002549664,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "BOOM!.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 826331495470715,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Звук взрыва.mp3",
+					"type": "audio/mpeg",
+					"sid": 429738943297768,
+					"file-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": [
 				{
 					"items": [
-						{
-							"name": "Kick.webm",
-							"type": "audio/webm; codecs=opus",
-							"sid": 633469170099178,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "KickBaseball.webm",
-							"type": "audio/webm; codecs=opus",
-							"sid": 160488877589379,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
 						{
 							"name": "ChairCrash.webm",
 							"type": "audio/webm; codecs=opus",
@@ -1348,14 +1445,6 @@
 							}
 						},
 						{
-							"name": "BaseballFly.webm",
-							"type": "audio/webm; codecs=opus",
-							"sid": 709991471858435,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
 							"name": "MetallProps.webm",
 							"type": "audio/webm; codecs=opus",
 							"sid": 786487564694957,
@@ -1380,9 +1469,57 @@
 							}
 						},
 						{
+							"name": "WeaponTake.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 105594340193722,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "KnifeKick.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 704462555917295,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "KickBaseball.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 950490231539860,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Fire_Extinguisher.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 814893350362193,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "BaseballFly.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 666816207882997,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
 							"name": "BaseballFall.webm",
 							"type": "audio/webm; codecs=opus",
-							"sid": 987414945056420,
+							"sid": 388558836249659,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Kick.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 979194394662163,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -1390,6 +1527,28 @@
 					],
 					"subfolders": [],
 					"name": "Kick"
+				},
+				{
+					"items": [
+						{
+							"name": "Bakery.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 448725349014404,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "It couldn't be shittier.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 327253349626838,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Music"
 				}
 			]
 		},
@@ -1407,6 +1566,14 @@
 					"name": "Pixel.woff2",
 					"type": "font/woff2",
 					"sid": 451403023580168,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "ofont.ru_Downcome.ttf",
+					"type": "application/font-sfnt",
+					"sid": 300212447979448,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -1532,7 +1699,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "Lang.json",
+					"type": "application/json",
+					"sid": 653484686059849,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -1554,6 +1730,7 @@
 	"properties": {
 		"description": "",
 		"version": "1.0.0.0",
+		"autoIncrementVersion": false,
 		"author": "",
 		"authorEmail": "",
 		"authorWebsite": "",
@@ -1562,7 +1739,7 @@
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "scale-outer",
+		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "high",
 		"viewportFit": "cover",
 		"backgroundColor": [
@@ -1588,7 +1765,7 @@
 		"webgpu": "auto",
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
-		"framerateMode": "vsync",
+		"framerateMode": "unlimited-tick",
 		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "2d",
@@ -1600,11 +1777,10 @@
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
-		"autoReloadScriptsOnPreview": false,
 		"exportFileStructure": "folders",
 		"uidAllocationMode": "increment"
 	},
 	"viewportWidth": 700,
 	"viewportHeight": 350,
-	"firstLayout": "Bar"
+	"firstLayout": "Bakery"
 }

@@ -118,7 +118,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 315337100036813,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -132,7 +132,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 950255866902154,
 					"parameters": {
 						"animation": "\"Starting_Dead\"",
@@ -141,13 +141,13 @@
 				},
 				{
 					"id": "stop-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 763380201344829,
 					"disabled": true
 				},
 				{
 					"id": "start-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 331543937904072,
 					"disabled": true,
 					"parameters": {
@@ -159,12 +159,13 @@
 					"objectClass": "System",
 					"sid": 984201260856108,
 					"parameters": {
-						"seconds": "6"
+						"seconds": "6",
+						"use-timescale": true
 					}
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 930265125039631,
 					"parameters": {
 						"animation": "\"noWeaponDamage\"",
@@ -173,7 +174,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 860915115005089,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -182,7 +183,7 @@
 				},
 				{
 					"id": "simulate-control",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 230621174713689,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -194,12 +195,13 @@
 					"objectClass": "System",
 					"sid": 585727875097999,
 					"parameters": {
-						"seconds": "2"
+						"seconds": "2",
+						"use-timescale": true
 					}
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 274462721887165,
 					"parameters": {
 						"animation": "\"Luser\"",
@@ -211,12 +213,13 @@
 					"objectClass": "System",
 					"sid": 789137465420590,
 					"parameters": {
-						"seconds": "1"
+						"seconds": "1",
+						"use-timescale": true
 					}
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 547610163733717,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -240,7 +243,7 @@
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 281760321732383,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -250,7 +253,7 @@
 				},
 				{
 					"id": "is-animation-playing",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 220606307754343,
 					"parameters": {
 						"animation": "\"Luser\""
@@ -268,8 +271,10 @@
 					"sid": 427482780179670,
 					"parameters": [
 						"\"Где же этот сраный поезд...\"",
-						"Player1.x",
-						"Player1.Y"
+						"Player.x",
+						"Player.Y",
+						"0",
+						"0"
 					]
 				},
 				{
@@ -277,7 +282,8 @@
 					"objectClass": "System",
 					"sid": 357157269923215,
 					"parameters": {
-						"seconds": "1"
+						"seconds": "1",
+						"use-timescale": true
 					}
 				},
 				{
@@ -287,8 +293,8 @@
 					"parameters": {
 						"object-to-create": "Press_Space",
 						"layer": "4",
-						"x": "Player1.X ",
-						"y": "Player1.Y -80",
+						"x": "Player.X ",
+						"y": "Player.Y -80",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -321,7 +327,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 395769532940584,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -398,7 +404,7 @@
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Player1",
+							"objectClass": "Player",
 							"sid": 160104627417167,
 							"parameters": {
 								"instance-variable": "textframe",
@@ -413,8 +419,10 @@
 							"sid": 155357714974401,
 							"parameters": [
 								"\"...что-то я не припомню этого парня\"",
-								"Player1.x",
-								"Player1.Y"
+								"Player.x",
+								"Player.Y",
+								"0",
+								"0"
 							]
 						}
 					],
@@ -430,12 +438,12 @@
 					"objectClass": "Maniac_Station",
 					"sid": 448101025340294,
 					"parameters": {
-						"object": "Player1"
+						"object": "Player"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 380322779243626,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -484,8 +492,8 @@
 					"parameters": {
 						"object-to-create": "press_Q",
 						"layer": "4",
-						"x": "Player1.X",
-						"y": "Player1.Y -40",
+						"x": "Player.X",
+						"y": "Player.Y -40",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -511,7 +519,7 @@
 				},
 				{
 					"id": "compare-x",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 692296753253527,
 					"parameters": {
 						"comparison": 5,
@@ -530,7 +538,7 @@
 				},
 				{
 					"id": "set-speed",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 624798653538171,
 					"behaviorType": "НастраиваемоеДвижение",
 					"parameters": {
@@ -540,7 +548,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 484721454882939,
 					"parameters": {
 						"animation": "\"noWeaponDash\"",
@@ -549,7 +557,7 @@
 				},
 				{
 					"id": "set-animation-speed",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 927802238644548,
 					"parameters": {
 						"speed": "5"
@@ -563,7 +571,7 @@
 			"conditions": [
 				{
 					"id": "compare-x",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 886072328485032,
 					"parameters": {
 						"comparison": 3,
@@ -584,7 +592,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 742941669043816,
 					"behaviorType": "НастраиваемоеДвижение"
 				},
@@ -595,7 +603,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 250971251166403,
 					"parameters": {
 						"animation": "\"WOW!\"",
@@ -623,7 +631,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 642141947314839,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -638,7 +646,7 @@
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Player1",
+							"objectClass": "Player",
 							"sid": 649309800950596,
 							"parameters": {
 								"instance-variable": "textframe",
@@ -653,8 +661,10 @@
 							"sid": 217740061683963,
 							"parameters": [
 								"\"Я тебя понял говнюк\"",
-								"Player1.x",
-								"Player1.Y -50"
+								"Player.x",
+								"Player.Y -50",
+								"0",
+								"0"
 							]
 						},
 						{
@@ -679,12 +689,12 @@
 					"objectClass": "Maniac_Station",
 					"sid": 235042563934242,
 					"parameters": {
-						"object": "Player1"
+						"object": "Player"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 120874891694612,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -701,8 +711,8 @@
 					"parameters": {
 						"object-to-create": "Press_Shift",
 						"layer": "4",
-						"x": "Player1.X",
-						"y": "Player1.Y -50",
+						"x": "Player.X",
+						"y": "Player.Y -50",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -733,7 +743,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 966817499572834,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -756,7 +766,7 @@
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 831240451138014,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -781,7 +791,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 839583028390526,
 					"parameters": {
 						"animation": "\"noWeaponTackle\"",
@@ -795,7 +805,7 @@
 				},
 				{
 					"id": "set-animation-speed",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 235924202613076,
 					"parameters": {
 						"speed": "2"
@@ -803,7 +813,7 @@
 				},
 				{
 					"id": "set-speed",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 524747634278610,
 					"behaviorType": "НастраиваемоеДвижение",
 					"parameters": {
@@ -813,7 +823,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 431842129611414,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -828,7 +838,7 @@
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 136792178139788,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -838,7 +848,7 @@
 				},
 				{
 					"id": "compare-x",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 309102970711621,
 					"parameters": {
 						"comparison": 5,
@@ -854,7 +864,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Player1",
+					"objectClass": "Player",
 					"sid": 233383681574796,
 					"behaviorType": "НастраиваемоеДвижение"
 				},
