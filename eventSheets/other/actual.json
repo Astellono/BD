@@ -8454,7 +8454,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -8588,7 +8588,6 @@
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
 									"sid": 406558855741105,
-									"disabled": true,
 									"parameters": {
 										"variable": "HPplayer",
 										"value": "5"
@@ -8628,8 +8627,7 @@
 									}
 								}
 							],
-							"sid": 217280940565278,
-							"disabled": true
+							"sid": 217280940565278
 						},
 						{
 							"eventType": "block",
@@ -8789,7 +8787,6 @@
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
 									"sid": 699854702623098,
-									"disabled": true,
 									"parameters": {
 										"variable": "HPplayer",
 										"value": "5"
@@ -8829,8 +8826,7 @@
 									}
 								}
 							],
-							"sid": 745289774572657,
-							"disabled": true
+							"sid": 745289774572657
 						},
 						{
 							"eventType": "block",
@@ -8884,7 +8880,6 @@
 							],
 							"actions": [],
 							"sid": 589157513393336,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -9047,7 +9042,6 @@
 										}
 									],
 									"sid": 786399763422600,
-									"disabled": true,
 									"isOrBlock": true
 								}
 							]
@@ -9076,7 +9070,6 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -9104,7 +9097,6 @@
 										}
 									],
 									"sid": 310996725083501,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -9133,7 +9125,6 @@
 										}
 									],
 									"sid": 458178281136712,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -9159,8 +9150,7 @@
 											}
 										}
 									],
-									"sid": 106933512128252,
-									"disabled": true
+									"sid": 106933512128252
 								}
 							]
 						},
@@ -9218,7 +9208,6 @@
 								}
 							],
 							"sid": 377992490181740,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -9262,8 +9251,7 @@
 											}
 										}
 									],
-									"sid": 216693764442584,
-									"disabled": true
+									"sid": 216693764442584
 								},
 								{
 									"eventType": "block",
@@ -9307,8 +9295,7 @@
 											}
 										}
 									],
-									"sid": 589694636770370,
-									"disabled": true
+									"sid": 589694636770370
 								},
 								{
 									"eventType": "block",
@@ -9324,8 +9311,7 @@
 											}
 										}
 									],
-									"sid": 799978535918360,
-									"disabled": true
+									"sid": 799978535918360
 								}
 							]
 						}
@@ -11179,6 +11165,7 @@
 											"sid": 788169336820723
 										},
 										{
+											"bookmark": true,
 											"eventType": "block",
 											"conditions": [
 												{
@@ -11202,6 +11189,15 @@
 													}
 												},
 												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "EnemyBaseball",
+													"sid": 831772643431418,
+													"parameters": {
+														"object": "Stair"
+													},
+													"isInverted": true
+												},
+												{
 													"id": "for-each",
 													"objectClass": "System",
 													"sid": 764870071202815,
@@ -11220,6 +11216,7 @@
 															"id": "is-overlapping-at-offset",
 															"objectClass": "EnemyBaseball",
 															"sid": 510824377092216,
+															"disabled": true,
 															"parameters": {
 																"object": "Wall",
 																"offset-x": "10",
@@ -11230,10 +11227,29 @@
 															"id": "is-overlapping-at-offset",
 															"objectClass": "EnemyBaseball",
 															"sid": 340370838091904,
+															"disabled": true,
 															"parameters": {
 																"object": "Wall",
 																"offset-x": "-10",
 																"offset-y": "0"
+															}
+														},
+														{
+															"id": "compare-y",
+															"objectClass": "EnemyBaseball",
+															"sid": 682049451479408,
+															"parameters": {
+																"comparison": 2,
+																"y-co-ordinate": "Wall.Y +100"
+															}
+														},
+														{
+															"id": "compare-y",
+															"objectClass": "EnemyBaseball",
+															"sid": 486500414149154,
+															"parameters": {
+																"comparison": 4,
+																"y-co-ordinate": "Wall.Y -100"
 															}
 														}
 													],
@@ -11257,6 +11273,7 @@
 																	"id": "is-moving",
 																	"objectClass": "EnemyBaseball",
 																	"sid": 313838637777884,
+																	"disabled": true,
 																	"behaviorType": "НастраиваемоеДвижение"
 																}
 															],
@@ -62586,8 +62603,7 @@
 					}
 				}
 			],
-			"sid": 180065865853135,
-			"disabled": true
+			"sid": 180065865853135
 		},
 		{
 			"eventType": "block",
@@ -62619,9 +62635,40 @@
 						"instance-variable": "Fear",
 						"value": "0"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyBaseball",
+					"sid": 741355103440598,
+					"parameters": {
+						"instance-variable": "Fear",
+						"value": "0"
+					}
 				}
 			],
-			"sid": 210833138727433
+			"sid": 210833138727433,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Fear",
+					"sid": 543469844400041
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Fear",
+					"sid": 328587691099605,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 902455434065633
 		}
 	],
 	"sid": 685168423764890
