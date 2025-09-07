@@ -26,12 +26,12 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 474076833495071,
+					"sid": 486202816476343,
 					"parameters": {
 						"object-to-create": "Shadow3",
-						"layer": "3",
-						"x": "0",
-						"y": "0",
+						"layer": "4",
+						"x": "Player.X",
+						"y": "Player.Y",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -68,6 +68,43 @@
 				}
 			],
 			"sid": 473994881500347
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-opacity",
+					"objectClass": "Shadow3",
+					"sid": 833648534000700,
+					"parameters": {
+						"comparison": 0,
+						"opacity": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "Sheet",
+					"sid": 375091259133606,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"angle": "20"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Sheet",
+					"sid": 356152020447537,
+					"disabled": true,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "overall",
+						"speed": "500"
+					}
+				}
+			],
+			"sid": 438648918663038
 		},
 		{
 			"eventType": "block",
@@ -307,7 +344,7 @@
 			"conditions": [
 				{
 					"id": "on-key-pressed",
-					"objectClass": "Клавиатура",
+					"objectClass": "Kayboard",
 					"sid": 745473844004795,
 					"parameters": {
 						"key": 32
@@ -506,7 +543,7 @@
 			"conditions": [
 				{
 					"id": "on-key-pressed",
-					"objectClass": "Клавиатура",
+					"objectClass": "Kayboard",
 					"sid": 361063374517132,
 					"parameters": {
 						"key": 81
@@ -758,7 +795,7 @@
 			"conditions": [
 				{
 					"id": "on-key-pressed",
-					"objectClass": "Клавиатура",
+					"objectClass": "Kayboard",
 					"sid": 827744884588360,
 					"parameters": {
 						"key": 16

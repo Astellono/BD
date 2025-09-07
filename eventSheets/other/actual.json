@@ -182,7 +182,7 @@
 						{
 							"id": "set-position",
 							"objectClass": "Camera",
-							"sid": 846922365548374,
+							"sid": 413878435888677,
 							"parameters": {
 								"x": "lerp(Self.X,Player_All.X,0.025)",
 								"y": "lerp(Self.Y,Player_All.Y-50,0.025)"
@@ -196,7 +196,7 @@
 					"conditions": [
 						{
 							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
+							"objectClass": "Kayboard",
 							"sid": 530768254867518,
 							"parameters": {
 								"key": 82
@@ -447,6 +447,94 @@
 					],
 					"sid": 228037305775708,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 169776460238570
+						}
+					],
+					"actions": [
+						{
+							"id": "set-max-speed",
+							"objectClass": "Player_All",
+							"sid": 933040527874137,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"max-speed": "285"
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "Player_All",
+							"sid": 851292868408753,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"acceleration": "10000"
+							}
+						},
+						{
+							"id": "set-deceleration",
+							"objectClass": "Player_All",
+							"sid": 575811647507830,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"deceleration": "10000"
+							}
+						},
+						{
+							"id": "set-jump-strength",
+							"objectClass": "Player_All",
+							"sid": 824439659896595,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"jump-strength": "400"
+							}
+						},
+						{
+							"id": "set-gravity",
+							"objectClass": "Player_All",
+							"sid": 995501160060441,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"gravity": "1000"
+							}
+						},
+						{
+							"id": "set-max-fall-speed",
+							"objectClass": "Player_All",
+							"sid": 802560282309839,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"max-fall-speed": "1000"
+							}
+						}
+					],
+					"sid": 778126480360147
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 617176237217669
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-from-sprite",
+							"objectClass": "Mouse",
+							"sid": 556121300632411,
+							"parameters": {
+								"sprite": "Cursor_Mouse"
+							}
+						}
+					],
+					"sid": 366502396520324
 				}
 			],
 			"sid": 949698284406254
@@ -477,7 +565,7 @@
 									"conditions": [
 										{
 											"id": "on-key-pressed",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 192834827176956,
 											"parameters": {
 												"key": 32
@@ -1117,7 +1205,7 @@
 											"conditions": [
 												{
 													"id": "on-click",
-													"objectClass": "Мышь",
+													"objectClass": "Mouse",
 													"sid": 904353310247317,
 													"parameters": {
 														"mouse-button": "left",
@@ -1529,8 +1617,8 @@
 													"behaviorType": "Физика",
 													"parameters": {
 														"force": "200",
-														"x": "Мышь.X",
-														"y": "Мышь.Y",
+														"x": "Mouse.X",
+														"y": "Mouse.Y",
 														"image-point": "0"
 													}
 												}
@@ -1753,8 +1841,8 @@
 													"behaviorType": "Физика",
 													"parameters": {
 														"force": "200",
-														"x": "Мышь.X",
-														"y": "Мышь.Y",
+														"x": "Mouse.X",
+														"y": "Mouse.Y",
 														"image-point": "0"
 													}
 												}
@@ -1977,8 +2065,8 @@
 													"behaviorType": "Физика",
 													"parameters": {
 														"force": "200",
-														"x": "Мышь.X",
-														"y": "Мышь.Y",
+														"x": "Mouse.X",
+														"y": "Mouse.Y",
 														"image-point": "0"
 													}
 												}
@@ -2279,6 +2367,69 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "EnemySecurity",
+							"sid": 579091014755305,
+							"parameters": {
+								"instance-variable": "Drop",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 527706371161458,
+							"parameters": {
+								"audio-file": "Knife",
+								"loop": "not-looping",
+								"volume": "-7",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "EnemySecurity",
+							"sid": 335629331006473,
+							"parameters": {
+								"object": "Pistol",
+								"layer": "EnemySecurity.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "EnemySecurity",
+							"sid": 798901952264511,
+							"parameters": {
+								"object": "Fear",
+								"layer": "EnemySecurity.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "EnemySecurity",
+							"sid": 422477540723975,
+							"parameters": {
+								"instance-variable": "Drop",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 433211164680882
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-animation-playing",
 							"objectClass": "Player_All",
 							"sid": 238621875099663,
@@ -2356,7 +2507,7 @@
 					"conditions": [
 						{
 							"id": "on-click",
-							"objectClass": "Мышь",
+							"objectClass": "Mouse",
 							"sid": 804782216966008,
 							"parameters": {
 								"mouse-button": "right",
@@ -2650,7 +2801,7 @@
 					"conditions": [
 						{
 							"id": "on-click",
-							"objectClass": "Мышь",
+							"objectClass": "Mouse",
 							"sid": 523175704839622,
 							"parameters": {
 								"mouse-button": "right",
@@ -3336,6 +3487,27 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Lamp",
+													"sid": 150195532281817,
+													"parameters": {
+														"object": "Light_Lamp3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Light_Lamp3",
+													"sid": 921304011351496
+												}
+											],
+											"sid": 711367486883226
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "is-animation-playing",
 													"objectClass": "Lamp",
 													"sid": 549937893226226,
@@ -3768,7 +3940,7 @@
 									"conditions": [
 										{
 											"id": "mouse-button-is-down",
-											"objectClass": "Мышь",
+											"objectClass": "Mouse",
 											"sid": 959093577200562,
 											"parameters": {
 												"mouse-button": "left"
@@ -3932,7 +4104,7 @@
 									"conditions": [
 										{
 											"id": "mouse-button-is-down",
-											"objectClass": "Мышь",
+											"objectClass": "Mouse",
 											"sid": 881143573910133,
 											"parameters": {
 												"mouse-button": "left"
@@ -3962,6 +4134,12 @@
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
 											"sid": 375917911831893
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Extinguisher",
+											"sid": 693439516303679,
+											"behaviorType": "Прикрепить2"
 										}
 									],
 									"actions": [
@@ -4002,7 +4180,7 @@
 											"conditions": [
 												{
 													"id": "on-button-released",
-													"objectClass": "Мышь",
+													"objectClass": "Mouse",
 													"sid": 987714873755415,
 													"parameters": {
 														"mouse-button": "left"
@@ -4089,8 +4267,8 @@
 													"objectClass": "Shotgun",
 													"sid": 382443241438787,
 													"parameters": {
-														"x": "Мышь.X",
-														"y": "Мышь.Y"
+														"x": "Mouse.X",
+														"y": "Mouse.Y"
 													}
 												}
 											],
@@ -4105,7 +4283,7 @@
 															"sid": 276097336782091,
 															"parameters": {
 																"comparison": 4,
-																"x-co-ordinate": "Мышь.X"
+																"x-co-ordinate": "Mouse.X"
 															}
 														}
 													],
@@ -4138,7 +4316,7 @@
 															"sid": 935645142997170,
 															"parameters": {
 																"comparison": 2,
-																"x-co-ordinate": "Мышь.X"
+																"x-co-ordinate": "Mouse.X"
 															}
 														}
 													],
@@ -4169,7 +4347,7 @@
 											"conditions": [
 												{
 													"id": "on-click",
-													"objectClass": "Мышь",
+													"objectClass": "Mouse",
 													"sid": 474778956391366,
 													"parameters": {
 														"mouse-button": "left",
@@ -4372,8 +4550,8 @@
 													"objectClass": "Pistol",
 													"sid": 515431042357232,
 													"parameters": {
-														"x": "Мышь.X",
-														"y": "Мышь.Y"
+														"x": "Mouse.X",
+														"y": "Mouse.Y"
 													}
 												}
 											],
@@ -4388,7 +4566,7 @@
 															"sid": 522771940113377,
 															"parameters": {
 																"comparison": 4,
-																"x-co-ordinate": "Мышь.X"
+																"x-co-ordinate": "Mouse.X"
 															}
 														}
 													],
@@ -4421,7 +4599,7 @@
 															"sid": 597179652896629,
 															"parameters": {
 																"comparison": 2,
-																"x-co-ordinate": "Мышь.X"
+																"x-co-ordinate": "Mouse.X"
 															}
 														}
 													],
@@ -4452,7 +4630,7 @@
 											"conditions": [
 												{
 													"id": "on-click",
-													"objectClass": "Мышь",
+													"objectClass": "Mouse",
 													"sid": 229887076602753,
 													"parameters": {
 														"mouse-button": "left",
@@ -4591,6 +4769,14 @@
 													"parameters": {
 														"object": "Wall"
 													}
+												},
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "Shot",
+													"sid": 818157275577764,
+													"parameters": {
+														"object": "UpDown"
+													}
 												}
 											],
 											"actions": [
@@ -4600,7 +4786,8 @@
 													"sid": 554451200920116
 												}
 											],
-											"sid": 623086634356066
+											"sid": 623086634356066,
+											"isOrBlock": true
 										}
 									],
 									"sid": 654018210197860
@@ -4674,7 +4861,7 @@
 							"conditions": [
 								{
 									"id": "on-click",
-									"objectClass": "Мышь",
+									"objectClass": "Mouse",
 									"sid": 696359084955893,
 									"parameters": {
 										"mouse-button": "right",
@@ -5405,7 +5592,7 @@
 							"conditions": [
 								{
 									"id": "on-click",
-									"objectClass": "Мышь",
+									"objectClass": "Mouse",
 									"sid": 810491312949697,
 									"parameters": {
 										"mouse-button": "right",
@@ -5514,8 +5701,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "600",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -5666,8 +5853,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "2200",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -5773,8 +5960,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "600",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -5890,8 +6077,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "200",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6007,8 +6194,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "250",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6124,8 +6311,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "400",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6262,8 +6449,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "2000",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6381,6 +6568,15 @@
 											}
 										},
 										{
+											"id": "set-animation",
+											"objectClass": "Shotgun",
+											"sid": 128692142053780,
+											"parameters": {
+												"animation": "\"Shotgun\"",
+												"from": "beginning"
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 276109983365754,
@@ -6395,23 +6591,27 @@
 											"sid": 126198675189164
 										},
 										{
-											"id": "set-animation",
-											"objectClass": "Shotgun",
-											"sid": 439734743966326,
-											"parameters": {
-												"animation": "\"Shotgun\"",
-												"from": "beginning"
-											}
-										},
-										{
 											"id": "apply-force-towards-position",
 											"objectClass": "Shotgun",
-											"sid": 109960566113728,
+											"sid": 523732501532360,
+											"disabled": true,
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "2400",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "apply-impulse-towards-position",
+											"objectClass": "Shotgun",
+											"sid": 888415883580174,
+											"behaviorType": "Физика",
+											"parameters": {
+												"impulse": "1",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6491,8 +6691,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "400",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6562,8 +6762,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "400",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6633,8 +6833,8 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"force": "400",
-												"x": "Мышь.X",
-												"y": "Мышь.Y",
+												"x": "Mouse.X",
+												"y": "Mouse.Y",
 												"image-point": "0"
 											}
 										},
@@ -6720,7 +6920,7 @@
 													"sid": 201807710904070,
 													"parameters": {
 														"comparison": 2,
-														"x-co-ordinate": "Мышь.X "
+														"x-co-ordinate": "Mouse.X "
 													}
 												}
 											],
@@ -6745,7 +6945,7 @@
 													"sid": 633638691230170,
 													"parameters": {
 														"comparison": 4,
-														"x-co-ordinate": "Мышь.X "
+														"x-co-ordinate": "Mouse.X "
 													}
 												}
 											],
@@ -6814,7 +7014,7 @@
 													"sid": 158095207089252,
 													"parameters": {
 														"comparison": 2,
-														"x-co-ordinate": "Мышь.X "
+														"x-co-ordinate": "Mouse.X "
 													}
 												}
 											],
@@ -6839,7 +7039,7 @@
 													"sid": 430533455364721,
 													"parameters": {
 														"comparison": 4,
-														"x-co-ordinate": "Мышь.X "
+														"x-co-ordinate": "Mouse.X "
 													}
 												}
 											],
@@ -6990,8 +7190,8 @@
 									"behaviorType": "Физика",
 									"parameters": {
 										"force": "3500",
-										"x": "Мышь.X",
-										"y": "Мышь.Y",
+										"x": "Mouse.X",
+										"y": "Mouse.Y",
 										"image-point": "0"
 									}
 								},
@@ -7204,8 +7404,8 @@
 									"behaviorType": "Физика",
 									"parameters": {
 										"force": "2000",
-										"x": "Мышь.X",
-										"y": "Мышь.Y",
+										"x": "Mouse.X",
+										"y": "Mouse.Y",
 										"image-point": "0"
 									}
 								},
@@ -7427,7 +7627,7 @@
 										},
 										{
 											"id": "key-is-down",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 784854665763762,
 											"parameters": {
 												"key": 65
@@ -7478,7 +7678,7 @@
 										},
 										{
 											"id": "key-is-down",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 600932919229332,
 											"parameters": {
 												"key": 68
@@ -7502,7 +7702,7 @@
 									"conditions": [
 										{
 											"id": "key-is-down",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 242384421949096,
 											"parameters": {
 												"key": 68
@@ -7545,7 +7745,7 @@
 											"conditions": [
 												{
 													"id": "key-is-down",
-													"objectClass": "Клавиатура",
+													"objectClass": "Kayboard",
 													"sid": 671064923697955,
 													"parameters": {
 														"key": 17
@@ -7572,42 +7772,94 @@
 													}
 												}
 											],
-											"sid": 536446890554495
+											"sid": 536446890554495,
+											"isOrBlock": true
 										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "on-key-released",
-													"objectClass": "Клавиатура",
-													"sid": 946406145399209,
-													"parameters": {
-														"key": 17
-													}
-												},
-												{
-													"id": "key-is-down",
-													"objectClass": "Клавиатура",
-													"sid": 424138250805423,
-													"parameters": {
-														"key": 17
-													},
-													"isInverted": true
+													"id": "is-moving",
+													"objectClass": "Player_Cutscene",
+													"sid": 229715276228808,
+													"behaviorType": "Платформер"
 												}
 											],
 											"actions": [
 												{
 													"id": "set-max-speed",
 													"objectClass": "Player_All",
-													"sid": 497569076879973,
+													"sid": 795058168345200,
 													"behaviorType": "Платформер",
 													"parameters": {
-														"max-speed": "285"
+														"max-speed": "150"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 939679454024949,
+													"parameters": {
+														"animation": "weapon & \"Walk\"",
+														"from": "beginning"
 													}
 												}
 											],
-											"sid": 720912312419754,
+											"sid": 478635452554602,
+											"disabled": true,
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-moving",
+													"objectClass": "Player_Cutscene",
+													"sid": 224110511829683,
+													"disabled": true,
+													"behaviorType": "Платформер",
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 207347609718908,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-key-released",
+															"objectClass": "Kayboard",
+															"sid": 162429036628100,
+															"parameters": {
+																"key": 17
+															}
+														},
+														{
+															"id": "key-is-down",
+															"objectClass": "Kayboard",
+															"sid": 332955875041711,
+															"parameters": {
+																"key": 17
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-max-speed",
+															"objectClass": "Player_All",
+															"sid": 481860218710248,
+															"behaviorType": "Платформер",
+															"parameters": {
+																"max-speed": "285"
+															}
+														}
+													],
+													"sid": 683335738095749,
+													"isOrBlock": true
+												}
+											]
 										}
 									]
 								},
@@ -7616,7 +7868,7 @@
 									"conditions": [
 										{
 											"id": "key-is-down",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 600236422126072,
 											"parameters": {
 												"key": 65
@@ -7659,7 +7911,7 @@
 											"conditions": [
 												{
 													"id": "key-is-down",
-													"objectClass": "Клавиатура",
+													"objectClass": "Kayboard",
 													"sid": 877242647903476,
 													"parameters": {
 														"key": 17
@@ -7686,42 +7938,94 @@
 													}
 												}
 											],
-											"sid": 268326323111980
+											"sid": 268326323111980,
+											"isOrBlock": true
 										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "on-key-released",
-													"objectClass": "Клавиатура",
-													"sid": 765370151631979,
-													"parameters": {
-														"key": 17
-													}
-												},
-												{
-													"id": "key-is-down",
-													"objectClass": "Клавиатура",
-													"sid": 463361199305783,
-													"parameters": {
-														"key": 17
-													},
-													"isInverted": true
+													"id": "is-moving",
+													"objectClass": "Player_Cutscene",
+													"sid": 215844491472538,
+													"behaviorType": "Платформер"
 												}
 											],
 											"actions": [
 												{
 													"id": "set-max-speed",
 													"objectClass": "Player_All",
-													"sid": 486862935343460,
+													"sid": 852429017019680,
 													"behaviorType": "Платформер",
 													"parameters": {
-														"max-speed": "285"
+														"max-speed": "150"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 625848554420389,
+													"parameters": {
+														"animation": "weapon & \"Walk\"",
+														"from": "beginning"
 													}
 												}
 											],
-											"sid": 708943467004153,
+											"sid": 882386487594673,
+											"disabled": true,
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-moving",
+													"objectClass": "Player_Cutscene",
+													"sid": 865414999693587,
+													"disabled": true,
+													"behaviorType": "Платформер",
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 911686267219073,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-key-released",
+															"objectClass": "Kayboard",
+															"sid": 219727631261243,
+															"parameters": {
+																"key": 17
+															}
+														},
+														{
+															"id": "key-is-down",
+															"objectClass": "Kayboard",
+															"sid": 772876696997432,
+															"parameters": {
+																"key": 17
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-max-speed",
+															"objectClass": "Player_All",
+															"sid": 900861242568662,
+															"behaviorType": "Платформер",
+															"parameters": {
+																"max-speed": "285"
+															}
+														}
+													],
+													"sid": 859859800944262,
+													"isOrBlock": true
+												}
+											]
 										}
 									]
 								},
@@ -7826,7 +8130,7 @@
 									"conditions": [
 										{
 											"id": "on-key-pressed",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 401207160110314,
 											"parameters": {
 												"key": 87
@@ -8107,7 +8411,7 @@
 									"conditions": [
 										{
 											"id": "on-key-pressed",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 328423358683365,
 											"parameters": {
 												"key": 16
@@ -8216,7 +8520,7 @@
 									"conditions": [
 										{
 											"id": "on-key-pressed",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 385093463188448,
 											"parameters": {
 												"key": 81
@@ -8356,7 +8660,7 @@
 									"conditions": [
 										{
 											"id": "on-key-pressed",
-											"objectClass": "Клавиатура",
+											"objectClass": "Kayboard",
 											"sid": 486895946312918,
 											"parameters": {
 												"key": 32
@@ -9401,7 +9705,7 @@
 									"conditions": [
 										{
 											"id": "on-click",
-											"objectClass": "Мышь",
+											"objectClass": "Mouse",
 											"sid": 686003810424260,
 											"parameters": {
 												"mouse-button": "left",
@@ -9494,7 +9798,7 @@
 									"conditions": [
 										{
 											"id": "on-click",
-											"objectClass": "Мышь",
+											"objectClass": "Mouse",
 											"sid": 149896842458723,
 											"parameters": {
 												"mouse-button": "left",
@@ -9588,7 +9892,7 @@
 							"conditions": [
 								{
 									"id": "on-click",
-									"objectClass": "Мышь",
+									"objectClass": "Mouse",
 									"sid": 342864866156083,
 									"parameters": {
 										"mouse-button": "left",
@@ -9819,7 +10123,7 @@
 									"conditions": [
 										{
 											"id": "on-click",
-											"objectClass": "Мышь",
+											"objectClass": "Mouse",
 											"sid": 602430277440894,
 											"parameters": {
 												"mouse-button": "left",
@@ -10145,7 +10449,7 @@
 									"conditions": [
 										{
 											"id": "on-click",
-											"objectClass": "Мышь",
+											"objectClass": "Mouse",
 											"sid": 940417540195564,
 											"parameters": {
 												"mouse-button": "left",
@@ -10498,7 +10802,7 @@
 									"conditions": [
 										{
 											"id": "on-click",
-											"objectClass": "Мышь",
+											"objectClass": "Mouse",
 											"sid": 968972937999448,
 											"parameters": {
 												"mouse-button": "left",
@@ -10947,7 +11251,7 @@
 								},
 								{
 									"id": "key-is-down",
-									"objectClass": "Клавиатура",
+									"objectClass": "Kayboard",
 									"sid": 680525341164541,
 									"parameters": {
 										"key": 83
@@ -10973,7 +11277,7 @@
 							"conditions": [
 								{
 									"id": "key-is-down",
-									"objectClass": "Клавиатура",
+									"objectClass": "Kayboard",
 									"sid": 231697410169156,
 									"parameters": {
 										"key": 83
@@ -23948,6 +24252,7 @@
 															"id": "is-overlapping-at-offset",
 															"objectClass": "EnemyKnife",
 															"sid": 761660249341130,
+															"disabled": true,
 															"parameters": {
 																"object": "Wall",
 																"offset-x": "10",
@@ -23958,6 +24263,7 @@
 															"id": "is-overlapping-at-offset",
 															"objectClass": "EnemyKnife",
 															"sid": 877552785871954,
+															"disabled": true,
 															"parameters": {
 																"object": "Wall",
 																"offset-x": "-10",
@@ -23993,6 +24299,7 @@
 																	"id": "wait",
 																	"objectClass": "System",
 																	"sid": 707129400662591,
+																	"disabled": true,
 																	"parameters": {
 																		"seconds": "1",
 																		"use-timescale": true
@@ -60393,6 +60700,7 @@
 									"id": "spawn-another-object",
 									"objectClass": "EnemySecurity",
 									"sid": 397363437789315,
+									"disabled": true,
 									"parameters": {
 										"object": "GlassBox",
 										"layer": "EnemySecurity.LayerName",
@@ -60476,10 +60784,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Pistol_Enemy",
-									"sid": 702148721729164,
+									"sid": 428830205513425,
 									"parameters": {
 										"instance-variable": "Pistol",
-										"value": "9"
+										"value": "99"
 									}
 								}
 							],
@@ -62610,7 +62918,7 @@
 			"conditions": [
 				{
 					"id": "on-key-pressed",
-					"objectClass": "Клавиатура",
+					"objectClass": "Kayboard",
 					"sid": 491837467600158,
 					"parameters": {
 						"key": 70

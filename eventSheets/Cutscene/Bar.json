@@ -3,23 +3,11 @@
 	"events": [
 		{
 			"eventType": "include",
-			"includeSheet": "Dialogue"
+			"includeSheet": "actual"
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Effect"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Sound"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "player_cast"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "door"
+			"includeSheet": "Menu"
 		},
 		{
 			"eventType": "variable",
@@ -135,6 +123,7 @@
 						}
 					],
 					"sid": 708992248136384,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -159,9 +148,81 @@
 									}
 								}
 							],
-							"sid": 322063344019771
+							"sid": 322063344019771,
+							"disabled": true
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 852068254775480
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 294661918580734,
+							"parameters": {
+								"group-name": "\"Jump\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 893310867253869,
+							"parameters": {
+								"group-name": "\"Dash\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 490927468140544,
+							"parameters": {
+								"group-name": "\"Kick\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 150909979465833,
+							"parameters": {
+								"group-name": "\"Weapon\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 101555555559881,
+							"parameters": {
+								"group-name": "\"Player_Weapon\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 685068994829565,
+							"disabled": true,
+							"parameters": {
+								"audio-file": "Bar_embient",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 612210588617289
 				}
 			],
 			"sid": 100810716135321
@@ -178,7 +239,7 @@
 					"conditions": [
 						{
 							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
+							"objectClass": "Kayboard",
 							"sid": 460618900604107,
 							"parameters": {
 								"key": 69
@@ -423,7 +484,7 @@
 					"conditions": [
 						{
 							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
+							"objectClass": "Kayboard",
 							"sid": 232742287137785,
 							"parameters": {
 								"key": 69
@@ -727,9 +788,9 @@
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 784067998613347,
+							"sid": 589895421081246,
 							"parameters": {
-								"group-name": "\"Player_cast\"",
+								"group-name": "\"Player\"",
 								"state": "deactivated"
 							}
 						},
@@ -758,7 +819,7 @@
 					"conditions": [
 						{
 							"id": "on-key-pressed",
-							"objectClass": "Клавиатура",
+							"objectClass": "Kayboard",
 							"sid": 381866258918723,
 							"parameters": {
 								"key": 69
@@ -836,9 +897,9 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 286013203465751,
+							"sid": 690452234375208,
 							"parameters": [
-								"\"Здарова Марк, давненько тебя не было видно у нас. Как дела?\"",
+								"\"Hello Mark, it's been a while since you've been here. How are you?\"",
 								"\"Fedor1\"",
 								"2"
 							]
@@ -886,10 +947,10 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 910661354569178,
+							"sid": 214197040275746,
 							"parameters": [
-								"\"Привет Федь. Да всё как обычно, вот решил выбраться из дома, немого развеяться, заодно вас проведать решил, как поживаете? \"",
-								"\"Mark1\"",
+								"\"Yeah, everything as usual. Tried to jump off a bridge under a train, killed about a dozen people, survived terrible torture. Boring.\"",
+								"\"Mark2\"",
 								"5"
 							]
 						}
@@ -918,9 +979,9 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 419828220277442,
+							"sid": 872592045224599,
 							"parameters": [
-								"\"Потихоньку, рук, конечно, не хватает, но мы с Аней справляемся.\"",
+								"\"Yeah, sure, but I don't piss in my clients' glasses.\"",
 								"\"Fedor1\"",
 								"3"
 							]
@@ -950,9 +1011,9 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 795316072253767,
+							"sid": 855354922815984,
 							"parameters": [
-								"\"А как же тот кальянщик, что устроился месяц тому назад?\"",
+								"\"Have you become a prankster here?\"",
 								"\"Mark3\"",
 								"2"
 							]
@@ -982,10 +1043,10 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 387686882230775,
+							"sid": 979143246398275,
 							"parameters": [
-								"\"Кальянщик? А этот засранец переметнулся в тот клуб, что напротив открылся.\"",
-								"\"Fedor2\"",
+								"\"Same as you, alright, let me pour you some beer and prepare the hookah; just wait till I show you this!\"",
+								"\"Fedor1\"",
 								"3"
 							]
 						}
