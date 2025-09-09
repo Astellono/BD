@@ -7922,7 +7922,7 @@
 												{
 													"id": "set-max-speed",
 													"objectClass": "Player_All",
-													"sid": 896472661691436,
+													"sid": 952460604103808,
 													"behaviorType": "Платформер",
 													"parameters": {
 														"max-speed": "150"
@@ -11469,13 +11469,12 @@
 											"sid": 788169336820723
 										},
 										{
-											"bookmark": true,
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyBaseball",
-													"sid": 132156144154709,
+													"sid": 778768678470144,
 													"parameters": {
 														"instance-variable": "Fear",
 														"comparison": 3,
@@ -11483,82 +11482,42 @@
 													}
 												},
 												{
-													"id": "pick-nearestfurthest",
-													"objectClass": "EnemyBaseball",
-													"sid": 599253480631813,
-													"parameters": {
-														"which": "nearest",
-														"x": "Player_All.X",
-														"y": "Player_All.Y"
-													}
-												},
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "EnemyBaseball",
-													"sid": 831772643431418,
-													"parameters": {
-														"object": "Stair"
-													},
-													"isInverted": true
-												},
-												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 764870071202815,
+													"sid": 405262476290832,
 													"parameters": {
 														"object": "EnemyBaseball"
 													}
 												}
 											],
 											"actions": [],
-											"sid": 420361337706748,
+											"sid": 108293202050212,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-overlapping-at-offset",
+															"id": "is-overlapping-another-object",
 															"objectClass": "EnemyBaseball",
-															"sid": 510824377092216,
-															"disabled": true,
+															"sid": 419537887255331,
 															"parameters": {
-																"object": "Wall",
-																"offset-x": "10",
-																"offset-y": "0"
-															}
-														},
+																"object": "LadderStair"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
 														{
-															"id": "is-overlapping-at-offset",
+															"id": "set-boolean-instvar",
 															"objectClass": "EnemyBaseball",
-															"sid": 340370838091904,
-															"disabled": true,
+															"sid": 862622244217443,
 															"parameters": {
-																"object": "Wall",
-																"offset-x": "-10",
-																"offset-y": "0"
-															}
-														},
-														{
-															"id": "compare-y",
-															"objectClass": "EnemyBaseball",
-															"sid": 682049451479408,
-															"parameters": {
-																"comparison": 2,
-																"y-co-ordinate": "Wall.Y +100"
-															}
-														},
-														{
-															"id": "compare-y",
-															"objectClass": "EnemyBaseball",
-															"sid": 486500414149154,
-															"parameters": {
-																"comparison": 4,
-																"y-co-ordinate": "Wall.Y -100"
+																"instance-variable": "FearSwitch",
+																"value": "true"
 															}
 														}
 													],
-													"actions": [],
-													"sid": 510475095365891,
+													"sid": 923039814677977,
 													"children": [
 														{
 															"eventType": "block",
@@ -11566,7 +11525,7 @@
 																{
 																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 276215899216017,
+																	"sid": 298083918045729,
 																	"parameters": {
 																		"instance-variable": "Fear",
 																		"comparison": 3,
@@ -11574,10 +11533,17 @@
 																	}
 																},
 																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyBaseball",
+																	"sid": 353528862527796,
+																	"parameters": {
+																		"instance-variable": "FearSwitch"
+																	}
+																},
+																{
 																	"id": "is-moving",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 313838637777884,
-																	"disabled": true,
+																	"sid": 571220648946404,
 																	"behaviorType": "НастраиваемоеДвижение"
 																}
 															],
@@ -11585,16 +11551,16 @@
 																{
 																	"id": "wait",
 																	"objectClass": "System",
-																	"sid": 652073951928821,
+																	"sid": 787689561956059,
 																	"parameters": {
-																		"seconds": "1",
+																		"seconds": "random(1,4)",
 																		"use-timescale": true
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 515187125477179,
+																	"sid": 393596893687717,
 																	"parameters": {
 																		"instance-variable": "Down",
 																		"value": "true"
@@ -11603,7 +11569,7 @@
 																{
 																	"id": "set-speed",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 956937391915818,
+																	"sid": 793682310825773,
 																	"behaviorType": "НастраиваемоеДвижение",
 																	"parameters": {
 																		"which": "horizontal",
@@ -11611,10 +11577,89 @@
 																	}
 																}
 															],
-															"sid": 633666302697058
+															"sid": 220122968407510
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyBaseball",
+															"sid": 139521579503586,
+															"parameters": {
+																"object": "LadderStair"
+															}
 														}
 													],
-													"isOrBlock": true
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball",
+															"sid": 208525273499559,
+															"parameters": {
+																"instance-variable": "FearSwitch",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 420475433275508,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyBaseball",
+																	"sid": 190597908471460,
+																	"parameters": {
+																		"instance-variable": "Fear",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyBaseball",
+																	"sid": 203853271895455,
+																	"parameters": {
+																		"instance-variable": "FearSwitch"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-moving",
+																	"objectClass": "EnemyBaseball",
+																	"sid": 430162158311296,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyBaseball",
+																	"sid": 160527477978508,
+																	"parameters": {
+																		"instance-variable": "Down",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyBaseball",
+																	"sid": 191972608341987,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "sign(EnemyBaseball.X - Player_All.X) * EnemyBaseball.speed * 1.25"
+																	}
+																}
+															],
+															"sid": 174824641076664
+														}
+													]
 												}
 											]
 										},
@@ -24224,16 +24269,6 @@
 													}
 												},
 												{
-													"id": "pick-nearestfurthest",
-													"objectClass": "EnemyKnife",
-													"sid": 397707325463969,
-													"parameters": {
-														"which": "nearest",
-														"x": "Player_All.X",
-														"y": "Player_All.Y"
-													}
-												},
-												{
 													"id": "for-each",
 													"objectClass": "System",
 													"sid": 336618274214438,
@@ -24249,29 +24284,26 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-overlapping-at-offset",
+															"id": "is-overlapping-another-object",
 															"objectClass": "EnemyKnife",
-															"sid": 761660249341130,
-															"disabled": true,
+															"sid": 244674686236332,
 															"parameters": {
-																"object": "Wall",
-																"offset-x": "10",
-																"offset-y": "0"
-															}
-														},
+																"object": "LadderStair"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
 														{
-															"id": "is-overlapping-at-offset",
+															"id": "set-boolean-instvar",
 															"objectClass": "EnemyKnife",
-															"sid": 877552785871954,
-															"disabled": true,
+															"sid": 918342434716745,
 															"parameters": {
-																"object": "Wall",
-																"offset-x": "-10",
-																"offset-y": "0"
+																"instance-variable": "FearSwitch",
+																"value": "true"
 															}
 														}
 													],
-													"actions": [],
 													"sid": 662790048306608,
 													"children": [
 														{
@@ -24288,6 +24320,14 @@
 																	}
 																},
 																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyKnife",
+																	"sid": 966654744970080,
+																	"parameters": {
+																		"instance-variable": "FearSwitch"
+																	}
+																},
+																{
 																	"id": "is-moving",
 																	"objectClass": "EnemyKnife",
 																	"sid": 346011966691576,
@@ -24298,17 +24338,16 @@
 																{
 																	"id": "wait",
 																	"objectClass": "System",
-																	"sid": 707129400662591,
-																	"disabled": true,
+																	"sid": 433160681939371,
 																	"parameters": {
-																		"seconds": "1",
+																		"seconds": "random(1,4)",
 																		"use-timescale": true
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "EnemyKnife",
-																	"sid": 779791630583565,
+																	"sid": 836491952211908,
 																	"parameters": {
 																		"instance-variable": "Down",
 																		"value": "true"
@@ -24317,7 +24356,7 @@
 																{
 																	"id": "set-speed",
 																	"objectClass": "EnemyKnife",
-																	"sid": 368904250920543,
+																	"sid": 597486204824009,
 																	"behaviorType": "НастраиваемоеДвижение",
 																	"parameters": {
 																		"which": "horizontal",
@@ -24327,8 +24366,87 @@
 															],
 															"sid": 730142075718139
 														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyKnife",
+															"sid": 484639980310409,
+															"parameters": {
+																"object": "LadderStair"
+															}
+														}
 													],
-													"isOrBlock": true
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyKnife",
+															"sid": 151007817962677,
+															"parameters": {
+																"instance-variable": "FearSwitch",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 471313679451584,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyKnife",
+																	"sid": 336795458910983,
+																	"parameters": {
+																		"instance-variable": "Fear",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyKnife",
+																	"sid": 546442903094424,
+																	"parameters": {
+																		"instance-variable": "FearSwitch"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-moving",
+																	"objectClass": "EnemyKnife",
+																	"sid": 378879143406591,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyKnife",
+																	"sid": 582969578885834,
+																	"parameters": {
+																		"instance-variable": "Down",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyKnife",
+																	"sid": 382617818258824,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "sign(EnemyKnife.X - Player_All.X) * EnemyKnife.speed * 1.25"
+																	}
+																}
+															],
+															"sid": 675333171208827
+														}
+													]
 												}
 											]
 										},
@@ -37043,7 +37161,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyFurious",
-													"sid": 250888850249353,
+													"sid": 474783933858079,
 													"parameters": {
 														"instance-variable": "Fear",
 														"comparison": 3,
@@ -37051,53 +37169,42 @@
 													}
 												},
 												{
-													"id": "pick-nearestfurthest",
-													"objectClass": "EnemyFurious",
-													"sid": 557821908772646,
-													"parameters": {
-														"which": "nearest",
-														"x": "Player_All.X",
-														"y": "Player_All.Y"
-													}
-												},
-												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 478805086571874,
+													"sid": 952502263191833,
 													"parameters": {
 														"object": "EnemyFurious"
 													}
 												}
 											],
 											"actions": [],
-											"sid": 559279432026550,
+											"sid": 821555568964560,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-overlapping-at-offset",
+															"id": "is-overlapping-another-object",
 															"objectClass": "EnemyFurious",
-															"sid": 807306533957218,
+															"sid": 474138337240609,
 															"parameters": {
-																"object": "Wall",
-																"offset-x": "10",
-																"offset-y": "0"
-															}
-														},
+																"object": "LadderStair"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
 														{
-															"id": "is-overlapping-at-offset",
+															"id": "set-boolean-instvar",
 															"objectClass": "EnemyFurious",
-															"sid": 248236103287349,
+															"sid": 390029545545600,
 															"parameters": {
-																"object": "Wall",
-																"offset-x": "-10",
-																"offset-y": "0"
+																"instance-variable": "FearSwitch",
+																"value": "true"
 															}
 														}
 													],
-													"actions": [],
-													"sid": 457482940236199,
+													"sid": 671360278278892,
 													"children": [
 														{
 															"eventType": "block",
@@ -37105,7 +37212,7 @@
 																{
 																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyFurious",
-																	"sid": 841252167220792,
+																	"sid": 380133414790779,
 																	"parameters": {
 																		"instance-variable": "Fear",
 																		"comparison": 3,
@@ -37113,9 +37220,17 @@
 																	}
 																},
 																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyFurious",
+																	"sid": 593766518798270,
+																	"parameters": {
+																		"instance-variable": "FearSwitch"
+																	}
+																},
+																{
 																	"id": "is-moving",
 																	"objectClass": "EnemyFurious",
-																	"sid": 265418702110106,
+																	"sid": 994747694038056,
 																	"behaviorType": "НастраиваемоеДвижение"
 																}
 															],
@@ -37123,16 +37238,16 @@
 																{
 																	"id": "wait",
 																	"objectClass": "System",
-																	"sid": 765786930692572,
+																	"sid": 357479200905300,
 																	"parameters": {
-																		"seconds": "1",
+																		"seconds": "random(1,4)",
 																		"use-timescale": true
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "EnemyFurious",
-																	"sid": 965679125613417,
+																	"sid": 945637451436652,
 																	"parameters": {
 																		"instance-variable": "Down",
 																		"value": "true"
@@ -37141,7 +37256,7 @@
 																{
 																	"id": "set-speed",
 																	"objectClass": "EnemyFurious",
-																	"sid": 489317610143776,
+																	"sid": 298417819475222,
 																	"behaviorType": "НастраиваемоеДвижение",
 																	"parameters": {
 																		"which": "horizontal",
@@ -37149,10 +37264,89 @@
 																	}
 																}
 															],
-															"sid": 896106083303470
+															"sid": 366560694890786
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "EnemyFurious",
+															"sid": 957664616965735,
+															"parameters": {
+																"object": "LadderStair"
+															}
 														}
 													],
-													"isOrBlock": true
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyFurious",
+															"sid": 556500649618210,
+															"parameters": {
+																"instance-variable": "FearSwitch",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 978225698508163,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyFurious",
+																	"sid": 184667100853128,
+																	"parameters": {
+																		"instance-variable": "Fear",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyFurious",
+																	"sid": 570106633887601,
+																	"parameters": {
+																		"instance-variable": "FearSwitch"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-moving",
+																	"objectClass": "EnemyFurious",
+																	"sid": 293220402130311,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyFurious",
+																	"sid": 386568591901822,
+																	"parameters": {
+																		"instance-variable": "Down",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "set-speed",
+																	"objectClass": "EnemyFurious",
+																	"sid": 114975626888578,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "horizontal",
+																		"speed": "sign(EnemyFurious.X - Player_All.X) * EnemyFurious.speed * 1.25"
+																	}
+																}
+															],
+															"sid": 895954304459269
+														}
+													]
 												}
 											]
 										},
@@ -62954,8 +63148,7 @@
 					}
 				}
 			],
-			"sid": 210833138727433,
-			"disabled": true
+			"sid": 210833138727433
 		},
 		{
 			"eventType": "block",
