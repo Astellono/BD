@@ -3907,38 +3907,6 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-width",
-											"objectClass": "Player_All",
-											"sid": 574317476201330,
-											"parameters": {
-												"comparison": 5,
-												"width": "0"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 189072306218554
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-width",
-											"objectClass": "Player_All",
-											"sid": 395513134280837,
-											"parameters": {
-												"comparison": 3,
-												"width": "0"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 783413575697457
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
 											"id": "mouse-button-is-down",
 											"objectClass": "Mouse",
 											"sid": 959093577200562,
@@ -3959,11 +3927,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Extinguisher",
-											"sid": 269971687385843,
+											"sid": 695220211336558,
 											"parameters": {
 												"instance-variable": "Bubble",
 												"comparison": 3,
-												"value": "200"
+												"value": "400"
 											}
 										},
 										{
@@ -3989,7 +3957,7 @@
 										{
 											"id": "set-speed",
 											"objectClass": "Fire_Extinguisher",
-											"sid": 154060423603578,
+											"sid": 607528984731945,
 											"behaviorType": "НастраиваемоеДвижение",
 											"parameters": {
 												"which": "overall",
@@ -4008,9 +3976,9 @@
 										{
 											"id": "set-scale",
 											"objectClass": "Fire_Extinguisher",
-											"sid": 652939009781833,
+											"sid": 162691901477915,
 											"parameters": {
-												"scale": "random(0.5, 1)"
+												"scale": "random(0.5, 0.7)"
 											}
 										},
 										{
@@ -4123,11 +4091,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Extinguisher",
-											"sid": 528002314129425,
+											"sid": 825054579451433,
 											"parameters": {
 												"instance-variable": "Bubble",
 												"comparison": 3,
-												"value": "200"
+												"value": "400"
 											}
 										},
 										{
@@ -4189,11 +4157,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Extinguisher",
-													"sid": 657398141566543,
+													"sid": 150410358241378,
 													"parameters": {
 														"instance-variable": "Bubble",
 														"comparison": 5,
-														"value": "200"
+														"value": "400"
 													}
 												}
 											],
@@ -4233,6 +4201,122 @@
 											"isOrBlock": true
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Extinguisher",
+											"sid": 367909136879584,
+											"parameters": {
+												"instance-variable": "Pistol",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Extinguisher",
+											"sid": 702795745190282,
+											"parameters": {
+												"instance-variable": "Bubble",
+												"comparison": 3,
+												"value": "400"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Extinguisher",
+											"sid": 148299981986481,
+											"parameters": {
+												"object": "Fire_Extinguisher",
+												"layer": "Extinguisher.LayerName",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Extinguisher",
+											"sid": 277237660267751,
+											"parameters": {
+												"instance-variable": "Bubble",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Extinguisher",
+											"sid": 309315136400111,
+											"parameters": {
+												"animation": "\"ExtinguisherCrush\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Extinguisher",
+											"sid": 825576486278420,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Пульс\""
+											}
+										},
+										{
+											"id": "set-speed",
+											"objectClass": "Fire_Extinguisher",
+											"sid": 477645038115928,
+											"behaviorType": "НастраиваемоеДвижение",
+											"parameters": {
+												"which": "overall",
+												"speed": "600"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Fire_Extinguisher",
+											"sid": 948219939028746,
+											"behaviorType": "НастраиваемоеДвижение",
+											"parameters": {
+												"angle": "Random(360, 1)"
+											}
+										},
+										{
+											"id": "set-scale",
+											"objectClass": "Fire_Extinguisher",
+											"sid": 754967014374062,
+											"parameters": {
+												"scale": "random(0.5, 0.7)"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "Fire_Extinguisher",
+											"sid": 815499490929680,
+											"parameters": {
+												"opacity": "random(70, 90)"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 173296614904628,
+											"parameters": {
+												"seconds": "random(0.2,0.5)",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Fire_Extinguisher",
+											"sid": 652019339071313
+										}
+									],
+									"sid": 735983556675906
 								}
 							],
 							"sid": 448979745546762
@@ -5331,6 +5415,15 @@
 											}
 										},
 										{
+											"id": "is-animation-playing",
+											"objectClass": "Extinguisher",
+											"sid": 226897504327653,
+											"parameters": {
+												"animation": "\"ExtinguisherCrush\""
+											},
+											"isInverted": true
+										},
+										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Player_All",
 											"sid": 820794083916585,
@@ -5695,12 +5788,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Baseball",
-											"sid": 722446204679559,
+											"sid": 291147141126290,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "600",
+												"impulse": "2",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -5847,12 +5940,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Extinguisher",
-											"sid": 788076094817195,
+											"sid": 407668503259436,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "2200",
+												"impulse": "4",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -5954,12 +6047,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Mounting",
-											"sid": 433126406017339,
+											"sid": 822585052195370,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "600",
+												"impulse": "2",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -6071,12 +6164,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Stake",
-											"sid": 681480229577865,
+											"sid": 892127797520623,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "200",
+												"impulse": "0.75",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -6188,12 +6281,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Brick",
-											"sid": 433247944720678,
+											"sid": 359402217957554,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "250",
+												"impulse": "0.75",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -6305,12 +6398,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Bottle",
-											"sid": 919279714518245,
+											"sid": 705833696682069,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "400",
+												"impulse": "0.75",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -6443,12 +6536,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Pistol",
-											"sid": 297797513580568,
+											"sid": 955106601432370,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "2000",
+												"impulse": "0.75",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -6591,19 +6684,6 @@
 											"sid": 126198675189164
 										},
 										{
-											"id": "apply-force-towards-position",
-											"objectClass": "Shotgun",
-											"sid": 523732501532360,
-											"disabled": true,
-											"behaviorType": "Физика",
-											"parameters": {
-												"force": "2400",
-												"x": "Mouse.X",
-												"y": "Mouse.Y",
-												"image-point": "0"
-											}
-										},
-										{
 											"id": "apply-impulse-towards-position",
 											"objectClass": "Shotgun",
 											"sid": 888415883580174,
@@ -6685,12 +6765,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Knife",
-											"sid": 934481246856450,
+											"sid": 679403851894720,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "400",
+												"impulse": "0.75",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -6756,12 +6836,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "GlassWeapon",
-											"sid": 574051864025964,
+											"sid": 797672428138030,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "400",
+												"impulse": "1",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -6827,12 +6907,12 @@
 											}
 										},
 										{
-											"id": "apply-force-towards-position",
+											"id": "apply-impulse-towards-position",
 											"objectClass": "Rose",
-											"sid": 533754781856120,
+											"sid": 758601039614221,
 											"behaviorType": "Физика",
 											"parameters": {
-												"force": "400",
+												"impulse": "0.75",
 												"x": "Mouse.X",
 												"y": "Mouse.Y",
 												"image-point": "0"
@@ -7187,9 +7267,22 @@
 									"id": "apply-force-towards-position",
 									"objectClass": "Chair",
 									"sid": 757903831973273,
+									"disabled": true,
 									"behaviorType": "Физика",
 									"parameters": {
 										"force": "3500",
+										"x": "Mouse.X",
+										"y": "Mouse.Y",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "apply-impulse-towards-position",
+									"objectClass": "Chair",
+									"sid": 246535696280515,
+									"behaviorType": "Физика",
+									"parameters": {
+										"impulse": "10",
 										"x": "Mouse.X",
 										"y": "Mouse.Y",
 										"image-point": "0"
@@ -7398,12 +7491,12 @@
 									}
 								},
 								{
-									"id": "apply-force-towards-position",
+									"id": "apply-impulse-towards-position",
 									"objectClass": "Axe",
-									"sid": 531195390995373,
+									"sid": 698887598702458,
 									"behaviorType": "Физика",
 									"parameters": {
-										"force": "2000",
+										"impulse": "4",
 										"x": "Mouse.X",
 										"y": "Mouse.Y",
 										"image-point": "0"
@@ -13480,7 +13573,31 @@
 															"sid": 290902206855033
 														}
 													],
-													"sid": 346153046570149
+													"sid": 346153046570149,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 287574791395930
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Extinguisher",
+																	"sid": 474082265221390,
+																	"parameters": {
+																		"instance-variable": "Pistol",
+																		"value": "3"
+																	}
+																}
+															],
+															"sid": 866176508263087
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -26295,7 +26412,31 @@
 															"sid": 458459427515314
 														}
 													],
-													"sid": 630507493362919
+													"sid": 630507493362919,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 912804202794103
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Extinguisher",
+																	"sid": 933230027999969,
+																	"parameters": {
+																		"instance-variable": "Pistol",
+																		"value": "3"
+																	}
+																}
+															],
+															"sid": 342419334638181
+														}
+													]
 												},
 												{
 													"eventType": "block",
