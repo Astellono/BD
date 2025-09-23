@@ -370,6 +370,11 @@
 									"id": "on-start-of-layout",
 									"objectClass": "System",
 									"sid": 520147344102083
+								},
+								{
+									"id": "on-created",
+									"objectClass": "EnemyJunkie",
+									"sid": 352547492088607
 								}
 							],
 							"actions": [
@@ -455,7 +460,8 @@
 									}
 								}
 							],
-							"sid": 424207697967784
+							"sid": 424207697967784,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -464,6 +470,11 @@
 									"id": "on-start-of-layout",
 									"objectClass": "System",
 									"sid": 201542512048259
+								},
+								{
+									"id": "on-created",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 157245168638724
 								}
 							],
 							"actions": [
@@ -547,9 +558,28 @@
 									"parameters": {
 										"mode": "disabled"
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 534485207579197,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 130958753936337,
+									"parameters": {
+										"instance-variable": "Fear",
+										"value": "10"
+									}
 								}
 							],
-							"sid": 349074275423946
+							"sid": 349074275423946,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -49402,6 +49432,16 @@
 												"comparison": 4,
 												"value": "0"
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyJunkie",
+											"sid": 335237285394345,
+											"parameters": {
+												"instance-variable": "Ammo",
+												"comparison": 4,
+												"value": "0"
+											}
 										}
 									],
 									"actions": [],
@@ -49409,7 +49449,28 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyJunkie",
+													"sid": 414225450050299,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 2,
+														"value": "30"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyJunkie",
+													"sid": 135581887731737,
+													"parameters": {
+														"instance-variable": "DifY",
+														"comparison": 4,
+														"value": "-30"
+													}
+												}
+											],
 											"actions": [
 												{
 													"id": "stop-all-timers",
@@ -49574,9 +49635,19 @@
 																	}
 																},
 																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "EnemyJunkie",
+																	"sid": 156578663218501,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "2"
+																	}
+																},
+																{
 																	"id": "every-x-seconds",
 																	"objectClass": "System",
 																	"sid": 362311046919118,
+																	"disabled": true,
 																	"parameters": {
 																		"interval-seconds": "1.0"
 																	}
@@ -49600,70 +49671,43 @@
 																{
 																	"id": "spawn-another-object",
 																	"objectClass": "EnemyJunkie",
-																	"sid": 778424677888184,
+																	"sid": 620482480875376,
 																	"parameters": {
 																		"object": "Shot_Shotgun",
 																		"layer": "EnemyJunkie.LayerName",
 																		"image-point": "\"Shotgun\"",
 																		"create-hierarchy": false,
 																		"template-name": "\"\""
-																	}
-																},
-																{
-																	"id": "set-angle-of-motion",
-																	"objectClass": "Shot_Shotgun",
-																	"sid": 719961376762054,
-																	"behaviorType": "НастраиваемоеДвижение",
-																	"parameters": {
-																		"angle": "EnemyJunkie.Angle +  random(-20, 20)"
 																	}
 																},
 																{
 																	"id": "spawn-another-object",
 																	"objectClass": "EnemyJunkie",
-																	"sid": 444674950764452,
+																	"sid": 816000379909392,
 																	"parameters": {
 																		"object": "Shot_Shotgun",
 																		"layer": "EnemyJunkie.LayerName",
 																		"image-point": "\"Shotgun\"",
 																		"create-hierarchy": false,
 																		"template-name": "\"\""
-																	}
-																},
-																{
-																	"id": "set-angle-of-motion",
-																	"objectClass": "Shot_Shotgun",
-																	"sid": 669236255569242,
-																	"behaviorType": "НастраиваемоеДвижение",
-																	"parameters": {
-																		"angle": "EnemyJunkie.Angle +  random(-20, 20)"
 																	}
 																},
 																{
 																	"id": "spawn-another-object",
 																	"objectClass": "EnemyJunkie",
-																	"sid": 921243083590072,
+																	"sid": 601586327358729,
 																	"parameters": {
 																		"object": "Shot_Shotgun",
 																		"layer": "EnemyJunkie.LayerName",
 																		"image-point": "\"Shotgun\"",
 																		"create-hierarchy": false,
 																		"template-name": "\"\""
-																	}
-																},
-																{
-																	"id": "set-angle-of-motion",
-																	"objectClass": "Shot_Shotgun",
-																	"sid": 811337836490624,
-																	"behaviorType": "НастраиваемоеДвижение",
-																	"parameters": {
-																		"angle": "EnemyJunkie.Angle +  random(-20, 20)"
 																	}
 																},
 																{
 																	"id": "spawn-another-object",
 																	"objectClass": "EnemyJunkie",
-																	"sid": 614334248553925,
+																	"sid": 706846929056844,
 																	"parameters": {
 																		"object": "Shot_Shotgun",
 																		"layer": "EnemyJunkie.LayerName",
@@ -49673,33 +49717,43 @@
 																	}
 																},
 																{
-																	"id": "set-angle-of-motion",
+																	"id": "set-enabled",
 																	"objectClass": "Shot_Shotgun",
-																	"sid": 810814085214668,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 194923578292014,
+																	"behaviorType": "Пуля",
 																	"parameters": {
-																		"angle": "EnemyJunkie.Angle +  random(-20, 20)"
+																		"state": "enabled"
 																	}
 																},
 																{
-																	"id": "spawn-another-object",
+																	"id": "set-instvar-value",
+																	"objectClass": "Shot_Shotgun",
+																	"sid": 876745871429588,
+																	"parameters": {
+																		"instance-variable": "Hit",
+																		"value": "Random(100)"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Аудио",
+																	"sid": 677093027942290,
+																	"disabled": true,
+																	"parameters": {
+																		"audio-file": "Beretta",
+																		"loop": "not-looping",
+																		"volume": "-10",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
+																},
+																{
+																	"id": "subtract-from-instvar",
 																	"objectClass": "EnemyJunkie",
-																	"sid": 375137108536666,
+																	"sid": 280948455852538,
 																	"parameters": {
-																		"object": "Shot_Shotgun",
-																		"layer": "EnemyJunkie.LayerName",
-																		"image-point": "\"Shotgun\"",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																},
-																{
-																	"id": "set-angle-of-motion",
-																	"objectClass": "Shot_Shotgun",
-																	"sid": 465270532330033,
-																	"behaviorType": "НастраиваемоеДвижение",
-																	"parameters": {
-																		"angle": "EnemyJunkie.Angle +  random(-20, 20)"
+																		"instance-variable": "Ammo",
+																		"value": "1"
 																	}
 																}
 															],
@@ -49715,50 +49769,33 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "on-created",
+											"objectClass": "Shot_Shotgun",
+											"sid": 274926350915950
+										},
+										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Shot_Shotgun",
 											"sid": 222201249087913,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "Walk"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Shot_Shotgun",
+											"sid": 104220291995178,
+											"parameters": {
+												"object": "EnemyJunkie"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Shot_Shotgun",
-											"sid": 569755328753412,
-											"parameters": {
-												"instance-variable": "Hit",
-												"value": "Random(100)"
-											}
-										},
-										{
-											"id": "play",
-											"objectClass": "Аудио",
-											"sid": 481889876885708,
-											"disabled": true,
-											"parameters": {
-												"audio-file": "Beretta",
-												"loop": "not-looping",
-												"volume": "-10",
-												"stereo-pan": "0",
-												"tag-optional": "\"\""
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "Shot_Shotgun",
-											"sid": 820526903938377,
-											"behaviorType": "Пуля",
-											"parameters": {
-												"state": "enabled"
-											}
-										},
-										{
 											"id": "set-speed",
 											"objectClass": "Shot_Shotgun",
-											"sid": 948724460248057,
+											"sid": 889455097166593,
 											"behaviorType": "Пуля",
 											"parameters": {
 												"speed": "1000"
@@ -49767,26 +49804,16 @@
 										{
 											"id": "set-angle-of-motion",
 											"objectClass": "Shot_Shotgun",
-											"sid": 873998389991139,
+											"sid": 874917465532219,
 											"behaviorType": "Пуля",
 											"parameters": {
-												"angle": "angle(Pistol_Enemy.X, Pistol_Enemy.Y, Player_All.X, Player_All.Y) "
-											}
-										},
-										{
-											"id": "set-angle-of-motion",
-											"objectClass": "Shot_Shotgun",
-											"sid": 623727848083021,
-											"disabled": true,
-											"behaviorType": "НастраиваемоеДвижение",
-											"parameters": {
-												"angle": "EnemyJunkie.Angle +  random(-20, 20)"
+												"angle": "angle(EnemyJunkie.X, EnemyJunkie.Y, Player_All.X, Player_All.Y)+random(20,-20)"
 											}
 										},
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Shot_Shotgun",
-											"sid": 608057930633496,
+											"sid": 242058651230324,
 											"parameters": {
 												"instance-variable": "Walk",
 												"value": "false"
@@ -49794,6 +49821,33 @@
 										}
 									],
 									"sid": 305559081294729
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot_Shotgun",
+											"sid": 943888156963496,
+											"parameters": {
+												"object": "Wall"
+											}
+										},
+										{
+											"id": "is-outside-layout",
+											"objectClass": "Shot_Shotgun",
+											"sid": 662256236365652
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Shot_Shotgun",
+											"sid": 953900828267014
+										}
+									],
+									"sid": 471264754802630,
+									"isOrBlock": true
 								}
 							],
 							"sid": 584823084140311
@@ -50173,6 +50227,50 @@
 								}
 							],
 							"sid": 627776980062148
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyJunkie",
+									"sid": 929416702687925,
+									"parameters": {
+										"instance-variable": "Ammo",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "EnemyJunkie",
+									"sid": 747197640943862,
+									"parameters": {
+										"object": "EnemyJunkieKnife",
+										"layer": "EnemyJunkie.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 323509078508917,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "EnemyJunkie",
+									"sid": 300348828200528
+								}
+							],
+							"sid": 259900788800263
 						}
 					],
 					"sid": 466247291509789
