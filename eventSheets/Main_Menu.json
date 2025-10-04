@@ -1021,6 +1021,14 @@
 							"parameters": {
 								"tags": "\"Setting\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 533307874901672,
+							"parameters": {
+								"layer": "\"Main_Menu\""
+							}
 						}
 					],
 					"actions": [
@@ -1042,11 +1050,122 @@
 						{
 							"id": "on-object-clicked",
 							"objectClass": "Mouse",
+							"sid": 434312145213903,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Text_Menu"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Text_Menu",
+							"sid": 326940536796499,
+							"parameters": {
+								"tags": "\"Exit\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 342160053134797,
+							"parameters": {
+								"layer": "\"Main_Menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "close",
+							"objectClass": "Browser",
+							"sid": 614648524011128
+						}
+					],
+					"sid": 154030050928422
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 522894283977190,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Text_Menu"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Text_Menu",
+							"sid": 463193472265366,
+							"parameters": {
+								"tags": "\"New_Game\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 130741435543089,
+							"parameters": {
+								"layer": "\"Main_Menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow5",
+							"sid": 301638390814076,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 462099474344269
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 710922399325352,
+							"parameters": {
+								"layout": "Station"
+							}
+						}
+					],
+					"sid": 749860747837193
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
 							"sid": 558774919459513,
 							"parameters": {
 								"mouse-button": "left",
 								"click-type": "clicked",
 								"object-clicked": "Text_Menu"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 913532090468828,
+							"parameters": {
+								"layer": "\"Setting\""
 							}
 						},
 						{
@@ -1070,37 +1189,6 @@
 						}
 					],
 					"sid": 876422606393060
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 129733768498255,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Text_Menu"
-							}
-						},
-						{
-							"id": "has-tags",
-							"objectClass": "Text_Menu",
-							"sid": 872911822928987,
-							"parameters": {
-								"tags": "\"Exit\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "close",
-							"objectClass": "Browser",
-							"sid": 570569947972445
-						}
-					],
-					"sid": 705034125398540
 				},
 				{
 					"eventType": "block",

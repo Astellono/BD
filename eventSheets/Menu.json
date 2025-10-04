@@ -759,6 +759,61 @@
 			"sid": 725839278012483
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 889407012991984,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Text_Menu"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Text_Menu",
+					"sid": 704794116457804,
+					"parameters": {
+						"tags": "\"Exit\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 166878652992708,
+					"parameters": {
+						"layer": "LayerIndex(\"HUD\")"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 666558503617796,
+					"parameters": {
+						"time-scale": "1"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Аудио",
+					"sid": 459626720587595
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 458122797032140,
+					"parameters": {
+						"layout": "Main_Menu"
+					}
+				}
+			],
+			"sid": 191003889472040
+		},
+		{
 			"eventType": "comment",
 			"text": "Music"
 		},
