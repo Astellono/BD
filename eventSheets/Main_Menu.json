@@ -2776,6 +2776,133 @@
 						}
 					],
 					"sid": 463375468995600
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 283315756165434
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 367763934320999,
+							"parameters": {
+								"tag": "\"Lang\"",
+								"file": "Lang.json"
+							}
+						}
+					],
+					"sid": 509293858598576
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 740227079354761,
+							"parameters": {
+								"tag": "\"Lang\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Lang",
+							"sid": 932990003914154,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "Text",
+							"sid": 182515774332910
+						}
+					],
+					"sid": 115935208761764
+				},
+				{
+					"functionName": "Text2",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_Menu",
+							"sid": 623344759918927,
+							"parameters": {
+								"text": "Lang.At(Language,Self.Lang)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Tutorial",
+							"sid": 800150401134029,
+							"parameters": {
+								"text": "Lang.At(Language,Self.Lang)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dialogText",
+							"sid": 469979682366307,
+							"parameters": {
+								"text": "Lang.At(Language,Self.Lang)"
+							}
+						}
+					],
+					"sid": 511891115659591
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 135711952094836,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Flag"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 229685601255839,
+							"parameters": {
+								"variable": "Language",
+								"value": "Language=0?1:0"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Flag",
+							"sid": 243382910803118,
+							"parameters": {
+								"frame-number": "Language"
+							}
+						},
+						{
+							"callFunction": "Text",
+							"sid": 806740897618242
+						}
+					],
+					"sid": 512263312729993
 				}
 			],
 			"sid": 705416730304569

@@ -115,7 +115,7 @@
 					}
 				},
 				{
-					"type": "Player_Mask",
+					"type": "Player_Cutscene",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "noWeaponIdle",
@@ -123,8 +123,8 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 6831,
-					"sid": 877652768544523,
+					"uid": 281,
+					"sid": 171853610474094,
 					"tags": "",
 					"instanceVariables": {
 						"speedRun": 285,
@@ -154,23 +154,26 @@
 						"UpDownY": 0,
 						"KickRunAxe": false,
 						"KnifeKick": 0,
-						"Rage": 0
+						"Rage": 0,
+						"SpeedWalk": 150,
+						"cast_text": 0,
+						"Переменная1": 0
 					},
 					"behaviors": {
 						"НастраиваемоеДвижение": {
 							"properties": {
 								"stepping-mode": "none",
-								"pixels-per-step": 500,
+								"pixels-per-step": 5,
 								"enabled": true
 							}
 						},
 						"Платформер": {
 							"properties": {
-								"max-speed": 285,
-								"acceleration": 10000,
-								"deceleration": 10000,
-								"jump-strength": 400,
-								"gravity": 1000,
+								"max-speed": 330,
+								"acceleration": 1500,
+								"deceleration": 1500,
+								"jump-strength": 650,
+								"gravity": 1500,
 								"max-fall-speed": 1000,
 								"double-jump": false,
 								"jump-sustain": 0,
@@ -188,14 +191,14 @@
 						}
 					},
 					"instanceFolderItem": {
-						"sid": 877652768544523,
+						"sid": 171853610474094,
 						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 696,
-						"y": 349,
+						"x": 619.5104874390519,
+						"y": 332.91849561675684,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
@@ -246,119 +249,6 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Player",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "noWeaponIdle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 281,
-					"sid": 659936772345462,
-					"tags": "",
-					"instanceVariables": {
-						"speedRun": 285,
-						"speedTackel": 400,
-						"speedDash": 400,
-						"speedDamage": 400,
-						"rotate": 1,
-						"NoEmpty": 0,
-						"CastWeapon": "",
-						"WeaponMemory": "",
-						"spawn": false,
-						"kick": false,
-						"kickrun": false,
-						"damage": 0,
-						"Finishing": false,
-						"cdHitRun": false,
-						"weapon": "",
-						"DistanceToLift": 0,
-						"dirCastX": 0,
-						"dirCastY": 0,
-						"textframe": 0,
-						"Wolf": 0
-					},
-					"behaviors": {
-						"Платформер": {
-							"properties": {
-								"max-speed": 285,
-								"acceleration": 10000,
-								"deceleration": 10000,
-								"jump-strength": 400,
-								"gravity": 1000,
-								"max-fall-speed": 1000,
-								"double-jump": false,
-								"jump-sustain": 0,
-								"default-controls": false,
-								"enabled": true
-							}
-						},
-						"НастраиваемоеДвижение": {
-							"properties": {
-								"stepping-mode": "none",
-								"pixels-per-step": 500,
-								"enabled": true
-							}
-						},
-						"Таймер": {
-							"properties": {}
-						},
-						"Пуля": {
-							"properties": {
-								"speed": 400,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": true,
-								"step": false,
-								"enabled": false
-							}
-						},
-						"Физика": {
-							"properties": {
-								"immovable": false,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": false
-							}
-						},
-						"Твинанимация": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 659936772345462,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 604.4453468629699,
-						"y": 335.2958212989945,
-						"width": 86,
-						"height": 86,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "Camera",
 					"properties": {
 						"initially-visible": false,
@@ -404,8 +294,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 640.6751580086492,
-						"y": 369.1002417978928,
+						"x": 688.6836350128389,
+						"y": 359.82584712433606,
 						"width": 45.46877003457604,
 						"height": 32.03158134415344,
 						"originX": 0.5,

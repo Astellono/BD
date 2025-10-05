@@ -26,19 +26,18 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 486202816476343,
+					"sid": 411498909098542,
 					"parameters": {
 						"object-to-create": "Shadow3",
-						"layer": "4",
-						"x": "Player.X",
-						"y": "Player.Y",
+						"layer": "\"Cloud\"",
+						"x": "Player_Cutscene.X",
+						"y": "Player_Cutscene.Y",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
 				}
 			],
-			"sid": 830472082835930,
-			"disabled": true
+			"sid": 830472082835930
 		},
 		{
 			"eventType": "block",
@@ -50,6 +49,15 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 372395975921697,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
 				{
 					"id": "tween-one-property",
 					"objectClass": "Shadow3",
@@ -68,8 +76,7 @@
 					}
 				}
 			],
-			"sid": 473994881500347,
-			"disabled": true
+			"sid": 473994881500347
 		},
 		{
 			"eventType": "block",
@@ -106,37 +113,19 @@
 					}
 				}
 			],
-			"sid": 438648918663038,
-			"disabled": true
+			"sid": 438648918663038
 		},
 		{
 			"eventType": "block",
 			"conditions": [
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 654977881047156,
-					"parameters": {
-						"variable": "onZoom"
-					}
-				},
 				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 656458776159798
 				}
 			],
-			"actions": [
-				{
-					"callFunction": "zoomCamera",
-					"sid": 314297906169101,
-					"parameters": [
-						"900"
-					]
-				}
-			],
-			"sid": 648640259164091,
-			"disabled": true
+			"actions": [],
+			"sid": 648640259164091
 		},
 		{
 			"eventType": "block",
@@ -158,8 +147,17 @@
 					}
 				},
 				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 439916491372927,
+					"parameters": {
+						"group-name": "\"Enemy_Maniac\"",
+						"state": "deactivated"
+					}
+				},
+				{
 					"id": "set-enabled",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 315337100036813,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -173,7 +171,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 950255866902154,
 					"parameters": {
 						"animation": "\"Starting_Dead\"",
@@ -182,13 +180,13 @@
 				},
 				{
 					"id": "stop-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 763380201344829,
 					"disabled": true
 				},
 				{
 					"id": "start-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 331543937904072,
 					"disabled": true,
 					"parameters": {
@@ -206,7 +204,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 930265125039631,
 					"parameters": {
 						"animation": "\"noWeaponDamage\"",
@@ -215,7 +213,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 860915115005089,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -224,7 +222,7 @@
 				},
 				{
 					"id": "simulate-control",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 230621174713689,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -242,7 +240,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 274462721887165,
 					"parameters": {
 						"animation": "\"Luser\"",
@@ -260,7 +258,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 547610163733717,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -277,15 +275,14 @@
 					}
 				}
 			],
-			"sid": 376202580301696,
-			"disabled": true
+			"sid": 376202580301696
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 281760321732383,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -295,7 +292,7 @@
 				},
 				{
 					"id": "is-animation-playing",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 220606307754343,
 					"parameters": {
 						"animation": "\"Luser\""
@@ -310,13 +307,13 @@
 			"actions": [
 				{
 					"callFunction": "Create_Dealogue",
-					"sid": 427482780179670,
+					"sid": 850257187712081,
 					"parameters": [
-						"\"Где же этот сраный поезд...\"",
-						"Player.x",
-						"Player.Y",
-						"0",
-						"0"
+						"\"\"",
+						"Player_Cutscene.x",
+						"Player_Cutscene.Y",
+						"28",
+						"1"
 					]
 				},
 				{
@@ -335,15 +332,14 @@
 					"parameters": {
 						"object-to-create": "Press_Space",
 						"layer": "4",
-						"x": "Player.X ",
-						"y": "Player.Y -80",
+						"x": "Player_Cutscene.X ",
+						"y": "Player_Cutscene.Y -80",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
 				}
 			],
-			"sid": 998490785357716,
-			"disabled": true
+			"sid": 998490785357716
 		},
 		{
 			"eventType": "block",
@@ -370,7 +366,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 395769532940584,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -441,14 +437,13 @@
 				}
 			],
 			"sid": 498408081666959,
-			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Player",
+							"objectClass": "Player_Cutscene",
 							"sid": 160104627417167,
 							"parameters": {
 								"instance-variable": "textframe",
@@ -463,15 +458,14 @@
 							"sid": 155357714974401,
 							"parameters": [
 								"\"...что-то я не припомню этого парня\"",
-								"Player.x",
-								"Player.Y",
+								"Player_Cutscene.x",
+								"Player_Cutscene.Y",
 								"0",
 								"0"
 							]
 						}
 					],
-					"sid": 317789705549813,
-					"disabled": true
+					"sid": 317789705549813
 				}
 			]
 		},
@@ -483,12 +477,12 @@
 					"objectClass": "EnemyManiac",
 					"sid": 448101025340294,
 					"parameters": {
-						"object": "Player"
+						"object": "Player_Cutscene"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 380322779243626,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -537,15 +531,14 @@
 					"parameters": {
 						"object-to-create": "press_Q",
 						"layer": "4",
-						"x": "Player.X",
-						"y": "Player.Y -40",
+						"x": "Player_Cutscene.X",
+						"y": "Player_Cutscene.Y -40",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
 				}
 			],
-			"sid": 748096778458171,
-			"disabled": true
+			"sid": 748096778458171
 		},
 		{
 			"eventType": "block",
@@ -565,7 +558,7 @@
 				},
 				{
 					"id": "compare-x",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 692296753253527,
 					"parameters": {
 						"comparison": 5,
@@ -584,7 +577,7 @@
 				},
 				{
 					"id": "set-speed",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 624798653538171,
 					"behaviorType": "НастраиваемоеДвижение",
 					"parameters": {
@@ -594,7 +587,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 484721454882939,
 					"parameters": {
 						"animation": "\"noWeaponDash\"",
@@ -603,22 +596,21 @@
 				},
 				{
 					"id": "set-animation-speed",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 927802238644548,
 					"parameters": {
 						"speed": "5"
 					}
 				}
 			],
-			"sid": 672252382103724,
-			"disabled": true
+			"sid": 672252382103724
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "compare-x",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 886072328485032,
 					"parameters": {
 						"comparison": 3,
@@ -639,7 +631,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 742941669043816,
 					"behaviorType": "НастраиваемоеДвижение"
 				},
@@ -650,7 +642,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 250971251166403,
 					"parameters": {
 						"animation": "\"WOW!\"",
@@ -678,7 +670,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 642141947314839,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -687,14 +679,13 @@
 				}
 			],
 			"sid": 620881709829773,
-			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Player",
+							"objectClass": "Player_Cutscene",
 							"sid": 649309800950596,
 							"parameters": {
 								"instance-variable": "textframe",
@@ -709,8 +700,8 @@
 							"sid": 217740061683963,
 							"parameters": [
 								"\"Я тебя понял говнюк\"",
-								"Player.x",
-								"Player.Y -50",
+								"Player_Cutscene.x",
+								"Player_Cutscene.Y -50",
 								"0",
 								"0"
 							]
@@ -725,8 +716,7 @@
 							}
 						}
 					],
-					"sid": 404913723395736,
-					"disabled": true
+					"sid": 404913723395736
 				}
 			]
 		},
@@ -738,12 +728,12 @@
 					"objectClass": "EnemyManiac",
 					"sid": 235042563934242,
 					"parameters": {
-						"object": "Player"
+						"object": "Player_Cutscene"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 120874891694612,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -760,8 +750,8 @@
 					"parameters": {
 						"object-to-create": "Press_Shift",
 						"layer": "4",
-						"x": "Player.X",
-						"y": "Player.Y -50",
+						"x": "Player_Cutscene.X",
+						"y": "Player_Cutscene.Y -50",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -792,7 +782,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 966817499572834,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -800,8 +790,7 @@
 					}
 				}
 			],
-			"sid": 291016926071917,
-			"disabled": true
+			"sid": 291016926071917
 		},
 		{
 			"eventType": "block",
@@ -816,7 +805,7 @@
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 831240451138014,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -841,7 +830,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 839583028390526,
 					"parameters": {
 						"animation": "\"noWeaponTackle\"",
@@ -855,7 +844,7 @@
 				},
 				{
 					"id": "set-animation-speed",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 235924202613076,
 					"parameters": {
 						"speed": "2"
@@ -863,7 +852,7 @@
 				},
 				{
 					"id": "set-speed",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 524747634278610,
 					"behaviorType": "НастраиваемоеДвижение",
 					"parameters": {
@@ -873,7 +862,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 431842129611414,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -881,15 +870,14 @@
 					}
 				}
 			],
-			"sid": 371541133230181,
-			"disabled": true
+			"sid": 371541133230181
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 136792178139788,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -899,7 +887,7 @@
 				},
 				{
 					"id": "compare-x",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 309102970711621,
 					"parameters": {
 						"comparison": 5,
@@ -915,7 +903,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Player",
+					"objectClass": "Player_Cutscene",
 					"sid": 233383681574796,
 					"behaviorType": "НастраиваемоеДвижение"
 				},
@@ -929,8 +917,7 @@
 					}
 				}
 			],
-			"sid": 285278101350435,
-			"disabled": true
+			"sid": 285278101350435
 		}
 	],
 	"sid": 254775127056567
