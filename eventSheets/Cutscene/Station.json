@@ -102,6 +102,11 @@
 					}
 				},
 				{
+					"id": "destroy",
+					"objectClass": "Shadow3",
+					"sid": 604674683137295
+				},
+				{
 					"id": "set-speed",
 					"objectClass": "Sheet",
 					"sid": 356152020447537,
@@ -360,6 +365,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 722150012155413,
+					"parameters": {
+						"variable": "ZoomCamera",
+						"value": "true"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Press_Space",
 					"sid": 345660154350917
@@ -374,65 +388,12 @@
 					}
 				},
 				{
-					"id": "set-mirrored",
-					"objectClass": "EnemyManiac",
-					"sid": 963905064545169,
-					"parameters": {
-						"state": "mirrored"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
+					"id": "set-group-active",
 					"objectClass": "System",
-					"sid": 992293606699720,
+					"sid": 762396459153409,
 					"parameters": {
-						"variable": "onZoom",
-						"value": "true"
-					}
-				},
-				{
-					"id": "set-canvas-size",
-					"objectClass": "System",
-					"sid": 499728887160702,
-					"disabled": true,
-					"parameters": {
-						"width": "500",
-						"height": "500"
-					}
-				},
-				{
-					"callFunction": "zoomCamera",
-					"sid": 423847043486632,
-					"disabled": true,
-					"parameters": [
-						"0"
-					]
-				},
-				{
-					"id": "set-speed",
-					"objectClass": "EnemyManiac",
-					"sid": 373089806085355,
-					"behaviorType": "НастраиваемоеДвижение",
-					"parameters": {
-						"which": "horizontal",
-						"speed": "-100"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "EnemyManiac",
-					"sid": 462675337937137,
-					"parameters": {
-						"animation": "\"Walk\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-mirrored",
-					"objectClass": "EnemyManiac",
-					"sid": 707148254325002,
-					"parameters": {
-						"state": "mirrored"
+						"group-name": "\"Enemy_Maniac\"",
+						"state": "activated"
 					}
 				}
 			],
@@ -473,13 +434,55 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "EnemyManiac",
-					"sid": 448101025340294,
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 779295589442356,
 					"parameters": {
-						"object": "Player_Cutscene"
+						"variable": "ZoomCamera"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Camera",
+					"sid": 933678463503811,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetWidth",
+						"end-value": "120",
+						"time": "2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
 					}
 				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Camera",
+					"sid": 348392164087154,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetHeight",
+						"end-value": "60",
+						"time": "2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 569308154021788
+		},
+		{
+			"eventType": "block",
+			"conditions": [
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player_Cutscene",
@@ -489,6 +492,28 @@
 						"comparison": 0,
 						"value": "2"
 					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "EnemyManiac",
+					"sid": 506719156863107,
+					"parameters": {
+						"animation": "\"Kick\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "EnemyManiac",
+					"sid": 214597486631626,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 577542136404141
 				}
 			],
 			"actions": [
@@ -497,32 +522,18 @@
 					"sid": 161737344634520
 				},
 				{
-					"id": "stop",
-					"objectClass": "EnemyManiac",
-					"sid": 849807884417661,
-					"behaviorType": "НастраиваемоеДвижение"
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "EnemyManiac",
-					"sid": 147091898798628,
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 959184758357844,
 					"parameters": {
-						"animation": "\"Kick\"",
-						"from": "beginning"
+						"group-name": "\"Enemy_Maniac\"",
+						"state": "deactivated"
 					}
 				},
 				{
 					"id": "stop-animation",
 					"objectClass": "EnemyManiac",
 					"sid": 837451972929513
-				},
-				{
-					"id": "set-animation-frame",
-					"objectClass": "EnemyManiac",
-					"sid": 884600299412824,
-					"parameters": {
-						"frame-number": "0"
-					}
 				},
 				{
 					"id": "create-object",
@@ -567,6 +578,11 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "press_Q",
+					"sid": 474212081088788
+				},
 				{
 					"id": "start-animation",
 					"objectClass": "EnemyManiac",
@@ -620,7 +636,8 @@
 				{
 					"id": "is-visible",
 					"objectClass": "press_Q",
-					"sid": 473219353750765
+					"sid": 473219353750765,
+					"disabled": true
 				},
 				{
 					"id": "trigger-once-while-true",
@@ -636,11 +653,6 @@
 					"behaviorType": "НастраиваемоеДвижение"
 				},
 				{
-					"id": "destroy",
-					"objectClass": "press_Q",
-					"sid": 301861447422280
-				},
-				{
 					"id": "set-animation",
 					"objectClass": "Player_Cutscene",
 					"sid": 250971251166403,
@@ -650,22 +662,30 @@
 					}
 				},
 				{
-					"id": "set-speed",
-					"objectClass": "EnemyManiac",
-					"sid": 330787055539791,
-					"behaviorType": "НастраиваемоеДвижение",
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 609849669945281,
 					"parameters": {
-						"which": "horizontal",
-						"speed": "-100"
+						"group-name": "\"Enemy_Maniac\"",
+						"state": "activated"
 					}
 				},
 				{
-					"id": "set-animation",
+					"id": "set-boolean-instvar",
 					"objectClass": "EnemyManiac",
-					"sid": 944576604581282,
+					"sid": 842344534975276,
 					"parameters": {
-						"animation": "\"Walk\"",
-						"from": "beginning"
+						"instance-variable": "triger",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "EnemyManiac",
+					"sid": 557974190709692,
+					"parameters": {
+						"instance-variable": "Kick",
+						"value": "false"
 					}
 				},
 				{
@@ -724,14 +744,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "EnemyManiac",
-					"sid": 235042563934242,
-					"parameters": {
-						"object": "Player_Cutscene"
-					}
-				},
-				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player_Cutscene",
 					"sid": 120874891694612,
@@ -740,9 +752,40 @@
 						"comparison": 0,
 						"value": "3"
 					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "EnemyManiac",
+					"sid": 298416324900798,
+					"parameters": {
+						"animation": "\"Kick\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "EnemyManiac",
+					"sid": 812703194896356,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 955080514868557
 				}
 			],
 			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 101836581242761,
+					"parameters": {
+						"group-name": "\"Enemy_Maniac\"",
+						"state": "deactivated"
+					}
+				},
 				{
 					"id": "create-object",
 					"objectClass": "System",
@@ -754,21 +797,6 @@
 						"y": "Player_Cutscene.Y -50",
 						"create-hierarchy": false,
 						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "stop",
-					"objectClass": "EnemyManiac",
-					"sid": 727963079144040,
-					"behaviorType": "НастраиваемоеДвижение"
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "EnemyManiac",
-					"sid": 943710543575521,
-					"parameters": {
-						"animation": "\"Kick\"",
-						"from": "beginning"
 					}
 				},
 				{
@@ -915,9 +943,40 @@
 						"group-name": "\"Player\"",
 						"state": "activated"
 					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 980684751870149,
+					"parameters": {
+						"group-name": "\"Enemy_Maniac\"",
+						"state": "activated"
+					}
 				}
 			],
 			"sid": 285278101350435
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 205390215152812
+				}
+			],
+			"actions": [
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 530585711084716,
+					"parameters": {
+						"width": "Camera.Width*10",
+						"height": "Camera.Height*10"
+					}
+				}
+			],
+			"sid": 122466344731159
 		}
 	],
 	"sid": 254775127056567
