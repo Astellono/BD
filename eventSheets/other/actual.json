@@ -1021,12 +1021,14 @@
 						{
 							"id": "restart-layout",
 							"objectClass": "System",
-							"sid": 688128380041085
+							"sid": 688128380041085,
+							"disabled": true
 						},
 						{
 							"id": "reset-global-variables",
 							"objectClass": "System",
 							"sid": 483572987586393,
+							"disabled": true,
 							"parameters": {
 								"reset-static": true
 							}
@@ -1035,6 +1037,7 @@
 							"id": "reset-eventvar",
 							"objectClass": "System",
 							"sid": 780986139392989,
+							"disabled": true,
 							"parameters": {
 								"variable": "weapon"
 							}
@@ -1043,8 +1046,88 @@
 							"id": "reset-eventvar",
 							"objectClass": "System",
 							"sid": 822252299853051,
+							"disabled": true,
 							"parameters": {
 								"variable": "HPplayer"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "Music_Safe",
+							"sid": 513213641203896,
+							"parameters": {
+								"key": "\"SaveMusic\"",
+								"value": "Аудио.PlaybackTime(\"music\")"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Player_All",
+							"sid": 992085424023769,
+							"parameters": {
+								"object": "Shadow3",
+								"layer": "LayerIndex(\"Black\")",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Shadow3",
+							"sid": 965883116003264,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 419595792505282,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 953129906261155,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 238903640865543,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "Music_Safe",
+							"sid": 933299717688472,
+							"parameters": {
+								"key": "\"SaveMusic\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "Music_Safe",
+							"sid": 665164958163549,
+							"parameters": {
+								"key": "\"SaveMusic\""
 							}
 						}
 					],
@@ -106865,9 +106948,22 @@
 															}
 														},
 														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 536799079660103,
+															"parameters": {
+																"audio-file": "Gless",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
+															}
+														},
+														{
 															"id": "wait",
 															"objectClass": "System",
 															"sid": 812654511924754,
+															"disabled": true,
 															"parameters": {
 																"seconds": "0.3",
 																"use-timescale": true
@@ -106891,6 +106987,30 @@
 															"id": "destroy",
 															"objectClass": "Bottle",
 															"sid": 118583018576626
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyManiac",
+															"sid": 953465587013487,
+															"parameters": {
+																"instance-variable": "Damage",
+																"value": "true"
+															}
+														},
+														{
+															"id": "stop",
+															"objectClass": "EnemyManiac",
+															"sid": 620552659448620,
+															"behaviorType": "НастраиваемоеДвижение"
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Enemys",
+															"sid": 394451210717575,
+															"parameters": {
+																"instance-variable": "Got",
+																"value": "true"
+															}
 														}
 													],
 													"sid": 141087666783187
@@ -107045,6 +107165,202 @@
 													"sid": 559340218128424
 												}
 											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyManiac",
+													"sid": 859159091240719,
+													"parameters": {
+														"instance-variable": "Damage"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 378353909443033
+												}
+											],
+											"actions": [
+												{
+													"id": "start-timer",
+													"objectClass": "EnemyManiac",
+													"sid": 265485872545412,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"duration": "0.5",
+														"type": "once",
+														"tag": "\"Damage\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 635029878676725,
+													"parameters": {
+														"instance-variable": "triger",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 254772188680512,
+													"parameters": {
+														"instance-variable": "vision",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 188352109137849,
+													"parameters": {
+														"instance-variable": "search",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 341821109214210,
+													"parameters": {
+														"instance-variable": "Kick",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 998131590819335,
+													"parameters": {
+														"instance-variable": "onRamp",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "EnemyManiac",
+													"sid": 944546458322873,
+													"parameters": {
+														"animation": "\"Damage\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 834645544804502,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "spawn-another-object",
+															"objectClass": "EnemyManiac",
+															"sid": 767253840897356,
+															"parameters": {
+																"object": "BloodAll",
+																"layer": "LayerIndex(\"Blood\")",
+																"image-point": "2",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "BloodAll",
+															"sid": 211534347261225,
+															"parameters": {
+																"animation": "\"BloodSmall\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-enabled",
+															"objectClass": "BloodAll",
+															"sid": 895059968208352,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"state": "enabled"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "BloodAll",
+															"sid": 637023875605130,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "overall",
+																"speed": "EnemyManiac.rotate * -100"
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "BloodAll",
+															"sid": 870605624845037,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"angle": "EnemyManiac.rotate * BloodAll.НастраиваемоеДвижение.MovingAngle"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 779742001662954,
+															"parameters": {
+																"seconds": "0.3",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-enabled",
+															"objectClass": "BloodAll",
+															"sid": 100582463436342,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"state": "disabled"
+															}
+														}
+													],
+													"sid": 204612547756138
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-timer",
+													"objectClass": "EnemyManiac",
+													"sid": 296188958738298,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"tag": "\"Damage\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "EnemyManiac",
+													"sid": 313309931498395,
+													"parameters": {
+														"animation": "\"Damage\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 997876245414470,
+													"parameters": {
+														"instance-variable": "Damage",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 941797785793249
 										},
 										{
 											"eventType": "block",
@@ -109190,6 +109506,7 @@
 											"id": "set-boolean-instvar",
 											"objectClass": "Enemys",
 											"sid": 312203520807850,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "Got",
 												"value": "true"
@@ -109270,6 +109587,7 @@
 															"id": "start-timer",
 															"objectClass": "EnemyManiac",
 															"sid": 691822460685637,
+															"disabled": true,
 															"behaviorType": "Таймер",
 															"parameters": {
 																"duration": "0.5",
@@ -114816,6 +115134,95 @@
 														}
 													],
 													"sid": 965202593529278
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Bottle",
+											"sid": 286213812493527,
+											"parameters": {
+												"object": "EnemyManiac"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Bottle",
+											"sid": 870115188175028,
+											"parameters": {
+												"animation": "\"Crash\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 180033988276125,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyManiac",
+													"sid": 313227050203243,
+													"parameters": {
+														"instance-variable": "Death"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyManiac",
+													"sid": 992741240403851,
+													"parameters": {
+														"instance-variable": "Down"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 808509590750924,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "Аудио",
+															"sid": 212904847247477,
+															"parameters": {
+																"tag": "\"Damage\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 994398895981899
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 857053379251979,
+															"parameters": {
+																"audio-file": "Gless",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
+															}
+														}
+													],
+													"sid": 407446050885536,
+													"disabled": true
 												}
 											]
 										}

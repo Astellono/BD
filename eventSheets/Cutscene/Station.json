@@ -26,14 +26,23 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 411498909098542,
+					"sid": 664731218541967,
 					"parameters": {
 						"object-to-create": "Shadow3",
-						"layer": "\"Cloud\"",
+						"layer": "\"Front\"",
 						"x": "Player_Cutscene.X",
 						"y": "Player_Cutscene.Y",
 						"create-hierarchy": false,
 						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "Music_Safe",
+					"sid": 584824179713966,
+					"parameters": {
+						"key": "\"SaveMusic\"",
+						"value": "\"0\""
 					}
 				}
 			],
@@ -56,6 +65,18 @@
 					"parameters": {
 						"seconds": "1.0",
 						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 202740556511305,
+					"parameters": {
+						"audio-file": "Station_Start",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
 					}
 				},
 				{
@@ -119,18 +140,6 @@
 				}
 			],
 			"sid": 438648918663038
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 656458776159798
-				}
-			],
-			"actions": [],
-			"sid": 648640259164091
 		},
 		{
 			"eventType": "block",
@@ -416,13 +425,13 @@
 					"actions": [
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 155357714974401,
+							"sid": 772422237160253,
 							"parameters": [
-								"\"...что-то я не припомню этого парня\"",
+								"\"\"",
 								"Player_Cutscene.x",
 								"Player_Cutscene.Y",
-								"0",
-								"0"
+								"29",
+								"1"
 							]
 						}
 					],
@@ -446,12 +455,12 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 933678463503811,
+					"sid": 432049033823343,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetWidth",
-						"end-value": "120",
+						"end-value": "80",
 						"time": "2",
 						"ease": "default",
 						"destroy-on-complete": "no",
@@ -463,12 +472,12 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 348392164087154,
+					"sid": 949387493749395,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetHeight",
-						"end-value": "60",
+						"end-value": "40",
 						"time": "2",
 						"ease": "default",
 						"destroy-on-complete": "no",
@@ -717,13 +726,13 @@
 					"actions": [
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 217740061683963,
+							"sid": 196894724345444,
 							"parameters": [
-								"\"Я тебя понял говнюк\"",
+								"\"\"",
 								"Player_Cutscene.x",
 								"Player_Cutscene.Y -50",
-								"0",
-								"0"
+								"30",
+								"1"
 							]
 						},
 						{
@@ -945,12 +954,12 @@
 					}
 				},
 				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 980684751870149,
+					"id": "set-animation",
+					"objectClass": "EnemyManiac",
+					"sid": 440130772666820,
 					"parameters": {
-						"group-name": "\"Enemy_Maniac\"",
-						"state": "activated"
+						"animation": "\"Kick2\"",
+						"from": "beginning"
 					}
 				}
 			],
@@ -960,23 +969,208 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-animation-finished",
+					"objectClass": "EnemyManiac",
+					"sid": 514514764599155,
+					"parameters": {
+						"animation": "\"Kick2\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 723135538665445,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 820781335269345,
+					"parameters": {
+						"group-name": "\"Enemy_Maniac\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "EnemyManiac",
+					"sid": 991981408721966,
+					"parameters": {
+						"instance-variable": "triger",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "EnemyManiac",
+					"sid": 250114879616224,
+					"parameters": {
+						"instance-variable": "Kick",
+						"value": "false"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Аудио",
+					"sid": 493399837740084
+				},
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 595999075523133,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 417409532115378,
+					"parameters": {
+						"audio-file": "Station_Main",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				}
+			],
+			"sid": 374486233309005
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 634279150903027
+				}
+			],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 512915769426766,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "Music_Safe",
+					"sid": 487303294249721,
+					"parameters": {
+						"key": "\"SaveMusic\"",
+						"value": "\"0\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "Music_Safe",
+					"sid": 240471830366837,
+					"parameters": {
+						"key": "\"SaveMusic\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "Music_Safe",
+					"sid": 782940404015707,
+					"parameters": {
+						"key": "\"SaveMusic\""
+					}
+				}
+			],
+			"sid": 409960909832555
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-load-complete",
+					"objectClass": "System",
+					"sid": 274875381248203
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 749250713077580,
+					"parameters": {
+						"audio-file": "Station_Main",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "seek-to",
+					"objectClass": "Аудио",
+					"sid": 196129534000005,
+					"parameters": {
+						"tag": "\"music\"",
+						"position": "Music_Safe.ItemValue"
+					}
+				}
+			],
+			"sid": 983592333021862
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-ended",
+					"objectClass": "Аудио",
+					"sid": 978035595732009,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 462173630084924,
+					"parameters": {
+						"audio-file": "Station_Main",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				}
+			],
+			"sid": 176368853252283
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-tick",
 					"objectClass": "System",
-					"sid": 205390215152812
+					"sid": 954544458423117
 				}
 			],
 			"actions": [
 				{
 					"id": "set-canvas-size",
 					"objectClass": "System",
-					"sid": 530585711084716,
+					"sid": 388590887607062,
 					"parameters": {
 						"width": "Camera.Width*10",
 						"height": "Camera.Height*10"
 					}
 				}
 			],
-			"sid": 122466344731159
+			"sid": 459242217886476
 		}
 	],
 	"sid": 254775127056567
