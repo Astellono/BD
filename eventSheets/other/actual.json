@@ -68,6 +68,16 @@
 			"sid": 823618288469203
 		},
 		{
+			"eventType": "variable",
+			"name": "Cut_Scene",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 308304117600408
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Setup",
@@ -11150,7 +11160,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -11213,7 +11223,6 @@
 							],
 							"actions": [],
 							"sid": 309043479600069,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -11331,8 +11340,7 @@
 											}
 										}
 									],
-									"sid": 895047843836743,
-									"disabled": true
+									"sid": 895047843836743
 								},
 								{
 									"eventType": "block",
@@ -11450,8 +11458,7 @@
 											}
 										}
 									],
-									"sid": 387218705782901,
-									"disabled": true
+									"sid": 387218705782901
 								}
 							]
 						},
@@ -11512,7 +11519,6 @@
 							],
 							"actions": [],
 							"sid": 360946975383272,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -11660,8 +11666,7 @@
 											}
 										}
 									],
-									"sid": 691984442684721,
-									"disabled": true
+									"sid": 691984442684721
 								},
 								{
 									"eventType": "block",
@@ -11809,8 +11814,7 @@
 											}
 										}
 									],
-									"sid": 368688727635590,
-									"disabled": true
+									"sid": 368688727635590
 								}
 							]
 						},
@@ -11858,7 +11862,6 @@
 							],
 							"actions": [],
 							"sid": 343140753134619,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -11874,7 +11877,6 @@
 									],
 									"actions": [],
 									"sid": 698634819418167,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -12037,7 +12039,6 @@
 												}
 											],
 											"sid": 667787167810499,
-											"disabled": true,
 											"isOrBlock": true
 										}
 									]
@@ -12056,7 +12057,6 @@
 									],
 									"actions": [],
 									"sid": 265449835868495,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -12219,7 +12219,6 @@
 												}
 											],
 											"sid": 949915155403725,
-											"disabled": true,
 											"isOrBlock": true
 										}
 									]
@@ -12250,7 +12249,6 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -12278,7 +12276,6 @@
 										}
 									],
 									"sid": 310996725083501,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -12307,7 +12304,6 @@
 										}
 									],
 									"sid": 458178281136712,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -12333,8 +12329,7 @@
 											}
 										}
 									],
-									"sid": 106933512128252,
-									"disabled": true
+									"sid": 106933512128252
 								}
 							]
 						},
@@ -12392,7 +12387,6 @@
 								}
 							],
 							"sid": 377992490181740,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -12436,8 +12430,7 @@
 											}
 										}
 									],
-									"sid": 216693764442584,
-									"disabled": true
+									"sid": 216693764442584
 								},
 								{
 									"eventType": "block",
@@ -12481,8 +12474,7 @@
 											}
 										}
 									],
-									"sid": 589694636770370,
-									"disabled": true
+									"sid": 589694636770370
 								},
 								{
 									"eventType": "block",
@@ -12526,8 +12518,7 @@
 											}
 										}
 									],
-									"sid": 918810485227998,
-									"disabled": true
+									"sid": 918810485227998
 								},
 								{
 									"eventType": "block",
@@ -12571,8 +12562,7 @@
 											}
 										}
 									],
-									"sid": 990684820624839,
-									"disabled": true
+									"sid": 990684820624839
 								},
 								{
 									"eventType": "block",
@@ -12616,8 +12606,7 @@
 											}
 										}
 									],
-									"sid": 529478716458234,
-									"disabled": true
+									"sid": 529478716458234
 								},
 								{
 									"eventType": "block",
@@ -12661,8 +12650,7 @@
 											}
 										}
 									],
-									"sid": 581572430933988,
-									"disabled": true
+									"sid": 581572430933988
 								},
 								{
 									"eventType": "block",
@@ -12706,8 +12694,51 @@
 											}
 										}
 									],
-									"sid": 943898994885594,
-									"disabled": true
+									"sid": 943898994885594
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyManiac",
+											"sid": 842289750719527,
+											"parameters": {
+												"instance-variable": "Death"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "EnemyManiac",
+											"sid": 261882998714251,
+											"behaviorType": "НастраиваемоеДвижение",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "EnemyManiac",
+											"sid": 398026684695502,
+											"parameters": {
+												"animation": "\"Idle\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 295612253293125,
+											"parameters": {
+												"group-name": "\"Enemy & Fear\"",
+												"state": "deactivated"
+											}
+										}
+									],
+									"sid": 791093798816223
 								},
 								{
 									"eventType": "block",
@@ -12723,8 +12754,7 @@
 											}
 										}
 									],
-									"sid": 799978535918360,
-									"disabled": true
+									"sid": 799978535918360
 								}
 							]
 						}
@@ -106960,10 +106990,33 @@
 															}
 														},
 														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyManiac",
+															"sid": 825254187453343,
+															"parameters": {
+																"instance-variable": "Damage",
+																"value": "true"
+															}
+														},
+														{
+															"id": "stop",
+															"objectClass": "EnemyManiac",
+															"sid": 936898594349789,
+															"behaviorType": "НастраиваемоеДвижение"
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Enemys",
+															"sid": 982009384688005,
+															"parameters": {
+																"instance-variable": "Got",
+																"value": "true"
+															}
+														},
+														{
 															"id": "wait",
 															"objectClass": "System",
 															"sid": 812654511924754,
-															"disabled": true,
 															"parameters": {
 																"seconds": "0.3",
 																"use-timescale": true
@@ -106987,11 +107040,89 @@
 															"id": "destroy",
 															"objectClass": "Bottle",
 															"sid": 118583018576626
+														}
+													],
+													"sid": 141087666783187
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-velocity",
+															"objectClass": "Brick",
+															"sid": 905561678032078,
+															"behaviorType": "Физика",
+															"parameters": {
+																"which": "overall-velocity",
+																"comparison": 4,
+																"value": "150"
+															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Brick",
+															"sid": 482892864286904,
+															"parameters": {
+																"object": "EnemyManiac"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-enabled",
+															"objectClass": "EnemyManiac",
+															"sid": 131876600814924,
+															"behaviorType": "Физика",
+															"parameters": {
+																"mode": "enabled"
+															}
+														},
+														{
+															"id": "set-enabled",
+															"objectClass": "Brick",
+															"sid": 329799455243439,
+															"behaviorType": "Физика",
+															"parameters": {
+																"mode": "disabled"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Brick",
+															"sid": 406516737707062,
+															"parameters": {
+																"animation": "\"Crash\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Brick",
+															"sid": 304205573483820,
+															"parameters": {
+																"object": "Rose",
+																"layer": "Player_All.LayerName",
+																"image-point": "0",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Аудио",
+															"sid": 892936261734349,
+															"parameters": {
+																"audio-file": "Gless",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Damage\""
+															}
 														},
 														{
 															"id": "set-boolean-instvar",
 															"objectClass": "EnemyManiac",
-															"sid": 953465587013487,
+															"sid": 937366036844320,
 															"parameters": {
 																"instance-variable": "Damage",
 																"value": "true"
@@ -107000,20 +107131,43 @@
 														{
 															"id": "stop",
 															"objectClass": "EnemyManiac",
-															"sid": 620552659448620,
+															"sid": 335553145137649,
 															"behaviorType": "НастраиваемоеДвижение"
 														},
 														{
 															"id": "set-boolean-instvar",
 															"objectClass": "Enemys",
-															"sid": 394451210717575,
+															"sid": 373238070487193,
 															"parameters": {
 																"instance-variable": "Got",
 																"value": "true"
 															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 916221847621742,
+															"parameters": {
+																"seconds": "0.3",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-enabled",
+															"objectClass": "EnemyManiac",
+															"sid": 552305443910551,
+															"behaviorType": "Физика",
+															"parameters": {
+																"mode": "disabled"
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "HitBox",
+															"sid": 464137879241395
 														}
 													],
-													"sid": 141087666783187
+													"sid": 456261879419767
 												},
 												{
 													"eventType": "block",
@@ -109447,7 +109601,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "EnemyManiac",
-											"sid": 768203154120628,
+											"sid": 801514956137390,
 											"parameters": {
 												"object": "HitBox"
 											}
@@ -113685,6 +113839,15 @@
 												"comparison": 4,
 												"value": "0"
 											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_All",
+											"sid": 508246804112213,
+											"parameters": {
+												"animation": "weapon & \"RunKick\""
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [],
@@ -113915,6 +114078,292 @@
 																}
 															],
 															"sid": 628158137799917
+														}
+													]
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyManiac",
+											"sid": 939208034618502,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyManiac",
+											"sid": 705561764276752,
+											"parameters": {
+												"instance-variable": "Damage"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyManiac",
+											"sid": 564284068049984,
+											"parameters": {
+												"instance-variable": "Down"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyManiac",
+											"sid": 539428103050979,
+											"parameters": {
+												"instance-variable": "Fear",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_All",
+											"sid": 741156555703055,
+											"parameters": {
+												"animation": "weapon & \"RunKick\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 232288369512280,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "EnemyManiac",
+													"sid": 938451517067708,
+													"parameters": {
+														"object": "Player_All",
+														"offset-x": "50",
+														"offset-y": "EnemyManiac.DifY +30"
+													}
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "EnemyManiac",
+													"sid": 347138807921908,
+													"parameters": {
+														"object": "Player_All",
+														"offset-x": "-50",
+														"offset-y": "EnemyManiac.DifY -30"
+													}
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "EnemyManiac",
+													"sid": 533554246423496,
+													"parameters": {
+														"object": "Player_All",
+														"offset-x": "50",
+														"offset-y": "EnemyManiac.DifY -30"
+													}
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "EnemyManiac",
+													"sid": 151765540564199,
+													"parameters": {
+														"object": "Player_All",
+														"offset-x": "-50",
+														"offset-y": "EnemyManiac.DifY +30"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "stop-all-timers",
+													"objectClass": "EnemyManiac",
+													"sid": 175872245529898,
+													"behaviorType": "Таймер"
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 667394583161412,
+													"parameters": {
+														"instance-variable": "onRamp",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyManiac",
+													"sid": 273088224481318,
+													"parameters": {
+														"instance-variable": "Kick",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 166371760450782,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyManiac",
+															"sid": 445365539495160,
+															"parameters": {
+																"instance-variable": "Kick"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyManiac",
+															"sid": 901313288505799,
+															"parameters": {
+																"instance-variable": "HP",
+																"comparison": 4,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyManiac",
+															"sid": 139260581506621,
+															"parameters": {
+																"instance-variable": "Damage"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyManiac",
+															"sid": 614260617397609,
+															"parameters": {
+																"instance-variable": "Down"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyManiac",
+															"sid": 353302923547635,
+															"parameters": {
+																"instance-variable": "vision",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyManiac",
+															"sid": 611816311891605,
+															"parameters": {
+																"instance-variable": "triger",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "EnemyManiac",
+															"sid": 348241501621213,
+															"behaviorType": "НастраиваемоеДвижение",
+															"parameters": {
+																"which": "overall",
+																"speed": "0"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "EnemyManiac",
+															"sid": 378303152083435,
+															"parameters": {
+																"animation": "\"Kick\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 452623717503712,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "EnemyManiac",
+																	"sid": 161262675253828,
+																	"parameters": {
+																		"animation": "\"Kick\""
+																	}
+																},
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "EnemyManiac",
+																	"sid": 839819454846593,
+																	"parameters": {
+																		"comparison": 4,
+																		"number": "0"
+																	}
+																},
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 657990859329587
+																},
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 874419541327811,
+																	"parameters": {
+																		"object": "EnemyManiac"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 428979567201717,
+																	"parameters": {
+																		"object-to-create": "HitBoxEnemy",
+																		"layer": "EnemyManiac.LayerName",
+																		"x": "EnemyManiac.ImagePointX(\"Kick\")",
+																		"y": "EnemyManiac.ImagePointY(\"Kick\")",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "rotate-clockwise",
+																	"objectClass": "HitBoxEnemy",
+																	"sid": 689735008947654,
+																	"parameters": {
+																		"degrees": "140"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 617377735602286,
+																	"parameters": {
+																		"seconds": "0.1",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "HitBoxEnemy",
+																	"sid": 825983618616575
+																}
+															],
+															"sid": 779377319520590
 														}
 													]
 												}

@@ -189,7 +189,84 @@
 					}
 				}
 			],
-			"sid": 302068546862154
+			"sid": 302068546862154,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 353482264870808,
+							"parameters": {
+								"object": "Player_All"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 964838066142848,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Player_All",
+								"image-point": "\"Dialog\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "dialogText",
+							"sid": 122791578312315,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Cloud_Dialogue",
+								"image-point": "\"Text\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 238730559162541
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 497603845741242
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 589750881182321
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 302628483432040,
+							"parameters": {
+								"seconds": "5",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "Destroy_Dialoge",
+							"sid": 352171217018199
+						}
+					],
+					"sid": 790846832831309
+				}
+			]
 		},
 		{
 			"eventType": "block",
