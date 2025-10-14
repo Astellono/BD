@@ -346,7 +346,8 @@
 						"Player_Cutscene.x",
 						"Player_Cutscene.Y",
 						"28",
-						"1"
+						"1",
+						false
 					]
 				},
 				{
@@ -450,7 +451,8 @@
 								"Player_Cutscene.x",
 								"Player_Cutscene.Y",
 								"29",
-								"1"
+								"1",
+								false
 							]
 						}
 					],
@@ -474,12 +476,12 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 432049033823343,
+					"sid": 966712507257489,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetWidth",
-						"end-value": "80",
+						"end-value": "90",
 						"time": "2",
 						"ease": "default",
 						"destroy-on-complete": "no",
@@ -491,12 +493,12 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 949387493749395,
+					"sid": 323595996567434,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetHeight",
-						"end-value": "40",
+						"end-value": "50",
 						"time": "2",
 						"ease": "default",
 						"destroy-on-complete": "no",
@@ -753,7 +755,8 @@
 								"Player_Cutscene.x",
 								"Player_Cutscene.Y -50",
 								"30",
-								"1"
+								"1",
+								false
 							]
 						},
 						{
@@ -855,7 +858,8 @@
 						"EnemyManiac.X",
 						"EnemyManiac.Y -60",
 						"31",
-						"1"
+						"1",
+						false
 					]
 				}
 			],
@@ -1134,13 +1138,14 @@
 			"actions": [
 				{
 					"callFunction": "Create_Dealogue",
-					"sid": 146355780122216,
+					"sid": 164257721981418,
 					"parameters": [
 						"\"\"",
 						"Player_All.ImagePointX(\"Dialog\")",
 						"Player_All.ImagePointY(\"Dialog\")",
 						"32",
-						"1"
+						"1",
+						true
 					]
 				}
 			],
@@ -1176,13 +1181,14 @@
 			"actions": [
 				{
 					"callFunction": "Create_Dealogue",
-					"sid": 537172174826269,
+					"sid": 636124006263932,
 					"parameters": [
 						"\"\"",
 						"Player_All.ImagePointX(\"Dialog\")",
 						"Player_All.ImagePointY(\"Dialog\")",
 						"33",
-						"1"
+						"1",
+						true
 					]
 				}
 			],
@@ -1224,13 +1230,14 @@
 				},
 				{
 					"callFunction": "Create_Dealogue",
-					"sid": 694855722628941,
+					"sid": 427812268780001,
 					"parameters": [
 						"\"\"",
 						"Player_All.ImagePointX(\"Dialog\")",
 						"Player_All.ImagePointY(\"Dialog\")",
 						"34",
-						"1"
+						"1",
+						true
 					]
 				}
 			],
@@ -1348,7 +1355,8 @@
 						"Player_All.X",
 						"Player_All.Y",
 						"35",
-						"3"
+						"3",
+						false
 					]
 				},
 				{
@@ -1370,6 +1378,35 @@
 						"image-point": "0",
 						"create-hierarchy": false,
 						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Shadow3",
+					"sid": 210289962082281,
+					"parameters": {
+						"scale": "2"
+					}
+				},
+				{
+					"callFunction": "Destroy_Dialoge",
+					"sid": 940201919637043
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 794965359396450,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 942575952787629,
+					"parameters": {
+						"layout": "Bar"
 					}
 				}
 			],
@@ -1634,6 +1671,30 @@
 				}
 			],
 			"sid": 991081972435984
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Kayboard",
+					"sid": 109556456533412,
+					"parameters": {
+						"key": 9
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 423749578609118,
+					"parameters": {
+						"layout": "Bar"
+					}
+				}
+			],
+			"sid": 486025657077028
 		}
 	],
 	"sid": 254775127056567

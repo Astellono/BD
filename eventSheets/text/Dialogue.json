@@ -47,6 +47,13 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 166545613752078
+				},
+				{
+					"name": "Pin",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 942515010190162
 				}
 			],
 			"eventType": "function-block",
@@ -195,11 +202,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Cloud_Dialogue",
-							"sid": 353482264870808,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 317029163862558,
 							"parameters": {
-								"object": "Player_All"
+								"variable": "Pin"
 							}
 						}
 					],
@@ -207,7 +214,7 @@
 						{
 							"id": "pin-to-object-imagepoint",
 							"objectClass": "Cloud_Dialogue",
-							"sid": 964838066142848,
+							"sid": 932063491318076,
 							"behaviorType": "Прикрепить",
 							"parameters": {
 								"pin-to": "Player_All",
@@ -239,32 +246,24 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-visible",
-							"objectClass": "Cloud_Dialogue",
-							"sid": 497603845741242
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 444756824638041,
+							"parameters": {
+								"variable": "Pin"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 589750881182321
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 302628483432040,
-							"parameters": {
-								"seconds": "5",
-								"use-timescale": true
-							}
-						},
-						{
-							"callFunction": "Destroy_Dialoge",
-							"sid": 352171217018199
+							"id": "unpin",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 961071735044749,
+							"behaviorType": "Прикрепить"
 						}
 					],
-					"sid": 790846832831309
+					"sid": 137988476320694
 				}
 			]
 		},

@@ -11,16 +11,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "speedtext",
-			"type": "number",
-			"initialValue": "2",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 630809690726601
-		},
-		{
-			"eventType": "variable",
 			"name": "onDial",
 			"type": "boolean",
 			"initialValue": "false",
@@ -164,6 +154,26 @@
 					],
 					"actions": [
 						{
+							"id": "spawn-another-object",
+							"objectClass": "Player_All",
+							"sid": 432891986816240,
+							"parameters": {
+								"object": "Shadow3",
+								"layer": "Player_All.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 570724777922709,
+							"parameters": {
+								"reset-static": false
+							}
+						},
+						{
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 294661918580734,
@@ -209,16 +219,32 @@
 							}
 						},
 						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 536876123077451,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "3",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 685068994829565,
-							"disabled": true,
+							"sid": 316413352985614,
 							"parameters": {
 								"audio-file": "Bar_embient",
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"music\""
 							}
 						}
 					],
@@ -317,7 +343,8 @@
 										"428",
 										"380",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								}
 							],
@@ -346,7 +373,8 @@
 										"484",
 										"369",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								}
 							],
@@ -375,7 +403,8 @@
 										"428",
 										"380",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								}
 							],
@@ -404,7 +433,8 @@
 										"444",
 										"374",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								}
 							],
@@ -433,7 +463,8 @@
 										"494",
 										"376",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								}
 							],
@@ -462,7 +493,8 @@
 										"484",
 										"369",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								},
 								{
@@ -563,7 +595,8 @@
 										"Player_Cutscene.X ",
 										"Player_Cutscene.Y -50",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								}
 							],
@@ -592,7 +625,8 @@
 										"Player_Cutscene.X ",
 										"Player_Cutscene.Y -50",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								},
 								{
