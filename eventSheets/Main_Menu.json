@@ -32,8 +32,95 @@
 			"sid": 560361234417494
 		},
 		{
+			"eventType": "variable",
+			"name": "Start_Game",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 112992520696837
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Effect"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 981586120176437,
+					"parameters": {
+						"interval-seconds": "random(7,10)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Ekran",
+					"sid": 336651691867328,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"ВодныйФон\""
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Ekran",
+					"sid": 720765458693011,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "10",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 773917765059929,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Ekran",
+					"sid": 787725456959699,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "1",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Ekran",
+					"sid": 111063086002059,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"ВодныйФон\""
+					}
+				}
+			],
+			"sid": 865002773289092
 		},
 		{
 			"eventType": "block",
@@ -45,6 +132,15 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 423322086536296,
+					"parameters": {
+						"mode": "stretch-scale-outer",
+						"navigation-ui": "auto"
+					}
+				},
 				{
 					"id": "set-opacity",
 					"objectClass": "Menu",
@@ -69,6 +165,61 @@
 						"layer": "\"Setting\"",
 						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Camera",
+					"sid": 829022992319004,
+					"parameters": {
+						"object": "Shadow3",
+						"layer": "6",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Shadow3",
+					"sid": 107853374811756,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Shadow3",
+					"sid": 457210470533094,
+					"parameters": {
+						"scale": "2"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 996916096457689,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 731997467463375
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Shadow3",
+					"sid": 176824683574436
 				}
 			],
 			"sid": 665436750621292
@@ -93,14 +244,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 958341671484270
+						},
+						{
 							"id": "on-any-key-pressed",
 							"objectClass": "Kayboard",
 							"sid": 238785565349546
-						},
-						{
-							"id": "on-any-click",
-							"objectClass": "Mouse",
-							"sid": 179436979737896
 						}
 					],
 					"actions": [
@@ -112,399 +263,521 @@
 								"variable": "Go",
 								"value": "true"
 							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 833372818229915,
+							"parameters": {
+								"tag": "\"Suspense\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 242667390072054,
+							"parameters": {
+								"audio-file": "Breakdown - Main Loop - Mastering (mp3cut.net)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"music\""
+							}
 						}
 					],
 					"sid": 131456417391718,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"bookmark": true,
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Mask_Logo",
+					"sid": 218634662602499,
+					"disabled": true,
+					"parameters": {
+						"animation": "\"Animation 1\""
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 952097345611050,
+					"parameters": {
+						"variable": "Go"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 282279163343116
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 171241662358619,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Mask_Logo",
+					"sid": 740272934887560,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetY",
+						"end-value": "260",
+						"time": "0.3",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 850153998860095,
+					"parameters": {
+						"audio-file": "Crash Roof",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"audio\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 879114807625297
+				}
+			],
+			"sid": 138733961913249,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Logo",
+							"sid": 580613740776424,
+							"parameters": {
+								"animation": "\"Logo1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 933592893567615,
+							"parameters": {
+								"object-to-create": "Boom_Logo",
+								"layer": "LayerIndex(\"Main\")",
+								"x": "720",
+								"y": "300",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 546665136536322,
+							"parameters": {
+								"object-to-create": "Elektro",
+								"layer": "LayerIndex(\"Main\")",
+								"x": "720",
+								"y": "500",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Elektro",
+							"sid": 119621004464566,
+							"parameters": {
+								"animation": "\"Animation 1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Elektro",
+							"sid": 252953549080149,
+							"parameters": {
+								"scale": "4"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Elektro",
+							"sid": 443477342604408,
+							"parameters": {
+								"color": "rgbEx(50, 50, 50)"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Boom_Logo",
+							"sid": 178412291132324,
+							"parameters": {
+								"scale": "4"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Boom_Logo",
+							"sid": 990523179319746,
+							"parameters": {
+								"color": "rgbEx(50, 50, 50)"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logo",
+							"sid": 745681611488242,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetAngle",
+								"end-value": "50",
+								"time": "0.25",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logo",
+							"sid": 784766530167261,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "550",
+								"time": "0.25",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logo",
+							"sid": 621350038841431,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "165",
+								"time": "0.25",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 791811833882338
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Logo",
+							"sid": 641245731986707,
+							"parameters": {
+								"angle": "0"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Logo",
+							"sid": 651286039571752,
+							"parameters": {
+								"scale": "0.3"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Logo",
+							"sid": 240838768289706,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "Logo",
+							"sid": 750541204598343,
+							"parameters": {
+								"x": "500"
+							}
+						}
+					],
+					"sid": 837369089675171
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Logo",
+							"sid": 684250980824339,
+							"parameters": {
+								"animation": "\"Logo2\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logo",
+							"sid": 396178239294396,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetAngle",
+								"end-value": "300",
+								"time": "0.15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logo",
+							"sid": 336665418825997,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "850",
+								"time": "0.15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 733407472509243
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Logo",
+							"sid": 306352192120146,
+							"parameters": {
+								"angle": "357"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Logo",
+							"sid": 339680088740261,
+							"parameters": {
+								"scale": "0.3"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Logo",
+							"sid": 904988754934727,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "Logo",
+							"sid": 973566743339101,
+							"parameters": {
+								"x": "920"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "Logo",
+							"sid": 671686004526795,
+							"parameters": {
+								"y": "155"
+							}
+						}
+					],
+					"sid": 513379958696417
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Mask_Logo",
+							"sid": 349827085634604,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "300",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 188491042412014
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Mask_Logo",
+							"sid": 957315899251987,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "280",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 665747281819080,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Mask_Logo",
+							"sid": 415539045730095,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "190",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 604022143521934,
+							"parameters": {
+								"variable": "ZoomCamera",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 849403927720485,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "is-animation-playing",
-									"objectClass": "Mask_Logo",
-									"sid": 721647562470174,
+									"objectClass": "Logo",
+									"sid": 204638418988725,
 									"parameters": {
-										"animation": "\"Animation 1\""
+										"animation": "\"Logo2\""
 									}
 								}
 							],
 							"actions": [
 								{
 									"id": "tween-one-property",
-									"objectClass": "Mask_Logo",
-									"sid": 948090756448421,
+									"objectClass": "Logo",
+									"sid": 941482683299638,
 									"behaviorType": "Твинанимация",
 									"parameters": {
 										"tags": "\"\"",
 										"property": "offsetY",
-										"end-value": "260",
-										"time": "0.2",
+										"end-value": "60",
+										"time": "1",
 										"ease": "default",
 										"destroy-on-complete": "no",
 										"loop": "no",
 										"ping-pong": "no",
 										"repeat-count": "1"
 									}
-								},
+								}
+							],
+							"sid": 482444631455334
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 479204651145584
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 229898352144563,
+									"id": "is-animation-playing",
+									"objectClass": "Logo",
+									"sid": 386878250507481,
 									"parameters": {
-										"object-to-create": "Boom_Logo",
-										"layer": "LayerIndex(\"Main\")",
-										"x": "720",
-										"y": "300",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 516989367094273,
-									"parameters": {
-										"object-to-create": "Elektro",
-										"layer": "LayerIndex(\"Main\")",
-										"x": "720",
-										"y": "500",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Elektro",
-									"sid": 926529587491926,
-									"parameters": {
-										"animation": "\"Animation 1\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-scale",
-									"objectClass": "Elektro",
-									"sid": 806746122930915,
-									"parameters": {
-										"scale": "4"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "Elektro",
-									"sid": 888842376015445,
-									"parameters": {
-										"color": "rgbEx(50, 50, 50)"
-									}
-								},
-								{
-									"id": "set-scale",
-									"objectClass": "Boom_Logo",
-									"sid": 275503836628087,
-									"parameters": {
-										"scale": "4"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "Boom_Logo",
-									"sid": 415125317915040,
-									"parameters": {
-										"color": "rgbEx(50, 50, 50)"
+										"animation": "\"Logo1\""
 									}
 								}
 							],
-							"sid": 260871372912968,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Logo",
-											"sid": 308999200230930,
-											"parameters": {
-												"animation": "\"Logo1\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "tween-one-property",
-											"objectClass": "Logo",
-											"sid": 818269394230715,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetAngle",
-												"end-value": "50",
-												"time": "0.1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "tween-one-property",
-											"objectClass": "Logo",
-											"sid": 482908288787949,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetX",
-												"end-value": "550",
-												"time": "0.1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "wait-for-previous-actions",
-											"objectClass": "System",
-											"sid": 185265022119021
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Logo",
-											"sid": 223704296284300,
-											"parameters": {
-												"angle": "0"
-											}
-										},
-										{
-											"id": "set-scale",
-											"objectClass": "Logo",
-											"sid": 767756962280930,
-											"parameters": {
-												"scale": "0.3"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Logo",
-											"sid": 844523470040316,
-											"parameters": {
-												"frame-number": "1"
-											}
-										},
-										{
-											"id": "set-x",
-											"objectClass": "Logo",
-											"sid": 259011152434862,
-											"parameters": {
-												"x": "500"
-											}
-										}
-									],
-									"sid": 434326123053018
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Logo",
-											"sid": 794947075724546,
-											"parameters": {
-												"animation": "\"Logo2\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "tween-one-property",
-											"objectClass": "Logo",
-											"sid": 806792326367306,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetAngle",
-												"end-value": "300",
-												"time": "0.1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "tween-one-property",
-											"objectClass": "Logo",
-											"sid": 450253582290480,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetX",
-												"end-value": "850",
-												"time": "0.1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "wait-for-previous-actions",
-											"objectClass": "System",
-											"sid": 240600034848286
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Logo",
-											"sid": 351121593455504,
-											"parameters": {
-												"angle": "357"
-											}
-										},
-										{
-											"id": "set-scale",
-											"objectClass": "Logo",
-											"sid": 260732230500260,
-											"parameters": {
-												"scale": "0.3"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Logo",
-											"sid": 420354934542042,
-											"parameters": {
-												"frame-number": "1"
-											}
-										},
-										{
-											"id": "set-x",
-											"objectClass": "Logo",
-											"sid": 432200196610410,
-											"parameters": {
-												"x": "920"
-											}
-										},
-										{
-											"id": "set-y",
-											"objectClass": "Logo",
-											"sid": 761305298320350,
-											"parameters": {
-												"y": "155"
-											}
-										}
-									],
-									"sid": 223563713763254
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "tween-one-property",
-											"objectClass": "Mask_Logo",
-											"sid": 826472961071212,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetY",
-												"end-value": "300",
-												"time": "0.1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "wait-for-previous-actions",
-											"objectClass": "System",
-											"sid": 507919501417098
-										},
-										{
-											"id": "tween-one-property",
-											"objectClass": "Mask_Logo",
-											"sid": 651657478237273,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetY",
-												"end-value": "280",
-												"time": "1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 383680645850498,
-											"parameters": {
-												"seconds": "1.0",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "tween-one-property",
-											"objectClass": "Logo",
-											"sid": 884340713771350,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetY",
-												"end-value": "60",
-												"time": "1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "tween-one-property",
-											"objectClass": "Mask_Logo",
-											"sid": 150774124632489,
-											"behaviorType": "Твинанимация",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetY",
-												"end-value": "190",
-												"time": "1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 938689283324796,
-											"parameters": {
-												"variable": "ZoomCamera",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 231000546775212
+									"id": "tween-one-property",
+									"objectClass": "Logo",
+									"sid": 785188541596460,
+									"behaviorType": "Твинанимация",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetY",
+										"end-value": "62",
+										"time": "1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
 								}
-							]
+							],
+							"sid": 458909857659610
 						}
-					],
-					"isOrBlock": true
+					]
 				}
 			]
 		},
@@ -587,6 +860,15 @@
 						"loop": "no",
 						"ping-pong": "no",
 						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 669853212336861,
+					"parameters": {
+						"variable": "ZoomCamera",
+						"value": "false"
 					}
 				}
 			],
@@ -683,6 +965,14 @@
 				}
 			],
 			"actions": [
+				{
+					"callFunction": "shakeScreen",
+					"sid": 713100807766819
+				},
+				{
+					"callFunction": "shakeScreen",
+					"sid": 898199619901465
+				},
 				{
 					"id": "set-position",
 					"objectClass": "Camera",
@@ -1115,9 +1405,46 @@
 					],
 					"actions": [
 						{
+							"id": "set-item",
+							"objectClass": "Music_Safe",
+							"sid": 833278477008236,
+							"parameters": {
+								"key": "\"Sound\"",
+								"value": "Sound"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Camera",
+							"sid": 401191032573296,
+							"parameters": {
+								"object": "Shadow3",
+								"layer": "6",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Shadow3",
+							"sid": 992908426744123,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Shadow3",
+							"sid": 308248628517780,
+							"parameters": {
+								"scale": "2"
+							}
+						},
+						{
 							"id": "tween-one-property",
-							"objectClass": "Shadow5",
-							"sid": 301638390814076,
+							"objectClass": "Shadow3",
+							"sid": 926602728000237,
 							"behaviorType": "Твинанимация",
 							"parameters": {
 								"tags": "\"\"",
@@ -1132,20 +1459,124 @@
 							}
 						},
 						{
-							"id": "wait-for-previous-actions",
+							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 462099474344269
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 710922399325352,
+							"sid": 510742502634652,
 							"parameters": {
-								"layout": "Station"
+								"variable": "Start_Game",
+								"value": "true"
 							}
 						}
 					],
 					"sid": 749860747837193
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 374043756983691,
+							"parameters": {
+								"variable": "Start_Game"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 445436350708373,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 993476129652442,
+									"parameters": {
+										"interval-seconds": "0.5"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 730884422144058,
+									"parameters": {
+										"variable": "Sound",
+										"comparison": 0,
+										"value": "-25"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 986424049616734,
+									"parameters": {
+										"variable": "Sound",
+										"value": "2.5"
+									}
+								}
+							],
+							"sid": 838161621523381
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 159598174319802,
+									"parameters": {
+										"variable": "Sound",
+										"comparison": 0,
+										"value": "-25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Аудио",
+									"sid": 922095915773314,
+									"parameters": {
+										"tag": "\"music\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "Music_Safe",
+									"sid": 502105159114093,
+									"parameters": {
+										"key": "\"Sound\""
+									}
+								},
+								{
+									"id": "check-item-exists",
+									"objectClass": "Music_Safe",
+									"sid": 446074371559151,
+									"parameters": {
+										"key": "\"Sound\""
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 621326609152523
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 262603144325318,
+									"parameters": {
+										"layout": "Station"
+									}
+								}
+							],
+							"sid": 761210285235216
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -2794,6 +3225,18 @@
 							"parameters": {
 								"tag": "\"Lang\"",
 								"file": "Lang.json"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 388003812244043,
+							"parameters": {
+								"audio-file": "Breakdown - Loop - Mastering (mp3cut.net)",
+								"loop": "looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Suspense\""
 							}
 						}
 					],
