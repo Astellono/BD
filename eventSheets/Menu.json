@@ -732,40 +732,33 @@
 			],
 			"actions": [
 				{
-					"id": "restart-layout",
+					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 134108175354395
-				},
-				{
-					"id": "reset-global-variables",
-					"objectClass": "System",
-					"sid": 540166001083969,
+					"sid": 414653865136451,
 					"parameters": {
-						"reset-static": true
-					}
-				},
-				{
-					"id": "reset-eventvar",
-					"objectClass": "System",
-					"sid": 579169519633509,
-					"parameters": {
-						"variable": "weapon"
-					}
-				},
-				{
-					"id": "reset-eventvar",
-					"objectClass": "System",
-					"sid": 482611571501623,
-					"parameters": {
-						"variable": "HPplayer"
+						"variable": "Pause",
+						"value": "false"
 					}
 				},
 				{
 					"id": "set-time-scale",
 					"objectClass": "System",
-					"sid": 138175378076987,
+					"sid": 528410663037956,
 					"parameters": {
-						"time-scale": "1"
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Аудио",
+					"sid": 831981662702700
+				},
+				{
+					"id": "load",
+					"objectClass": "System",
+					"sid": 602462632212801,
+					"parameters": {
+						"slot": "\"start\""
 					}
 				}
 			],
@@ -803,22 +796,102 @@
 			],
 			"actions": [
 				{
-					"id": "set-time-scale",
-					"objectClass": "System",
-					"sid": 666558503617796,
-					"parameters": {
-						"time-scale": "1"
-					}
-				},
-				{
 					"id": "stop-all",
 					"objectClass": "Аудио",
 					"sid": 459626720587595
 				},
 				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 523407413753800,
+					"disabled": true,
+					"parameters": {
+						"time-scale": "1"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Camera",
+					"sid": 999757019846744,
+					"disabled": true,
+					"parameters": {
+						"object": "Shadow5",
+						"layer": "\"HUD\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Shadow5",
+					"sid": 325425322672699,
+					"disabled": true,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Shadow5",
+					"sid": 389519206475640,
+					"disabled": true,
+					"parameters": {
+						"scale": "4"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow5",
+					"sid": 998180009403828,
+					"disabled": true,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 309142029406375,
+					"disabled": true,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 852397005006759,
+					"disabled": true,
+					"parameters": {
+						"variable": "ZoomCamera",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Camera",
+					"sid": 375557959518385,
+					"disabled": true,
+					"parameters": {
+						"width": "100",
+						"height": "65"
+					}
+				},
+				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 458122797032140,
+					"sid": 391937597781179,
 					"parameters": {
 						"layout": "Main_Menu"
 					}

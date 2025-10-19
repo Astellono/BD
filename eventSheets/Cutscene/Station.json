@@ -14,6 +14,10 @@
 			"includeSheet": "Effect"
 		},
 		{
+			"eventType": "comment",
+			"text": "Start"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -79,6 +83,14 @@
 					"parameters": {
 						"variable": "Cut_Scene",
 						"value": "true"
+					}
+				},
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 948919749819998,
+					"parameters": {
+						"slot": "\"start\""
 					}
 				}
 			],
@@ -638,9 +650,9 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 687213792930739,
+					"sid": 272286109368470,
 					"parameters": {
-						"object-to-create": "press_Q",
+						"object-to-create": "Press_Ctrl",
 						"layer": "4",
 						"x": "Player_Cutscene.X",
 						"y": "Player_Cutscene.Y -40",
@@ -657,14 +669,14 @@
 				{
 					"id": "on-key-pressed",
 					"objectClass": "Kayboard",
-					"sid": 361063374517132,
+					"sid": 552874741932098,
 					"parameters": {
-						"key": 81
+						"key": 17
 					}
 				},
 				{
 					"id": "is-visible",
-					"objectClass": "press_Q",
+					"objectClass": "Press_Ctrl",
 					"sid": 979631652989500
 				},
 				{
@@ -680,7 +692,7 @@
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "press_Q",
+					"objectClass": "Press_Ctrl",
 					"sid": 474212081088788
 				},
 				{
@@ -1103,6 +1115,16 @@
 					"parameters": {
 						"animation": "\"Kick2\""
 					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_Cutscene",
+					"sid": 165085472687437,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "5"
+					}
 				}
 			],
 			"actions": [
@@ -1186,6 +1208,10 @@
 				}
 			],
 			"sid": 374486233309005
+		},
+		{
+			"eventType": "comment",
+			"text": "Gameplay"
 		},
 		{
 			"eventType": "block",
@@ -1322,6 +1348,10 @@
 				}
 			],
 			"sid": 204718558553794
+		},
+		{
+			"eventType": "comment",
+			"text": "End"
 		},
 		{
 			"eventType": "block",
@@ -2403,94 +2433,8 @@
 					}
 				}
 			],
-			"sid": 409960909832555
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-load-complete",
-					"objectClass": "System",
-					"sid": 274875381248203
-				}
-			],
-			"actions": [
-				{
-					"id": "play",
-					"objectClass": "Аудио",
-					"sid": 749250713077580,
-					"parameters": {
-						"audio-file": "Station_Main",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"music\""
-					}
-				},
-				{
-					"id": "seek-to",
-					"objectClass": "Аудио",
-					"sid": 196129534000005,
-					"parameters": {
-						"tag": "\"music\"",
-						"position": "Music_Safe.ItemValue"
-					}
-				}
-			],
-			"sid": 983592333021862
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-ended",
-					"objectClass": "Аудио",
-					"sid": 978035595732009,
-					"parameters": {
-						"tag": "\"music\""
-					}
-				},
-				{
-					"id": "is-group-active",
-					"objectClass": "System",
-					"sid": 839567214264466,
-					"parameters": {
-						"group-name": "\"Player\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "stop",
-					"objectClass": "Аудио",
-					"sid": 405555080726769,
-					"parameters": {
-						"tag": "\"Suspense\""
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 751304842849275,
-					"parameters": {
-						"seconds": "0.5",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Аудио",
-					"sid": 462173630084924,
-					"parameters": {
-						"audio-file": "Station_Main",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"music\""
-					}
-				}
-			],
-			"sid": 176368853252283
+			"sid": 409960909832555,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -2563,41 +2507,124 @@
 			"sid": 991081972435984
 		},
 		{
+			"eventType": "comment",
+			"text": "Music_Load"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-end-of-layout",
+					"id": "on-load-complete",
 					"objectClass": "System",
-					"sid": 727112695831001
+					"sid": 540494228752464
+				},
+				{
+					"id": "is-group-active",
+					"objectClass": "System",
+					"sid": 950903434729119,
+					"parameters": {
+						"group-name": "\"Player\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 426934509536574,
+					"parameters": {
+						"audio-file": "Station_Main",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "seek-to",
+					"objectClass": "Аудио",
+					"sid": 918894297105159,
+					"parameters": {
+						"tag": "\"music\"",
+						"position": "Music_Safe.ItemValue"
+					}
+				}
+			],
+			"sid": 610377616238973
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-ended",
+					"objectClass": "Аудио",
+					"sid": 216774446998497,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				},
+				{
+					"id": "is-group-active",
+					"objectClass": "System",
+					"sid": 587024502760645,
+					"parameters": {
+						"group-name": "\"Player\""
+					}
 				}
 			],
 			"actions": [
 				{
 					"id": "stop",
 					"objectClass": "Аудио",
-					"sid": 294576884934194,
+					"sid": 150300779305257,
 					"parameters": {
 						"tag": "\"Suspense\""
 					}
 				},
 				{
-					"id": "reset-global-variables",
+					"id": "wait",
 					"objectClass": "System",
-					"sid": 282956950206211,
+					"sid": 604822720948945,
 					"parameters": {
-						"reset-static": false
+						"seconds": "0.5",
+						"use-timescale": true
 					}
 				},
 				{
-					"id": "reset-global-variables",
-					"objectClass": "System",
-					"sid": 966976495094379,
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 464382939985694,
 					"parameters": {
-						"reset-static": true
+						"audio-file": "Station_Main",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
 					}
 				}
 			],
-			"sid": 693951088366604
+			"sid": 960085737353859
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 517173525261737
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 370169026552314,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				}
+			],
+			"sid": 267969182449549
 		}
 	],
 	"sid": 254775127056567
