@@ -139,6 +139,11 @@
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 543032826736167
+				},
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 350451938434765
 				}
 			],
 			"actions": [
@@ -362,6 +367,11 @@
 			],
 			"actions": [
 				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 442407363040902
+				},
+				{
 					"id": "stop",
 					"objectClass": "Аудио",
 					"sid": 232268329984204,
@@ -384,11 +394,16 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 470612781106505,
+					"sid": 212774904518766,
 					"parameters": {
 						"seconds": "0.5",
 						"use-timescale": true
 					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 405486957652222
 				},
 				{
 					"id": "tween-one-property",
@@ -408,117 +423,161 @@
 					}
 				},
 				{
-					"id": "play",
-					"objectClass": "Аудио",
-					"sid": 279696541878970,
-					"parameters": {
-						"audio-file": "Crash Roof",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"audio\""
-					}
-				},
-				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 534932705458328
+					"sid": 363701116717565
 				},
 				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 722397725136424,
+					"id": "set-boolean-instvar",
+					"objectClass": "Mask_Logo",
+					"sid": 897259820375919,
 					"parameters": {
-						"object-to-create": "Boom_Logo",
-						"layer": "LayerIndex(\"Main\")",
-						"x": "720",
-						"y": "300",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 326108812944464,
-					"parameters": {
-						"object-to-create": "Elektro",
-						"layer": "LayerIndex(\"Main\")",
-						"x": "720",
-						"y": "500",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Elektro",
-					"sid": 588581871172135,
-					"parameters": {
-						"animation": "\"Animation 1\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "start-animation",
-					"objectClass": "Elektro",
-					"sid": 838449974674489,
-					"parameters": {
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Boom_Logo",
-					"sid": 523811664391447,
-					"parameters": {
-						"animation": "\"Animation 1\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "start-animation",
-					"objectClass": "Boom_Logo",
-					"sid": 520717973134051,
-					"parameters": {
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-scale",
-					"objectClass": "Elektro",
-					"sid": 283895589372969,
-					"parameters": {
-						"scale": "4"
-					}
-				},
-				{
-					"id": "set-default-color",
-					"objectClass": "Elektro",
-					"sid": 823328000523193,
-					"parameters": {
-						"color": "rgbEx(50, 50, 50)"
-					}
-				},
-				{
-					"id": "set-scale",
-					"objectClass": "Boom_Logo",
-					"sid": 957562486595329,
-					"parameters": {
-						"scale": "4"
-					}
-				},
-				{
-					"id": "set-default-color",
-					"objectClass": "Boom_Logo",
-					"sid": 720706415963767,
-					"parameters": {
-						"color": "rgbEx(50, 50, 50)"
+						"instance-variable": "Crash",
+						"value": "true"
 					}
 				}
 			],
 			"sid": 135868537712961,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Mask_Logo",
+							"sid": 294273863922154,
+							"parameters": {
+								"instance-variable": "Crash"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 125638835888720
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 682120912480171
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 716897824382314,
+							"parameters": {
+								"audio-file": "Crash Roof",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 885476192336355,
+							"parameters": {
+								"object-to-create": "Boom_Logo",
+								"layer": "LayerIndex(\"Main\")",
+								"x": "720",
+								"y": "300",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 436093213010629,
+							"parameters": {
+								"object-to-create": "Elektro",
+								"layer": "LayerIndex(\"Main\")",
+								"x": "720",
+								"y": "500",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Elektro",
+							"sid": 485666238773720,
+							"parameters": {
+								"animation": "\"Animation 1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Boom_Logo",
+							"sid": 522761941049570,
+							"parameters": {
+								"animation": "\"Animation 1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "start-animation",
+							"objectClass": "Elektro",
+							"sid": 338141767780255,
+							"parameters": {
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "start-animation",
+							"objectClass": "Boom_Logo",
+							"sid": 862788735544794,
+							"parameters": {
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Elektro",
+							"sid": 129069892676500,
+							"parameters": {
+								"scale": "4"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Elektro",
+							"sid": 310173549981914,
+							"parameters": {
+								"color": "rgbEx(50, 50, 50)"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Boom_Logo",
+							"sid": 640344993765853,
+							"parameters": {
+								"scale": "4"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Boom_Logo",
+							"sid": 674325988416238,
+							"parameters": {
+								"color": "rgbEx(50, 50, 50)"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Mask_Logo",
+							"sid": 541169207416921,
+							"parameters": {
+								"instance-variable": "Crash",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 386025306043945
+				},
 				{
 					"eventType": "block",
 					"conditions": [

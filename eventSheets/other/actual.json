@@ -986,10 +986,10 @@
 						{
 							"id": "set-position",
 							"objectClass": "Camera",
-							"sid": 413878435888677,
+							"sid": 474098057652804,
 							"parameters": {
-								"x": "lerp(Self.X,Player_All.X,0.025)",
-								"y": "lerp(Self.Y,Player_All.Y-50,0.025)"
+								"x": "lerp(Self.X,Player_All.X,0.075)",
+								"y": "lerp(Self.Y,Player_All.Y-50,0.075)"
 							}
 						},
 						{
@@ -1019,6 +1019,7 @@
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 129239736286199,
+							"disabled": true,
 							"parameters": {
 								"variable": "HPplayer",
 								"comparison": 3,
@@ -12807,7 +12808,8 @@
 									}
 								}
 							],
-							"sid": 313471185530183
+							"sid": 313471185530183,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -12833,7 +12835,8 @@
 									}
 								}
 							],
-							"sid": 563655859934719
+							"sid": 563655859934719,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -23149,16 +23152,16 @@
 														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 628461314138069,
+															"sid": 691017989130304,
 															"parameters": {
-																"seconds": "0.01",
+																"seconds": "0.1",
 																"use-timescale": true
 															}
 														},
 														{
 															"id": "set-ignoring-input",
 															"objectClass": "EnemyBaseball",
-															"sid": 871707223665249,
+															"sid": 996890542217710,
 															"behaviorType": "Платформер",
 															"parameters": {
 																"input": "start-ignoring"
@@ -120459,6 +120462,28 @@
 			],
 			"sid": 902455434065633,
 			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 682132878103398
+				}
+			],
+			"actions": [
+				{
+					"id": "set-stepping-mode",
+					"objectClass": "Weapon",
+					"sid": 311736688309512,
+					"behaviorType": "Физика",
+					"parameters": {
+						"mode": "framerate-independent"
+					}
+				}
+			],
+			"sid": 689095331474295
 		}
 	],
 	"sid": 685168423764890
