@@ -7048,14 +7048,6 @@
 													"parameters": {
 														"object": "UpDown"
 													}
-												},
-												{
-													"id": "on-collision-with-another-object",
-													"objectClass": "Shot",
-													"sid": 695445103600629,
-													"parameters": {
-														"object": "Door_Metal"
-													}
 												}
 											],
 											"actions": [
@@ -7085,14 +7077,6 @@
 													"sid": 524972654928403,
 													"parameters": {
 														"object": "UpDown"
-													}
-												},
-												{
-													"id": "on-collision-with-another-object",
-													"objectClass": "Shot_Enemy",
-													"sid": 649036948208518,
-													"parameters": {
-														"object": "Door_Metal"
 													}
 												}
 											],
@@ -7124,14 +7108,6 @@
 													"parameters": {
 														"object": "UpDown"
 													}
-												},
-												{
-													"id": "on-collision-with-another-object",
-													"objectClass": "Shot_Shotgun",
-													"sid": 273595972212185,
-													"parameters": {
-														"object": "Door_Metal"
-													}
 												}
 											],
 											"actions": [
@@ -7143,6 +7119,96 @@
 											],
 											"sid": 426380880256311,
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "Shot_Shotgun",
+													"sid": 595510818785452,
+													"parameters": {
+														"object": "Door_Metal"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Door_Metal",
+													"sid": 336601951310375,
+													"parameters": {
+														"comparison": 0,
+														"number": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Shot_Shotgun",
+													"sid": 626892600553992
+												}
+											],
+											"sid": 424413285895492
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "Shot",
+													"sid": 776603153277329,
+													"parameters": {
+														"object": "Door_Metal"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Door_Metal",
+													"sid": 776979697500506,
+													"parameters": {
+														"comparison": 0,
+														"number": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Shot",
+													"sid": 262829075374907
+												}
+											],
+											"sid": 837307410645659
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "Shot_Enemy",
+													"sid": 433723062555652,
+													"parameters": {
+														"object": "Door_Metal"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Door_Metal",
+													"sid": 160793494693218,
+													"parameters": {
+														"comparison": 0,
+														"number": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Shot_Enemy",
+													"sid": 794521038185127
+												}
+											],
+											"sid": 215417080707002
 										}
 									],
 									"sid": 654018210197860
@@ -23351,7 +23417,6 @@
 											"id": "compare-instance-variable",
 											"objectClass": "EnemyBaseball",
 											"sid": 671810862949022,
-											"disabled": true,
 											"parameters": {
 												"instance-variable": "Fear",
 												"comparison": 4,
@@ -23491,7 +23556,6 @@
 											"id": "compare-instance-variable",
 											"objectClass": "EnemyBaseball",
 											"sid": 775947817807784,
-											"disabled": true,
 											"parameters": {
 												"instance-variable": "Fear",
 												"comparison": 4,
@@ -23770,6 +23834,50 @@
 										}
 									],
 									"sid": 116821863624135
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-timer-running",
+											"objectClass": "EnemyBaseball",
+											"sid": 469566988793404,
+											"behaviorType": "Таймер",
+											"parameters": {
+												"tag": "\"Up\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBaseball",
+											"sid": 820154986285726,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "EnemyBaseball",
+											"sid": 636513721736376,
+											"parameters": {
+												"instance-variable": "Down"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "EnemyBaseball",
+											"sid": 701287840667726,
+											"parameters": {
+												"animation": "\"onGround\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 875831088118432
 								}
 							],
 							"sid": 267787802491133
@@ -23879,7 +23987,7 @@
 										{
 											"id": "start-timer",
 											"objectClass": "EnemyBaseball",
-											"sid": 452329863035203,
+											"sid": 929541934577391,
 											"behaviorType": "Таймер",
 											"parameters": {
 												"duration": "1",
@@ -24017,10 +24125,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyBaseball",
-															"sid": 835275269399250,
+															"sid": 960665759781788,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.6",
+																"duration": "0.7",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -36290,10 +36398,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyJunkieKnife",
-															"sid": 992744441900626,
+															"sid": 559891164472672,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.6",
+																"duration": "0.7",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -48564,10 +48672,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyJunkie",
-															"sid": 389003618090117,
+															"sid": 548643302539649,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.6",
+																"duration": "0.7",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -61252,7 +61360,6 @@
 											"id": "compare-instance-variable",
 											"objectClass": "EnemyKnife",
 											"sid": 932004477096405,
-											"disabled": true,
 											"parameters": {
 												"instance-variable": "Fear",
 												"comparison": 4,
@@ -61393,7 +61500,6 @@
 											"id": "compare-instance-variable",
 											"objectClass": "EnemyKnife",
 											"sid": 476359287457519,
-											"disabled": true,
 											"parameters": {
 												"instance-variable": "Fear",
 												"comparison": 4,
@@ -61919,10 +62025,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyKnife",
-															"sid": 270386786675713,
+															"sid": 186113251507793,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.6",
+																"duration": "0.7",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -67116,10 +67222,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "EnemyPchel",
-													"sid": 642976135831303,
+													"sid": 732095574476808,
 													"parameters": {
 														"instance-variable": "Fear",
-														"value": "1"
+														"value": "Fear.PickedCount"
 													}
 												},
 												{
@@ -74958,10 +75064,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyPchel",
-															"sid": 942615511690934,
+															"sid": 198855247820882,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.6",
+																"duration": "0.7",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -101303,10 +101409,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemySecurity",
-															"sid": 438844535244687,
+															"sid": 961056124880247,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.6",
+																"duration": "0.7",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -120523,6 +120629,24 @@
 						"instance-variable": "Fear",
 						"value": "0"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemySecurity",
+					"sid": 657413358089976,
+					"parameters": {
+						"instance-variable": "Fear",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPchel",
+					"sid": 771981095821572,
+					"parameters": {
+						"instance-variable": "Fear",
+						"value": "0"
+					}
 				}
 			],
 			"sid": 210833138727433
@@ -120543,6 +120667,15 @@
 					"sid": 328587691099605,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-range",
+					"objectClass": "Fear",
+					"sid": 138553751598056,
+					"behaviorType": "ПолеЗрения",
+					"parameters": {
+						"range": "300"
 					}
 				}
 			],
