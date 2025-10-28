@@ -40,6 +40,16 @@
 			"sid": 764618788086663
 		},
 		{
+			"eventType": "variable",
+			"name": "Safe_Zone",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 772351040780857
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "SetupBar",
@@ -213,6 +223,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 294661918580734,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Jump\"",
 								"state": "deactivated"
@@ -221,7 +232,18 @@
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
+							"sid": 879651803736987,
+							"disabled": true,
+							"parameters": {
+								"group-name": "\"Final\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
 							"sid": 893310867253869,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Dash\"",
 								"state": "deactivated"
@@ -231,6 +253,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 490927468140544,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Kick\"",
 								"state": "deactivated"
@@ -240,6 +263,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 150909979465833,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Weapon\"",
 								"state": "deactivated"
@@ -249,6 +273,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 101555555559881,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Player_Weapon\"",
 								"state": "deactivated"
@@ -289,6 +314,15 @@
 							"sid": 782536275130885,
 							"parameters": {
 								"slot": "\"start\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 372931375892439,
+							"parameters": {
+								"variable": "Safe_Zone",
+								"value": "true"
 							}
 						}
 					],
@@ -381,13 +415,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 945419172052013,
+									"sid": 684440986046678,
 									"parameters": [
-										"\"Опять васян нахрючился\"",
+										"\"\"",
 										"428",
 										"380",
-										"0",
-										"0",
+										"45",
+										"1",
 										false
 									]
 								}
@@ -411,13 +445,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 495767252805890,
+									"sid": 130257016557910,
 									"parameters": [
-										"\"Медуза распустилась совсем!\"",
+										"\"\"",
 										"484",
 										"369",
-										"0",
-										"0",
+										"46",
+										"1",
 										false
 									]
 								}
@@ -441,13 +475,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 694871207805208,
+									"sid": 165964062166838,
 									"parameters": [
-										"\"Ну вот, уже Вихорькова петь начали, а это ведь только первый бар.\"",
+										"\"\"",
 										"428",
 										"380",
-										"0",
-										"0",
+										"47",
+										"1",
 										false
 									]
 								}
@@ -471,13 +505,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 922431191250865,
+									"sid": 552672667160101,
 									"parameters": [
-										"\"ААААА, выходи! Ой ты здесь\"",
+										"\"\"",
 										"444",
 										"374",
-										"0",
-										"0",
+										"48",
+										"1",
 										false
 									]
 								}
@@ -501,57 +535,27 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 456449928920454,
+									"sid": 852946027625095,
 									"parameters": [
-										"\"Стримы из бассейна, а что дальше?\"",
+										"\"\"",
 										"494",
 										"376",
-										"0",
-										"0",
-										false
-									]
-								}
-							],
-							"sid": 556847962984899
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Table_Beer",
-									"sid": 435823126023683,
-									"parameters": {
-										"instance-variable": "textframe",
-										"comparison": 0,
-										"value": "6"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "Create_Dealogue",
-									"sid": 870114417869745,
-									"parameters": [
-										"\"Яспер Моглот задонатил 100 рублей\"",
-										"484",
-										"369",
-										"0",
-										"0",
+										"49",
+										"1",
 										false
 									]
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Table_Beer",
-									"sid": 411651396254548,
+									"sid": 339438044832309,
 									"parameters": {
 										"instance-variable": "textframe",
 										"value": "0"
 									}
 								}
 							],
-							"sid": 134663612803876
+							"sid": 556847962984899
 						}
 					]
 				},
@@ -564,16 +568,6 @@
 							"sid": 232742287137785,
 							"parameters": {
 								"key": 69
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player_Cutscene",
-							"sid": 910415043736919,
-							"parameters": {
-								"instance-variable": "cast_text",
-								"comparison": 0,
-								"value": "57"
 							}
 						},
 						{
@@ -595,6 +589,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Girl",
+							"sid": 668776242274573,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "0"
+							}
+						},
 						{
 							"id": "add-to-instvar",
 							"objectClass": "Girl",
@@ -633,13 +636,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 925107262916799,
+									"sid": 346524258156321,
 									"parameters": [
-										"\"Не сегодня\"",
+										"\"\"",
 										"Player_Cutscene.X ",
 										"Player_Cutscene.Y -50",
-										"0",
-										"0",
+										"50",
+										"1",
 										false
 									]
 								}
@@ -663,13 +666,13 @@
 							"actions": [
 								{
 									"callFunction": "Create_Dealogue",
-									"sid": 484391867598609,
+									"sid": 628485611999089,
 									"parameters": [
-										"\"...\"",
+										"\"\"",
 										"Player_Cutscene.X ",
 										"Player_Cutscene.Y -50",
-										"0",
-										"0",
+										"51",
+										"3",
 										false
 									]
 								},
@@ -923,11 +926,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 485979973863340,
+							"sid": 487240656607057,
 							"parameters": {
 								"instance-variable": "cast_text",
-								"comparison": 1,
-								"value": "57"
+								"comparison": 2,
+								"value": "56"
 							}
 						}
 					],
@@ -975,11 +978,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 690452234375208,
+							"sid": 366042441661909,
 							"parameters": [
 								"\"Hello Mark, it's been a while since you've been here. How are you?\"",
 								"\"Fedor1\"",
-								"0",
+								"51",
 								"2"
 							]
 						},
@@ -1026,11 +1029,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 214197040275746,
+							"sid": 917197260309655,
 							"parameters": [
 								"\"Yeah, everything as usual. Tried to jump off a bridge under a train, killed about a dozen people, survived terrible torture. Boring.\"",
 								"\"Mark2\"",
-								"0",
+								"52",
 								"5"
 							]
 						}
@@ -1059,11 +1062,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 872592045224599,
+							"sid": 783998111255248,
 							"parameters": [
 								"\"Yeah, sure, but I don't piss in my clients' glasses.\"",
 								"\"Fedor1\"",
-								"0",
+								"53",
 								"3"
 							]
 						}
@@ -1092,11 +1095,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 855354922815984,
+							"sid": 371284571335574,
 							"parameters": [
 								"\"Have you become a prankster here?\"",
 								"\"Mark3\"",
-								"0",
+								"54",
 								"2"
 							]
 						}
@@ -1125,11 +1128,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 979143246398275,
+							"sid": 569852794649331,
 							"parameters": [
 								"\"Same as you, alright, let me pour you some beer and prepare the hookah; just wait till I show you this!\"",
 								"\"Fedor1\"",
-								"0",
+								"55",
 								"3"
 							]
 						}
@@ -1158,11 +1161,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 477796725059809,
+							"sid": 688734018854738,
 							"parameters": [
 								"\"Это который братьям Ермиловым принадлежит?\"",
 								"\"Mark3\"",
-								"0",
+								"56",
 								"2"
 							]
 						}
@@ -1191,11 +1194,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 723598017431704,
+							"sid": 947466299613813,
 							"parameters": [
 								"\"Он самый, предложили ему лучшие условия, тот и свалил как ни в чём не бывало, даже моё предложение не выслушал, говнюк.\"",
 								"\"Fedor2\"",
-								"0",
+								"57",
 								"4"
 							]
 						}
@@ -1224,11 +1227,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 516333682115098,
+							"sid": 668102821254341,
 							"parameters": [
 								"\"Посещаемость тоже не очень, ещё уроды какие-то повадились сюда приходить, в общем проблемы есть, но не столь серьёзные.\"",
 								"\"Fedor3\"",
-								"0",
+								"58",
 								"4"
 							]
 						}
@@ -1257,11 +1260,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 187829609822975,
+							"sid": 294855813220566,
 							"parameters": [
 								"\"Что-то ты сегодня мрачноватый, на работе чего случилось? \"",
 								"\"Fedor1\"",
-								"0",
+								"59",
 								"2"
 							]
 						}
@@ -1290,11 +1293,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 761564812079959,
+							"sid": 434415065075603,
 							"parameters": [
 								"\"Да случилось, я с неё уволился.\"",
 								"\"Mark2\"",
-								"0",
+								"60",
 								"1"
 							]
 						}
@@ -1323,11 +1326,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 586846514658325,
+							"sid": 503706369203520,
 							"parameters": [
 								"\"Хм, ну смотри, на пособии долго не просидишь. Нужно чем-то заниматься, а то ты и так днями из дома не выходишь.\"",
 								"\"Fedor4\"",
-								"0",
+								"61",
 								"4"
 							]
 						}
@@ -1356,11 +1359,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 599805124951892,
+							"sid": 131627456169143,
 							"parameters": [
 								"\"Ты бы лучше не обо мне волновался, а о том парне, что сейчас свои лёгкие выплюнет.\"",
 								"\"Mark1\"",
-								"0",
+								"62",
 								"3"
 							]
 						},
@@ -1398,11 +1401,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 678219439323404,
+							"sid": 960437677039441,
 							"parameters": [
-								"\"Вот блядь и вправду. Ань! Подойди на 2 столик, пожалуйста.\"",
+								"\"Вот блядь и вправду. Ань! Подойди на первый столик, пожалуйста.\"",
 								"\"Fedor5\"",
-								"0",
+								"63",
 								"3"
 							]
 						}
@@ -1431,11 +1434,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 933372089760492,
+							"sid": 357392410234637,
 							"parameters": [
 								"\"Уже бегу! \"",
 								"\"Any1\"",
-								"0",
+								"64",
 								"1"
 							]
 						},
@@ -1603,11 +1606,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 599458651271369,
+							"sid": 392204780188762,
 							"parameters": [
 								"\"Ого, Привет Марк! Давно не виделись.\"",
 								"\"Any1\"",
-								"0",
+								"65",
 								"1"
 							]
 						}
@@ -1636,11 +1639,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 663402373126075,
+							"sid": 774170357434497,
 							"parameters": [
 								"\"Привет, беги скорее, а то парень задахнёться\"",
 								"\"Mark1\"",
-								"0",
+								"66",
 								"2"
 							]
 						}
@@ -1669,11 +1672,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 721850357578580,
+							"sid": 200000598863546,
 							"parameters": [
 								"\"Да, да\"",
 								"\"Any1\"",
-								"0",
+								"67",
 								"1"
 							]
 						},
@@ -1753,11 +1756,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 523379452261199,
+							"sid": 949249679317513,
 							"parameters": [
 								"\"Я как понимаю Аня теперь ещё и обязанности кальянщика на себя взяла, да? \"",
 								"\"Mark1\"",
-								"0",
+								"68",
 								"3"
 							]
 						}
@@ -1786,11 +1789,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 985162673367875,
+							"sid": 390290311351722,
 							"parameters": [
 								"\"Да, с тех пор как свалил тот говнюк, Аня вызвалась помочь мне, пока я не найду замену. \"",
 								"\"Fedor3\"",
-								"0",
+								"69",
 								"3"
 							]
 						}
@@ -1819,11 +1822,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 889887791078973,
+							"sid": 362593575569561,
 							"parameters": [
 								"\"Она всегда нам помогала в трудную минуту.\"",
 								"\"Mark2\"",
-								"0",
+								"70",
 								"1"
 							]
 						}
@@ -1852,11 +1855,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 966578055157863,
+							"sid": 918664948398024,
 							"parameters": [
 								"\"Дааа, на то ведь и нужны друзья, верно? Одну минуту.\"",
 								"\"Fedor1\"",
-								"0",
+								"71",
 								"2"
 							]
 						},
@@ -1894,11 +1897,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 695544288624732,
+							"sid": 100407890787670,
 							"parameters": [
 								"\"И к новостям криминальной хроники, сегодня в парке на юге города был найден труп Юрия Александрова, он разыскивался за серию жестоких убийств, ему приписывается порядка 40 убийств.\"",
 								"\"TV\"",
-								"0",
+								"72",
 								"4"
 							]
 						}
@@ -1927,11 +1930,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 622486893338622,
+							"sid": 807197484172068,
 							"parameters": [
 								"\"По предварительным данным он скончался от колотых ран в грудь острым предметом, само оружие убийство не было найдено.\"",
 								"\"TV\"",
-								"0",
+								"73",
 								"3"
 							]
 						}
@@ -1960,11 +1963,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 720317308977826,
+							"sid": 767318316781684,
 							"parameters": [
 								"\"Но сотрудники убойного отдела продолжают расследовать место преступления.\"",
 								"\"TV\"",
-								"0",
+								"74",
 								"2"
 							]
 						}
@@ -1993,11 +1996,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 752961320428469,
+							"sid": 267019247860096,
 							"parameters": [
 								"\"И к другим новостям.\"",
 								"\"TV\"",
-								"0",
+								"75",
 								"1"
 							]
 						}
@@ -2026,11 +2029,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 146132787270153,
+							"sid": 290730633975598,
 							"parameters": [
-								"\"Вот чёрт, они нашли труп, я, конечно, подозревал, что рано или поздно его найдут, но не думал, что так быстро. Мне казалось, я отнес его в достаточно укромное место.\"",
+								"\"\"",
 								"\"Mark4\"",
-								"0",
+								"76",
 								"4"
 							]
 						}
@@ -2059,84 +2062,18 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 630995186807840,
+							"sid": 406889695391973,
 							"parameters": [
-								"\"Теперь время на раздумье остается все меньше.\"",
+								"\"\"",
 								"\"Mark4\"",
-								"0",
+								"77",
 								"1"
-							]
-						}
-					],
-					"sid": 416932134495730
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player_Cutscene",
-							"sid": 861420093753058,
-							"parameters": {
-								"instance-variable": "cast_text",
-								"comparison": 0,
-								"value": "28"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 522357457904742
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Create_mainDialoge",
-							"sid": 227736402747503,
-							"parameters": [
-								"\"Так странно, ещё вчера я хотел покончить с собой и тут появляется человек, который с большим желанием хочет мне в этом помочь, как вдруг я начинаю бороться за собственную жизнь.\"",
-								"\"Mark4\"",
-								"0",
-								"3"
-							]
-						}
-					],
-					"sid": 841731626022105
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player_Cutscene",
-							"sid": 759669297796712,
-							"parameters": {
-								"instance-variable": "cast_text",
-								"comparison": 0,
-								"value": "29"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 695562318603314
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Create_mainDialoge",
-							"sid": 779050367281673,
-							"parameters": [
-								"\"Видимо стоило оказаться на самом краю пропасти, чтобы начать ценить собственную жизнь или возможно, стоило отнять чужую, чтобы обрести свою, как посмотреть…\"",
-								"\"Mark4\"",
-								"0",
-								"3"
 							]
 						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 628810179262519,
+							"sid": 955509239219769,
 							"parameters": {
 								"object-to-create": "Vest",
 								"layer": "3",
@@ -2149,7 +2086,7 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 210439363770427,
+							"sid": 474936042300872,
 							"parameters": {
 								"object-to-create": "Fat",
 								"layer": "3",
@@ -2162,7 +2099,7 @@
 						{
 							"id": "set-speed",
 							"objectClass": "Vest",
-							"sid": 221014126489065,
+							"sid": 579127749981392,
 							"behaviorType": "НастраиваемоеДвижение",
 							"parameters": {
 								"which": "horizontal",
@@ -2172,7 +2109,7 @@
 						{
 							"id": "set-speed",
 							"objectClass": "Fat",
-							"sid": 129004932117084,
+							"sid": 797375093274018,
 							"behaviorType": "НастраиваемоеДвижение",
 							"parameters": {
 								"which": "horizontal",
@@ -2182,14 +2119,14 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 663079168412987,
+							"sid": 945763867683472,
 							"parameters": {
 								"variable": "StopSkip",
 								"value": "true"
 							}
 						}
 					],
-					"sid": 644221762134608
+					"sid": 416932134495730
 				},
 				{
 					"eventType": "block",
@@ -2197,11 +2134,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 148563241874531,
+							"sid": 240009881998807,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "29"
+								"value": "27"
 							}
 						}
 					],
@@ -2265,11 +2202,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 173967968086122,
+							"sid": 164295356890858,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "30"
+								"value": "28"
 							}
 						},
 						{
@@ -2281,11 +2218,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 968914561582843,
+							"sid": 886554052458108,
 							"parameters": [
 								"\"Здарова Феденька, ну что, скоро отожмем с Ермиловами твоих клиентов?\"",
 								"\"Fat1\"",
-								"0",
+								"78",
 								"2"
 							]
 						},
@@ -2315,11 +2252,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 199677004413562,
+							"sid": 466795801850085,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "31"
+								"value": "29"
 							}
 						},
 						{
@@ -2331,11 +2268,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 158442466974597,
+							"sid": 279837365000686,
 							"parameters": [
 								"\"Уверен, клиентов хватит на нас обоих, тем более направленность моего заведения…\"",
 								"\"Fedor3\"",
-								"0",
+								"79",
 								"2"
 							]
 						}
@@ -2348,11 +2285,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 439459400758379,
+							"sid": 440100864745773,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "32"
+								"value": "30"
 							}
 						},
 						{
@@ -2364,11 +2301,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 412638465327154,
+							"sid": 240074991952416,
 							"parameters": [
 								"\"Да пизди больше про свою направленность, кому нужна эта унылая безвкусная помойка, скоро тут совсем никто кроме этого задрота и той альтухи появляться не будет.\"",
 								"\"Fat1\"",
-								"0",
+								"80",
 								"3"
 							]
 						}
@@ -2381,11 +2318,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 186022551548606,
+							"sid": 734045781537891,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "33"
+								"value": "31"
 							}
 						},
 						{
@@ -2397,11 +2334,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 705895869446402,
+							"sid": 367782274851761,
 							"parameters": [
 								"\"Что же ты тогда забыл в нашей “безвкусной помойки”? \"",
 								"\"Fedor2\"",
-								"0",
+								"81",
 								"1"
 							]
 						}
@@ -2414,11 +2351,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 172313419044857,
+							"sid": 616926650343767,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "34"
+								"value": "32"
 							}
 						},
 						{
@@ -2430,11 +2367,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 358085331512314,
+							"sid": 123591444468699,
 							"parameters": [
 								"\"Санитарный день у нас по понедельникам и вообще тебя это ебать не должно.\"",
 								"\"Fat1\"",
-								"0",
+								"82",
 								"2"
 							]
 						}
@@ -2447,11 +2384,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 881367065130541,
+							"sid": 836627701208824,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "35"
+								"value": "33"
 							}
 						},
 						{
@@ -2463,11 +2400,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 236288111870247,
+							"sid": 905327921830942,
 							"parameters": [
 								"\"Я сюда напиться пришел, а не про бизнес свой базарить.\r\nА ты че вылупился Маркуша?\"",
 								"\"Fat1\"",
-								"0",
+								"83",
 								"2"
 							]
 						}
@@ -2480,11 +2417,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 243656776749229,
+							"sid": 862165850298366,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "36"
+								"value": "34"
 							}
 						},
 						{
@@ -2496,11 +2433,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 135306725139614,
+							"sid": 597032085129947,
 							"parameters": [
 								"\"...\"",
 								"\"Mark4\"",
-								"0",
+								"84",
 								"1"
 							]
 						}
@@ -2513,11 +2450,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 755302589324120,
+							"sid": 331784273887459,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "37"
+								"value": "35"
 							}
 						},
 						{
@@ -2529,11 +2466,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 804497412510995,
+							"sid": 452040058686622,
 							"parameters": [
 								"\"Язык в жопу засунул?\"",
 								"\"Fat1\"",
-								"0",
+								"85",
 								"1"
 							]
 						}
@@ -2546,11 +2483,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 616688880886468,
+							"sid": 507447695765750,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "38"
+								"value": "36"
 							}
 						},
 						{
@@ -2562,11 +2499,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 833795986754670,
+							"sid": 274989741995328,
 							"parameters": [
 								"\"Вспомнил как я тебе рожу начистил, после того как альтуху вашу аттрахал пару лет назад на вписке да?\"",
 								"\"Fat2\"",
-								"0",
+								"86",
 								"2"
 							]
 						}
@@ -2579,11 +2516,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 940041253816711,
+							"sid": 303445847235064,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "39"
+								"value": "37"
 							}
 						},
 						{
@@ -2595,11 +2532,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 526631132437128,
+							"sid": 887452302823338,
 							"parameters": [
 								"\"Не без помощи своих подсосов ты мне тогда навалял.\"",
 								"\"Mark2\"",
-								"0",
+								"87",
 								"1"
 							]
 						}
@@ -2612,11 +2549,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 696995629944080,
+							"sid": 465552076768647,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "40"
+								"value": "38"
 							}
 						},
 						{
@@ -2628,11 +2565,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 303776268040020,
+							"sid": 442273273424837,
 							"parameters": [
 								"\"Ты попизди мне тут ещё, в миг на месту поставлю\"",
 								"\"Fat2\"",
-								"0",
+								"88",
 								"1"
 							]
 						}
@@ -2645,11 +2582,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 642697094131568,
+							"sid": 293977941149570,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "41"
+								"value": "39"
 							}
 						},
 						{
@@ -2661,11 +2598,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 987741027196630,
+							"sid": 607984332216229,
 							"parameters": [
 								"\"Ладно, скучные вы тут какие-то, налей-ка лучше выпить и тащи за мой стол борода.\"",
 								"\"Fat2\"",
-								"0",
+								"89",
 								"2"
 							]
 						}
@@ -2678,11 +2615,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 694053896934256,
+							"sid": 125513866754972,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "42"
+								"value": "40"
 							}
 						},
 						{
@@ -2694,11 +2631,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 585741132574097,
+							"sid": 765394916966913,
 							"parameters": [
 								"\"Интересно, у жирдяя фишка такая, деньги в сумке таскать?\"",
 								"\"Mark3\"",
-								"0",
+								"90",
 								"1"
 							]
 						},
@@ -2746,11 +2683,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 609832871156528,
+							"sid": 972335848622081,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "43"
+								"value": "41"
 							}
 						},
 						{
@@ -2762,11 +2699,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 190188450157827,
+							"sid": 773057342868455,
 							"parameters": [
 								"\"Без понятия, деньги есть деньги, таскай он их хоть в своей жирной заднице, я бы у него их у него с радостью принял.\"",
 								"\"Fedor4\"",
-								"0",
+								"91",
 								"2"
 							]
 						}
@@ -2779,11 +2716,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 298109738052375,
+							"sid": 349047757768852,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "44"
+								"value": "42"
 							}
 						},
 						{
@@ -2795,11 +2732,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 103161351599391,
+							"sid": 569339668150682,
 							"parameters": [
 								"\"Опять слышу отдаленные звуки шума в моей голове, ком подступает к горлу, потроха в животе потихоньку начинают сворачиваться в узел.\"",
 								"\"Mark4\"",
-								"0",
+								"92",
 								"3"
 							]
 						},
@@ -2851,11 +2788,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 849234010458806,
+							"sid": 184834018668632,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "45"
+								"value": "43"
 							}
 						},
 						{
@@ -2867,11 +2804,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 690462347826391,
+							"sid": 926414970275971,
 							"parameters": [
-								"\"Часто я думаю о том, что люди мне симпатичны, просто я плохо коммуницирую с ними, но, когда я сталкиваюсь с таким самодовольным плюющим на все быдлом, думаю только о том, как выбивал бы \"",
+								"\"Часто я думаю о том, что люди мне симпатичны, просто я плохо коммуницирую с ними, но, когда я сталкиваюсь с таким самодовольным плюющим на все быдлом, думаю только о том, как выбивал бы дерьмо из таких подонков.\"",
 								"\"Mark4\"",
-								"0",
+								"93",
 								"4"
 							]
 						}
@@ -2884,11 +2821,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 225276732826682,
+							"sid": 836149060955896,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "46"
+								"value": "44"
 							}
 						},
 						{
@@ -2900,11 +2837,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 634880798967260,
+							"sid": 711277724756830,
 							"parameters": [
 								"\"Желательно не спеша, смаковать это все, чтобы другим было в назидание. \"",
 								"\"Mark4\"",
-								"0",
+								"94",
 								"3"
 							]
 						}
@@ -2917,11 +2854,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 242037411291323,
+							"sid": 865989999965085,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "47"
+								"value": "45"
 							}
 						},
 						{
@@ -2933,11 +2870,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 905404074075146,
+							"sid": 155956708631582,
 							"parameters": [
 								"\"Иногда мне самому становиться страшно от своих мыслей, но с каждым выпитым стаканом, я понимаю, что бояться будут они, за свое здоровье и свои деньги.\"",
 								"\"Mark4\"",
-								"0",
+								"95",
 								"3"
 							]
 						}
@@ -2950,11 +2887,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 275138902938673,
+							"sid": 405137846488566,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "48"
+								"value": "46"
 							}
 						},
 						{
@@ -2966,11 +2903,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 104830348176421,
+							"sid": 375621088172074,
 							"parameters": [
 								"\"Из сумки у толстяка торчит не мало купюр, думаю на первое время этого должно хватить, чтобы осесть где-нибудь подальше отсюда, пока полиция ещё не успела на меня выйти.\"",
 								"\"Mark4\"",
-								"0",
+								"96",
 								"3"
 							]
 						}
@@ -2983,11 +2920,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 241070466904689,
+							"sid": 709360555684843,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "49"
+								"value": "47"
 							}
 						},
 						{
@@ -2999,11 +2936,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 593684485661279,
+							"sid": 428703064394020,
 							"parameters": [
 								"\"Переломаю ноги этим напившимся скотинам и дело с концом. \"",
 								"\"Mark4\"",
-								"0",
+								"97",
 								"2"
 							]
 						}
@@ -3016,11 +2953,44 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 109849943864596,
+							"sid": 565677004652336,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "50"
+								"value": "48"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 762162106983189
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 737498222735466,
+							"parameters": [
+								"\"Переломаю ноги этим напившимся скотинам и дело с концом. \"",
+								"\"Mark4\"",
+								"98",
+								"2"
+							]
+						}
+					],
+					"sid": 542825635187350
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 330337243159645,
+							"parameters": {
+								"instance-variable": "cast_text",
+								"comparison": 0,
+								"value": "49"
 							}
 						},
 						{
@@ -3032,11 +3002,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 928593140498416,
+							"sid": 117277054399559,
 							"parameters": [
 								"\"На кого это ты так засмотрелся Марк? \"",
 								"\"Fedor1\"",
-								"0",
+								"99",
 								"1"
 							]
 						},
@@ -3084,11 +3054,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 768476902686748,
+							"sid": 708455951097051,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "51"
+								"value": "50"
 							}
 						},
 						{
@@ -3100,11 +3070,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 801160821625347,
+							"sid": 657425664300409,
 							"parameters": [
 								"\"Неужто та девчонка понравилась, может подойдешь познакомишься? \"",
 								"\"Fedor1\"",
-								"0",
+								"100",
 								"2"
 							]
 						}
@@ -3117,11 +3087,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 761152275613553,
+							"sid": 660348106799882,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "52"
+								"value": "51"
 							}
 						},
 						{
@@ -3133,11 +3103,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 448073293747396,
+							"sid": 820991762371294,
 							"parameters": [
 								"\"Да уж, она и в правду ничего.\"",
 								"\"Mark4\"",
-								"0",
+								"101",
 								"1"
 							]
 						}
@@ -3150,11 +3120,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 764615268393065,
+							"sid": 185150687577248,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "53"
+								"value": "52"
 							}
 						},
 						{
@@ -3166,11 +3136,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 970933484787326,
+							"sid": 220846284853311,
 							"parameters": [
 								"\"Хмф…\"",
 								"\"Mark4\"",
-								"0",
+								"102",
 								"2"
 							]
 						}
@@ -3183,11 +3153,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 289010795920650,
+							"sid": 426005204178372,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "54"
+								"value": "53"
 							}
 						},
 						{
@@ -3199,11 +3169,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 415651120223927,
+							"sid": 661677044090665,
 							"parameters": [
 								"\"Будто бы из этого, когда-то был толк.\"",
 								"\"Mark4\"",
-								"0",
+								"103",
 								"1"
 							]
 						}
@@ -3216,11 +3186,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 872452932631798,
+							"sid": 146284190375278,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "55"
+								"value": "54"
 							}
 						},
 						{
@@ -3232,11 +3202,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 262528849636006,
+							"sid": 500669739326396,
 							"parameters": [
 								"\"Не, ты же знаешь, девушкам я не нравлюсь.\"",
 								"\"Mark3\"",
-								"0",
+								"104",
 								"1"
 							]
 						}
@@ -3249,11 +3219,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 893313356306048,
+							"sid": 358811357411823,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "56"
+								"value": "55"
 							}
 						},
 						{
@@ -3265,11 +3235,11 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 503722553475836,
+							"sid": 881633983194385,
 							"parameters": [
 								"\"Пойду лучше домой отосплюсь и начну искать себе новую работу.\"",
 								"\"Mark1\"",
-								"0",
+								"105",
 								"2"
 							]
 						},
@@ -3291,11 +3261,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 745259471713382,
+							"sid": 938152988378826,
 							"parameters": {
 								"instance-variable": "cast_text",
 								"comparison": 0,
-								"value": "57"
+								"value": "56"
 							}
 						},
 						{
@@ -3317,9 +3287,9 @@
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 208730921883689,
+							"sid": 385055255883003,
 							"parameters": {
-								"group-name": "\"Player_cast\"",
+								"group-name": "\"Player\"",
 								"state": "activated"
 							}
 						}
