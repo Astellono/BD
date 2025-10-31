@@ -881,6 +881,128 @@
 				}
 			],
 			"sid": 361034595788430
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 358964334912160
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 532683050515275,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 532281942006625,
+					"parameters": {
+						"object-to-create": "Shadow3",
+						"layer": "\"Player\"",
+						"x": "Player_Cutscene.X",
+						"y": "Player_Cutscene.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "Music_Safe",
+					"sid": 963560054922738,
+					"parameters": {
+						"key": "\"SaveMusic\"",
+						"value": "\"0\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 153978694664870,
+					"parameters": {
+						"variable": "Cut_Scene",
+						"value": "true"
+					}
+				},
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 824857472790905,
+					"parameters": {
+						"slot": "\"start\""
+					}
+				}
+			],
+			"sid": 566197789743141
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Shadow3",
+					"sid": 141352580440865
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 116982904393118,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 356753458574493,
+					"parameters": {
+						"audio-file": "Station_Start",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 498658246385460,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "3",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 331120114943074
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Shadow3",
+					"sid": 782598315205620
+				}
+			],
+			"sid": 214346474283991
 		}
 	],
 	"sid": 164580079911713
