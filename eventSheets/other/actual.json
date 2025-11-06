@@ -78,6 +78,16 @@
 			"sid": 308304117600408
 		},
 		{
+			"eventType": "variable",
+			"name": "Enemys",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 761731316305673
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Setup",
@@ -4245,6 +4255,15 @@
 							}
 						},
 						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 535987927202446,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "EnemyBaseball",
 							"sid": 493025645666388,
@@ -4296,6 +4315,15 @@
 							}
 						},
 						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 425907425770195,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "EnemyKnife",
 							"sid": 672147921979129,
@@ -4332,6 +4360,15 @@
 								"image-point": "0",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 168748819181820,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
 							}
 						},
 						{
@@ -4395,6 +4432,15 @@
 							}
 						},
 						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 795753083499663,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "EnemySecurity",
 							"sid": 422477540723975,
@@ -4446,6 +4492,15 @@
 							}
 						},
 						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 817820136376701,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "EnemyPchel",
 							"sid": 624116623190993,
@@ -4494,6 +4549,15 @@
 								"image-point": "0",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 333827380848645,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
 							}
 						},
 						{
@@ -4557,6 +4621,15 @@
 							}
 						},
 						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 597943711079792,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "EnemyJunkieKnife",
 							"sid": 431844057154611,
@@ -4593,6 +4666,15 @@
 								"image-point": "0",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 169986005422850,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
 							}
 						},
 						{
@@ -12528,6 +12610,11 @@
 										"comparison": 3,
 										"value": "0"
 									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 103444513143048
 								}
 							],
 							"actions": [
@@ -15221,6 +15308,32 @@
 										}
 									],
 									"sid": 911765022319966
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-key-pressed",
+											"objectClass": "Kayboard",
+											"sid": 214069176044218
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Player_All",
+											"sid": 222951100981786,
+											"parameters": {
+												"instance-variable": "kickrun"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "HitBox",
+											"sid": 554516966340811
+										}
+									],
+									"sid": 553588092347026
 								}
 							],
 							"sid": 913147711079046
@@ -25253,21 +25366,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 170959638275103,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 773198274010405,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 632974928065552,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -25355,21 +25468,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 606757560080941,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 846926390697069,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 346590628731014,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -26387,6 +26500,47 @@
 									"sid": 941578391680664
 								},
 								{
+									"bookmark": true,
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "EnemyBaseball",
+											"sid": 130217022278667
+										}
+									],
+									"actions": [
+										{
+											"id": "add-obstacle",
+											"objectClass": "EnemyBaseball",
+											"sid": 366441057620584,
+											"behaviorType": "ПолеЗрения",
+											"parameters": {
+												"obstacle": "Wall"
+											}
+										},
+										{
+											"id": "add-obstacle",
+											"objectClass": "EnemyBaseball",
+											"sid": 388782185488337,
+											"behaviorType": "ПолеЗрения",
+											"parameters": {
+												"obstacle": "Skvoz"
+											}
+										},
+										{
+											"id": "add-obstacle",
+											"objectClass": "EnemyBaseball",
+											"sid": 824370401933167,
+											"behaviorType": "ПолеЗрения",
+											"parameters": {
+												"obstacle": "Door_Old"
+											}
+										}
+									],
+									"sid": 462433665074150
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -26697,23 +26851,23 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyBaseball",
-													"sid": 578543446964869,
+													"sid": 315604754217711,
 													"disabled": true,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyBaseball",
-													"sid": 497205654828196,
+													"sid": 200796553490445,
 													"disabled": true,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -26871,7 +27025,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "EnemyBaseball",
-															"sid": 236159819253613,
+															"sid": 182831523275980,
 															"parameters": {
 																"instance-variable": "DifY",
 																"comparison": 5,
@@ -26881,7 +27035,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "EnemyBaseball",
-															"sid": 403993131040609,
+															"sid": 149370383644995,
 															"parameters": {
 																"instance-variable": "DifY",
 																"comparison": 3,
@@ -28925,7 +29079,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Enemy_Baseball2",
+					"title": "Enemy_Security",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -38286,21 +38440,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 733584793432461,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 336254095438963,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 380419478654920,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -51649,21 +51803,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 198981131249724,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 634004246729137,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 438825144197341,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -63971,21 +64125,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 457496058300687,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 596915143448197,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 546605753141670,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -77372,21 +77526,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 487532006178461,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 250176176205844,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 381758126741315,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -90459,21 +90613,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 305085736667410,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 363339790798102,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 861398190253218,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -90561,21 +90715,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 849068306854409,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 619150096941035,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 611818348587544,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -103430,10 +103584,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyFurious",
-															"sid": 959781393138984,
+															"sid": 189179663789727,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.5",
+																"duration": "0.25",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -103662,10 +103816,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyFurious",
-															"sid": 385271735816908,
+															"sid": 389172580330921,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.5",
+																"duration": "0.25",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -103910,10 +104064,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyFurious",
-															"sid": 781660426780771,
+															"sid": 607986262182517,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.5",
+																"duration": "0.25",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -104102,21 +104256,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 241331052828670,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 327219419584270,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 139631194135891,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -104219,21 +104373,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 124662479455729,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 384858276063807,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 926442644278814,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -115442,10 +115596,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyFat",
-															"sid": 733535828319946,
+															"sid": 702574077882069,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.5",
+																"duration": "0.2",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -115670,10 +115824,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyFat",
-															"sid": 639548517624169,
+															"sid": 698411678148998,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.5",
+																"duration": "0.2",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -116037,10 +116191,10 @@
 														{
 															"id": "start-timer",
 															"objectClass": "EnemyFat",
-															"sid": 355834227947610,
+															"sid": 623385316345936,
 															"behaviorType": "Таймер",
 															"parameters": {
-																"duration": "0.5",
+																"duration": "0.2",
 																"type": "once",
 																"tag": "\"Damage\""
 															}
@@ -116709,21 +116863,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 471649328461367,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 879883266860479,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 869135863046183,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -116826,21 +116980,21 @@
 													}
 												},
 												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 108073219198641,
-													"parameters": {
-														"variable": "weapon",
-														"value": "\"noWeapon\""
-													}
-												},
-												{
 													"id": "wait",
 													"objectClass": "System",
 													"sid": 429540595881661,
 													"parameters": {
 														"seconds": "0.2",
 														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 348847912820394,
+													"parameters": {
+														"variable": "weapon",
+														"value": "\"noWeapon\""
 													}
 												},
 												{
@@ -132561,7 +132715,8 @@
 					}
 				}
 			],
-			"sid": 180065865853135
+			"sid": 180065865853135,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -132676,28 +132831,6 @@
 				}
 			],
 			"sid": 689095331474295
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 709326532953631
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Enemys",
-					"sid": 103452824906265,
-					"parameters": {
-						"instance-variable": "AllEnemy",
-						"value": "Enemys.Count"
-					}
-				}
-			],
-			"sid": 887079677860732
 		}
 	],
 	"sid": 685168423764890

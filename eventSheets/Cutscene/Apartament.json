@@ -84,9 +84,9 @@
 				{
 					"id": "set-animation",
 					"objectClass": "Player_All",
-					"sid": 444532334011520,
+					"sid": 432188861248200,
 					"parameters": {
-						"animation": "\"noWeaponIdle\"",
+						"animation": "weapon & \"Idle\"",
 						"from": "beginning"
 					}
 				},
@@ -154,10 +154,10 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Shadow2",
-					"sid": 642607327885673,
+					"sid": 273649810161090,
 					"behaviorType": "Твинанимация",
 					"parameters": {
-						"tags": "\"\"",
+						"tags": "\"Start\"",
 						"property": "offsetOpacity",
 						"end-value": "0",
 						"time": "1",
@@ -269,13 +269,22 @@
 					"id": "trigger-once-while-true",
 					"objectClass": "System",
 					"sid": 200645913910311
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Shadow2",
+					"sid": 351544347752853,
+					"parameters": {
+						"tags": "\"Start\""
+					}
 				}
 			],
 			"actions": [
 				{
 					"id": "destroy",
 					"objectClass": "Shadow2",
-					"sid": 879883951102323
+					"sid": 879883951102323,
+					"disabled": true
 				},
 				{
 					"id": "wait",
@@ -951,12 +960,12 @@
 					"sid": 791647426905370
 				},
 				{
-					"id": "add-to-instvar",
-					"objectClass": "Player_All",
-					"sid": 595074021765132,
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 468572544724752,
 					"parameters": {
-						"instance-variable": "textframe",
-						"value": "1"
+						"variable": "Cut_Scene",
+						"value": "true"
 					}
 				}
 			],
@@ -966,136 +975,135 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player_All",
-					"sid": 198393183702528,
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 730186037268620,
 					"parameters": {
-						"instance-variable": "textframe",
-						"comparison": 0,
-						"value": "6"
+						"variable": "Cut_Scene"
 					}
 				},
 				{
-					"id": "trigger-once-while-true",
+					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 325090524814038
+					"sid": 506667341882653,
+					"parameters": {
+						"variable": "onDial"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
 				{
-					"callFunction": "Create_Dealogue",
-					"sid": 182937068961186,
-					"parameters": [
-						"\"Ты кто такой нахуй?\"",
-						"EnemyBaseball.X",
-						"EnemyBaseball.Y -50",
-						"110",
-						"1",
-						false
-					]
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 416988490308840,
-					"parameters": {
-						"seconds": "3",
-						"use-timescale": true
-					}
-				},
-				{
 					"id": "add-to-instvar",
 					"objectClass": "Player_All",
-					"sid": 632567332155604,
+					"sid": 956398257902523,
 					"parameters": {
 						"instance-variable": "textframe",
 						"value": "1"
 					}
-				}
-			],
-			"sid": 715950783952446
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player_All",
-					"sid": 609628356890341,
-					"parameters": {
-						"instance-variable": "textframe",
-						"comparison": 0,
-						"value": "7"
-					}
 				},
 				{
-					"id": "trigger-once-while-true",
+					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 171250301475405
-				},
-				{
-					"id": "has-tags",
-					"objectClass": "EnemyPchel",
-					"sid": 879168139986607,
+					"sid": 323406654134501,
 					"parameters": {
-						"tags": "\"Crash\""
+						"variable": "onDial",
+						"value": "true"
 					}
 				}
 			],
-			"actions": [
+			"sid": 736799222068934,
+			"children": [
 				{
-					"callFunction": "Create_Dealogue",
-					"sid": 204942267536709,
-					"parameters": [
-						"\"Ты кто такой нахуй?\"",
-						"EnemyPchel.X",
-						"EnemyPchel.Y -50",
-						"111",
-						"1",
-						false
-					]
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 473665943096079,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 168455842063390,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"EnemyBaseball.X",
+								"EnemyBaseball.Y -50",
+								"110",
+								"1",
+								false
+							]
+						}
+					],
+					"sid": 484631442785715
 				},
 				{
-					"id": "set-animation",
-					"objectClass": "EnemyPchel",
-					"sid": 308582075972855,
-					"parameters": {
-						"animation": "\"Crash\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Аудио",
-					"sid": 894966539516697,
-					"parameters": {
-						"audio-file": "Gless",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"audio\""
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 431968758817419,
-					"parameters": {
-						"seconds": "1",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Player_All",
-					"sid": 677600710474758,
-					"parameters": {
-						"instance-variable": "textframe",
-						"value": "1"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 851473267333785,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "7"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "EnemyPchel",
+							"sid": 569810749345302,
+							"parameters": {
+								"tags": "\"Crash\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 864500328793909,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"EnemyPchel.X",
+								"EnemyPchel.Y -50",
+								"111",
+								"1",
+								false
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "EnemyPchel",
+							"sid": 159149578923131,
+							"parameters": {
+								"animation": "\"Crash\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 420410453789342,
+							"parameters": {
+								"audio-file": "Gless",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						}
+					],
+					"sid": 239604070711429
 				}
-			],
-			"sid": 671993353824298
+			]
 		},
 		{
 			"eventType": "block",
@@ -1118,12 +1126,21 @@
 			],
 			"actions": [
 				{
-					"id": "wait",
+					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 930849638791375,
+					"sid": 607273859476216,
 					"parameters": {
-						"seconds": "2",
-						"use-timescale": true
+						"variable": "Cut_Scene",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 974446550543103,
+					"parameters": {
+						"variable": "onDial",
+						"value": "false"
 					}
 				},
 				{
@@ -1250,6 +1267,15 @@
 					}
 				},
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 423148995396649,
+					"parameters": {
+						"variable": "Cut_Scene",
+						"value": "false"
+					}
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
 					"sid": 532281942006625,
@@ -1272,20 +1298,20 @@
 					}
 				},
 				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 153978694664870,
-					"parameters": {
-						"variable": "Cut_Scene",
-						"value": "true"
-					}
-				},
-				{
 					"id": "save",
 					"objectClass": "System",
 					"sid": 824857472790905,
 					"parameters": {
 						"slot": "\"start\""
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 157995082566185,
+					"parameters": {
+						"group-name": "\"Enemy_Fat\"",
+						"state": "deactivated"
 					}
 				}
 			],
@@ -1356,9 +1382,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-collision-with-another-object",
+					"id": "is-overlapping-another-object",
 					"objectClass": "Player_All",
-					"sid": 494455442346717,
+					"sid": 451994486801860,
 					"parameters": {
 						"object": "Trigger_CutScene"
 					}
@@ -1372,17 +1398,34 @@
 					}
 				},
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player_All",
-					"sid": 565052624209996,
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 270391490294715,
 					"parameters": {
-						"instance-variable": "textframe",
-						"comparison": 0,
-						"value": "8"
-					}
+						"variable": "onDial"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 961669257000367,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 573158585476018,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
 				{
 					"id": "tween-one-property",
 					"objectClass": "Shadow5",
@@ -1399,9 +1442,225 @@
 						"ping-pong": "no",
 						"repeat-count": "1"
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player_All",
+					"sid": 110080169719532,
+					"parameters": {
+						"animation": "weapon & \"Idle\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 719822737022648,
+					"parameters": {
+						"variable": "onDial",
+						"value": "true"
+					}
 				}
 			],
-			"sid": 190391085086435
+			"sid": 190391085086435,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 900584501091952,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "9"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 931321187396929,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"EnemyFat.X",
+								"EnemyFat.Y -50",
+								"112",
+								"1",
+								false
+							]
+						}
+					],
+					"sid": 101577301678837
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 337847612472168,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "10"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 187683866489472,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"EnemyFat.X",
+								"EnemyFat.Y -50",
+								"113",
+								"1",
+								false
+							]
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "EnemyFat",
+							"sid": 419226377973887,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 671848415686046
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_All",
+					"sid": 622954648599934,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "11"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 315771448864132
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 102214698130578,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 208476931486347,
+					"parameters": {
+						"group-name": "\"Enemy_Fat\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 981181875016724
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 647643996928733,
+					"parameters": {
+						"variable": "Enemys",
+						"comparison": 0,
+						"value": "8"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Door_Old",
+					"sid": 274180950392343,
+					"parameters": {
+						"tags": "\"Closed\""
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 764213133719746
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Door_Old",
+					"sid": 565925364054388,
+					"parameters": {
+						"instance-variable": "open",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Door_Old",
+					"sid": 877343008664928,
+					"behaviorType": "Твёрдый",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 435231324766953,
+					"parameters": {
+						"audio-file": "OpenDoor",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"audio\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 637283989423600,
+					"parameters": {
+						"seconds": "0.01",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Door_Old",
+					"sid": 356787622107554,
+					"parameters": {
+						"frame-number": "1"
+					}
+				},
+				{
+					"id": "change-tags",
+					"objectClass": "Door_Old",
+					"sid": 914523395463038,
+					"parameters": {
+						"action": "remove",
+						"tags": "\"Closed\""
+					}
+				}
+			],
+			"sid": 734415508516723
 		}
 	],
 	"sid": 164580079911713
