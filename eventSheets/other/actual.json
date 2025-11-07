@@ -1175,6 +1175,14 @@
 							}
 						},
 						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 652226766673016,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						},
+						{
 							"id": "spawn-another-object",
 							"objectClass": "Player_All",
 							"sid": 992085424023769,
@@ -4382,6 +4390,54 @@
 						}
 					],
 					"sid": 863365561809946
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "EnemyFat",
+							"sid": 697697226999875,
+							"parameters": {
+								"instance-variable": "Drop",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "EnemyFat",
+							"sid": 200627697157016,
+							"parameters": {
+								"object": "Fear",
+								"layer": "EnemyFat.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 592645623871649,
+							"parameters": {
+								"variable": "Enemys",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "EnemyFat",
+							"sid": 253473959902809,
+							"parameters": {
+								"instance-variable": "Drop",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 445463436547630
 				},
 				{
 					"eventType": "block",
@@ -15532,8 +15588,33 @@
 									}
 								}
 							],
-							"sid": 345670381286101,
-							"disabled": true
+							"sid": 345670381286101
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Player_All",
+									"sid": 430665050429610,
+									"parameters": {
+										"instance-variable": "kick"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player_All",
+									"sid": 852534350936631,
+									"parameters": {
+										"instance-variable": "Combo",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 465182852003962
 						}
 					],
 					"sid": 219656445389594
@@ -15991,6 +16072,132 @@
 							"sid": 744148323080468
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Skvoz",
+							"sid": 982725587962343,
+							"parameters": {
+								"which": "nearest",
+								"x": "Player_All.X",
+								"y": "Player_All.Y"
+							}
+						},
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 195573364672739
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player_All",
+							"sid": 392823214523414,
+							"parameters": {
+								"instance-variable": "SkvozY",
+								"value": "Skvoz.Y - Self.Y"
+							}
+						}
+					],
+					"sid": 943541208392807
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 433266245727062,
+							"parameters": {
+								"instance-variable": "SkvozY",
+								"comparison": 2,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Skvoz",
+							"sid": 761774093962288,
+							"parameters": {
+								"which": "nearest",
+								"x": "Player_All.X",
+								"y": "Player_All.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Skvoz",
+							"sid": 383575416541099,
+							"behaviorType": "СквознаяПлатформа",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 607439674383959
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 465909642220472,
+							"parameters": {
+								"instance-variable": "SkvozY",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Kayboard",
+							"sid": 637735459161396,
+							"parameters": {
+								"key": 83
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Player_All",
+							"sid": 631890968984159,
+							"parameters": {
+								"object": "Skvoz",
+								"offset-x": "0",
+								"offset-y": "10"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Skvoz",
+							"sid": 125533637397256,
+							"parameters": {
+								"which": "nearest",
+								"x": "Player_All.X",
+								"y": "Player_All.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Skvoz",
+							"sid": 608531781958767,
+							"behaviorType": "СквознаяПлатформа",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 977509181204181
 				}
 			],
 			"sid": 260617287781841
@@ -26498,47 +26705,6 @@
 										}
 									],
 									"sid": 941578391680664
-								},
-								{
-									"bookmark": true,
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-created",
-											"objectClass": "EnemyBaseball",
-											"sid": 130217022278667
-										}
-									],
-									"actions": [
-										{
-											"id": "add-obstacle",
-											"objectClass": "EnemyBaseball",
-											"sid": 366441057620584,
-											"behaviorType": "ПолеЗрения",
-											"parameters": {
-												"obstacle": "Wall"
-											}
-										},
-										{
-											"id": "add-obstacle",
-											"objectClass": "EnemyBaseball",
-											"sid": 388782185488337,
-											"behaviorType": "ПолеЗрения",
-											"parameters": {
-												"obstacle": "Skvoz"
-											}
-										},
-										{
-											"id": "add-obstacle",
-											"objectClass": "EnemyBaseball",
-											"sid": 824370401933167,
-											"behaviorType": "ПолеЗрения",
-											"parameters": {
-												"obstacle": "Door_Old"
-											}
-										}
-									],
-									"sid": 462433665074150
 								},
 								{
 									"eventType": "block",

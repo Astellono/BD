@@ -23,6 +23,67 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-created",
+					"objectClass": "Shadow3",
+					"sid": 928094294672496
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 711455397280907,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 262742990869586,
+					"parameters": {
+						"audio-file": "Station_Start",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 200340581235805,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 358208088458108
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Shadow3",
+					"sid": 278358496623695
+				}
+			],
+			"sid": 289815877305199
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-collision-with-another-object",
 					"objectClass": "Player_All",
 					"sid": 355868996776190,
@@ -444,6 +505,14 @@
 					}
 				},
 				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 954965849586823,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
 					"id": "add-to-instvar",
 					"objectClass": "Player_All",
 					"sid": 425090412173601,
@@ -492,6 +561,18 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 405754136594640,
+					"parameters": {
+						"audio-file": "Apartament",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
 				{
 					"callFunction": "Destroy_Dialoge",
 					"sid": 156805521616119
@@ -816,6 +897,14 @@
 					"id": "trigger-once-while-true",
 					"objectClass": "System",
 					"sid": 900286003650833
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "EnemyPchel",
+					"sid": 908095625958964,
+					"parameters": {
+						"tags": "\"Crash\""
+					}
 				}
 			],
 			"actions": [
@@ -990,6 +1079,14 @@
 						"variable": "onDial"
 					},
 					"isInverted": true
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "EnemyPchel",
+					"sid": 312083310932920,
+					"parameters": {
+						"tags": "\"Crash\""
+					}
 				}
 			],
 			"actions": [
@@ -1055,14 +1152,6 @@
 								"instance-variable": "textframe",
 								"comparison": 0,
 								"value": "7"
-							}
-						},
-						{
-							"id": "has-tags",
-							"objectClass": "EnemyPchel",
-							"sid": 569810749345302,
-							"parameters": {
-								"tags": "\"Crash\""
 							}
 						}
 					],
@@ -1321,67 +1410,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-created",
-					"objectClass": "Shadow3",
-					"sid": 141352580440865
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 116982904393118,
-					"parameters": {
-						"seconds": "1.0",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Аудио",
-					"sid": 356753458574493,
-					"parameters": {
-						"audio-file": "Station_Start",
-						"loop": "looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"Suspense\""
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "Shadow3",
-					"sid": 712385243065866,
-					"behaviorType": "Твинанимация",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetOpacity",
-						"end-value": "0",
-						"time": "1",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 331120114943074
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Shadow3",
-					"sid": 782598315205620
-				}
-			],
-			"sid": 214346474283991
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "is-overlapping-another-object",
 					"objectClass": "Player_All",
 					"sid": 451994486801860,
@@ -1531,6 +1559,112 @@
 						}
 					],
 					"sid": 671848415686046
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 195788498475065,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "11"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 476221638030398,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"EnemyFat.X",
+								"EnemyFat.Y -50",
+								"114",
+								"1",
+								false
+							]
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "EnemyFat",
+							"sid": 202433232560189,
+							"parameters": {
+								"frame-number": "2"
+							}
+						}
+					],
+					"sid": 820688224360123
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 185580455173819,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "12"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 295974806441530,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"Player_All.X",
+								"Player_All.Y -50",
+								"115",
+								"2",
+								false
+							]
+						}
+					],
+					"sid": 971036823821219
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 612095316516261,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "13"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 899640331082524,
+							"parameters": [
+								"\"Ты кто такой нахуй?\"",
+								"EnemyFat.X",
+								"EnemyFat.Y -50",
+								"116",
+								"1",
+								false
+							]
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "EnemyFat",
+							"sid": 691858769744651,
+							"parameters": {
+								"frame-number": "3"
+							}
+						}
+					],
+					"sid": 178036440785756
 				}
 			]
 		},
@@ -1540,11 +1674,11 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Player_All",
-					"sid": 622954648599934,
+					"sid": 825796396353102,
 					"parameters": {
 						"instance-variable": "textframe",
 						"comparison": 0,
-						"value": "11"
+						"value": "14"
 					}
 				},
 				{
@@ -1581,11 +1715,11 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 647643996928733,
+					"sid": 291497751143905,
 					"parameters": {
 						"variable": "Enemys",
 						"comparison": 0,
-						"value": "8"
+						"value": "9"
 					}
 				},
 				{
@@ -1661,6 +1795,370 @@
 				}
 			],
 			"sid": 734415508516723
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 364356158792921,
+					"parameters": {
+						"variable": "Enemys",
+						"comparison": 0,
+						"value": "10"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 466281354439921
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 624298883204481,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 892016699254153,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player_All",
+					"sid": 594959216165098,
+					"parameters": {
+						"animation": "\"Adrenalin\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 190545657317253,
+					"parameters": {
+						"seconds": "5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Player_All",
+					"sid": 382325253248242,
+					"parameters": {
+						"object": "Shadow3",
+						"layer": "\"Player\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 212495219795207,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 840795923581310
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 219241378170126,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 912499456452373,
+					"parameters": {
+						"interval-seconds": "0.5"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 596142626483989,
+					"parameters": {
+						"variable": "Sound",
+						"comparison": 0,
+						"value": "-25"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 102154029162239,
+					"parameters": {
+						"variable": "Sound",
+						"value": "2.5"
+					}
+				}
+			],
+			"sid": 838722058055113
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 576079145404750,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 569834467758070,
+					"parameters": {
+						"variable": "Sound",
+						"comparison": 0,
+						"value": "-25"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 179305625482864,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "Music_Safe",
+					"sid": 570644310228654,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "Music_Safe",
+					"sid": 249986444399977,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 572567006339094
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 967362105293903,
+					"parameters": {
+						"layout": "Bar2"
+					}
+				}
+			],
+			"sid": 963082055231010
+		},
+		{
+			"eventType": "comment",
+			"text": "Music_Load"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-load-complete",
+					"objectClass": "System",
+					"sid": 234234551982108
+				},
+				{
+					"id": "is-group-active",
+					"objectClass": "System",
+					"sid": 792917011830395,
+					"parameters": {
+						"group-name": "\"Player\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 869809757388562,
+					"disabled": true,
+					"parameters": {
+						"audio-file": "Apartament",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "seek-to",
+					"objectClass": "Аудио",
+					"sid": 597757379018932,
+					"parameters": {
+						"tag": "\"music\"",
+						"position": "Music_Safe.ItemValue"
+					}
+				}
+			],
+			"sid": 850537880242151
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-ended",
+					"objectClass": "Аудио",
+					"sid": 706279815436945,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				},
+				{
+					"id": "is-group-active",
+					"objectClass": "System",
+					"sid": 822021609281393,
+					"parameters": {
+						"group-name": "\"Player\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 168874980697605,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 160394362442368,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 994050873050069,
+					"parameters": {
+						"audio-file": "Apartament",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				}
+			],
+			"sid": 572151934384648
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 355910739237900
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 446308059534434,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 665516168636488,
+					"parameters": {
+						"reset-static": false
+					}
+				}
+			],
+			"sid": 776545756744965
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Kayboard",
+					"sid": 716932333586088,
+					"parameters": {
+						"key": 84
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 848937903883659,
+					"parameters": {
+						"time-scale": "5"
+					}
+				}
+			],
+			"sid": 598289103176456
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Kayboard",
+					"sid": 617720168444323,
+					"parameters": {
+						"key": 71
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 722401270141807,
+					"parameters": {
+						"time-scale": "1"
+					}
+				}
+			],
+			"sid": 917385508898147
 		}
 	],
 	"sid": 164580079911713
