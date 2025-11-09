@@ -88,6 +88,16 @@
 			"sid": 761731316305673
 		},
 		{
+			"eventType": "variable",
+			"name": "Music_Stop",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 302194019538255
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Setup",
@@ -5942,6 +5952,178 @@
 												}
 											],
 											"sid": 126443593363926
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Weapon",
+											"sid": 259518601335687,
+											"parameters": {
+												"object": "Chandelier"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot",
+											"sid": 198939271139701,
+											"parameters": {
+												"object": "Chandelier"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot_Enemy",
+											"sid": 248034687611426,
+											"parameters": {
+												"object": "Chandelier"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Shot_Shotgun",
+											"sid": 247865009662636,
+											"parameters": {
+												"object": "Chandelier"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 971772748144224,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Chandelier",
+													"sid": 807532551851305,
+													"parameters": {
+														"object": "Light_Lamp2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Light_Lamp2",
+													"sid": 786524483362812
+												}
+											],
+											"sid": 803832468960655
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Chandelier",
+													"sid": 445460917884271,
+													"parameters": {
+														"object": "Light_Lamp"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Light_Lamp",
+													"sid": 427709652099909
+												}
+											],
+											"sid": 762716510023877
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Chandelier",
+													"sid": 202895392424674,
+													"parameters": {
+														"object": "Light_Lamp3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Light_Lamp3",
+													"sid": 872875295409518
+												}
+											],
+											"sid": 863748718434820
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Chandelier",
+													"sid": 925469630838290,
+													"parameters": {
+														"animation": "\"Animation 1\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 122566022301210
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 767022862154822,
+													"parameters": {
+														"object": "Chandelier"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Chandelier",
+													"sid": 990789232707747,
+													"parameters": {
+														"object": "GlassWeapon",
+														"layer": "Player_All.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Chandelier",
+													"sid": 294799843846617,
+													"parameters": {
+														"animation": "\"Crash\"",
+														"from": "current-frame"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "GlassCrash",
+													"sid": 345100107666597,
+													"parameters": {
+														"instance-variable": "Crash",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-scale",
+													"objectClass": "Chandelier",
+													"sid": 539240669827363,
+													"parameters": {
+														"scale": "0.5"
+													}
+												}
+											],
+											"sid": 893132449418657
 										}
 									],
 									"isOrBlock": true
@@ -132973,8 +133155,7 @@
 					}
 				}
 			],
-			"sid": 902455434065633,
-			"disabled": true
+			"sid": 902455434065633
 		},
 		{
 			"eventType": "block",

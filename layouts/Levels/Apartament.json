@@ -4609,7 +4609,9 @@
 					"uid": 6927,
 					"sid": 489843950613795,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Crash": false
+					},
 					"behaviors": {},
 					"instanceFolderItem": {
 						"sid": 489843950613795,
@@ -4783,6 +4785,43 @@
 					}
 				},
 				{
+					"type": "Money_Bag",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6998,
+					"sid": 472569016183445,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 472569016183445,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 718,
+						"y": 381,
+						"width": 40,
+						"height": 14,
+						"originX": 0.5,
+						"originY": 0.07142857142857142,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "Lamp",
 					"properties": {
 						"initially-visible": true,
@@ -4870,7 +4909,9 @@
 					"uid": 6936,
 					"sid": 481625176057775,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Crash": false
+					},
 					"behaviors": {},
 					"instanceFolderItem": {
 						"sid": 481625176057775,
@@ -5417,7 +5458,9 @@
 					"uid": 6944,
 					"sid": 581084050002913,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Crash": false
+					},
 					"behaviors": {},
 					"instanceFolderItem": {
 						"sid": 581084050002913,
@@ -8230,6 +8273,40 @@
 			"global": false
 		},
 		{
+			"name": "Blood",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 373439225353395,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
 			"name": "Player",
 			"overriden": 0,
 			"subLayers": [],
@@ -8286,6 +8363,153 @@
 						"height": 30,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "BlueGuy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6980,
+					"sid": 560467090003028,
+					"tags": "",
+					"instanceVariables": {
+						"textframe": 0,
+						"down": false
+					},
+					"behaviors": {
+						"Платформер": {
+							"properties": {
+								"max-speed": 330,
+								"acceleration": 1500,
+								"deceleration": 1500,
+								"jump-strength": 650,
+								"gravity": 1500,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 0,
+								"default-controls": true,
+								"enabled": true
+							}
+						},
+						"НастраиваемоеДвижение": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						},
+						"Твинанимация": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 560467090003028,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 939,
+						"y": 490,
+						"width": 86,
+						"height": 86,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Trigger_CutScene",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6978,
+					"sid": 956896436856439,
+					"tags": "Start",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 956896436856439,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 903,
+						"y": 515,
+						"width": 28,
+						"height": 35,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Shadow2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6979,
+					"sid": 596808060354007,
+					"tags": "Start",
+					"instanceVariables": {},
+					"behaviors": {
+						"Твинанимация": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 596808060354007,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 911,
+						"y": 407,
+						"width": 714,
+						"height": 126,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -8381,8 +8605,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 169,
-						"y": 670,
+						"x": 205,
+						"y": 669,
 						"width": 86,
 						"height": 86,
 						"originX": 0.5,
@@ -8392,153 +8616,6 @@
 							1,
 							1,
 							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Trigger_CutScene",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 6978,
-					"sid": 956896436856439,
-					"tags": "Start",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 956896436856439,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 903,
-						"y": 515,
-						"width": 28,
-						"height": 35,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Shadow2",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 6979,
-					"sid": 596808060354007,
-					"tags": "Start",
-					"instanceVariables": {},
-					"behaviors": {
-						"Твинанимация": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 596808060354007,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 911,
-						"y": 407,
-						"width": 714,
-						"height": 126,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "BlueGuy",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 6980,
-					"sid": 560467090003028,
-					"tags": "",
-					"instanceVariables": {
-						"textframe": 0,
-						"down": false
-					},
-					"behaviors": {
-						"Платформер": {
-							"properties": {
-								"max-speed": 330,
-								"acceleration": 1500,
-								"deceleration": 1500,
-								"jump-strength": 650,
-								"gravity": 1500,
-								"max-fall-speed": 1000,
-								"double-jump": false,
-								"jump-sustain": 0,
-								"default-controls": true,
-								"enabled": true
-							}
-						},
-						"НастраиваемоеДвижение": {
-							"properties": {
-								"stepping-mode": "none",
-								"pixels-per-step": 5,
-								"enabled": true
-							}
-						},
-						"Твинанимация": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 560467090003028,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 939,
-						"y": 490,
-						"width": 86,
-						"height": 86,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -9387,110 +9464,6 @@
 					}
 				},
 				{
-					"type": "Knife",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Knife",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 6998,
-					"sid": 859377519275783,
-					"tags": "",
-					"instanceVariables": {
-						"Pistol": 9,
-						"Got": 0,
-						"Bubble": 0,
-						"CrashGless": false,
-						"DifWeaponX": 0,
-						"rotate": 0,
-						"ID": 0,
-						"Vision": false
-					},
-					"behaviors": {
-						"Физика": {
-							"properties": {
-								"immovable": false,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
-							}
-						},
-						"Прикрепить2": {
-							"properties": {
-								"destroy": false
-							}
-						},
-						"Твинанимация": {
-							"properties": {
-								"enabled": true
-							}
-						},
-						"ОграничитьСценой": {
-							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"НастраиваемоеДвижение": {
-							"properties": {
-								"stepping-mode": "none",
-								"pixels-per-step": 5,
-								"enabled": true
-							}
-						},
-						"ПолеЗрения": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 300,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						}
-					},
-					"effects": {
-						"Пульс": {
-							"isEnabled": true,
-							"parameters": {
-								"intensity": 1,
-								"lighting": 0.5,
-								"speed": 10,
-								"frequency": 30,
-								"center-x": 0.5,
-								"center-y": 0.5
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 859377519275783,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 94,
-						"y": 680,
-						"width": 20,
-						"height": 20,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "EnemyBaseball",
 					"properties": {
 						"initially-visible": true,
@@ -9602,7 +9575,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1094,
+						"x": 1418,
 						"y": 350,
 						"width": 96,
 						"height": 86,

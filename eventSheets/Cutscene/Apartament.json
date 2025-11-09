@@ -26,6 +26,17 @@
 					"id": "on-created",
 					"objectClass": "Shadow3",
 					"sid": 928094294672496
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 390530669332218,
+					"parameters": {
+						"variable": "Enemys",
+						"comparison": 0,
+						"value": "10"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -1402,6 +1413,15 @@
 						"group-name": "\"Enemy_Fat\"",
 						"state": "deactivated"
 					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 254472162692334,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "activated"
+					}
 				}
 			],
 			"sid": 566197789743141
@@ -1705,6 +1725,14 @@
 						"group-name": "\"Enemy_Fat\"",
 						"state": "activated"
 					}
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "EnemyFat",
+					"sid": 169057504595639,
+					"parameters": {
+						"layer": "\"Player\""
+					}
 				}
 			],
 			"sid": 981181875016724
@@ -1817,6 +1845,43 @@
 			],
 			"actions": [
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 489813922612052,
+					"parameters": {
+						"variable": "Music_Stop",
+						"value": "true"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 718670279660903,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Аудио",
+					"sid": 635273738107768,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Аудио",
+					"sid": 724055129989065,
+					"parameters": {
+						"audio-file": "Heaviness",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 624298883204481,
@@ -1882,89 +1947,29 @@
 				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 219241378170126,
-					"parameters": {
-						"variable": "Start_Game"
-					}
-				},
-				{
-					"id": "every-x-seconds",
-					"objectClass": "System",
-					"sid": 912499456452373,
-					"parameters": {
-						"interval-seconds": "0.5"
-					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 596142626483989,
-					"parameters": {
-						"variable": "Sound",
-						"comparison": 0,
-						"value": "-25"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 102154029162239,
-					"parameters": {
-						"variable": "Sound",
-						"value": "2.5"
-					}
-				}
-			],
-			"sid": 838722058055113
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
 					"sid": 576079145404750,
 					"parameters": {
 						"variable": "Start_Game"
 					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 569834467758070,
-					"parameters": {
-						"variable": "Sound",
-						"comparison": 0,
-						"value": "-25"
-					}
 				}
 			],
 			"actions": [
 				{
-					"id": "stop",
-					"objectClass": "Аудио",
-					"sid": 179305625482864,
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 825905868258627,
 					"parameters": {
-						"tag": "\"music\""
+						"seconds": "3",
+						"use-timescale": true
 					}
 				},
 				{
-					"id": "get-item",
+					"id": "set-item",
 					"objectClass": "Music_Safe",
-					"sid": 570644310228654,
+					"sid": 485359713338924,
 					"parameters": {
-						"key": "\"Sound\""
-					}
-				},
-				{
-					"id": "check-item-exists",
-					"objectClass": "Music_Safe",
-					"sid": 249986444399977,
-					"parameters": {
-						"key": "\"Sound\""
+						"key": "\"Apartament\"",
+						"value": "Аудио.PlaybackTime(\"Suspense\")"
 					}
 				},
 				{
@@ -2048,6 +2053,15 @@
 					"parameters": {
 						"group-name": "\"Player\""
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 129328905740230,
+					"parameters": {
+						"variable": "Music_Stop"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
