@@ -268,6 +268,255 @@
 			]
 		},
 		{
+			"functionName": "Create_DealogueEnemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 377389430489563
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 825263073634929
+				},
+				{
+					"name": "Lang",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 442176315228620
+				},
+				{
+					"name": "timetyping",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 605678058909789
+				},
+				{
+					"name": "Pin",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 877752716204350
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Cloud_Dialogue",
+					"sid": 387262200361413
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "press_E",
+					"sid": 779790646665394,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "EnemyText",
+					"sid": 526718836242136
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 731203915963791,
+					"parameters": {
+						"object-to-create": "Cloud_Dialogue",
+						"layer": "\"Dialog\"",
+						"x": "x",
+						"y": "y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 486096598787522,
+					"parameters": {
+						"object-to-create": "EnemyText",
+						"layer": "\"Dialog\"",
+						"x": "Cloud_Dialogue.x-53",
+						"y": "Cloud_Dialogue.y - 59",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-font-face",
+					"objectClass": "EnemyText",
+					"sid": 269476301075189,
+					"parameters": {
+						"font-face": "\"Pixel\"",
+						"style": "normal"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "EnemyText",
+					"sid": 949550274056790,
+					"parameters": {
+						"color": "rgbEx(255,255, 255)"
+					}
+				},
+				{
+					"id": "set-line-height",
+					"objectClass": "EnemyText",
+					"sid": 539992228178240,
+					"parameters": {
+						"line-height": "-3"
+					}
+				},
+				{
+					"id": "set-wrapping",
+					"objectClass": "EnemyText",
+					"sid": 254668916906568,
+					"parameters": {
+						"wrapping": "word"
+					}
+				},
+				{
+					"id": "set-horizontal-alignment",
+					"objectClass": "EnemyText",
+					"sid": 738470920319783,
+					"parameters": {
+						"horizontal-alignment": "center"
+					}
+				},
+				{
+					"id": "set-vertical-alignment",
+					"objectClass": "EnemyText",
+					"sid": 300924319978100,
+					"parameters": {
+						"vertical-alignment": "center"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "EnemyText",
+					"sid": 648575508576950,
+					"parameters": {
+						"width": "56",
+						"height": "38"
+					}
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "EnemyText",
+					"sid": 122917139547503,
+					"parameters": {
+						"size-pt": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "EnemyText",
+					"sid": 499409180246945,
+					"parameters": {
+						"text": "Lang.At(Language,Lang)"
+					}
+				},
+				{
+					"id": "typewriter-text",
+					"objectClass": "EnemyText",
+					"sid": 597985557074477,
+					"parameters": {
+						"text": "Lang.At(Language,Lang)",
+						"duration": "timetyping"
+					}
+				}
+			],
+			"sid": 672309619549604,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 549166288814296,
+							"parameters": {
+								"variable": "Pin"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 428699621339597,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Enemys",
+								"image-point": "\"Dialog\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "EnemyText",
+							"sid": 464956097027770,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Cloud_Dialogue",
+								"image-point": "\"Text\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 916955887909063,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 654003014572060,
+							"parameters": {
+								"variable": "Pin"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "unpin",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 909082310437987,
+							"behaviorType": "Прикрепить"
+						}
+					],
+					"sid": 328879674925686,
+					"disabled": true
+				}
+			]
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{

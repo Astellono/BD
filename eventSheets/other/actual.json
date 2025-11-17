@@ -178,10 +178,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "EnemyKnife",
-									"sid": 308663903573218,
+									"sid": 448844377895688,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
-										"range": "600"
+										"range": "400"
 									}
 								},
 								{
@@ -273,10 +273,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "EnemyFurious",
-									"sid": 465840568930480,
+									"sid": 639930501430153,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
-										"range": "600"
+										"range": "400"
 									}
 								},
 								{
@@ -367,10 +367,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "EnemyFat",
-									"sid": 620753158510256,
+									"sid": 502521755302071,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
-										"range": "600"
+										"range": "400"
 									}
 								},
 								{
@@ -555,10 +555,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "EnemyBaseball",
-									"sid": 911040097288253,
+									"sid": 995786322013905,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
-										"range": "600"
+										"range": "400"
 									}
 								},
 								{
@@ -754,10 +754,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "EnemyJunkieKnife",
-									"sid": 196778028355198,
+									"sid": 744879650756437,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
-										"range": "600"
+										"range": "350"
 									}
 								},
 								{
@@ -867,10 +867,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "EnemyPchel",
-									"sid": 107036965777384,
+									"sid": 831065126391064,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
-										"range": "600"
+										"range": "400"
 									}
 								},
 								{
@@ -961,10 +961,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "EnemySecurity",
-									"sid": 312643423041994,
+									"sid": 116775521814284,
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
-										"range": "300"
+										"range": "400"
 									}
 								},
 								{
@@ -1122,6 +1122,47 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 471937198863786
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 781716116432993,
+							"parameters": {
+								"variable": "HPplayer",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Camera",
+							"sid": 860779171631377,
+							"parameters": {
+								"instance-variable": "onPlayer"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-canvas-size",
+							"objectClass": "System",
+							"sid": 400718753243038,
+							"parameters": {
+								"width": "Camera.Width*10",
+								"height": "Camera.Height*10"
+							}
+						}
+					],
+					"sid": 712635400240489
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-key-pressed",
 							"objectClass": "Kayboard",
 							"sid": 530768254867518,
@@ -1176,18 +1217,10 @@
 							}
 						},
 						{
-							"id": "set-item",
-							"objectClass": "Music_Safe",
-							"sid": 513213641203896,
-							"parameters": {
-								"key": "\"SaveMusic\"",
-								"value": "Аудио.PlaybackTime(\"music\")"
-							}
-						},
-						{
 							"id": "stop",
 							"objectClass": "Аудио",
 							"sid": 652226766673016,
+							"disabled": true,
 							"parameters": {
 								"tag": "\"music\""
 							}
@@ -1195,10 +1228,10 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "Player_All",
-							"sid": 992085424023769,
+							"sid": 409437128386460,
 							"parameters": {
 								"object": "Shadow3",
-								"layer": "LayerIndex(\"Black\")",
+								"layer": "Player_All.LayerName",
 								"image-point": "0",
 								"create-hierarchy": false,
 								"template-name": "\"\""
@@ -1210,6 +1243,14 @@
 							"sid": 965883116003264,
 							"parameters": {
 								"opacity": "0"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Shadow3",
+							"sid": 400254331504421,
+							"parameters": {
+								"scale": "3"
 							}
 						},
 						{
@@ -1232,7 +1273,43 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 953129906261155,
+							"sid": 517003769978609,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "Music_Safe",
+							"sid": 516883682945987,
+							"parameters": {
+								"key": "\"SaveMusic\"",
+								"value": "Аудио.PlaybackTime(\"music\")"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "Music_Safe",
+							"sid": 342316255388484,
+							"parameters": {
+								"key": "\"Sound\"",
+								"value": "Sound"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "Music_Safe",
+							"sid": 699860515214617,
+							"parameters": {
+								"key": "\"Audio\"",
+								"value": "Audio"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 807553862242926,
 							"parameters": {
 								"seconds": "0.01",
 								"use-timescale": true
@@ -1249,7 +1326,7 @@
 						{
 							"id": "get-item",
 							"objectClass": "Music_Safe",
-							"sid": 933299717688472,
+							"sid": 223481960213217,
 							"parameters": {
 								"key": "\"SaveMusic\""
 							}
@@ -1257,13 +1334,58 @@
 						{
 							"id": "check-item-exists",
 							"objectClass": "Music_Safe",
-							"sid": 665164958163549,
+							"sid": 492834802197966,
 							"parameters": {
 								"key": "\"SaveMusic\""
 							}
 						}
 					],
 					"sid": 202283487421681
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-load-complete",
+							"objectClass": "System",
+							"sid": 941398862581555
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "Music_Safe",
+							"sid": 600338375172606,
+							"parameters": {
+								"key": "\"Audio\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "Music_Safe",
+							"sid": 744629678327461,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "Music_Safe",
+							"sid": 210883046116903,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "Music_Safe",
+							"sid": 441283564511247,
+							"parameters": {
+								"key": "\"Audio\""
+							}
+						}
+					],
+					"sid": 585734204441905
 				},
 				{
 					"eventType": "block",
@@ -11648,7 +11770,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -11711,7 +11833,6 @@
 							],
 							"actions": [],
 							"sid": 309043479600069,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -11829,8 +11950,7 @@
 											}
 										}
 									],
-									"sid": 895047843836743,
-									"disabled": true
+									"sid": 895047843836743
 								},
 								{
 									"eventType": "block",
@@ -11948,8 +12068,7 @@
 											}
 										}
 									],
-									"sid": 387218705782901,
-									"disabled": true
+									"sid": 387218705782901
 								}
 							]
 						},
@@ -12010,7 +12129,6 @@
 							],
 							"actions": [],
 							"sid": 360946975383272,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -12158,8 +12276,7 @@
 											}
 										}
 									],
-									"sid": 691984442684721,
-									"disabled": true
+									"sid": 691984442684721
 								},
 								{
 									"eventType": "block",
@@ -12307,8 +12424,7 @@
 											}
 										}
 									],
-									"sid": 368688727635590,
-									"disabled": true
+									"sid": 368688727635590
 								}
 							]
 						},
@@ -12356,7 +12472,6 @@
 							],
 							"actions": [],
 							"sid": 343140753134619,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -12372,7 +12487,6 @@
 									],
 									"actions": [],
 									"sid": 698634819418167,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -12535,7 +12649,6 @@
 												}
 											],
 											"sid": 667787167810499,
-											"disabled": true,
 											"isOrBlock": true
 										}
 									]
@@ -12554,7 +12667,6 @@
 									],
 									"actions": [],
 									"sid": 265449835868495,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -12717,7 +12829,6 @@
 												}
 											],
 											"sid": 949915155403725,
-											"disabled": true,
 											"isOrBlock": true
 										}
 									]
@@ -12748,7 +12859,6 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -12776,7 +12886,6 @@
 										}
 									],
 									"sid": 310996725083501,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -12805,7 +12914,6 @@
 										}
 									],
 									"sid": 458178281136712,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -12831,8 +12939,7 @@
 											}
 										}
 									],
-									"sid": 106933512128252,
-									"disabled": true
+									"sid": 106933512128252
 								}
 							]
 						},
@@ -12895,7 +13002,6 @@
 								}
 							],
 							"sid": 377992490181740,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -12939,8 +13045,7 @@
 											}
 										}
 									],
-									"sid": 216693764442584,
-									"disabled": true
+									"sid": 216693764442584
 								},
 								{
 									"eventType": "block",
@@ -12984,8 +13089,7 @@
 											}
 										}
 									],
-									"sid": 589694636770370,
-									"disabled": true
+									"sid": 589694636770370
 								},
 								{
 									"eventType": "block",
@@ -13029,8 +13133,7 @@
 											}
 										}
 									],
-									"sid": 918810485227998,
-									"disabled": true
+									"sid": 918810485227998
 								},
 								{
 									"eventType": "block",
@@ -13074,8 +13177,7 @@
 											}
 										}
 									],
-									"sid": 990684820624839,
-									"disabled": true
+									"sid": 990684820624839
 								},
 								{
 									"eventType": "block",
@@ -13119,8 +13221,7 @@
 											}
 										}
 									],
-									"sid": 529478716458234,
-									"disabled": true
+									"sid": 529478716458234
 								},
 								{
 									"eventType": "block",
@@ -13164,8 +13265,7 @@
 											}
 										}
 									],
-									"sid": 581572430933988,
-									"disabled": true
+									"sid": 581572430933988
 								},
 								{
 									"eventType": "block",
@@ -13209,8 +13309,7 @@
 											}
 										}
 									],
-									"sid": 943898994885594,
-									"disabled": true
+									"sid": 943898994885594
 								},
 								{
 									"eventType": "block",
@@ -13254,8 +13353,7 @@
 											}
 										}
 									],
-									"sid": 791093798816223,
-									"disabled": true
+									"sid": 791093798816223
 								},
 								{
 									"eventType": "block",
@@ -13271,8 +13369,7 @@
 											}
 										}
 									],
-									"sid": 799978535918360,
-									"disabled": true
+									"sid": 799978535918360
 								}
 							]
 						},
@@ -13304,7 +13401,8 @@
 									}
 								}
 							],
-							"sid": 313471185530183
+							"sid": 313471185530183,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -13330,7 +13428,8 @@
 									}
 								}
 							],
-							"sid": 563655859934719
+							"sid": 563655859934719,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -13364,7 +13463,6 @@
 								}
 							],
 							"sid": 964464087012207,
-							"disabled": true,
 							"isOrBlock": true
 						}
 					],
@@ -13520,6 +13618,16 @@
 										"variable": "weapon",
 										"comparison": 0,
 										"value": "\"Knife\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 523428272957071,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Brick\""
 									}
 								},
 								{
@@ -13812,6 +13920,16 @@
 										"variable": "weapon",
 										"comparison": 0,
 										"value": "\"Knife\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 635236333232120,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Brick\""
 									}
 								},
 								{
@@ -16946,10 +17064,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "EnemyBaseball",
-													"sid": 751327439371918,
+													"sid": 415920574882896,
 													"parameters": {
 														"instance-variable": "Fear",
-														"value": "1"
+														"value": "Fear.PickedCount"
 													}
 												},
 												{
@@ -29152,10 +29270,21 @@
 									"id": "pick-nearestfurthest",
 									"objectClass": "UpDown",
 									"sid": 321788982344189,
+									"disabled": true,
 									"parameters": {
 										"which": "nearest",
 										"x": "EnemyBaseball.X",
 										"y": "EnemyBaseball.Y"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "EnemyBaseball",
+									"sid": 495126392765140,
+									"parameters": {
+										"which": "nearest",
+										"x": "UpDown.X",
+										"y": "UpDown.Y"
 									}
 								},
 								{
@@ -29175,7 +29304,8 @@
 									}
 								}
 							],
-							"sid": 464921581481405
+							"sid": 464921581481405,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -29207,7 +29337,8 @@
 									}
 								}
 							],
-							"sid": 989168553418807
+							"sid": 989168553418807,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -29239,7 +29370,8 @@
 									}
 								}
 							],
-							"sid": 191581578750364
+							"sid": 191581578750364,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -29979,10 +30111,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "EnemySecurity",
-													"sid": 904613813490479,
+													"sid": 781988442970228,
 													"parameters": {
 														"instance-variable": "Fear",
-														"value": "1"
+														"value": "Fear.PickedCount"
 													}
 												},
 												{
@@ -43250,7 +43382,8 @@
 									}
 								}
 							],
-							"sid": 770495401114387
+							"sid": 770495401114387,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -43282,7 +43415,8 @@
 									}
 								}
 							],
-							"sid": 193067804974868
+							"sid": 193067804974868,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -43314,7 +43448,8 @@
 									}
 								}
 							],
-							"sid": 363621331711509
+							"sid": 363621331711509,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -55571,7 +55706,8 @@
 									}
 								}
 							],
-							"sid": 613970512636355
+							"sid": 613970512636355,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -55603,7 +55739,8 @@
 									}
 								}
 							],
-							"sid": 856937216421135
+							"sid": 856937216421135,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -55635,7 +55772,8 @@
 									}
 								}
 							],
-							"sid": 143695149738284
+							"sid": 143695149738284,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -68142,7 +68280,8 @@
 									}
 								}
 							],
-							"sid": 420753711527170
+							"sid": 420753711527170,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -68174,7 +68313,8 @@
 									}
 								}
 							],
-							"sid": 591080249248600
+							"sid": 591080249248600,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -68206,7 +68346,8 @@
 									}
 								}
 							],
-							"sid": 961279543828409
+							"sid": 961279543828409,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -69011,10 +69152,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "EnemyKnife",
-													"sid": 323208984617942,
+													"sid": 113149632294930,
 													"parameters": {
 														"instance-variable": "Fear",
-														"value": "1"
+														"value": "Fear.PickedCount"
 													}
 												},
 												{
@@ -79394,576 +79535,6 @@
 								{
 									"eventType": "group",
 									"disabled": false,
-									"title": "Pandus3",
-									"description": "",
-									"isActiveOnStart": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "EnemyKnife",
-													"sid": 622558181676354,
-													"parameters": {
-														"instance-variable": "Fear",
-														"comparison": 4,
-														"value": "0"
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "EnemyKnife",
-													"sid": 824476476006348,
-													"parameters": {
-														"instance-variable": "HP",
-														"comparison": 4,
-														"value": "0"
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 979380396098458,
-													"parameters": {
-														"instance-variable": "search"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 627548626609429,
-													"parameters": {
-														"instance-variable": "onRamp"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-animation-playing",
-													"objectClass": "EnemyKnife",
-													"sid": 352384734651487,
-													"parameters": {
-														"animation": "\"Kick\""
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 833567689358829,
-													"parameters": {
-														"instance-variable": "Damage"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 655398274393551,
-													"parameters": {
-														"instance-variable": "patrul"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 591546261304161,
-													"parameters": {
-														"instance-variable": "triger"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 789344257377635,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "EnemyKnife",
-															"sid": 677433195999236,
-															"parameters": {
-																"instance-variable": "DifY",
-																"comparison": 5,
-																"value": "100"
-															}
-														},
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "EnemyKnife",
-															"sid": 436671888807314,
-															"parameters": {
-																"instance-variable": "DifY",
-																"comparison": 3,
-																"value": "-100"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "EnemyKnife",
-															"sid": 353726004850306,
-															"parameters": {
-																"instance-variable": "MovingToRamp",
-																"value": "true"
-															}
-														},
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "EnemyKnife",
-															"sid": 816215098994147,
-															"parameters": {
-																"instance-variable": "vision",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 478013232276257,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "EnemyKnife",
-																	"sid": 516875335739783,
-																	"parameters": {
-																		"instance-variable": "MovingToRamp"
-																	}
-																},
-																{
-																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "EnemyKnife",
-																	"sid": 964377085381443,
-																	"parameters": {
-																		"instance-variable": "onRamp"
-																	},
-																	"isInverted": true
-																},
-																{
-																	"id": "is-overlapping-another-object",
-																	"objectClass": "EnemyKnife",
-																	"sid": 120610492112303,
-																	"parameters": {
-																		"object": "UpDown"
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [],
-															"sid": 526204070215019,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-nearestfurthest",
-																			"objectClass": "UpDown",
-																			"sid": 695092014323063,
-																			"parameters": {
-																				"which": "nearest",
-																				"x": "EnemyKnife.X",
-																				"y": "EnemyKnife.Y "
-																			}
-																		}
-																	],
-																	"actions": [],
-																	"sid": 910717116265669,
-																	"children": [
-																		{
-																			"eventType": "block",
-																			"conditions": [
-																				{
-																					"id": "compare-instance-variable",
-																					"objectClass": "EnemyKnife",
-																					"sid": 704469424563438,
-																					"parameters": {
-																						"instance-variable": "DifY",
-																						"comparison": 2,
-																						"value": "0"
-																					}
-																				}
-																			],
-																			"actions": [],
-																			"sid": 895144846152988,
-																			"children": [
-																				{
-																					"eventType": "block",
-																					"conditions": [
-																						{
-																							"id": "compare-instance-variable",
-																							"objectClass": "EnemyKnife",
-																							"sid": 569516680851912,
-																							"parameters": {
-																								"instance-variable": "UpDownY",
-																								"comparison": 5,
-																								"value": "-200"
-																							}
-																						},
-																						{
-																							"id": "compare-instance-variable",
-																							"objectClass": "EnemyKnife",
-																							"sid": 742413505604980,
-																							"parameters": {
-																								"instance-variable": "UpDownY",
-																								"comparison": 2,
-																								"value": "0"
-																							}
-																						},
-																						{
-																							"id": "trigger-once-while-true",
-																							"objectClass": "System",
-																							"sid": 868967353423149
-																						},
-																						{
-																							"id": "for-each",
-																							"objectClass": "System",
-																							"sid": 255766848568547,
-																							"parameters": {
-																								"object": "EnemyKnife"
-																							}
-																						}
-																					],
-																					"actions": [
-																						{
-																							"id": "set-speed",
-																							"objectClass": "EnemyKnife",
-																							"sid": 420248312180488,
-																							"behaviorType": "НастраиваемоеДвижение",
-																							"parameters": {
-																								"which": "horizontal",
-																								"speed": "sign(EnemyKnife.UpDownX - EnemyKnife.X) * EnemyKnife.speed"
-																							}
-																						}
-																					],
-																					"sid": 186418048943994
-																				}
-																			]
-																		},
-																		{
-																			"eventType": "block",
-																			"conditions": [
-																				{
-																					"id": "compare-instance-variable",
-																					"objectClass": "EnemyKnife",
-																					"sid": 278968346934437,
-																					"parameters": {
-																						"instance-variable": "DifY",
-																						"comparison": 4,
-																						"value": "0"
-																					}
-																				}
-																			],
-																			"actions": [],
-																			"sid": 892867174127557,
-																			"children": [
-																				{
-																					"eventType": "block",
-																					"conditions": [
-																						{
-																							"id": "compare-instance-variable",
-																							"objectClass": "EnemyKnife",
-																							"sid": 119714664384867,
-																							"parameters": {
-																								"instance-variable": "UpDownY",
-																								"comparison": 3,
-																								"value": "200"
-																							}
-																						},
-																						{
-																							"id": "compare-instance-variable",
-																							"objectClass": "EnemyKnife",
-																							"sid": 268318619774574,
-																							"parameters": {
-																								"instance-variable": "UpDownY",
-																								"comparison": 4,
-																								"value": "0"
-																							}
-																						},
-																						{
-																							"id": "trigger-once-while-true",
-																							"objectClass": "System",
-																							"sid": 828424240601593
-																						},
-																						{
-																							"id": "for-each",
-																							"objectClass": "System",
-																							"sid": 378398159587899,
-																							"parameters": {
-																								"object": "EnemyKnife"
-																							}
-																						}
-																					],
-																					"actions": [
-																						{
-																							"id": "set-speed",
-																							"objectClass": "EnemyKnife",
-																							"sid": 305464261080579,
-																							"behaviorType": "НастраиваемоеДвижение",
-																							"parameters": {
-																								"which": "horizontal",
-																								"speed": "sign(EnemyKnife.UpDownX - EnemyKnife.X) * EnemyKnife.speed"
-																							}
-																						}
-																					],
-																					"sid": 317537623085365
-																				}
-																			]
-																		}
-																	]
-																}
-															]
-														}
-													],
-													"isOrBlock": true
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "EnemyKnife",
-													"sid": 915201326248023,
-													"parameters": {
-														"instance-variable": "HP",
-														"comparison": 4,
-														"value": "0"
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 353740897543591,
-													"parameters": {
-														"instance-variable": "Down"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-animation-playing",
-													"objectClass": "EnemyKnife",
-													"sid": 508955199156646,
-													"parameters": {
-														"animation": "\"Kick\""
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 331127905250161,
-													"parameters": {
-														"instance-variable": "Rolling"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 773813630547517,
-													"parameters": {
-														"instance-variable": "Damage"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 155550076487568,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-overlapping-at-offset",
-															"objectClass": "EnemyKnife",
-															"sid": 547503265534395,
-															"parameters": {
-																"object": "UpDown",
-																"offset-x": "-10",
-																"offset-y": "0"
-															}
-														},
-														{
-															"id": "is-overlapping-at-offset",
-															"objectClass": "EnemyKnife",
-															"sid": 384556812212015,
-															"parameters": {
-																"object": "UpDown",
-																"offset-x": "10",
-																"offset-y": "0"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 111827376324720,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "EnemyKnife",
-																	"sid": 515435855239196,
-																	"disabled": true,
-																	"parameters": {
-																		"instance-variable": "DifY",
-																		"comparison": 5,
-																		"value": "5"
-																	}
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "EnemyKnife",
-																	"sid": 435211940858928,
-																	"disabled": true,
-																	"parameters": {
-																		"instance-variable": "DifY",
-																		"comparison": 3,
-																		"value": "-100"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "EnemyKnife",
-																	"sid": 615465936782113,
-																	"parameters": {
-																		"instance-variable": "onRamp",
-																		"value": "true"
-																	}
-																},
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "EnemyKnife",
-																	"sid": 969464372948246,
-																	"parameters": {
-																		"instance-variable": "MovingToRamp",
-																		"value": "false"
-																	}
-																},
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "EnemyKnife",
-																	"sid": 404557817237364,
-																	"parameters": {
-																		"instance-variable": "vision",
-																		"value": "false"
-																	}
-																},
-																{
-																	"id": "start-timer",
-																	"objectClass": "EnemyKnife",
-																	"sid": 805409880173958,
-																	"behaviorType": "Таймер",
-																	"parameters": {
-																		"duration": "0.2",
-																		"type": "regular",
-																		"tag": "\"Ramp\""
-																	}
-																}
-															],
-															"sid": 926192491930128,
-															"isOrBlock": true
-														}
-													],
-													"isOrBlock": true
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-timer",
-													"objectClass": "EnemyKnife",
-													"sid": 621971951304484,
-													"behaviorType": "Таймер",
-													"parameters": {
-														"tag": "\"Ramp\""
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 442604784336329,
-													"parameters": {
-														"instance-variable": "Damage"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "EnemyKnife",
-													"sid": 265495723918061,
-													"parameters": {
-														"instance-variable": "onRamp"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "EnemyKnife",
-													"sid": 992329617770256,
-													"parameters": {
-														"instance-variable": "search",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "EnemyKnife",
-													"sid": 628942172758898,
-													"parameters": {
-														"instance-variable": "onRamp",
-														"value": "false"
-													}
-												}
-											],
-											"sid": 126396501784328,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 939066200050348
-														},
-														{
-															"id": "for-each",
-															"objectClass": "System",
-															"sid": 569423970821248,
-															"parameters": {
-																"object": "EnemyKnife"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "stop-all-timers",
-															"objectClass": "EnemyKnife",
-															"sid": 156774541011464,
-															"behaviorType": "Таймер"
-														}
-													],
-													"sid": 109494592004898
-												}
-											]
-										}
-									],
-									"sid": 731959274175515
-								},
-								{
-									"eventType": "group",
-									"disabled": false,
 									"title": "Search3",
 									"description": "",
 									"isActiveOnStart": true,
@@ -80838,6 +80409,586 @@
 										}
 									],
 									"sid": 225314392951915
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Pandus3",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyKnife",
+													"sid": 669319897446980,
+													"parameters": {
+														"instance-variable": "Fear",
+														"comparison": 4,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyKnife",
+													"sid": 443774136646485,
+													"parameters": {
+														"instance-variable": "HP",
+														"comparison": 4,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 465362833761595,
+													"parameters": {
+														"instance-variable": "search"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 747074638033514,
+													"parameters": {
+														"instance-variable": "onRamp"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "EnemyKnife",
+													"sid": 242177294596642,
+													"parameters": {
+														"animation": "\"Kick\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 262997485821436,
+													"parameters": {
+														"instance-variable": "Damage"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 984600766743702,
+													"parameters": {
+														"instance-variable": "patrul"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 566192563720411,
+													"parameters": {
+														"instance-variable": "triger"
+													}
+												},
+												{
+													"id": "is-timer-running",
+													"objectClass": "EnemyKnife",
+													"sid": 151911181581346,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"tag": "\"probejka\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 333065462104859,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyKnife",
+															"sid": 983491407857071,
+															"parameters": {
+																"instance-variable": "DifY",
+																"comparison": 5,
+																"value": "100"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyKnife",
+															"sid": 968562776287198,
+															"parameters": {
+																"instance-variable": "DifY",
+																"comparison": 3,
+																"value": "-100"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyKnife",
+															"sid": 539869303438330,
+															"parameters": {
+																"instance-variable": "MovingToRamp",
+																"value": "true"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyKnife",
+															"sid": 461987003636343,
+															"parameters": {
+																"instance-variable": "vision",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 646479514266311,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyKnife",
+																	"sid": 512188094924944,
+																	"parameters": {
+																		"instance-variable": "MovingToRamp"
+																	}
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyKnife",
+																	"sid": 618251070246977,
+																	"parameters": {
+																		"instance-variable": "onRamp"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyKnife",
+																	"sid": 728872610409167,
+																	"parameters": {
+																		"object": "UpDown"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 148229158609389,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-nearestfurthest",
+																			"objectClass": "UpDown",
+																			"sid": 246241623335764,
+																			"parameters": {
+																				"which": "nearest",
+																				"x": "EnemyKnife.X",
+																				"y": "EnemyKnife.Y "
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 225285816639164,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "EnemyKnife",
+																					"sid": 577776671972597,
+																					"parameters": {
+																						"instance-variable": "DifY",
+																						"comparison": 2,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 433996289896249,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "EnemyKnife",
+																							"sid": 688680080164849,
+																							"parameters": {
+																								"instance-variable": "UpDownY",
+																								"comparison": 5,
+																								"value": "-200"
+																							}
+																						},
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "EnemyKnife",
+																							"sid": 811426435865104,
+																							"parameters": {
+																								"instance-variable": "UpDownY",
+																								"comparison": 2,
+																								"value": "0"
+																							}
+																						},
+																						{
+																							"id": "trigger-once-while-true",
+																							"objectClass": "System",
+																							"sid": 646394526291765
+																						},
+																						{
+																							"id": "for-each",
+																							"objectClass": "System",
+																							"sid": 208850305624077,
+																							"parameters": {
+																								"object": "EnemyKnife"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-speed",
+																							"objectClass": "EnemyKnife",
+																							"sid": 412659059747302,
+																							"behaviorType": "НастраиваемоеДвижение",
+																							"parameters": {
+																								"which": "horizontal",
+																								"speed": "sign(EnemyKnife.UpDownX - EnemyKnife.X) * EnemyKnife.speed"
+																							}
+																						}
+																					],
+																					"sid": 897787399337120
+																				}
+																			]
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "EnemyKnife",
+																					"sid": 442413132969141,
+																					"parameters": {
+																						"instance-variable": "DifY",
+																						"comparison": 4,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 372766326590309,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "EnemyKnife",
+																							"sid": 191574283273085,
+																							"parameters": {
+																								"instance-variable": "UpDownY",
+																								"comparison": 3,
+																								"value": "200"
+																							}
+																						},
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "EnemyKnife",
+																							"sid": 364253711241247,
+																							"parameters": {
+																								"instance-variable": "UpDownY",
+																								"comparison": 4,
+																								"value": "0"
+																							}
+																						},
+																						{
+																							"id": "trigger-once-while-true",
+																							"objectClass": "System",
+																							"sid": 190199243445229
+																						},
+																						{
+																							"id": "for-each",
+																							"objectClass": "System",
+																							"sid": 301701784595756,
+																							"parameters": {
+																								"object": "EnemyKnife"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-speed",
+																							"objectClass": "EnemyKnife",
+																							"sid": 167162617941800,
+																							"behaviorType": "НастраиваемоеДвижение",
+																							"parameters": {
+																								"which": "horizontal",
+																								"speed": "sign(EnemyKnife.UpDownX - EnemyKnife.X) * EnemyKnife.speed"
+																							}
+																						}
+																					],
+																					"sid": 531573015703463
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													],
+													"isOrBlock": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyKnife",
+													"sid": 144033450020588,
+													"parameters": {
+														"instance-variable": "HP",
+														"comparison": 4,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 594480179333710,
+													"parameters": {
+														"instance-variable": "Down"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "EnemyKnife",
+													"sid": 496760087844393,
+													"parameters": {
+														"animation": "\"Kick\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 790714374988605,
+													"parameters": {
+														"instance-variable": "Rolling"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 430770481476522,
+													"parameters": {
+														"instance-variable": "Damage"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 306678481925561,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-at-offset",
+															"objectClass": "EnemyKnife",
+															"sid": 806423662865164,
+															"parameters": {
+																"object": "UpDown",
+																"offset-x": "-10",
+																"offset-y": "0"
+															}
+														},
+														{
+															"id": "is-overlapping-at-offset",
+															"objectClass": "EnemyKnife",
+															"sid": 626431368489279,
+															"parameters": {
+																"object": "UpDown",
+																"offset-x": "10",
+																"offset-y": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 509296309771234,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyKnife",
+																	"sid": 796276984315336,
+																	"disabled": true,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 5,
+																		"value": "5"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "EnemyKnife",
+																	"sid": 297172773644466,
+																	"disabled": true,
+																	"parameters": {
+																		"instance-variable": "DifY",
+																		"comparison": 3,
+																		"value": "-100"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyKnife",
+																	"sid": 208337044206339,
+																	"parameters": {
+																		"instance-variable": "onRamp",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyKnife",
+																	"sid": 155131411349294,
+																	"parameters": {
+																		"instance-variable": "MovingToRamp",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "EnemyKnife",
+																	"sid": 713728695689600,
+																	"parameters": {
+																		"instance-variable": "vision",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "start-timer",
+																	"objectClass": "EnemyKnife",
+																	"sid": 137784613823930,
+																	"behaviorType": "Таймер",
+																	"parameters": {
+																		"duration": "0.2",
+																		"type": "regular",
+																		"tag": "\"Ramp\""
+																	}
+																}
+															],
+															"sid": 205803199877096,
+															"isOrBlock": true
+														}
+													],
+													"isOrBlock": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-timer",
+													"objectClass": "EnemyKnife",
+													"sid": 360043016156265,
+													"behaviorType": "Таймер",
+													"parameters": {
+														"tag": "\"Ramp\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 329469968703972,
+													"parameters": {
+														"instance-variable": "Damage"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "EnemyKnife",
+													"sid": 396164252991004,
+													"parameters": {
+														"instance-variable": "onRamp"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyKnife",
+													"sid": 305899913835561,
+													"parameters": {
+														"instance-variable": "search",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyKnife",
+													"sid": 840833717382576,
+													"parameters": {
+														"instance-variable": "onRamp",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 756322857694099,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 548330047433553
+														},
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 507381203341356,
+															"parameters": {
+																"object": "EnemyKnife"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "stop-all-timers",
+															"objectClass": "EnemyKnife",
+															"sid": 775798946171457,
+															"behaviorType": "Таймер"
+														}
+													],
+													"sid": 278115064784306
+												}
+											]
+										}
+									],
+									"sid": 705752364118262
 								}
 							],
 							"sid": 642354529078753
@@ -81238,7 +81389,7 @@
 								{
 									"id": "pick-nearestfurthest",
 									"objectClass": "UpDown",
-									"sid": 877879459496387,
+									"sid": 212498904393958,
 									"parameters": {
 										"which": "nearest",
 										"x": "EnemyKnife.X",
@@ -81248,21 +81399,21 @@
 								{
 									"id": "every-tick",
 									"objectClass": "System",
-									"sid": 127810802611678
+									"sid": 432211138841733
 								}
 							],
 							"actions": [
 								{
 									"id": "set-instvar-value",
 									"objectClass": "EnemyKnife",
-									"sid": 862693778462694,
+									"sid": 563936764550877,
 									"parameters": {
 										"instance-variable": "UpDownY",
 										"value": "UpDown.Y - Self.Y"
 									}
 								}
 							],
-							"sid": 421710112355538
+							"sid": 218445779459629
 						},
 						{
 							"eventType": "block",
@@ -81270,7 +81421,7 @@
 								{
 									"id": "pick-nearestfurthest",
 									"objectClass": "UpDown",
-									"sid": 654976064318556,
+									"sid": 358509451581109,
 									"parameters": {
 										"which": "nearest",
 										"x": "EnemyKnife.X",
@@ -81280,21 +81431,22 @@
 								{
 									"id": "every-tick",
 									"objectClass": "System",
-									"sid": 127871726384169
+									"sid": 946396605868182
 								}
 							],
 							"actions": [
 								{
 									"id": "set-instvar-value",
 									"objectClass": "EnemyKnife",
-									"sid": 465495816536182,
+									"sid": 464342913558128,
 									"parameters": {
 										"instance-variable": "UpDownX",
 										"value": "UpDown.X - Self.X"
 									}
 								}
 							],
-							"sid": 154936919743003
+							"sid": 321403628411814,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -81302,7 +81454,7 @@
 								{
 									"id": "pick-nearestfurthest",
 									"objectClass": "UpDown",
-									"sid": 570101886016590,
+									"sid": 825437734893775,
 									"parameters": {
 										"which": "nearest",
 										"x": "Player_All.X",
@@ -81312,21 +81464,22 @@
 								{
 									"id": "every-tick",
 									"objectClass": "System",
-									"sid": 470039076870612
+									"sid": 429855199810653
 								}
 							],
 							"actions": [
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Player_All",
-									"sid": 770377997093566,
+									"sid": 137815261370783,
 									"parameters": {
 										"instance-variable": "UpDownY",
 										"value": "UpDown.Y - Self.Y"
 									}
 								}
 							],
-							"sid": 303927977596072
+							"sid": 933710819288884,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -81334,7 +81487,7 @@
 								{
 									"id": "pick-nearestfurthest",
 									"objectClass": "UpDown",
-									"sid": 402319933586996,
+									"sid": 891643160408137,
 									"parameters": {
 										"which": "nearest",
 										"x": "Player_All.X",
@@ -81344,21 +81497,22 @@
 								{
 									"id": "every-tick",
 									"objectClass": "System",
-									"sid": 222188311582075
+									"sid": 752064419776708
 								}
 							],
 							"actions": [
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Player_All",
-									"sid": 927324316712844,
+									"sid": 336245894448496,
 									"parameters": {
 										"instance-variable": "UpDownX",
 										"value": "UpDown.X - Self.X"
 									}
 								}
 							],
-							"sid": 832971074238818
+							"sid": 630692850567568,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -94383,7 +94537,8 @@
 									}
 								}
 							],
-							"sid": 555246179223880
+							"sid": 555246179223880,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -94415,7 +94570,8 @@
 									}
 								}
 							],
-							"sid": 865793351405367
+							"sid": 865793351405367,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -94447,7 +94603,8 @@
 									}
 								}
 							],
-							"sid": 369356393674274
+							"sid": 369356393674274,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -95187,10 +95344,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "EnemyFurious",
-													"sid": 886417512801370,
+													"sid": 228852724257030,
 													"parameters": {
 														"instance-variable": "Fear",
-														"value": "1"
+														"value": "Fear.PickedCount"
 													}
 												},
 												{
@@ -107840,7 +107997,8 @@
 									}
 								}
 							],
-							"sid": 888984649990168
+							"sid": 888984649990168,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -107872,7 +108030,8 @@
 									}
 								}
 							],
-							"sid": 647898011596305
+							"sid": 647898011596305,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -107904,7 +108063,8 @@
 									}
 								}
 							],
-							"sid": 430078395196335
+							"sid": 430078395196335,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -133141,6 +133301,7 @@
 					"id": "set-visible",
 					"objectClass": "Fear",
 					"sid": 328587691099605,
+					"disabled": true,
 					"parameters": {
 						"visibility": "invisible"
 					}
