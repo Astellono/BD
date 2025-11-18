@@ -509,10 +509,10 @@
 						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 151771658068083,
+							"sid": 784486149211516,
 							"parameters": {
 								"audio-file": "Abandonment",
-								"loop": "not-looping",
+								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"music\""
@@ -1183,118 +1183,6 @@
 		{
 			"eventType": "comment",
 			"text": "Music_Load"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-load-complete",
-					"objectClass": "System",
-					"sid": 434948180246734
-				},
-				{
-					"id": "is-group-active",
-					"objectClass": "System",
-					"sid": 946114290908274,
-					"parameters": {
-						"group-name": "\"Player\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "stop",
-					"objectClass": "Аудио",
-					"sid": 579872431519917,
-					"parameters": {
-						"tag": "\"Suspense\""
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Аудио",
-					"sid": 548807486363035,
-					"parameters": {
-						"audio-file": "Abandonment",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"music\""
-					}
-				},
-				{
-					"id": "seek-to",
-					"objectClass": "Аудио",
-					"sid": 902060266939095,
-					"parameters": {
-						"tag": "\"music\"",
-						"position": "Music_Safe.ItemValue"
-					}
-				}
-			],
-			"sid": 753624123097441
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-ended",
-					"objectClass": "Аудио",
-					"sid": 670461902331921,
-					"parameters": {
-						"tag": "\"music\""
-					}
-				},
-				{
-					"id": "is-group-active",
-					"objectClass": "System",
-					"sid": 499525174017379,
-					"parameters": {
-						"group-name": "\"Player\""
-					}
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 667611230343979,
-					"parameters": {
-						"variable": "Music_Stop"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "stop",
-					"objectClass": "Аудио",
-					"sid": 451138243249952,
-					"parameters": {
-						"tag": "\"Suspense\""
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 420350592772476,
-					"parameters": {
-						"seconds": "0.5",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Аудио",
-					"sid": 280809978306051,
-					"parameters": {
-						"audio-file": "Abandonment",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"music\""
-					}
-				}
-			],
-			"sid": 793182623839416
 		},
 		{
 			"eventType": "block",

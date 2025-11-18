@@ -1184,48 +1184,6 @@
 					],
 					"actions": [
 						{
-							"id": "restart-layout",
-							"objectClass": "System",
-							"sid": 688128380041085,
-							"disabled": true
-						},
-						{
-							"id": "reset-global-variables",
-							"objectClass": "System",
-							"sid": 483572987586393,
-							"disabled": true,
-							"parameters": {
-								"reset-static": true
-							}
-						},
-						{
-							"id": "reset-eventvar",
-							"objectClass": "System",
-							"sid": 780986139392989,
-							"disabled": true,
-							"parameters": {
-								"variable": "weapon"
-							}
-						},
-						{
-							"id": "reset-eventvar",
-							"objectClass": "System",
-							"sid": 822252299853051,
-							"disabled": true,
-							"parameters": {
-								"variable": "HPplayer"
-							}
-						},
-						{
-							"id": "stop",
-							"objectClass": "Аудио",
-							"sid": 652226766673016,
-							"disabled": true,
-							"parameters": {
-								"tag": "\"music\""
-							}
-						},
-						{
 							"id": "spawn-another-object",
 							"objectClass": "Player_All",
 							"sid": 409437128386460,
@@ -1280,33 +1238,6 @@
 							}
 						},
 						{
-							"id": "set-item",
-							"objectClass": "Music_Safe",
-							"sid": 516883682945987,
-							"parameters": {
-								"key": "\"SaveMusic\"",
-								"value": "Аудио.PlaybackTime(\"music\")"
-							}
-						},
-						{
-							"id": "set-item",
-							"objectClass": "Music_Safe",
-							"sid": 342316255388484,
-							"parameters": {
-								"key": "\"Sound\"",
-								"value": "Sound"
-							}
-						},
-						{
-							"id": "set-item",
-							"objectClass": "Music_Safe",
-							"sid": 699860515214617,
-							"parameters": {
-								"key": "\"Audio\"",
-								"value": "Audio"
-							}
-						},
-						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 807553862242926,
@@ -1322,70 +1253,9 @@
 							"parameters": {
 								"slot": "\"mysave\""
 							}
-						},
-						{
-							"id": "get-item",
-							"objectClass": "Music_Safe",
-							"sid": 223481960213217,
-							"parameters": {
-								"key": "\"SaveMusic\""
-							}
-						},
-						{
-							"id": "check-item-exists",
-							"objectClass": "Music_Safe",
-							"sid": 492834802197966,
-							"parameters": {
-								"key": "\"SaveMusic\""
-							}
 						}
 					],
 					"sid": 202283487421681
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-load-complete",
-							"objectClass": "System",
-							"sid": 941398862581555
-						}
-					],
-					"actions": [
-						{
-							"id": "get-item",
-							"objectClass": "Music_Safe",
-							"sid": 600338375172606,
-							"parameters": {
-								"key": "\"Audio\""
-							}
-						},
-						{
-							"id": "get-item",
-							"objectClass": "Music_Safe",
-							"sid": 744629678327461,
-							"parameters": {
-								"key": "\"Sound\""
-							}
-						},
-						{
-							"id": "check-item-exists",
-							"objectClass": "Music_Safe",
-							"sid": 210883046116903,
-							"parameters": {
-								"key": "\"Sound\""
-							}
-						},
-						{
-							"id": "check-item-exists",
-							"objectClass": "Music_Safe",
-							"sid": 441283564511247,
-							"parameters": {
-								"key": "\"Audio\""
-							}
-						}
-					],
-					"sid": 585734204441905
 				},
 				{
 					"eventType": "block",
@@ -11056,6 +10926,18 @@
 									],
 									"sid": 990598676549253,
 									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 729713991498299
+										}
+									],
+									"actions": [],
+									"sid": 439099141339112
 								}
 							],
 							"sid": 213023670891529
@@ -16654,6 +16536,15 @@
 														"animation": "\"Run\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyBaseball",
+													"sid": 311290265503860,
+													"parameters": {
+														"instance-variable": "Dialog",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 788169336820723
@@ -17029,6 +16920,101 @@
 															"sid": 774640919428446
 														}
 													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 214626495666861,
+													"parameters": {
+														"object": "EnemyBaseball"
+													}
+												},
+												{
+													"id": "has-los-to-object",
+													"objectClass": "EnemyBaseball",
+													"sid": 101317293278357,
+													"behaviorType": "ПолеЗрения",
+													"parameters": {
+														"object": "Player_All",
+														"image-point": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 845286972948492,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyBaseball",
+															"sid": 713860206887763,
+															"parameters": {
+																"instance-variable": "Fear",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball",
+															"sid": 175778718562128,
+															"parameters": {
+																"instance-variable": "Down"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball",
+															"sid": 367912248245617,
+															"parameters": {
+																"instance-variable": "Dialog"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyBaseball",
+															"sid": 307409686609887,
+															"parameters": {
+																"instance-variable": "HasDialog"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 898781814242176
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Create_DealogueEnemy",
+															"sid": 226122601670830,
+															"parameters": [
+																"EnemyBaseball.ImagePointX(\"Dialog\")",
+																"EnemyBaseball.ImagePointY(\"Dialog\")",
+																"0",
+																"1",
+																true
+															]
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyBaseball",
+															"sid": 914069700543071,
+															"parameters": {
+																"instance-variable": "HasDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 514797032588838
 												}
 											]
 										},
@@ -27312,13 +27298,13 @@
 									"sid": 424491093496330,
 									"children": [
 										{
+											"bookmark": true,
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyBaseball",
 													"sid": 315604754217711,
-													"disabled": true,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
@@ -27329,7 +27315,6 @@
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyBaseball",
 													"sid": 200796553490445,
-													"disabled": true,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
@@ -28353,39 +28338,39 @@
 															]
 														},
 														{
+															"bookmark": true,
 															"eventType": "block",
 															"conditions": [
 																{
 																	"id": "is-timer-running",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 185270100245761,
+																	"sid": 910101170527882,
 																	"behaviorType": "Таймер",
 																	"parameters": {
 																		"tag": "\"probejka\""
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 590620188925323,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 397306172194991,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
 																	"id": "is-boolean-instance-variable-set",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 247524521962970,
+																	"sid": 172055070156411,
 																	"parameters": {
 																		"instance-variable": "probejka"
 																	}
 																}
 															],
 															"actions": [],
-															"sid": 117928900407808,
+															"sid": 120815310324296,
 															"children": [
 																{
 																	"eventType": "block",
@@ -28393,7 +28378,7 @@
 																		{
 																			"id": "compare-instance-variable",
 																			"objectClass": "EnemyBaseball",
-																			"sid": 193551447139527,
+																			"sid": 237643190405304,
 																			"parameters": {
 																				"instance-variable": "DifY",
 																				"comparison": 2,
@@ -28403,7 +28388,7 @@
 																		{
 																			"id": "compare-instance-variable",
 																			"objectClass": "EnemyBaseball",
-																			"sid": 758771219119330,
+																			"sid": 425857964781608,
 																			"parameters": {
 																				"instance-variable": "DifY",
 																				"comparison": 4,
@@ -28415,7 +28400,7 @@
 																		{
 																			"id": "set-speed",
 																			"objectClass": "EnemyBaseball",
-																			"sid": 669527322043322,
+																			"sid": 798582476761111,
 																			"behaviorType": "НастраиваемоеДвижение",
 																			"parameters": {
 																				"which": "horizontal",
@@ -28423,45 +28408,45 @@
 																			}
 																		}
 																	],
-																	"sid": 885898228025932,
+																	"sid": 310064017499370,
 																	"isOrBlock": true
 																}
 															]
 														},
 														{
+															"bookmark": true,
 															"eventType": "block",
 															"conditions": [
 																{
 																	"id": "is-timer-running",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 332902199356259,
+																	"sid": 407814297698313,
 																	"behaviorType": "Таймер",
 																	"parameters": {
 																		"tag": "\"probejka\""
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 583704060571984,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 161525264965548,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{
 																	"id": "is-boolean-instance-variable-set",
 																	"objectClass": "EnemyBaseball",
-																	"sid": 774410190452989,
+																	"sid": 842198006762593,
 																	"parameters": {
 																		"instance-variable": "probejka"
 																	}
 																}
 															],
 															"actions": [],
-															"sid": 658100794627906,
+															"sid": 596781769633543,
 															"children": [
 																{
 																	"eventType": "block",
@@ -28469,7 +28454,7 @@
 																		{
 																			"id": "compare-instance-variable",
 																			"objectClass": "EnemyBaseball",
-																			"sid": 302990498692570,
+																			"sid": 192571316285185,
 																			"parameters": {
 																				"instance-variable": "DifY",
 																				"comparison": 2,
@@ -28479,7 +28464,7 @@
 																		{
 																			"id": "compare-instance-variable",
 																			"objectClass": "EnemyBaseball",
-																			"sid": 141022319324126,
+																			"sid": 297400358485491,
 																			"parameters": {
 																				"instance-variable": "DifY",
 																				"comparison": 4,
@@ -28491,7 +28476,7 @@
 																		{
 																			"id": "set-speed",
 																			"objectClass": "EnemyBaseball",
-																			"sid": 401752442627362,
+																			"sid": 270628648841235,
 																			"behaviorType": "НастраиваемоеДвижение",
 																			"parameters": {
 																				"which": "horizontal",
@@ -28499,7 +28484,7 @@
 																			}
 																		}
 																	],
-																	"sid": 948091957116818,
+																	"sid": 205457617117889,
 																	"isOrBlock": true
 																}
 															]
@@ -29261,7 +29246,8 @@
 									}
 								}
 							],
-							"sid": 339759552114010
+							"sid": 339759552114010,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -29701,6 +29687,15 @@
 														"animation": "\"Run\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemySecurity",
+													"sid": 709131851390145,
+													"parameters": {
+														"instance-variable": "Dialog",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 793005574652667
@@ -30076,6 +30071,101 @@
 															"sid": 225553541356727
 														}
 													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 389887833766596,
+													"parameters": {
+														"object": "EnemySecurity"
+													}
+												},
+												{
+													"id": "has-los-to-object",
+													"objectClass": "EnemySecurity",
+													"sid": 808593418675280,
+													"behaviorType": "ПолеЗрения",
+													"parameters": {
+														"object": "Player_All",
+														"image-point": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 191055279207590,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemySecurity",
+															"sid": 505439939717410,
+															"parameters": {
+																"instance-variable": "Fear",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemySecurity",
+															"sid": 361230764195115,
+															"parameters": {
+																"instance-variable": "Down"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemySecurity",
+															"sid": 158278888918095,
+															"parameters": {
+																"instance-variable": "Dialog"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemySecurity",
+															"sid": 274132998922123,
+															"parameters": {
+																"instance-variable": "HasDialog"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 274793057021088
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Create_DealogueEnemy",
+															"sid": 951847120904906,
+															"parameters": [
+																"EnemySecurity.ImagePointX(\"Dialog\")",
+																"EnemySecurity.ImagePointY(\"Dialog\")",
+																"0",
+																"1",
+																true
+															]
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemySecurity",
+															"sid": 174752836028611,
+															"parameters": {
+																"instance-variable": "HasDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 563740352322465
 												}
 											]
 										},
@@ -40364,23 +40454,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemySecurity",
-													"sid": 882923381910203,
-													"disabled": true,
+													"sid": 337572992646163,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemySecurity",
-													"sid": 673106505595176,
-													"disabled": true,
+													"sid": 520968820961729,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -41412,14 +41500,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemySecurity",
-																	"sid": 823879859713658,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 668030300261596,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
@@ -41488,14 +41575,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemySecurity",
-																	"sid": 785462338477500,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 343999914066834,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{
@@ -53730,23 +53816,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyJunkieKnife",
-													"sid": 326104764213841,
-													"disabled": true,
+													"sid": 875545435380482,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyJunkieKnife",
-													"sid": 652926715721014,
-													"disabled": true,
+													"sid": 463399798596797,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -54778,14 +54862,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyJunkieKnife",
-																	"sid": 397659318846729,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 448761067029193,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
@@ -54854,14 +54937,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyJunkieKnife",
-																	"sid": 632073342342500,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 114823224123929,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{
@@ -66056,23 +66138,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyJunkie",
-													"sid": 164023014623119,
-													"disabled": true,
+													"sid": 606920726620241,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyJunkie",
-													"sid": 491484066350275,
-													"disabled": true,
+													"sid": 601512883112254,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -67114,14 +67194,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyJunkie",
-																	"sid": 497398194356438,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 637451031563708,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
@@ -67190,14 +67269,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyJunkie",
-																	"sid": 957151354747696,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 396879310050531,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{
@@ -68742,6 +68820,15 @@
 														"animation": "\"Run\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyKnife",
+													"sid": 965829793610356,
+													"parameters": {
+														"instance-variable": "Dialog",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 909729441310426
@@ -69117,6 +69204,101 @@
 															"sid": 878495510390616
 														}
 													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 597255771758904,
+													"parameters": {
+														"object": "EnemyKnife"
+													}
+												},
+												{
+													"id": "has-los-to-object",
+													"objectClass": "EnemyKnife",
+													"sid": 895290283831634,
+													"behaviorType": "ПолеЗрения",
+													"parameters": {
+														"object": "Player_All",
+														"image-point": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 682033014400913,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyKnife",
+															"sid": 666178164379686,
+															"parameters": {
+																"instance-variable": "Fear",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyKnife",
+															"sid": 679727355545336,
+															"parameters": {
+																"instance-variable": "Down"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyKnife",
+															"sid": 778781697995208,
+															"parameters": {
+																"instance-variable": "Dialog"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyKnife",
+															"sid": 639919390604186,
+															"parameters": {
+																"instance-variable": "HasDialog"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 185098698276584
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Create_DealogueEnemy",
+															"sid": 939858724743283,
+															"parameters": [
+																"EnemyKnife.ImagePointX(\"Dialog\")",
+																"EnemyKnife.ImagePointY(\"Dialog\")",
+																"0",
+																"1",
+																true
+															]
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyKnife",
+															"sid": 351026190185678,
+															"parameters": {
+																"instance-variable": "HasDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 372530227639898
 												}
 											]
 										},
@@ -79451,23 +79633,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyKnife",
-													"sid": 163757582144702,
-													"disabled": true,
+													"sid": 719580762038174,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyKnife",
-													"sid": 450873672011212,
-													"disabled": true,
+													"sid": 553819261635776,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -79929,14 +80109,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyKnife",
-																	"sid": 395337539346451,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 977430035582308,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
@@ -80005,14 +80184,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyKnife",
-																	"sid": 585256206590161,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 231705238255934,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{
@@ -81842,6 +82020,15 @@
 														"animation": "\"Run\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyPchel",
+													"sid": 326792500580566,
+													"parameters": {
+														"instance-variable": "Dialog",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 238241925417466
@@ -82217,6 +82404,101 @@
 															"sid": 284403704680995
 														}
 													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 324135410063680,
+													"parameters": {
+														"object": "EnemyPchel"
+													}
+												},
+												{
+													"id": "has-los-to-object",
+													"objectClass": "EnemyPchel",
+													"sid": 836782079514695,
+													"behaviorType": "ПолеЗрения",
+													"parameters": {
+														"object": "Player_All",
+														"image-point": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 456563126068877,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyPchel",
+															"sid": 733405040288529,
+															"parameters": {
+																"instance-variable": "Fear",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyPchel",
+															"sid": 489705821721770,
+															"parameters": {
+																"instance-variable": "Down"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyPchel",
+															"sid": 818514545661059,
+															"parameters": {
+																"instance-variable": "Dialog"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyPchel",
+															"sid": 944282405076516,
+															"parameters": {
+																"instance-variable": "HasDialog"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 370873355928946
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Create_DealogueEnemy",
+															"sid": 395860135241475,
+															"parameters": [
+																"EnemyPchel.ImagePointX(\"Dialog\")",
+																"EnemyPchel.ImagePointY(\"Dialog\")",
+																"0",
+																"1",
+																true
+															]
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyPchel",
+															"sid": 496587295728330,
+															"parameters": {
+																"instance-variable": "HasDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 759991849573294
 												}
 											]
 										},
@@ -92551,23 +92833,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyPchel",
-													"sid": 857596285066930,
-													"disabled": true,
+													"sid": 815389530480071,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyPchel",
-													"sid": 522133756329005,
-													"disabled": true,
+													"sid": 459642544458095,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -93599,14 +93879,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyPchel",
-																	"sid": 889499556259608,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 742766565148362,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
@@ -93675,14 +93954,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyPchel",
-																	"sid": 809085591195353,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 359683977147739,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{
@@ -94934,6 +95212,15 @@
 														"animation": "\"Run\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyFurious",
+													"sid": 811880203144060,
+													"parameters": {
+														"instance-variable": "Dialog",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 246891814848397
@@ -95309,6 +95596,101 @@
 															"sid": 597734241195173
 														}
 													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 756112721557428,
+													"parameters": {
+														"object": "EnemyFurious"
+													}
+												},
+												{
+													"id": "has-los-to-object",
+													"objectClass": "EnemyFurious",
+													"sid": 793827958674313,
+													"behaviorType": "ПолеЗрения",
+													"parameters": {
+														"object": "Player_All",
+														"image-point": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 126504145520389,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "EnemyFurious",
+															"sid": 248754022931806,
+															"parameters": {
+																"instance-variable": "Fear",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyFurious",
+															"sid": 828981028545384,
+															"parameters": {
+																"instance-variable": "Down"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyFurious",
+															"sid": 578806724643010,
+															"parameters": {
+																"instance-variable": "Dialog"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyFurious",
+															"sid": 447008314435750,
+															"parameters": {
+																"instance-variable": "HasDialog"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 373771810899700
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Create_DealogueEnemy",
+															"sid": 304081170295364,
+															"parameters": [
+																"EnemyFurious.ImagePointX(\"Dialog\")",
+																"EnemyFurious.ImagePointY(\"Dialog\")",
+																"0",
+																"1",
+																true
+															]
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyFurious",
+															"sid": 386701680071376,
+															"parameters": {
+																"instance-variable": "HasDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 733972506714811
 												}
 											]
 										},
@@ -106013,23 +106395,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyFurious",
-													"sid": 495131814582383,
-													"disabled": true,
+													"sid": 575385513168768,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyFurious",
-													"sid": 245998323840466,
-													"disabled": true,
+													"sid": 553161043407995,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -107061,14 +107441,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyFurious",
-																	"sid": 292240511071148,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 385749866386893,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
@@ -107137,14 +107516,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyFurious",
-																	"sid": 654529218669030,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 114799033113785,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{
@@ -118623,23 +119001,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyFat",
-													"sid": 954959001052606,
-													"disabled": true,
+													"sid": 438823211655506,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 3,
-														"value": "50"
+														"value": "100"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemyFat",
-													"sid": 479539338538939,
-													"disabled": true,
+													"sid": 694036546840203,
 													"parameters": {
 														"instance-variable": "DifY",
 														"comparison": 5,
-														"value": "-50"
+														"value": "-100"
 													}
 												}
 											],
@@ -119671,14 +120047,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyFat",
-																	"sid": 767777599237159,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 903392011758084,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 3,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "-1"
 																	}
 																},
 																{
@@ -119747,14 +120122,13 @@
 																	}
 																},
 																{
-																	"id": "compare-speed",
+																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyFat",
-																	"sid": 200494580298106,
-																	"behaviorType": "НастраиваемоеДвижение",
+																	"sid": 844265052335694,
 																	"parameters": {
-																		"which": "horizontal",
-																		"comparison": 5,
-																		"speed": "0"
+																		"instance-variable": "rotate",
+																		"comparison": 0,
+																		"value": "1"
 																	}
 																},
 																{

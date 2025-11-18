@@ -304,34 +304,16 @@
 					"sid": 605678058909789
 				},
 				{
-					"name": "Pin",
+					"name": "Fear",
 					"type": "boolean",
 					"initialValue": "false",
 					"comment": "",
-					"sid": 877752716204350
+					"sid": 326747184083413
 				}
 			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Cloud_Dialogue",
-					"sid": 387262200361413
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "press_E",
-					"sid": 779790646665394,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "destroy",
-					"objectClass": "EnemyText",
-					"sid": 526718836242136
-				},
 				{
 					"id": "create-object",
 					"objectClass": "System",
@@ -443,7 +425,6 @@
 				}
 			],
 			"sid": 672309619549604,
-			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -451,68 +432,34 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 549166288814296,
+							"sid": 145010960325821,
 							"parameters": {
-								"variable": "Pin"
+								"variable": "Fear"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "pin-to-object-imagepoint",
-							"objectClass": "Cloud_Dialogue",
-							"sid": 428699621339597,
-							"behaviorType": "Прикрепить",
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 757275717568305,
 							"parameters": {
-								"pin-to": "Enemys",
-								"image-point": "\"Dialog\"",
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
+								"seconds": "5",
+								"use-timescale": true
 							}
 						},
 						{
-							"id": "pin-to-object-imagepoint",
-							"objectClass": "EnemyText",
-							"sid": 464956097027770,
-							"behaviorType": "Прикрепить",
-							"parameters": {
-								"pin-to": "Cloud_Dialogue",
-								"image-point": "\"Text\"",
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						}
-					],
-					"sid": 916955887909063,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 654003014572060,
-							"parameters": {
-								"variable": "Pin"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "unpin",
+							"id": "destroy",
 							"objectClass": "Cloud_Dialogue",
-							"sid": 909082310437987,
-							"behaviorType": "Прикрепить"
+							"sid": 670418109037106
+						},
+						{
+							"id": "destroy",
+							"objectClass": "EnemyText",
+							"sid": 625071311970711
 						}
 					],
-					"sid": 328879674925686,
-					"disabled": true
+					"sid": 507616858035092
 				}
 			]
 		},
@@ -681,20 +628,6 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 212947016033443,
-					"disabled": true,
-					"parameters": {
-						"object-to-create": "main_dialogue",
-						"layer": "\"UI\"",
-						"x": "172",
-						"y": "ViewportBottom(0) - 75",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
 					"sid": 722165677495866,
 					"parameters": {
 						"object-to-create": "main_dialogue",
@@ -773,15 +706,6 @@
 					}
 				},
 				{
-					"id": "set-vertical-alignment",
-					"objectClass": "dialogMainText",
-					"sid": 485470531032143,
-					"disabled": true,
-					"parameters": {
-						"vertical-alignment": "center"
-					}
-				},
-				{
 					"id": "set-size",
 					"objectClass": "dialogMainText",
 					"sid": 140374413663538,
@@ -821,25 +745,6 @@
 					"sid": 916489665336504,
 					"parameters": {
 						"text": "Lang.At(Language,Lang)",
-						"duration": "timetyping"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "dialogMainText",
-					"sid": 540919797095941,
-					"disabled": true,
-					"parameters": {
-						"text": "Text"
-					}
-				},
-				{
-					"id": "typewriter-text",
-					"objectClass": "dialogMainText",
-					"sid": 425121049159760,
-					"disabled": true,
-					"parameters": {
-						"text": "Text",
 						"duration": "timetyping"
 					}
 				}
@@ -962,53 +867,6 @@
 				}
 			],
 			"sid": 278020554819236
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 850915811542882,
-					"disabled": true
-				},
-				{
-					"id": "is-on-screen",
-					"objectClass": "main_dialogue",
-					"sid": 759567213158970
-				}
-			],
-			"actions": [
-				{
-					"id": "set-position",
-					"objectClass": "main_dialogue",
-					"sid": 961510468677300,
-					"parameters": {
-						"x": "ViewportLeft(0) + ViewportWidth(0)/2 - 225",
-						"y": "ViewportBottom(0) - 75"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "icon1",
-					"sid": 906308090165710,
-					"parameters": {
-						"x": "main_dialogue.X + 20",
-						"y": "main_dialogue.Y  + 15"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "dialogMainText",
-					"sid": 139584457176420,
-					"parameters": {
-						"x": "main_dialogue.X + 100",
-						"y": "main_dialogue.Y + 15"
-					}
-				}
-			],
-			"sid": 921652099720854,
-			"disabled": true
 		}
 	],
 	"sid": 692011254246023
