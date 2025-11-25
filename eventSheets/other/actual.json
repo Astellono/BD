@@ -228,6 +228,15 @@
 									"parameters": {
 										"obstacle": "Skvoz"
 									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyKnife",
+									"sid": 980379889673927,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
+									}
 								}
 							],
 							"sid": 984378127013975,
@@ -350,6 +359,15 @@
 									"parameters": {
 										"obstacle": "Skvoz"
 									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyFurious",
+									"sid": 653298797673766,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
+									}
 								}
 							],
 							"sid": 330295072090420
@@ -470,6 +488,15 @@
 									"behaviorType": "ПолеЗрения",
 									"parameters": {
 										"obstacle": "Skvoz"
+									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyFat",
+									"sid": 390174291606476,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
 									}
 								}
 							],
@@ -812,6 +839,15 @@
 									"parameters": {
 										"obstacle": "Skvoz"
 									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyJunkie",
+									"sid": 524926236061761,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
+									}
 								}
 							],
 							"sid": 424207697967784,
@@ -957,6 +993,15 @@
 									"parameters": {
 										"obstacle": "Skvoz"
 									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 869639246969545,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
+									}
 								}
 							],
 							"sid": 349074275423946,
@@ -1079,6 +1124,15 @@
 									"parameters": {
 										"obstacle": "Skvoz"
 									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyPchel",
+									"sid": 430998509240342,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
+									}
 								}
 							],
 							"sid": 803032486514813
@@ -1200,10 +1254,357 @@
 									"parameters": {
 										"obstacle": "Skvoz"
 									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemySecurity",
+									"sid": 180038861501689,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
+									}
 								}
 							],
 							"sid": 729591807027779,
 							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "EnemyBaseball",
+									"sid": 114235282476738,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyBaseball",
+									"sid": 664431639674322,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyBaseball",
+									"sid": 678435506178367,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 112335643147529,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "EnemyFurious",
+									"sid": 563892486412468,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyFurious",
+									"sid": 121120440798268,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyFurious",
+									"sid": 681374575369594,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 662307545571108
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 915967109407184,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 520174233001663,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 360268445367277,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 952114084773238
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "EnemyJunkie",
+									"sid": 595208424834456,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyJunkie",
+									"sid": 257123142391458,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyJunkie",
+									"sid": 306567782789066,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 938398122952630
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "EnemyPchel",
+									"sid": 562863991445208,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyPchel",
+									"sid": 159885265164333,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyPchel",
+									"sid": 661687555573132,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 608623107045819
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "EnemySecurity",
+									"sid": 572692754398188,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemySecurity",
+									"sid": 206837133440933,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemySecurity",
+									"sid": 343266995971738,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 869391995628964
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "EnemyKnife",
+									"sid": 970276927303407,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyKnife",
+									"sid": 450494880286613,
+									"parameters": {
+										"object": "DeadZone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyKnife",
+									"sid": 423685258365344,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 700912969610641
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "EnemyBaseball",
+									"sid": 770065848063499,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"object": "Door",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door",
+									"sid": 205849033401533,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "EnemyBaseball",
+									"sid": 981702955814975,
+									"parameters": {
+										"which": "nearest",
+										"x": "Door.X",
+										"y": "Door.Y"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 831294580655680,
+									"parameters": {
+										"object": "EnemyBaseball"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-obstacle",
+									"objectClass": "EnemyBaseball",
+									"sid": 570125716692733,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"obstacle": "Door"
+									}
+								}
+							],
+							"sid": 799007802927020
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "EnemyBaseball",
+									"sid": 500758195246590,
+									"behaviorType": "ПолеЗрения",
+									"parameters": {
+										"object": "Door",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door",
+									"sid": 449931624094481,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "EnemyBaseball",
+									"sid": 532076298481616,
+									"parameters": {
+										"which": "nearest",
+										"x": "Door.X",
+										"y": "Door.Y"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 824356412269287,
+									"parameters": {
+										"object": "EnemyBaseball"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "clear-obstacles",
+									"objectClass": "EnemyBaseball",
+									"sid": 641542278262467,
+									"behaviorType": "ПолеЗрения"
+								}
+							],
+							"sid": 976613778895959
 						}
 					],
 					"sid": 753878257406740
