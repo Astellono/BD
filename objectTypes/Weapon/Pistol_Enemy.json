@@ -4,8 +4,62 @@
 	"sid": 700399644675702,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "Pistol",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 860044858113070
+		},
+		{
+			"name": "Got",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 300499372418074
+		},
+		{
+			"name": "DifWeapon",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 531842546906080
+		},
+		{
+			"name": "rotate",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 937574366217803
+		},
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 272899892191352
+		},
+		{
+			"name": "Vision",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 590572450941975
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Прикрепить",
+			"sid": 269227049059161
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "ПолеЗрения",
+			"sid": 239892138634988
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -20,17 +74,17 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6320726,
+						"imageSpriteId": 633034,
 						"collisionPoly": {
 							"points": [
-								0.09,
+								0,
 								0,
 								0.91,
 								0,
 								0.91,
 								1,
-								0.09,
-								1
+								0,
+								0.9975307134934414
 							]
 						},
 						"useCollisionPoly": true,
@@ -42,110 +96,154 @@
 							}
 						],
 						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 50,
-						"height": 15,
-						"originX": 0.06,
-						"originY": 0.4666666666666667,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 9884313,
-						"collisionPoly": {
-							"points": [
-								0.09,
-								0,
-								0.91,
-								0,
-								0.91,
-								1,
-								0.09,
-								1
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "Shot",
-								"x": 1.169591836734694,
-								"y": 0.19555555555555557
-							}
-						],
-						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 50,
-						"height": 15,
-						"originX": 0.06,
-						"originY": 0.4666666666666667,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 2179117,
-						"collisionPoly": {
-							"points": [
-								0.09,
-								0,
-								0.91,
-								0,
-								0.91,
-								1,
-								0.09,
-								1
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "Shot",
-								"x": 1.169591836734694,
-								"y": 0.19555555555555557
-							}
-						],
-						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 50,
-						"height": 15,
-						"originX": 0.06,
-						"originY": 0.4666666666666667,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 9367736,
-						"collisionPoly": {
-							"points": [
-								0.09,
-								0,
-								0.91,
-								0,
-								0.91,
-								1,
-								0.09,
-								1
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "Shot",
-								"x": 1.169591836734694,
-								"y": 0.19555555555555557
-							}
-						],
-						"duration": 1,
-						"tag": ""
+						"tag": "No"
 					}
 				],
 				"sid": 992946821422284,
 				"name": "PistolEnemy",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 1
+			},
+			{
+				"frames": [
+					{
+						"width": 50,
+						"height": 15,
+						"originX": 0.06,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 1,
+						"fileType": "image/png",
+						"imageSpriteId": 6082463,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.91,
+								0,
+								0.91,
+								1,
+								0,
+								0.9975307134934414
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Shot",
+								"x": 1.169591836734694,
+								"y": 0.19555555555555557
+							}
+						],
+						"duration": 1,
+						"tag": "No"
+					},
+					{
+						"width": 50,
+						"height": 15,
+						"originX": 0.06,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 1,
+						"fileType": "image/png",
+						"imageSpriteId": 399209,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.91,
+								0,
+								0.91,
+								1,
+								0,
+								0.9975307134934414
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Shot",
+								"x": 1.169591836734694,
+								"y": 0.19555555555555557
+							}
+						],
+						"duration": 1,
+						"tag": "No"
+					},
+					{
+						"width": 50,
+						"height": 15,
+						"originX": 0.06,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 1,
+						"fileType": "image/png",
+						"imageSpriteId": 3755373,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.91,
+								0,
+								0.91,
+								1,
+								0,
+								0.9975307134934414
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Shot",
+								"x": 1.169591836734694,
+								"y": 0.19555555555555557
+							}
+						],
+						"duration": 1,
+						"tag": "No"
+					},
+					{
+						"width": 50,
+						"height": 15,
+						"originX": 0.06,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 1,
+						"fileType": "image/png",
+						"imageSpriteId": 975274,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.91,
+								0,
+								0.91,
+								1,
+								0,
+								0.9975307134934414
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Shot",
+								"x": 1.169591836734694,
+								"y": 0.19555555555555557
+							}
+						],
+						"duration": 1,
+						"tag": "No"
+					}
+				],
+				"sid": 485060147134452,
+				"name": "Анимация 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

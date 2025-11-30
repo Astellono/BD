@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 44902,
+	"savedWithRelease": 45802,
 	"name": "BD",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -183,6 +183,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "destroy",
+			"name": "Уничтожение вне макета",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "jumpthru",
 			"name": "Сквозная платформа",
 			"author": "Scirra",
@@ -225,6 +232,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "warpradial",
+			"name": "Радиальная деформация",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "warpripple",
 			"name": "Волна деформации",
 			"author": "Scirra",
@@ -244,11 +258,13 @@
 			"hpEnemyText",
 			"hBar",
 			"stateEnemyText",
-			"Текст",
-			"Текст2",
 			"Browser",
-			"ЛокальноеХранилище",
-			"Flag"
+			"Music_Safe",
+			"Flag",
+			"tilemap_white",
+			"explosion00",
+			"tilemap_packed",
+			"tilemap_packed2"
 		],
 		"subfolders": [
 			{
@@ -271,7 +287,12 @@
 					"EnemyBaseball",
 					"EnemySecurity",
 					"EnemyKnife",
-					"EnemyFurious"
+					"EnemyFurious",
+					"EnemyJunkie",
+					"EnemyPchel",
+					"EnemyJunkieKnife",
+					"EnemyManiac",
+					"EnemyFat"
 				],
 				"subfolders": [
 					{
@@ -279,7 +300,11 @@
 							"HeadBlondin",
 							"HeadPlayer",
 							"HeadKnife",
-							"HeadFurious"
+							"HeadFurious",
+							"HeadPchel",
+							"HeadJunkie",
+							"HeadJunkieKnife",
+							"HeadSecurity"
 						],
 						"subfolders": [],
 						"name": "Head"
@@ -323,7 +348,7 @@
 					"Skvoznoe3",
 					"Skvoz",
 					"JumpEnemy",
-					"Спрайт3"
+					"DeadZone"
 				],
 				"subfolders": [
 					{
@@ -346,15 +371,17 @@
 					"Fire_Extinguisher",
 					"GlassBox",
 					"Shot_Enemy",
-					"Fear"
+					"Fear",
+					"Shot_Shotgun",
+					"HitBoxDialog"
 				],
 				"subfolders": [],
 				"name": "Hitbox"
 			},
 			{
 				"items": [
-					"Клавиатура",
-					"Мышь"
+					"Kayboard",
+					"Mouse"
 				],
 				"subfolders": [],
 				"name": "Control"
@@ -382,7 +409,8 @@
 					"Window_Double",
 					"Shadow4",
 					"Shadow5",
-					"Tailes_BG3"
+					"Tailes_BG3",
+					"Asphalt1"
 				],
 				"subfolders": [
 					{
@@ -423,10 +451,11 @@
 									"Railings",
 									"Floor_BG_Dark2",
 									"Roof_Shifer",
-									"ТайловыйФон2",
-									"ТайловыйФон4",
+									"Roof_Break",
+									"Wall_Break",
 									"Forest_BG4",
-									"Cherepica"
+									"Cherepica",
+									"Side_wall_Old2"
 								],
 								"subfolders": [
 									{
@@ -548,7 +577,8 @@
 					"door_closed",
 					"Door_Card",
 					"Door_Old",
-					"Shepki"
+					"Shepki",
+					"Door_Visor"
 				],
 				"subfolders": [],
 				"name": "Door"
@@ -576,7 +606,10 @@
 							"Blondin",
 							"Vest",
 							"Girl",
-							"Table_2"
+							"Table_2",
+							"Road",
+							"Mad",
+							"Flashko"
 						],
 						"subfolders": [],
 						"name": "Bar"
@@ -592,7 +625,11 @@
 							"press_F",
 							"Press_Space",
 							"press_Q",
-							"Press_Shift"
+							"Press_Shift",
+							"Press_Mouse",
+							"Press_Ctrl",
+							"Press_Mouse2",
+							"Press_Caps"
 						],
 						"subfolders": [],
 						"name": "Dialogue"
@@ -619,7 +656,10 @@
 					},
 					{
 						"items": [
-							"Flat"
+							"Flat",
+							"Amunation",
+							"Amunation2",
+							"Amunation3"
 						],
 						"subfolders": [],
 						"name": "Mark_flat"
@@ -744,7 +784,8 @@
 					{
 						"items": [
 							"Apartament_BG",
-							"Door_Roga"
+							"Door_Roga",
+							"Money_Bag"
 						],
 						"subfolders": [],
 						"name": "Apartament"
@@ -843,15 +884,15 @@
 							"Pipe_Garage",
 							"Window",
 							"Security_Bandl",
-							"Сooperative",
-							"Текст3",
+							"Cooperativ",
+							"Kooperativ",
 							"Garden",
 							"Garden2",
 							"Podemnik",
 							"Canister",
 							"Brick_Wall2",
 							"Brick_Wall3",
-							"Спрайт",
+							"sprite_all",
 							"Stripes",
 							"Window_Office",
 							"Turnstiles"
@@ -932,7 +973,7 @@
 					{
 						"items": [
 							"Wallpapers",
-							"9патч",
+							"Patch",
 							"Entrance_Wall",
 							"Toiket_Wall",
 							"Entrance_Wall2",
@@ -964,7 +1005,8 @@
 					"dialogMainText",
 					"Test",
 					"AJAX",
-					"Lang"
+					"Lang",
+					"EnemyText"
 				],
 				"subfolders": [],
 				"name": "text"
@@ -1016,7 +1058,12 @@
 					"Text_Tutorial",
 					"Menu_Box",
 					"Button_R",
-					"borders"
+					"borders",
+					"Cursor_Mouse",
+					"Logo",
+					"Mask_Logo",
+					"Boom_Logo",
+					"Text_Setting"
 				],
 				"subfolders": [],
 				"name": "Menu"
@@ -1037,7 +1084,8 @@
 			"Door",
 			"Head",
 			"Menu",
-			"GlassCrash"
+			"GlassCrash",
+			"LadderStair"
 		],
 		"subfolders": []
 	},
@@ -1061,14 +1109,17 @@
 					"Hotel",
 					"Tower",
 					"Office",
-					"Warehouse"
+					"Warehouse",
+					"Bar2",
+					"Bar3"
 				],
 				"subfolders": [],
 				"name": "Levels"
 			},
 			{
 				"items": [
-					"Start_Screen"
+					"Start_Screen",
+					"Main_Menu"
 				],
 				"subfolders": [],
 				"name": "Menu"
@@ -1077,7 +1128,8 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Menu"
+			"Menu",
+			"Main_Menu"
 		],
 		"subfolders": [
 			{
@@ -1122,7 +1174,11 @@
 					"Office",
 					"Station",
 					"Underground",
-					"Warehouse"
+					"Warehouse",
+					"Bar2",
+					"Mark_Flat",
+					"Abandonment",
+					"Bar3"
 				],
 				"subfolders": [],
 				"name": "Cutscene"
@@ -1361,9 +1417,73 @@
 					}
 				},
 				{
-					"name": "Звук взрыва.mp3",
+					"name": "Sound_Boom.mp3",
 					"type": "audio/mpeg",
 					"sid": 429738943297768,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Crash Roof.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 949761045037245,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sound Metall Step Mark.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 684565090683927,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Mark is down.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 327520891936775,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Mobile_Sound.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 717105956495593,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "End_Scene.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 243490592317386,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Paper_Money.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 111518712312062,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Pants are taken.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 917209355955580,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Interferences.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 168721448982525,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -1376,14 +1496,6 @@
 							"name": "ChairCrash.webm",
 							"type": "audio/webm; codecs=opus",
 							"sid": 896730649098117,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "GlessDestroy.webm",
-							"type": "audio/webm; codecs=opus",
-							"sid": 110631936836813,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -1523,11 +1635,24 @@
 							"file-info": {
 								"purpose": "none"
 							}
+						},
+						{
+							"name": "GlessDestroy.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 285588962059156,
+							"file-info": {
+								"purpose": "none"
+							}
 						}
 					],
 					"subfolders": [],
 					"name": "Kick"
-				},
+				}
+			]
+		},
+		"music": {
+			"items": [],
+			"subfolders": [
 				{
 					"items": [
 						{
@@ -1545,16 +1670,92 @@
 							"file-info": {
 								"purpose": "none"
 							}
+						},
+						{
+							"name": "Bar_embient.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 981087233420472,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Station_Start.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 595736453857862,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Station_Main.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 721575188492259,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Breakdown - Loop - Mastering (mp3cut.net).webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 384517149966760,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Breakdown - Main Loop - Mastering (mp3cut.net).webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 283407953098461,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Heaviness.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 663640249903307,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Apartament.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 986204925609884,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Soul to soul.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 408132127517372,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Abandonment.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 673647464841945,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Suspens_MarkFlat.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 627652507754032,
+							"file-info": {
+								"purpose": "none"
+							}
 						}
 					],
 					"subfolders": [],
 					"name": "Music"
 				}
 			]
-		},
-		"music": {
-			"items": [],
-			"subfolders": []
 		},
 		"video": {
 			"items": [],
@@ -1640,7 +1841,7 @@
 					}
 				},
 				{
-					"name": "Загрузка-логотипа.png",
+					"name": "Logotup.png",
 					"type": "image/png",
 					"sid": 804019484352902,
 					"icon-info": {
@@ -1762,25 +1963,26 @@
 			0
 		],
 		"orientations": "landscape",
-		"webgpu": "auto",
+		"webgpu": "yes",
+		"multitexturing": "auto",
 		"gpuPreference": "high-performance",
-		"scriptsType": "module",
-		"framerateMode": "unlimited-tick",
+		"framerateMode": "vsync",
 		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "2d",
-		"anisotropicFiltering": "auto",
+		"anisotropicFiltering": "off",
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "percent",
 		"preloadSounds": true,
+		"uidAllocationMode": "increment",
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
 		"exportFileStructure": "folders",
-		"uidAllocationMode": "increment"
+		"scriptsType": "module"
 	},
-	"viewportWidth": 700,
-	"viewportHeight": 350,
-	"firstLayout": "Bakery"
+	"viewportWidth": 1000,
+	"viewportHeight": 500,
+	"firstLayout": "Main_Menu"
 }

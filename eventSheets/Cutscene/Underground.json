@@ -453,7 +453,8 @@
 										"4590",
 										"1320",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								},
 								{
@@ -473,7 +474,8 @@
 										"4590",
 										"1320",
 										"0",
-										"0"
+										"0",
+										false
 									]
 								},
 								{
@@ -631,6 +633,7 @@
 							"parameters": [
 								"\"Очнись мудила, этот ублюдок уже в клубе, и он пришёл за нами, ВСТАВАЙ МАТЬ ТВОЮ!\"",
 								"\"Junior_Fear\"",
+								"0",
 								"2"
 							]
 						}
@@ -663,6 +666,7 @@
 							"parameters": [
 								"\"Братаааан, мои мозги… мои мозги они нахрен расплавились, братааан помоги.\"",
 								"\"Junior_Fear2\"",
+								"0",
 								"1"
 							]
 						}
@@ -695,6 +699,7 @@
 							"parameters": [
 								"\"БЛЯТЬ!\"",
 								"\"Junior_Fear\"",
+								"0",
 								"1"
 							]
 						}
@@ -727,6 +732,7 @@
 							"parameters": [
 								"\"Два по цене одного\"",
 								"\"\"",
+								"0",
 								"1"
 							]
 						},
@@ -938,19 +944,29 @@
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 691897528272173
+				},
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Аудио",
+					"sid": 324004870020387,
+					"parameters": {
+						"tag": "\"music\""
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
 				{
 					"id": "play",
 					"objectClass": "Аудио",
-					"sid": 760660114097886,
+					"sid": 616560213192023,
+					"disabled": true,
 					"parameters": {
 						"audio-file": "Underground",
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
-						"tag-optional": "\"\""
+						"tag-optional": "\"music\""
 					}
 				}
 			],
