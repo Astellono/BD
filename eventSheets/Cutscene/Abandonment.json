@@ -921,6 +921,14 @@
 					],
 					"actions": [
 						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 867294067405820,
+							"parameters": {
+								"tag": "\"Suspense\""
+							}
+						},
+						{
 							"callFunction": "Destroy_DialogeMain",
 							"sid": 322096718474718
 						},
@@ -930,6 +938,27 @@
 							"sid": 131208406230045,
 							"parameters": {
 								"opacity": "100"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 551654402932118,
+							"parameters": {
+								"audio-file": "End_Scene",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Suspense\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 458489900516559,
+							"parameters": {
+								"variable": "Start_Game",
+								"value": "true"
 							}
 						}
 					],
@@ -1269,9 +1298,9 @@
 				{
 					"id": "stop",
 					"objectClass": "Аудио",
-					"sid": 895701081108819,
+					"sid": 907627376636447,
 					"parameters": {
-						"tag": "\"music\""
+						"tag": "\"Suspense\""
 					}
 				},
 				{

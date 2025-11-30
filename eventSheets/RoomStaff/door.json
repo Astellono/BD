@@ -2245,6 +2245,139 @@
 				}
 			],
 			"sid": 940129293231342
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Door",
+					"sid": 745453239216095,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Door",
+					"sid": 216417583428539,
+					"parameters": {
+						"instance-variable": "Visor",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 448753283211068
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Door",
+					"sid": 327743756450786,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Door",
+					"sid": 119374574859459,
+					"parameters": {
+						"instance-variable": "Visor",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 555400510286919
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Door",
+					"sid": 416744610398168,
+					"parameters": {
+						"instance-variable": "Visor"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Door",
+					"sid": 236316115322690,
+					"parameters": {
+						"object": "Door_Visor"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Door",
+					"sid": 442631369480454,
+					"parameters": {
+						"object": "Door_Visor",
+						"layer": "Door.LayerName",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Door_Visor",
+					"sid": 712308828424202,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 276642161334144
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Door",
+					"sid": 683396633141040,
+					"parameters": {
+						"instance-variable": "Visor"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Door",
+					"sid": 167054183031077,
+					"parameters": {
+						"object": "Door_Visor"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 229568352297387
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Door_Visor",
+					"sid": 487615895709494
+				}
+			],
+			"sid": 863231902459402
 		}
 	],
 	"sid": 142154983788573
