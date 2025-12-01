@@ -36,34 +36,13 @@
 					],
 					"actions": [
 						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 665599040645211,
-							"parameters": {
-								"group-name": "\"Player\"",
-								"state": "deactivated"
-							}
-						},
-						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 169284944413480,
-							"parameters": {
-								"object-to-create": "Player_All",
-								"layer": "1",
-								"x": "350",
-								"y": "2803",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 330748035627328,
+							"sid": 266676733297507,
+							"disabled": true,
 							"parameters": {
 								"object-to-create": "Boss",
-								"layer": "1",
+								"layer": "\"Player\"",
 								"x": "400",
 								"y": "2803",
 								"create-hierarchy": false,
@@ -73,10 +52,11 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 366193416680932,
+							"sid": 205218484655433,
+							"disabled": true,
 							"parameters": {
 								"object-to-create": "security",
-								"layer": "1",
+								"layer": "\"Player\"",
 								"x": "450",
 								"y": "2805",
 								"create-hierarchy": false,
@@ -86,28 +66,32 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 590411703061556,
+							"sid": 788776515824452,
+							"disabled": true,
 							"parameters": {
 								"object-to-create": "Pchel",
-								"layer": "1",
-								"x": "280",
+								"layer": "\"Player\"",
+								"x": "380",
 								"y": "2803",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
 						},
 						{
-							"id": "set-repeat-to-frame",
+							"id": "set-animation",
 							"objectClass": "Pchel",
-							"sid": 846892796412070,
+							"sid": 174902648614644,
+							"disabled": true,
 							"parameters": {
-								"frame-number": "1"
+								"animation": "\"Walk\"",
+								"from": "beginning"
 							}
 						},
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Camera",
 							"sid": 492707553052055,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "onPlayer",
 								"value": "false"
@@ -117,23 +101,282 @@
 							"id": "set-x",
 							"objectClass": "Camera",
 							"sid": 726379258761543,
+							"disabled": true,
 							"parameters": {
 								"x": "400"
 							}
 						},
 						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 656988050090658,
+							"disabled": true,
+							"parameters": {
+								"group-name": "\"Player\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 350125229083116,
+							"disabled": true,
+							"parameters": {
+								"group-name": "\"Enemy & Fear\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 920496643652906,
+							"disabled": true,
+							"parameters": {
+								"variable": "Start_Game",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 901848444430842,
+							"disabled": true,
+							"parameters": {
+								"variable": "Continue_Game",
+								"value": "false"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Player_All",
+							"sid": 575764139754387,
+							"disabled": true,
+							"parameters": {
+								"object": "Shadow3",
+								"layer": "\"Dialog\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Shadow3",
+							"sid": 677938780521550,
+							"disabled": true,
+							"parameters": {
+								"scale": "5"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 462636941262185,
+							"disabled": true,
+							"parameters": {
+								"slot": "\"start\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 575926522989913,
+							"disabled": true,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 771693228380216,
+							"disabled": true,
+							"parameters": {
+								"audio-file": "It couldn't be shittier",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Suspense\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 548317052186910,
+							"disabled": true,
+							"parameters": {
+								"audio-file": "the-big-door-closes-echo",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"music\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 224836085382767,
+							"disabled": true,
+							"parameters": {
+								"audio-file": "Slap in the face",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Suspense\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Player_All",
+							"sid": 972615643404809,
+							"disabled": true,
+							"parameters": {
+								"object": "Trip",
+								"layer": "Player_All.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Trip",
+							"sid": 971639870797072,
+							"disabled": true,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"ВодныйФон\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Trip",
+							"sid": 107784052534873,
+							"disabled": true,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"РадиальнаяДеформация\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Trip",
+							"sid": 947123553829505,
+							"disabled": true,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Trip",
+							"sid": 288564430314343,
+							"disabled": true,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 135150637176691,
+							"disabled": true
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Trip",
+							"sid": 342610696295203,
+							"disabled": true,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 881679103774096,
+							"disabled": true,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Pchel",
+							"sid": 587153587018800,
+							"disabled": true,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "280",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
 							"id": "set-animation",
 							"objectClass": "Player_All",
-							"sid": 835249527972179,
+							"sid": 102838024180440,
+							"disabled": true,
 							"parameters": {
 								"animation": "\"Sit\"",
 								"from": "beginning"
 							}
 						},
 						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 458036869283951,
+							"disabled": true
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 996497244383508,
+							"disabled": true,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 342464336751482,
+							"sid": 478043793705273,
+							"disabled": true,
 							"parameters": {
 								"variable": "onDialMain",
 								"value": "true"
@@ -142,23 +385,50 @@
 						{
 							"id": "add-to-instvar",
 							"objectClass": "Player_All",
-							"sid": 442502553013402,
+							"sid": 483147902767779,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "textframe",
 								"value": "1"
 							}
 						},
 						{
-							"id": "set-boolean-eventvar",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 231724860869512,
+							"sid": 461507640094313,
 							"parameters": {
-								"variable": "CameraAction",
-								"value": "true"
+								"variable": "weapon",
+								"value": "\"Wolf\""
 							}
 						}
 					],
 					"sid": 918379965246681
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Pchel",
+							"sid": 240558922577026,
+							"parameters": {
+								"comparison": 0,
+								"x-co-ordinate": "280"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Pchel",
+							"sid": 974563357900430,
+							"parameters": {
+								"animation": "\"Pchel_Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 830734338486605
 				},
 				{
 					"eventType": "block",

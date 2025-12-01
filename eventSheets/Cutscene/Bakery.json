@@ -30,27 +30,12 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-y",
+							"id": "on-collision-with-another-object",
 							"objectClass": "Player_All",
-							"sid": 828349751777211,
+							"sid": 776759100226926,
 							"parameters": {
-								"comparison": 5,
-								"y-co-ordinate": "880"
+								"object": "Trigger_CutScene"
 							}
-						},
-						{
-							"id": "compare-x",
-							"objectClass": "Player_All",
-							"sid": 950798504498496,
-							"parameters": {
-								"comparison": 3,
-								"x-co-ordinate": "5060"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 740189482046415
 						}
 					],
 					"actions": [
@@ -1287,45 +1272,140 @@
 							}
 						},
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 569598094312000,
-							"parameters": {
-								"object-to-create": "Shadow3",
-								"layer": "LayerIndex(\"Trip\")",
-								"x": "Player_All.X",
-								"y": "Player_All.Y",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-opacity",
-							"objectClass": "Shadow3",
-							"sid": 441358058139773,
-							"parameters": {
-								"opacity": "0"
-							}
-						},
-						{
 							"id": "tween-one-property",
 							"objectClass": "Shadow3",
-							"sid": 402948671238558,
+							"sid": 364186493546425,
 							"behaviorType": "Твинанимация",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "offsetOpacity",
 								"end-value": "100",
-								"time": "3",
+								"time": "1",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 177499537589337,
+							"parameters": {
+								"variable": "Start_Game",
+								"value": "true"
+							}
 						}
 					],
 					"sid": 109388244711308
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 534638684018935,
+							"parameters": {
+								"variable": "Start_Game"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 267200283169223,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 798138144325032,
+							"parameters": {
+								"variable": "Sound",
+								"comparison": 0,
+								"value": "-25"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 450299848647202,
+							"parameters": {
+								"variable": "Sound",
+								"value": "2.5"
+							}
+						}
+					],
+					"sid": 254117885593781
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 475675075526668,
+							"parameters": {
+								"variable": "Start_Game"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 798271684230080,
+							"parameters": {
+								"variable": "Sound",
+								"comparison": 0,
+								"value": "-25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 958599035941429,
+							"parameters": {
+								"tag": "\"Suspense\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "Music_Safe",
+							"sid": 688878922615118,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "Music_Safe",
+							"sid": 684001003447208,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 413686595483461
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 857888112183694,
+							"parameters": {
+								"layout": "Basement"
+							}
+						}
+					],
+					"sid": 763884565042878
 				}
 			],
 			"sid": 150674779937279
@@ -1971,6 +2051,48 @@
 								}
 							],
 							"sid": 375663821414985
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Shadow5",
+									"sid": 800517217281622,
+									"parameters": {
+										"tags": "\"Cut\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Shadow5",
+									"sid": 245643173048658
+								}
+							],
+							"sid": 752949446837488
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Pandus",
+									"sid": 400159571467725,
+									"parameters": {
+										"tags": "\"Cut\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Pandus",
+									"sid": 540491008356791
+								}
+							],
+							"sid": 746408127714114
 						}
 					]
 				},
@@ -2033,26 +2155,6 @@
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 401950317266565
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 625299334963754,
-					"disabled": true,
-					"parameters": {
-						"variable": "Music"
-					},
-					"isInverted": true
-				},
-				{
-					"id": "is-tag-playing",
-					"objectClass": "Аудио",
-					"sid": 378384330210837,
-					"disabled": true,
-					"parameters": {
-						"tag": "\"music\""
-					},
-					"isInverted": true
 				}
 			],
 			"actions": [
@@ -2068,26 +2170,100 @@
 					"id": "stop",
 					"objectClass": "Аудио",
 					"sid": 283552688163869,
-					"disabled": true,
 					"parameters": {
 						"tag": "\"Suspense\""
 					}
 				},
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 752207888541340,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 474803484831499,
+					"parameters": {
+						"variable": "Continue_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Player_All",
+					"sid": 840219230891556,
+					"parameters": {
+						"object": "Shadow3",
+						"layer": "\"Dialog\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Shadow3",
+					"sid": 145255196889906,
+					"parameters": {
+						"scale": "5"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 120925545299184,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 147094685758816,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 670237527271180
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-save-complete",
+					"objectClass": "System",
+					"sid": 583278111942132
+				}
+			],
+			"actions": [
+				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 865699214952827,
-					"disabled": true,
+					"sid": 904262157368433,
 					"parameters": {
-						"seconds": "0.5",
+						"seconds": "1",
 						"use-timescale": true
 					}
 				},
 				{
 					"id": "play",
 					"objectClass": "Аудио",
-					"sid": 617812255002161,
-					"disabled": true,
+					"sid": 112990120677946,
 					"parameters": {
 						"audio-file": "Bakery",
 						"loop": "looping",
@@ -2095,19 +2271,9 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"music\""
 					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 723813429173122,
-					"disabled": true,
-					"parameters": {
-						"variable": "Music",
-						"value": "true"
-					}
 				}
 			],
-			"sid": 670237527271180
+			"sid": 789156521684717
 		},
 		{
 			"eventType": "block",
