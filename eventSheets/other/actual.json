@@ -1963,28 +1963,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-visible",
-							"objectClass": "HitBox",
-							"sid": 623041725317398
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "HitBox",
-							"sid": 219666984272123,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 471804292297280,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "is-animation-playing",
 							"objectClass": "Shotgun",
 							"sid": 450597850535046,
@@ -6090,6 +6068,116 @@
 										{
 											"id": "is-animation-playing",
 											"objectClass": "Player_Wolf",
+											"sid": 341033125233263,
+											"parameters": {
+												"animation": "\"WolfRunKick\""
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Player_All",
+											"sid": 537767938350071,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 451043909052663
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ChairWolf",
+											"sid": 937197611349728,
+											"parameters": {
+												"animation": "\"Attack\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "ChairWolf",
+											"sid": 223722153257132,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "start-animation",
+											"objectClass": "ChairWolf",
+											"sid": 750197918896587,
+											"parameters": {
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 400783758375200
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_Wolf",
+											"sid": 526781845231453,
+											"parameters": {
+												"animation": "\"WolfJumpKick\""
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Player_All",
+											"sid": 913353242801975,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 444224154900917
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ChairWolf",
+											"sid": 820326518156340,
+											"parameters": {
+												"animation": "\"Attack\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "ChairWolf",
+											"sid": 573899809220130,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "start-animation",
+											"objectClass": "ChairWolf",
+											"sid": 223633699735797,
+											"parameters": {
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 554101688686260
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_Wolf",
 											"sid": 857622229432539,
 											"parameters": {
 												"animation": "\"WolfFinishing\""
@@ -6102,6 +6190,24 @@
 											"sid": 710569287911004,
 											"parameters": {
 												"animation": "\"WolfAttack2\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_Wolf",
+											"sid": 942143387585008,
+											"parameters": {
+												"animation": "\"WolfRunKick\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_Wolf",
+											"sid": 877668296906367,
+											"parameters": {
+												"animation": "\"WolfJumpKick\""
 											},
 											"isInverted": true
 										},
@@ -6136,11 +6242,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Player_All",
-											"sid": 997553347431176,
+											"sid": 708439277864154,
 											"parameters": {
 												"object": "ChairWolf",
 												"layer": "\"Player\"",
-												"image-point": "\"Chair\"",
+												"image-point": "\"Chain\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -6148,11 +6254,11 @@
 										{
 											"id": "pin-to-object-imagepoint",
 											"objectClass": "ChairWolf",
-											"sid": 725488747434491,
+											"sid": 865181891563799,
 											"behaviorType": "Прикрепить2",
 											"parameters": {
 												"pin-to": "Player_All",
-												"image-point": "\"Chair\"",
+												"image-point": "\"Chain\"",
 												"angle": true,
 												"width-type": "no",
 												"height-type": "no",
@@ -15198,7 +15304,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 519987054339363,
+											"sid": 234212027918190,
 											"parameters": {
 												"seconds": "0.1",
 												"use-timescale": true
@@ -16790,7 +16896,8 @@
 									}
 								}
 							],
-							"sid": 345670381286101
+							"sid": 345670381286101,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
