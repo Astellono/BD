@@ -2,6 +2,16 @@
 	"name": "Basement",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "Wolf",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 370647691060911
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "actual"
 		},
@@ -395,10 +405,19 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 461507640094313,
+							"sid": 384272312293144,
 							"parameters": {
 								"variable": "weapon",
-								"value": "\"Wolf\""
+								"value": "\"Mounting\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 530124297130304,
+							"parameters": {
+								"variable": "Wolf",
+								"value": "true"
 							}
 						}
 					],
@@ -414,6 +433,16 @@
 							"parameters": {
 								"comparison": 0,
 								"x-co-ordinate": "280"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 638756735652857,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 2,
+								"value": "8"
 							}
 						}
 					],
@@ -452,12 +481,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 278420046288418,
+							"sid": 381605040089195,
 							"parameters": [
 								"\"Ну что, проснулся, придурок? \"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"234",
+								"1"
 							]
 						},
 						{
@@ -498,12 +527,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 650428676651325,
+							"sid": 879910347501800,
 							"parameters": [
 								"\"Ты какого хрена тут устроил, валишь наших парней, взорвал мою лабу.\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"235",
+								"1"
 							]
 						}
 					],
@@ -531,12 +560,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 405503169238987,
+							"sid": 149169981447971,
 							"parameters": [
 								"\"Ты себя тут мстителем возомнил, да я тебя…\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"236",
+								"1"
 							]
 						}
 					],
@@ -564,12 +593,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 200585958919435,
+							"sid": 944521129910935,
 							"parameters": [
 								"\"Прошу отправьте меня в тюрьму, я во всем сознаюсь.\"",
 								"\"Mark5\"",
-								"0",
-								"0"
+								"237",
+								"1"
 							]
 						}
 					],
@@ -597,12 +626,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 373061540897660,
+							"sid": 251777137959691,
 							"parameters": [
 								"\"Я убил их всех по собственной инициативе… понимаете, у меня проблемы с головой в последнее время, я не могу держать себя руках… а ваши люди… просто все так совпало…\"",
 								"\"Mark5\"",
-								"0",
-								"0"
+								"238",
+								"2"
 							]
 						}
 					],
@@ -630,12 +659,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 170477068951726,
+							"sid": 708558774156880,
 							"parameters": [
 								"\"Что ты там мямлишь?\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"239",
+								"1"
 							]
 						}
 					],
@@ -663,12 +692,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 493108729396919,
+							"sid": 982897714742575,
 							"parameters": [
 								"\"Не малой, я человек старых порядков. Мы чуть что к мусорам не бежим, а решаем проблему сами, тем более когда проблема находится прямо перед тобой и к тому в цепях.\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"240",
+								"3"
 							]
 						}
 					],
@@ -695,6 +724,16 @@
 					],
 					"actions": [
 						{
+							"id": "add-remove-animation-frame",
+							"objectClass": "Pchel",
+							"sid": 403873322486888,
+							"parameters": {
+								"which": "remove",
+								"animation": "\"Pchel_Idle\"",
+								"where": "-4"
+							}
+						},
+						{
 							"id": "set-animation",
 							"objectClass": "Pchel",
 							"sid": 623453665402762,
@@ -706,13 +745,13 @@
 						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 377462479064276,
+							"sid": 672141069996636,
 							"parameters": {
 								"audio-file": "Gless",
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"audio\""
 							}
 						},
 						{
@@ -726,20 +765,20 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 371369212696267,
+							"sid": 633934968761289,
 							"parameters": {
-								"seconds": "0.2",
+								"seconds": "0.4",
 								"use-timescale": true
 							}
 						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 860386012174708,
+							"sid": 200270283079670,
 							"parameters": {
 								"object-to-create": "Shadow3",
-								"layer": "1",
-								"x": "Player_All.x",
+								"layer": "\"Front\"",
+								"x": "Player_All.X",
 								"y": "Player_All.Y",
 								"create-hierarchy": false,
 								"template-name": "\"\""
@@ -756,12 +795,12 @@
 						},
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 709316557306090,
+							"sid": 222205799922345,
 							"parameters": [
 								"\"В детстве я часто любил копаться в отцовских вещах.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"241",
+								"1"
 							]
 						}
 					],
@@ -789,12 +828,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 180167602531162,
+							"sid": 425005270590392,
 							"parameters": [
 								"\"Он работал следователем в убойном отделе и часто приносил с собой дела подозреваемых.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"242",
+								"2"
 							]
 						}
 					],
@@ -822,12 +861,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 351301768830290,
+							"sid": 128079557131438,
 							"parameters": [
 								"\"Я прочитал свыше десятка дел о серийных убийцах. У каждого был свой подход, свой тип жертв, но неизменно было одно.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"243",
+								"2"
 							]
 						}
 					],
@@ -855,12 +894,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 519596362533262,
+							"sid": 371090966885200,
 							"parameters": [
 								"\"Желание быть пойманым и получить свою минуту славы. Так мне говорил мой отец.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"244",
+								"2"
 							]
 						}
 					],
@@ -888,12 +927,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 735591901100869,
+							"sid": 629172536714851,
 							"parameters": [
 								"\"Херня, просто они не могли остановится, как алкоголик, который клянется, что последняя рюмка — и тут же тянется за следующей.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"245",
+								"2"
 							]
 						}
 					],
@@ -921,12 +960,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 927539136285972,
+							"sid": 330578929212474,
 							"parameters": [
 								"\"В результате все они попадались на довольно глупых ошибках.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"246",
+								"1"
 							]
 						}
 					],
@@ -954,36 +993,36 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 955901792123072,
+							"sid": 518975493097612,
 							"parameters": [
 								"\"Не думал что моя произойдёт так быстро.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"247",
+								"1"
 							]
 						},
 						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 291269358194206,
+							"sid": 696082113843475,
 							"parameters": {
 								"audio-file": "Myso",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"Dril\""
+								"tag-optional": "\"audio\""
 							}
 						},
 						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 927154596710903,
+							"sid": 979145636865644,
 							"parameters": {
 								"audio-file": "Dril",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"Dril\""
+								"tag-optional": "\"audio\""
 							}
 						}
 					],
@@ -1027,10 +1066,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 491567600494466,
+							"sid": 550487547712414,
 							"parameters": {
 								"object-to-create": "Shadow4",
-								"layer": "2",
+								"layer": "\"Front\"",
 								"x": "Player_All.X",
 								"y": "Player_All.Y",
 								"create-hierarchy": false,
@@ -1144,12 +1183,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 230692876393076,
+							"sid": 324841392907589,
 							"parameters": [
 								"\"Их зверствам не было конца, меня сверлили, били молотком по коленям, обливали кипятком и вырывали ногти пока те не закончились.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"248",
+								"2"
 							]
 						}
 					],
@@ -1186,20 +1225,20 @@
 						},
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 548266448662682,
+							"sid": 400023919164483,
 							"parameters": [
 								"\"Да что же такое, он опять отрубился\"",
 								"\"Executioner\"",
-								"0",
-								"0"
+								"249",
+								"1"
 							]
 						},
 						{
 							"id": "stop",
 							"objectClass": "Аудио",
-							"sid": 156580304089010,
+							"sid": 276065628330108,
 							"parameters": {
-								"tag": "\"Dril\""
+								"tag": "\"audio\""
 							}
 						}
 					],
@@ -1228,10 +1267,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 158016970979706,
+							"sid": 271341905517333,
 							"parameters": {
 								"object-to-create": "Shadow3",
-								"layer": "1",
+								"layer": "\"Front\"",
 								"x": "Player_All.x",
 								"y": "Player_All.Y",
 								"create-hierarchy": false,
@@ -1265,12 +1304,12 @@
 						},
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 946081020824997,
+							"sid": 366737292804869,
 							"parameters": [
 								"\"Им не хватало только практики, чтобы я так часто не отрубался от болевого шока. \"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"250",
+								"1"
 							]
 						}
 					],
@@ -1324,24 +1363,24 @@
 						},
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 790879486140700,
+							"sid": 242043702880021,
 							"parameters": [
 								"\"Электричество которое он пропускал по моим яйцам, по всей видимости убило мои нервные окончания напрочь.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"251",
+								"2"
 							]
 						},
 						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 858627009856752,
+							"sid": 589814773011229,
 							"parameters": {
 								"audio-file": "Elektro",
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"Elektro\""
+								"tag-optional": "\"audio\""
 							}
 						}
 					],
@@ -1369,12 +1408,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 300779314467735,
+							"sid": 179025308719756,
 							"parameters": [
 								"\"А может быть я просто себя успокаивал...\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"252",
+								"1"
 							]
 						}
 					],
@@ -1402,12 +1441,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 535844217534784,
+							"sid": 892917641452621,
 							"parameters": [
 								"\"Аккумулятор сдох\"",
 								"\"Executioner\"",
-								"0",
-								"0"
+								"253",
+								"0.5"
 							]
 						},
 						{
@@ -1422,9 +1461,9 @@
 						{
 							"id": "stop",
 							"objectClass": "Аудио",
-							"sid": 345426988586656,
+							"sid": 448050987347011,
 							"parameters": {
-								"tag": "\"Elektro\""
+								"tag": "\"audio\""
 							}
 						}
 					],
@@ -1478,12 +1517,12 @@
 						},
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 817597547108242,
+							"sid": 589204399671778,
 							"parameters": [
 								"\"Новый день и я опять слышу их шаги по коридору.\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"254",
+								"1"
 							]
 						}
 					],
@@ -1511,12 +1550,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 967434925806273,
+							"sid": 831607057163047,
 							"parameters": [
 								"\"Может быть сегодня все это закончится?\"",
 								"\"Mark4\"",
-								"0",
-								"0"
+								"255",
+								"1"
 							]
 						}
 					],
@@ -1543,37 +1582,63 @@
 					],
 					"actions": [
 						{
+							"id": "set-animation",
+							"objectClass": "Player_All",
+							"sid": 548523566612144,
+							"parameters": {
+								"animation": "\"Water\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 789522423721810,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 967092142188355,
+							"sid": 352225016349294,
 							"parameters": [
 								"\"Ну что, сегодня наконец-то мы с тобой покончим, открой-ка свой поганый рот.\"",
 								"\"Executioner\"",
-								"0",
-								"0"
+								"256",
+								"1"
 							]
 						},
 						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 153199952235348,
+							"sid": 755511813105298,
 							"parameters": {
 								"audio-file": "Water",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"Water\""
+								"tag-optional": "\"audio\""
 							}
 						},
 						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 994001785294417,
+							"sid": 618240502381819,
 							"parameters": {
 								"audio-file": "Water_Glotka",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"Water\""
+								"tag-optional": "\"audio\""
 							}
 						}
 					],
@@ -1602,12 +1667,12 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Shadow3",
-							"sid": 588730620156756,
+							"sid": 171343615680675,
 							"behaviorType": "Твинанимация",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "offsetOpacity",
-								"end-value": "0",
+								"end-value": "100",
 								"time": "1",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -1617,22 +1682,13 @@
 							}
 						},
 						{
-							"id": "set-animation",
-							"objectClass": "Player_All",
-							"sid": 118563629930415,
-							"parameters": {
-								"animation": "\"Water\"",
-								"from": "beginning"
-							}
-						},
-						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 754352871960533,
+							"sid": 618712282229152,
 							"parameters": [
 								"\"Они заталкали мне в глотку какой-то свёрток, что на этот раз они удумали?\"",
-								"\"Mark4\"",
-								"0",
-								"0"
+								"\"Executioner\"",
+								"257",
+								"1"
 							]
 						}
 					],
@@ -1661,34 +1717,9 @@
 						{
 							"id": "stop",
 							"objectClass": "Аудио",
-							"sid": 217558485881531,
+							"sid": 636483140534137,
 							"parameters": {
-								"tag": "\"Water\""
-							}
-						},
-						{
-							"id": "stop",
-							"objectClass": "Аудио",
-							"sid": 903789541817376,
-							"parameters": {
-								"tag": "\"Fear\""
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Shadow3",
-							"sid": 644620240371340,
-							"behaviorType": "Твинанимация",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "offsetOpacity",
-								"end-value": "100",
-								"time": "1",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
+								"tag": "\"audio\""
 							}
 						},
 						{
@@ -1702,12 +1733,12 @@
 						},
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 801169567678633,
+							"sid": 119741485308760,
 							"parameters": [
 								"\"Приветствую вас мои полусгнившие куски мяса!\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"258",
+								"1"
 							]
 						}
 					],
@@ -1734,6 +1765,14 @@
 					],
 					"actions": [
 						{
+							"id": "set-visible",
+							"objectClass": "EnemyJunkieKnife",
+							"sid": 328719689818059,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
 							"id": "tween-one-property",
 							"objectClass": "Shadow3",
 							"sid": 649993184164522,
@@ -1752,12 +1791,12 @@
 						},
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 352631940713081,
+							"sid": 143271158655522,
 							"parameters": [
 								"\"Сегодня у меня для вас особенный подарок.\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"259",
+								"1"
 							]
 						},
 						{
@@ -1770,15 +1809,23 @@
 							}
 						},
 						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 285982228055077,
+							"parameters": {
+								"tag": "\"Suspense\""
+							}
+						},
+						{
 							"id": "play",
 							"objectClass": "Аудио",
-							"sid": 932652605548108,
+							"sid": 638058899840888,
 							"parameters": {
 								"audio-file": "Underground",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"music\""
 							}
 						}
 					],
@@ -1806,12 +1853,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 567456984728050,
+							"sid": 500841852605736,
 							"parameters": [
 								"\"Забудьте о том дерьме которым мы вас тут пичкали последнее время.\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"260",
+								"1"
 							]
 						}
 					],
@@ -1839,12 +1886,12 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 419878459634725,
+							"sid": 741184865094415,
 							"parameters": [
 								"\"То что находится в брюхе у этого бешенного пса перекроет любой трип который вы испытывали до этого.\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"261",
+								"2"
 							]
 						}
 					],
@@ -1872,16 +1919,647 @@
 					"actions": [
 						{
 							"callFunction": "Create_mainDialoge",
-							"sid": 166435726119770,
+							"sid": 890163699444285,
 							"parameters": [
 								"\"Но поторопитесь! Желудочный сок этого парня ждать не станет!\"",
 								"\"Boss\"",
-								"0",
-								"0"
+								"262",
+								"1"
 							]
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 135425806965755,
+							"disabled": true,
+							"parameters": {
+								"group-name": "\"Enemy & Fear\"",
+								"state": "activated"
+							}
 						}
 					],
 					"sid": 765775353039028
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 170194929782004,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "31"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 680425111101707
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 240929257047257,
+							"parameters": {
+								"object-to-create": "Press_Mouse2",
+								"layer": "\"Front\"",
+								"x": "Player_All.X -100",
+								"y": "Player_All.Y -100",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 529633758619290,
+							"parameters": {
+								"object-to-create": "Press_Mouse",
+								"layer": "\"Front\"",
+								"x": "Player_All.X ",
+								"y": "Player_All.Y -100",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Press_Mouse",
+							"sid": 554554876394972,
+							"parameters": {
+								"scale": "1"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Press_Mouse2",
+							"sid": 322512823602245,
+							"parameters": {
+								"scale": "1"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 224322599311055,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 314283578317832,
+							"parameters": {
+								"group-name": "\"Enemy & Fear\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 905142944584546,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 339187146545710
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 812043117214681,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "31"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Player_All",
+							"sid": 689204207904184,
+							"parameters": {
+								"comparison": 0,
+								"number": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 925738852787225,
+							"parameters": {
+								"instance-variable": "Wolf",
+								"comparison": 2,
+								"value": "60"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 170782508700214
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Press_Mouse",
+							"sid": 743440481046091,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Press_Mouse2",
+							"sid": 128111818890745,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 494914798516005
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 905139418048147,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "31"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Player_All",
+							"sid": 668687117509475,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 495210029355800,
+							"parameters": {
+								"instance-variable": "Wolf",
+								"comparison": 2,
+								"value": "60"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 898112332839733
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Press_Mouse",
+							"sid": 426466788876297,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Press_Mouse2",
+							"sid": 579149225803166,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 911163384885014
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 714786497561536,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "31"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Player_All",
+							"sid": 403321739639739,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 487193887406901,
+							"parameters": {
+								"instance-variable": "Wolf",
+								"comparison": 2,
+								"value": "60"
+							}
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "EnemyJunkieKnife",
+							"sid": 227383270673454,
+							"parameters": {
+								"which": "nearest",
+								"x": "Player_All.X",
+								"y": "Player_All.Y"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 441544077463771
+						}
+					],
+					"actions": [
+						{
+							"id": "set-range",
+							"objectClass": "EnemyJunkieKnife",
+							"sid": 367479239565301,
+							"behaviorType": "ПолеЗрения",
+							"parameters": {
+								"range": "650"
+							}
+						}
+					],
+					"sid": 844940618718866
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 176757166721998,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 5,
+								"value": "30"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 996029971785298,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 2,
+								"value": "32"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Player_All",
+							"sid": 352987058310243,
+							"parameters": {
+								"animation": "\"Wolf4\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 557496082648030,
+							"parameters": {
+								"instance-variable": "Wolf",
+								"comparison": 2,
+								"value": "55"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Door_Old",
+							"sid": 304803189368108,
+							"parameters": {
+								"tags": "\"Closed\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Door_Old",
+							"sid": 844752402284973,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 176016005315387,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-forward",
+							"objectClass": "Door_Old",
+							"sid": 251836564049895,
+							"parameters": {
+								"distance": "-2"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 107855672050247,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "move-forward",
+							"objectClass": "Door_Old",
+							"sid": 374713068987965,
+							"parameters": {
+								"distance": "2"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Door_Old",
+							"sid": 824960758274540,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 896905131820478,
+							"parameters": {
+								"audio-file": "DoorKickJunkie",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						}
+					],
+					"sid": 286631705184018
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 119075373308583,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 5,
+								"value": "30"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 770296983549437,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 2,
+								"value": "32"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 582828887387899,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Door_Old",
+									"sid": 595366054879139,
+									"parameters": {
+										"tags": "\"Closed\""
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 249737626060876,
+									"parameters": {
+										"tags": "\"Cut\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_Old",
+									"sid": 145155764302071,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Door_Old",
+									"sid": 856348350152514,
+									"parameters": {
+										"animation": "\"Crash\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 978702233781668
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Аудио",
+									"sid": 735258863594076,
+									"parameters": {
+										"audio-file": "OpenSmash",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"audio\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Press_Mouse",
+									"sid": 160975412051640,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Press_Mouse2",
+									"sid": 823601495053776,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Player_Wolf",
+									"sid": 846382383925428,
+									"parameters": {
+										"instance-variable": "CutDeath",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 272464181606082
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 178681279113852,
+									"parameters": {
+										"animation": "\"Kick\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 560404400788552
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Press_Mouse",
+									"sid": 691585765488407
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Press_Mouse2",
+									"sid": 150697794597067
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 583151134349105,
+									"parameters": {
+										"group-name": "\"Enemy & Fear\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 445928889629384,
+									"parameters": {
+										"seconds": "0.25",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyJunkieKnife",
+									"sid": 846645865809759,
+									"parameters": {
+										"instance-variable": "Kick",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Player_All",
+									"sid": 758221356779315,
+									"parameters": {
+										"animation": "\"WolfDeathCut\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Аудио",
+									"sid": 530583830393570,
+									"parameters": {
+										"audio-file": "AxeFinishing",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"audio\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Player_All",
+									"sid": 838294301262705,
+									"parameters": {
+										"object": "BloodAll",
+										"layer": "LayerIndex(\"Blood\")",
+										"image-point": "Player_All.ImagePointX(\"Blood\") - Player_All.ImagePointY(\"Blood\")",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "BloodAll",
+									"sid": 810299135909376,
+									"parameters": {
+										"animation": "\"BloodAxe\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 300373355314659,
+									"parameters": {
+										"variable": "HPplayer",
+										"value": "0"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Player_Wolf",
+									"sid": 534559105362621,
+									"parameters": {
+										"object": "Button_R",
+										"layer": "Player_All.LayerName",
+										"image-point": "\"Dialog\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 332274884338066
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1923,6 +2601,15 @@
 								"comparison": 1,
 								"value": "20"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 869037812772740,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -1941,6 +2628,18 @@
 							"sid": 651287015108759,
 							"parameters": {
 								"frame-number": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 105238646162888,
+							"parameters": {
+								"audio-file": "ChainZvon",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
 							}
 						}
 					],
@@ -1986,6 +2685,15 @@
 								"comparison": 1,
 								"value": "20"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 203781488024876,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2031,6 +2739,15 @@
 								"comparison": 0,
 								"value": "20"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 185448436082434,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2086,6 +2803,15 @@
 								"comparison": 0,
 								"value": "20"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 751899479287718,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2107,7 +2833,38 @@
 							}
 						}
 					],
-					"sid": 459358213812087
+					"sid": 459358213812087,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Аудио",
+									"sid": 350925122569378,
+									"parameters": {
+										"tag": "\"audio\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Аудио",
+									"sid": 335842765375320,
+									"parameters": {
+										"audio-file": "ChainZvon",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"audio\""
+									}
+								}
+							],
+							"sid": 271536504508833
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -2149,6 +2906,15 @@
 								"comparison": 0,
 								"value": "20"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 703104555643028,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2194,6 +2960,15 @@
 								"comparison": 0,
 								"value": "40"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 928337362450432,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2249,6 +3024,15 @@
 								"comparison": 0,
 								"value": "40"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 349411435139065,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2270,7 +3054,38 @@
 							}
 						}
 					],
-					"sid": 366057531007642
+					"sid": 366057531007642,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Аудио",
+									"sid": 929850312947243,
+									"parameters": {
+										"tag": "\"audio\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Аудио",
+									"sid": 271855555352791,
+									"parameters": {
+										"audio-file": "ChainZvon",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"audio\""
+									}
+								}
+							],
+							"sid": 722203280171352
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -2312,6 +3127,15 @@
 								"comparison": 0,
 								"value": "40"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 584430188237174,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2351,15 +3175,57 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_All",
-							"sid": 568743732975096,
+							"sid": 875299130009922,
 							"parameters": {
 								"instance-variable": "Wolf",
-								"comparison": 0,
+								"comparison": 5,
 								"value": "60"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player_Wolf",
+							"sid": 919818214214749,
+							"parameters": {
+								"instance-variable": "CutDeath"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 927611343511223
 						}
 					],
 					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Press_Mouse",
+							"sid": 669154731582068,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Press_Mouse2",
+							"sid": 879052524541091,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Аудио",
+							"sid": 848469558409882,
+							"parameters": {
+								"audio-file": "ChainCrash",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						},
 						{
 							"id": "set-animation",
 							"objectClass": "Player_All",
@@ -2394,6 +3260,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "has-tags",
+							"objectClass": "Door_Old",
+							"sid": 943563578391249,
+							"parameters": {
+								"tags": "\"Closed\""
+							}
+						},
+						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_All",
 							"sid": 396486353587679,
@@ -2402,6 +3276,20 @@
 								"comparison": 0,
 								"value": "32"
 							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_All",
+							"sid": 992763665374901,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 372202180142105
 						}
 					],
 					"actions": [
@@ -2426,18 +3314,400 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 899780281287179,
+							"sid": 651302460351901,
 							"parameters": {
 								"object-to-create": "Chair_Blood",
-								"layer": "0",
+								"layer": "\"Blood\"",
 								"x": "350",
 								"y": "2803",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Door_Old",
+							"sid": 909382252620080,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "0"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 186904658493143,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
 						}
 					],
 					"sid": 369575303387133
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_All",
+							"sid": 919214631875413,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 768101214168292,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "32"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Trigger_CutScene",
+							"sid": 997821468319906,
+							"parameters": {
+								"tags": "\"End\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 318887165882266
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 958887083589367,
+							"parameters": {
+								"group-name": "\"Player\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 259337865793861,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Wolf",
+							"sid": 790229071850052,
+							"parameters": {
+								"animation": "\"Wolf_Kness2\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 616179748202790,
+							"parameters": [
+								"\"\"",
+								"\"Mark4\"",
+								"267",
+								"2"
+							]
+						}
+					],
+					"sid": 209278248481194
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 787377468876913,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "33"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 207706851770230
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Wolf",
+							"sid": 602849932970694,
+							"parameters": {
+								"animation": "\"Wolf_Kness\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 886393567048595,
+							"parameters": [
+								"\"\"",
+								"\"Mark4\"",
+								"268",
+								"1"
+							]
+						},
+						{
+							"callFunction": "shakeScreen",
+							"sid": 477937868418912
+						}
+					],
+					"sid": 262600750049704
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 292370529599609,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "34"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 462116919631080
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 111834982914363,
+							"parameters": {
+								"variable": "Start_Game",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 661545062494280
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 478335219604354,
+							"parameters": {
+								"variable": "Start_Game"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 677432948753032,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 441161604828571,
+							"parameters": {
+								"variable": "Sound",
+								"comparison": 0,
+								"value": "-25"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 344281543693678,
+							"parameters": {
+								"variable": "Sound",
+								"value": "2.5"
+							}
+						}
+					],
+					"sid": 113403187851551
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 134619245392527,
+							"parameters": {
+								"variable": "Start_Game"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 171393961073963,
+							"parameters": {
+								"variable": "Sound",
+								"comparison": 0,
+								"value": "-25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 987530461128326,
+							"parameters": {
+								"tag": "\"Suspense\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "Music_Safe",
+							"sid": 325270420524381,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "Music_Safe",
+							"sid": 177390874360303,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 533121419443414
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 232143895716208,
+							"parameters": {
+								"layout": "Hotel"
+							}
+						}
+					],
+					"sid": 223833927786571
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player_All",
+							"sid": 485188098918423,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_All",
+							"sid": 369161031056473,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "32"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 261862128267437,
+							"parameters": {
+								"variable": "Enemys",
+								"comparison": 2,
+								"value": "32"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Trigger_CutScene",
+							"sid": 680732372795424,
+							"parameters": {
+								"tags": "\"Cut\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 171054556742573,
+							"parameters": [
+								"\"\"",
+								"0",
+								"0",
+								"269",
+								"1",
+								true
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 878702421802649,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "Destroy_Dialoge",
+							"sid": 899332115254787
+						}
+					],
+					"sid": 620167225925322
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 431152489179101,
+							"parameters": {
+								"variable": "Enemys",
+								"comparison": 0,
+								"value": "32"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "door_closed",
+							"sid": 255216416751259,
+							"behaviorType": "Твёрдый",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "door_closed",
+							"sid": 907276622102793,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 177558522391386
 				}
 			],
 			"sid": 321227186405324
@@ -2725,7 +3995,7 @@
 			"conditions": [
 				{
 					"id": "compare-x",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 387959142509703,
 					"parameters": {
 						"comparison": 5,
@@ -2734,7 +4004,7 @@
 				},
 				{
 					"id": "compare-y",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 424654272677850,
 					"parameters": {
 						"comparison": 3,
@@ -2768,7 +4038,7 @@
 			"conditions": [
 				{
 					"id": "compare-x",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 272695913807377,
 					"parameters": {
 						"comparison": 5,
@@ -2777,7 +4047,7 @@
 				},
 				{
 					"id": "compare-y",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 975714353135067,
 					"parameters": {
 						"comparison": 3,
@@ -2808,6 +4078,15 @@
 						"variable": "onDial",
 						"value": "true"
 					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "security_Cutscene",
+					"sid": 690716959415304,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
 				}
 			],
 			"sid": 654810307859883,
@@ -2827,110 +4106,212 @@
 							"parameters": {
 								"variable": "onDial"
 							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "security_Cutscene",
+							"sid": 590016693732420,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "1"
+							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "Create_Dealogue",
-							"sid": 244559648082960,
+							"callFunction": "Create_DealogueEnemy",
+							"sid": 621079502141221,
 							"parameters": [
-								"\"Я не вижу его на камерах!\"",
 								"security_Cutscene.x +10",
 								"security_Cutscene.Y - 30",
-								"0",
-								"0",
+								"263",
+								"1",
 								false
 							]
 						},
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 784412195646621,
-							"parameters": {
-								"seconds": "5",
-								"use-timescale": true
-							}
-						},
-						{
-							"callFunction": "Create_Dealogue",
-							"sid": 386756682722266,
-							"parameters": [
-								"\"Мы забрикодировали все выходы, он  не пройдёт\"",
-								"security_Cutscene.x +150",
-								"security_Cutscene.Y -30",
-								"0",
-								"0",
-								false
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 180996085554689,
+							"sid": 359868224445085,
 							"parameters": {
 								"seconds": "4",
 								"use-timescale": true
 							}
 						},
 						{
-							"callFunction": "Create_Dealogue",
-							"sid": 461088313566481,
-							"parameters": [
-								"\"Да ты прав, ему некуда идти.\"",
-								"security_Cutscene.x +10",
-								"security_Cutscene.Y - 30",
-								"0",
-								"0",
-								false
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 461235533206485,
-							"parameters": {
-								"seconds": "4",
-								"use-timescale": true
-							}
-						},
-						{
-							"callFunction": "Create_Dealogue",
-							"sid": 179045116751577,
-							"parameters": [
-								"\"А ту дрянь, что мы в него заталкали, скоро перестанет действовать\"",
-								"security_Cutscene.x +10",
-								"security_Cutscene.Y - 30",
-								"0",
-								"0",
-								false
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 859860819993430,
-							"parameters": {
-								"seconds": "5",
-								"use-timescale": true
-							}
-						},
-						{
-							"callFunction": "Destroy_Dialoge",
-							"sid": 899676267049901
+							"callFunction": "Destroy_DialogeEnemy",
+							"sid": 273172809049645
 						}
 					],
 					"sid": 429026374157113
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 543406104909243
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 651601462907122,
+							"parameters": {
+								"variable": "onDial"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "security_Cutscene",
+							"sid": 808886618921553,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_DealogueEnemy",
+							"sid": 875866408521934,
+							"parameters": [
+								"security_Cutscene.x +285",
+								"security_Cutscene.Y - 30",
+								"264",
+								"1",
+								false
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 181490420253753,
+							"parameters": {
+								"seconds": "3",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "Destroy_DialogeEnemy",
+							"sid": 716580600408455
+						}
+					],
+					"sid": 432941292502152
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 625246172023748
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 126987527080852,
+							"parameters": {
+								"variable": "onDial"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "security_Cutscene",
+							"sid": 139767922948235,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_DealogueEnemy",
+							"sid": 445100060996914,
+							"parameters": [
+								"security_Cutscene.x +10",
+								"security_Cutscene.Y - 30",
+								"265",
+								"1",
+								false
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 454434672292926,
+							"parameters": {
+								"seconds": "3",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "Destroy_DialogeEnemy",
+							"sid": 421849783461663
+						}
+					],
+					"sid": 983998060167239
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 561094622715139
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 831685093569025,
+							"parameters": {
+								"variable": "onDial"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "security_Cutscene",
+							"sid": 484985067328627,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_DealogueEnemy",
+							"sid": 494705365481813,
+							"parameters": [
+								"security_Cutscene.x +10",
+								"security_Cutscene.Y - 30",
+								"266",
+								"1",
+								false
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 775898205783270,
+							"parameters": {
+								"seconds": "4",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "Destroy_DialogeEnemy",
+							"sid": 140722371246974
+						}
+					],
+					"sid": 661818789621959
 				}
 			]
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Box1",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [],
-			"sid": 203379490474968
 		}
 	],
 	"sid": 276946524812111

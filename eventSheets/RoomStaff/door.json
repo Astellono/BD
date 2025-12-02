@@ -379,11 +379,11 @@
 										{
 											"id": "play",
 											"objectClass": "Аудио",
-											"sid": 125195989961728,
+											"sid": 150511094894934,
 											"parameters": {
 												"audio-file": "MetallDoorOpen",
 												"loop": "not-looping",
-												"volume": "-5",
+												"volume": "Audio",
 												"stereo-pan": "0",
 												"tag-optional": "\"audio\""
 											}
@@ -489,11 +489,11 @@
 										{
 											"id": "play",
 											"objectClass": "Аудио",
-											"sid": 389657313143117,
+											"sid": 409887408679356,
 											"parameters": {
 												"audio-file": "MetallDoorClosed",
 												"loop": "not-looping",
-												"volume": "-5",
+												"volume": "Audio",
 												"stereo-pan": "0",
 												"tag-optional": "\"audio\""
 											}
@@ -579,11 +579,11 @@
 										{
 											"id": "play",
 											"objectClass": "Аудио",
-											"sid": 682501421664017,
+											"sid": 860196602482130,
 											"parameters": {
 												"audio-file": "OpenSmash",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Audio",
 												"stereo-pan": "0",
 												"tag-optional": "\"audio\""
 											}
@@ -706,11 +706,11 @@
 										{
 											"id": "play",
 											"objectClass": "Аудио",
-											"sid": 702839296892041,
+											"sid": 182076125954523,
 											"parameters": {
 												"audio-file": "OpenSmash",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Audio",
 												"stereo-pan": "0",
 												"tag-optional": "\"audio\""
 											}
@@ -1239,11 +1239,11 @@
 										{
 											"id": "play",
 											"objectClass": "Аудио",
-											"sid": 260659732535967,
+											"sid": 590903477837790,
 											"parameters": {
 												"audio-file": "OpenDoor",
 												"loop": "not-looping",
-												"volume": "-5",
+												"volume": "Audio",
 												"stereo-pan": "0",
 												"tag-optional": "\"audio\""
 											}
@@ -2250,6 +2250,14 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "is-animation-playing",
+					"objectClass": "Door",
+					"sid": 964639112155256,
+					"parameters": {
+						"animation": "\"Animation 1\""
+					}
+				},
+				{
 					"id": "compare-animation-frame",
 					"objectClass": "Door",
 					"sid": 745453239216095,
@@ -2276,12 +2284,11 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-animation-frame",
+					"id": "is-animation-playing",
 					"objectClass": "Door",
-					"sid": 327743756450786,
+					"sid": 312610584748743,
 					"parameters": {
-						"comparison": 0,
-						"number": "0"
+						"animation": "\"Animation 1\""
 					},
 					"isInverted": true
 				}
