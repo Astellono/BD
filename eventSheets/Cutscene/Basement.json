@@ -3680,11 +3680,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 431152489179101,
+							"sid": 252988080128759,
 							"parameters": {
 								"variable": "Enemys",
 								"comparison": 0,
-								"value": "32"
+								"value": "34"
 							}
 						}
 					],
@@ -3820,10 +3820,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 604168824338526,
+							"sid": 238801698215502,
 							"parameters": {
 								"object-to-create": "Box_MoveHoriz",
-								"layer": "0",
+								"layer": "\"Tower\"",
 								"x": "Conveyor.X +138",
 								"y": "Conveyor.Y -18",
 								"create-hierarchy": false,
@@ -3887,10 +3887,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 440469262675909,
+							"sid": 677013776836819,
 							"parameters": {
 								"object-to-create": "Box_MoveVert",
-								"layer": "0",
+								"layer": "\"Tower\"",
 								"x": "Prinimatel.X -7",
 								"y": "Prinimatel.Y",
 								"create-hierarchy": false,
@@ -4312,6 +4312,68 @@
 					"sid": 661818789621959
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Kayboard",
+					"sid": 517137782601690,
+					"parameters": {
+						"key": 84
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player_All",
+					"sid": 953404500824041,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "32"
+					}
+				}
+			],
+			"sid": 775701993248824
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_All",
+					"sid": 895455951415624,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Trigger_CutScene",
+					"sid": 890818752691466,
+					"parameters": {
+						"tags": "\"Save\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 724554175932489,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Trigger_CutScene",
+					"sid": 502313663168426
+				}
+			],
+			"sid": 759638259196406
 		}
 	],
 	"sid": 276946524812111

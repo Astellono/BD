@@ -2231,26 +2231,7 @@
 											"isInverted": true
 										}
 									],
-									"actions": [
-										{
-											"id": "set-enabled",
-											"objectClass": "Skvoz",
-											"sid": 162860352585036,
-											"behaviorType": "Твёрдый",
-											"parameters": {
-												"state": "enabled"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 737355358734547,
-											"parameters": {
-												"seconds": "0.1",
-												"use-timescale": true
-											}
-										}
-									],
+									"actions": [],
 									"sid": 273354264410779,
 									"children": [
 										{
@@ -2281,7 +2262,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 352931656570333,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												}
+											],
 											"sid": 564425188899228,
 											"children": [
 												{
@@ -2322,6 +2313,7 @@
 															"id": "for-each",
 															"objectClass": "System",
 															"sid": 357146438262361,
+															"disabled": true,
 															"parameters": {
 																"object": "Enemys"
 															}
@@ -3043,6 +3035,58 @@
 															]
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_All",
+															"sid": 282810390611267,
+															"parameters": {
+																"animation": "\"MountingFinishing\""
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 719936046217181
+														}
+													],
+													"actions": [
+														{
+															"id": "set-enabled",
+															"objectClass": "Skvoz",
+															"sid": 450605589876692,
+															"behaviorType": "Твёрдый",
+															"parameters": {
+																"state": "enabled"
+															}
+														}
+													],
+													"sid": 370480202940613
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 680205245556576
+														}
+													],
+													"actions": [
+														{
+															"id": "set-enabled",
+															"objectClass": "Skvoz",
+															"sid": 280827715097493,
+															"behaviorType": "Твёрдый",
+															"parameters": {
+																"state": "disabled"
+															}
+														}
+													],
+													"sid": 715772308821402
 												}
 											],
 											"isOrBlock": true
@@ -5212,11 +5256,6 @@
 												"instance-variable": "Mounting",
 												"value": "0"
 											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Press_Mouse2",
-											"sid": 869603083047732
 										}
 									],
 									"sid": 737775360443080
@@ -5232,6 +5271,16 @@
 												"animation": "\"MountingFinishing\""
 											},
 											"isInverted": true
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player_All",
+											"sid": 475638151729742,
+											"parameters": {
+												"instance-variable": "textframe",
+												"comparison": 5,
+												"value": "32"
+											}
 										}
 									],
 									"actions": [
@@ -5243,6 +5292,11 @@
 												"group-name": "\"Kick\"",
 												"state": "activated"
 											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Press_Mouse2",
+											"sid": 469677079715727
 										}
 									],
 									"sid": 583745608121948
@@ -13177,7 +13231,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -13240,6 +13294,7 @@
 							],
 							"actions": [],
 							"sid": 309043479600069,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -13357,7 +13412,8 @@
 											}
 										}
 									],
-									"sid": 895047843836743
+									"sid": 895047843836743,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -13475,7 +13531,8 @@
 											}
 										}
 									],
-									"sid": 387218705782901
+									"sid": 387218705782901,
+									"disabled": true
 								}
 							]
 						},
@@ -13536,6 +13593,7 @@
 							],
 							"actions": [],
 							"sid": 360946975383272,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -13683,7 +13741,8 @@
 											}
 										}
 									],
-									"sid": 691984442684721
+									"sid": 691984442684721,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -13831,7 +13890,8 @@
 											}
 										}
 									],
-									"sid": 368688727635590
+									"sid": 368688727635590,
+									"disabled": true
 								}
 							]
 						},
@@ -13879,6 +13939,7 @@
 							],
 							"actions": [],
 							"sid": 343140753134619,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -13894,6 +13955,7 @@
 									],
 									"actions": [],
 									"sid": 698634819418167,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -14056,6 +14118,7 @@
 												}
 											],
 											"sid": 667787167810499,
+											"disabled": true,
 											"isOrBlock": true
 										}
 									]
@@ -14074,6 +14137,7 @@
 									],
 									"actions": [],
 									"sid": 265449835868495,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -14236,6 +14300,7 @@
 												}
 											],
 											"sid": 949915155403725,
+											"disabled": true,
 											"isOrBlock": true
 										}
 									]
@@ -14266,6 +14331,7 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -14293,6 +14359,7 @@
 										}
 									],
 									"sid": 310996725083501,
+									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -14321,6 +14388,7 @@
 										}
 									],
 									"sid": 458178281136712,
+									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -14346,7 +14414,8 @@
 											}
 										}
 									],
-									"sid": 106933512128252
+									"sid": 106933512128252,
+									"disabled": true
 								}
 							]
 						},
@@ -14392,6 +14461,7 @@
 								}
 							],
 							"sid": 377992490181740,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -14425,7 +14495,8 @@
 											}
 										}
 									],
-									"sid": 630842109624814
+									"sid": 630842109624814,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14469,7 +14540,8 @@
 											}
 										}
 									],
-									"sid": 216693764442584
+									"sid": 216693764442584,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14513,7 +14585,8 @@
 											}
 										}
 									],
-									"sid": 589694636770370
+									"sid": 589694636770370,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14557,7 +14630,8 @@
 											}
 										}
 									],
-									"sid": 918810485227998
+									"sid": 918810485227998,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14601,7 +14675,8 @@
 											}
 										}
 									],
-									"sid": 990684820624839
+									"sid": 990684820624839,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14645,7 +14720,8 @@
 											}
 										}
 									],
-									"sid": 529478716458234
+									"sid": 529478716458234,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14689,7 +14765,8 @@
 											}
 										}
 									],
-									"sid": 581572430933988
+									"sid": 581572430933988,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14733,7 +14810,8 @@
 											}
 										}
 									],
-									"sid": 943898994885594
+									"sid": 943898994885594,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14777,7 +14855,8 @@
 											}
 										}
 									],
-									"sid": 791093798816223
+									"sid": 791093798816223,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -14793,7 +14872,8 @@
 											}
 										}
 									],
-									"sid": 799978535918360
+									"sid": 799978535918360,
+									"disabled": true
 								}
 							]
 						},
@@ -14825,8 +14905,7 @@
 									}
 								}
 							],
-							"sid": 313471185530183,
-							"disabled": true
+							"sid": 313471185530183
 						},
 						{
 							"eventType": "block",
@@ -14852,8 +14931,7 @@
 									}
 								}
 							],
-							"sid": 563655859934719,
-							"disabled": true
+							"sid": 563655859934719
 						},
 						{
 							"eventType": "block",
@@ -14887,6 +14965,7 @@
 								}
 							],
 							"sid": 964464087012207,
+							"disabled": true,
 							"isOrBlock": true
 						}
 					],
@@ -43967,6 +44046,16 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "has-los-to-object",
+													"objectClass": "EnemySecurity",
+													"sid": 709038162069105,
+													"behaviorType": "ПолеЗрения",
+													"parameters": {
+														"object": "Player_All",
+														"image-point": "0"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "EnemySecurity",
 													"sid": 944044332456355,
@@ -43984,16 +44073,6 @@
 														"instance-variable": "DifX",
 														"comparison": 5,
 														"value": "-200"
-													}
-												},
-												{
-													"id": "has-los-to-object",
-													"objectClass": "EnemySecurity",
-													"sid": 553722763486330,
-													"behaviorType": "ПолеЗрения",
-													"parameters": {
-														"object": "Player_All",
-														"image-point": "0"
 													}
 												},
 												{
@@ -45941,7 +46020,55 @@
 															}
 														}
 													],
-													"sid": 433192974400423
+													"sid": 433192974400423,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "EnemyJunkieKnife",
+																	"sid": 295158804592563,
+																	"parameters": {
+																		"animation": "\"BaseballFinishing\""
+																	}
+																},
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyJunkieKnife",
+																	"sid": 592950740249889,
+																	"parameters": {
+																		"object": "Wall_Blood"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 528145659100111,
+																	"parameters": {
+																		"object-to-create": "BloodAll",
+																		"layer": "LayerIndex(\"Blood\")",
+																		"x": "EnemyJunkieKnife.ImagePointX(\"Blood\")",
+																		"y": "EnemyJunkieKnife.ImagePointY(\"Blood\")",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "BloodAll",
+																	"sid": 452004030118932,
+																	"parameters": {
+																		"animation": "\"BloodKnife\"",
+																		"from": "beginning"
+																	}
+																}
+															],
+															"sid": 872252868456949
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -45968,45 +46095,55 @@
 															}
 														}
 													],
-													"sid": 705714610623436
-												},
-												{
-													"eventType": "block",
-													"conditions": [
+													"sid": 705714610623436,
+													"children": [
 														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "EnemyJunkieKnife",
-															"sid": 575851722308353,
-															"parameters": {
-																"object": "Wall_Blood"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "EnemyJunkieKnife",
+																	"sid": 464851874386649,
+																	"parameters": {
+																		"animation": "\"onGround\""
+																	}
+																},
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "EnemyJunkieKnife",
+																	"sid": 237570984447285,
+																	"parameters": {
+																		"object": "Wall_Blood"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 147117476171171,
+																	"parameters": {
+																		"object-to-create": "BloodAll",
+																		"layer": "LayerIndex(\"Blood\")",
+																		"x": "EnemyJunkieKnife.ImagePointX(\"Blood\")",
+																		"y": "EnemyJunkieKnife.ImagePointY(\"Blood\")",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "BloodAll",
+																	"sid": 768689286894191,
+																	"parameters": {
+																		"animation": "\"BloodMid\"",
+																		"from": "beginning"
+																	}
+																}
+															],
+															"sid": 803999331890999
 														}
-													],
-													"actions": [
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 664116953287668,
-															"parameters": {
-																"object-to-create": "BloodAll",
-																"layer": "LayerIndex(\"Blood\")",
-																"x": "EnemyJunkieKnife.ImagePointX(\"Blood\")",
-																"y": "EnemyJunkieKnife.ImagePointY(\"Blood\")",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "set-animation",
-															"objectClass": "BloodAll",
-															"sid": 364144964914371,
-															"parameters": {
-																"animation": "\"BloodMid\"",
-																"from": "beginning"
-															}
-														}
-													],
-													"sid": 293305335431018
+													]
 												}
 											]
 										},
@@ -57337,40 +57474,40 @@
 												{
 													"id": "is-overlapping-at-offset",
 													"objectClass": "EnemyJunkieKnife",
-													"sid": 679181521775867,
+													"sid": 582359923160009,
 													"parameters": {
 														"object": "Player_All",
-														"offset-x": "10",
+														"offset-x": "0",
 														"offset-y": "EnemyJunkieKnife.DifY +30"
 													}
 												},
 												{
 													"id": "is-overlapping-at-offset",
 													"objectClass": "EnemyJunkieKnife",
-													"sid": 302735866753986,
+													"sid": 326162624738141,
 													"parameters": {
 														"object": "Player_All",
-														"offset-x": "-10",
+														"offset-x": "-0",
 														"offset-y": "EnemyJunkieKnife.DifY -30"
 													}
 												},
 												{
 													"id": "is-overlapping-at-offset",
 													"objectClass": "EnemyJunkieKnife",
-													"sid": 650608126342243,
+													"sid": 232269087399959,
 													"parameters": {
 														"object": "Player_All",
-														"offset-x": "10",
+														"offset-x": "0",
 														"offset-y": "EnemyJunkieKnife.DifY -30"
 													}
 												},
 												{
 													"id": "is-overlapping-at-offset",
 													"objectClass": "EnemyJunkieKnife",
-													"sid": 198530179447164,
+													"sid": 860265166397149,
 													"parameters": {
 														"object": "Player_All",
-														"offset-x": "-10",
+														"offset-x": "0",
 														"offset-y": "EnemyJunkieKnife.DifY +30"
 													}
 												}
@@ -57520,22 +57657,30 @@
 															],
 															"actions": [
 																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 991444940131598,
+																	"id": "spawn-another-object",
+																	"objectClass": "EnemyJunkieKnife",
+																	"sid": 947804837128265,
 																	"parameters": {
-																		"object-to-create": "HitBoxEnemy",
+																		"object": "HitBoxEnemy",
 																		"layer": "EnemyJunkieKnife.LayerName",
-																		"x": "EnemyJunkieKnife.X",
-																		"y": "EnemyJunkieKnife.Y",
+																		"image-point": "1",
 																		"create-hierarchy": false,
 																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "rotate-clockwise",
+																	"objectClass": "HitBoxEnemy",
+																	"sid": 288756096197266,
+																	"parameters": {
+																		"degrees": "90"
 																	}
 																},
 																{
 																	"id": "wait",
 																	"objectClass": "System",
 																	"sid": 547114325408813,
+																	"disabled": true,
 																	"parameters": {
 																		"seconds": "0.01",
 																		"use-timescale": true
@@ -57544,7 +57689,8 @@
 																{
 																	"id": "destroy",
 																	"objectClass": "HitBoxEnemy",
-																	"sid": 493482805668756
+																	"sid": 493482805668756,
+																	"disabled": true
 																}
 															],
 															"sid": 786908410493844
@@ -106969,6 +107115,237 @@
 																}
 															],
 															"sid": 486885152137302
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 947784189559041,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Mounting\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 400761109390826,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Glass\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 333029012184562,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Bottle\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 590232542481114,
+													"parameters": {
+														"variable": "Wolf"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "stop",
+													"objectClass": "EnemyFurious",
+													"sid": 313113632398381,
+													"behaviorType": "НастраиваемоеДвижение"
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "EnemyFurious",
+													"sid": 114832755341872,
+													"parameters": {
+														"instance-variable": "Damage",
+														"value": "true"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "EnemyFurious",
+													"sid": 904774812625906,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 214303832835294,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "EnemyFurious",
+															"sid": 516607348997027,
+															"parameters": {
+																"instance-variable": "Damage"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "start-timer",
+															"objectClass": "EnemyFurious",
+															"sid": 586131618083253,
+															"behaviorType": "Таймер",
+															"parameters": {
+																"duration": "0.5",
+																"type": "once",
+																"tag": "\"Damage\""
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyFurious",
+															"sid": 467932490344114,
+															"parameters": {
+																"instance-variable": "triger",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyFurious",
+															"sid": 531408386931321,
+															"parameters": {
+																"instance-variable": "vision",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyFurious",
+															"sid": 332111392292376,
+															"parameters": {
+																"instance-variable": "search",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyFurious",
+															"sid": 383677935951786,
+															"parameters": {
+																"instance-variable": "Kick",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "EnemyFurious",
+															"sid": 501416209940774,
+															"parameters": {
+																"instance-variable": "onRamp",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "EnemyFurious",
+															"sid": 655043333876105,
+															"parameters": {
+																"animation": "\"Damage\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 698457096914371,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "spawn-another-object",
+																	"objectClass": "EnemyFurious",
+																	"sid": 438609145202423,
+																	"parameters": {
+																		"object": "BloodAll",
+																		"layer": "Player_All.LayerName",
+																		"image-point": "2",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "BloodAll",
+																	"sid": 737729191727340,
+																	"parameters": {
+																		"animation": "\"BloodAxe1\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-enabled",
+																	"objectClass": "BloodAll",
+																	"sid": 489147455953208,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"state": "enabled"
+																	}
+																},
+																{
+																	"id": "set-speed",
+																	"objectClass": "BloodAll",
+																	"sid": 216768156805528,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"which": "overall",
+																		"speed": "EnemyFurious.rotate * -100"
+																	}
+																},
+																{
+																	"id": "set-angle-of-motion",
+																	"objectClass": "BloodAll",
+																	"sid": 496266419033225,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"angle": "EnemyFurious.rotate * BloodAll.НастраиваемоеДвижение.MovingAngle"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 653641614563089,
+																	"parameters": {
+																		"seconds": "0.3",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-enabled",
+																	"objectClass": "BloodAll",
+																	"sid": 725952548667324,
+																	"behaviorType": "НастраиваемоеДвижение",
+																	"parameters": {
+																		"state": "disabled"
+																	}
+																}
+															],
+															"sid": 388223157462994
 														}
 													]
 												}
