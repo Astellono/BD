@@ -2068,6 +2068,1239 @@
 			"sid": 733717692979356
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Door_Old2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "setupDoor_Old2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 577604956405498
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 681292484797875,
+									"parameters": {
+										"instance-variable": "distanceToPlayerX",
+										"value": "Self.X-Player_All.X"
+									}
+								}
+							],
+							"sid": 963340695739842,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 394158359779945,
+											"parameters": {
+												"instance-variable": "distanceToPlayerX",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 859615920950756,
+											"parameters": {
+												"instance-variable": "distanceToPlayerX",
+												"value": "Self.distanceToPlayerX*-1"
+											}
+										}
+									],
+									"sid": 945595702570758
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 197405047932316
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 411236262893914,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"value": "Self.Y-Player_All.Y"
+									}
+								}
+							],
+							"sid": 472143280599666,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 171911881598648,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 868684339468895,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"value": "Self.distanceToPlayerY*-1"
+											}
+										}
+									],
+									"sid": 429500752112490
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 614772405802818
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 299071367149478,
+									"parameters": {
+										"instance-variable": "distanceToEnemyX",
+										"value": "Self.X-Enemys.X"
+									}
+								}
+							],
+							"sid": 900328181071025,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 959433461001072,
+											"parameters": {
+												"instance-variable": "distanceToEnemyX",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 309067164833019,
+											"parameters": {
+												"instance-variable": "distanceToEnemyX",
+												"value": "Self.distanceToEnemyX*-1"
+											}
+										}
+									],
+									"sid": 191827518671444
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 782681538474712
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 201902987631177,
+									"parameters": {
+										"instance-variable": "distanceToEnemyY",
+										"value": "Self.Y-Enemys.Y"
+									}
+								}
+							],
+							"sid": 165702694216454,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 567008559895089,
+											"parameters": {
+												"instance-variable": "distanceToEnemyY",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 354390368875737,
+											"parameters": {
+												"instance-variable": "distanceToEnemyY",
+												"value": "Self.distanceToEnemyY*-1"
+											}
+										}
+									],
+									"sid": 900983147288532
+								}
+							]
+						}
+					],
+					"sid": 712164195435057
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "moveDoor_Old2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 952614735115167,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "Player_All.X"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 906784605676384,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 540832802395061,
+									"parameters": {
+										"animation": "\"Crash\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 518632304051171,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 672181406300523
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 528677013667368,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Player_All.X"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 417874870713467,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 529451019293003,
+									"parameters": {
+										"animation": "\"Crash\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 773928079063318,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 117391424331912
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Kayboard",
+									"sid": 293783826049647,
+									"parameters": {
+										"key": 69
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 245210294326368,
+									"parameters": {
+										"instance-variable": "distanceToPlayerX",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 113674940243675,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 761213655143735,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 236663268090985,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 457661210848244,
+											"parameters": {
+												"instance-variable": "open"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 671402722921458,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 670879554368505,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 787009840613918,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 461551813558289,
+											"parameters": {
+												"audio-file": "OpenDoor",
+												"loop": "not-looping",
+												"volume": "Audio",
+												"stereo-pan": "0",
+												"tag-optional": "\"audio\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 336565480096755,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 470215002473202,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 370691992979080
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Kayboard",
+									"sid": 532173934571026,
+									"parameters": {
+										"key": 69
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 716012257391186,
+									"parameters": {
+										"instance-variable": "distanceToPlayerX",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 331613796925679,
+									"parameters": {
+										"instance-variable": "distanceToPlayerY",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 183047548599860,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 476458041207510,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 216570630451188,
+											"parameters": {
+												"instance-variable": "open"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 379323594059492,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 517602410782473,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 637480776137770,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 922543547819325,
+											"parameters": {
+												"audio-file": "ClosedDoor",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"audio\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 266687822448285,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 120621986296834,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 935004941917395
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 794801247116354,
+									"parameters": {
+										"variable": "inDash"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 891569373980429,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player_All.X",
+										"y": "Player_All.Y"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 613427099660091,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 619100581398514,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 962457620030445,
+											"parameters": {
+												"instance-variable": "distanceToPlayerX",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 528605510516964,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "is-enabled",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 724612099356286,
+											"behaviorType": "Твёрдый"
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 617818151769749,
+											"parameters": {
+												"audio-file": "OpenSmash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"audio\""
+											}
+										}
+									],
+									"sid": 131376666521996
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 442802875715842,
+											"parameters": {
+												"instance-variable": "distanceToPlayerX",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 420135727577857,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 990464297021958,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 686992378140944,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 198839163675544,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 878812250636992
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 216580341545326,
+									"parameters": {
+										"variable": "inTackel"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 824777291651567,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player_All.X",
+										"y": "Player_All.Y"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 663104591643623,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 671956236200793,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 652592426216327,
+											"parameters": {
+												"instance-variable": "distanceToPlayerX",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 330038930988877,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "is-enabled",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 528237949260256,
+											"behaviorType": "Твёрдый"
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Аудио",
+											"sid": 359197842675547,
+											"parameters": {
+												"audio-file": "OpenSmash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"audio\""
+											}
+										}
+									],
+									"sid": 308073653534874
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 787726202205220,
+											"parameters": {
+												"instance-variable": "distanceToPlayerX",
+												"comparison": 2,
+												"value": "50"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 399086700437934,
+											"parameters": {
+												"instance-variable": "distanceToPlayerY",
+												"comparison": 2,
+												"value": "50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 439424839484265,
+											"parameters": {
+												"instance-variable": "open",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 854897850111008,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 790706584751438,
+											"behaviorType": "Твёрдый",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 983221713235458
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Enemys",
+									"sid": 878414759979615,
+									"parameters": {
+										"object": "Door_HotelAktiv"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 349500505143392,
+									"parameters": {
+										"tags": "\"Closed\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 445712848219665,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "distanceToEnemyX",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 667268852341792,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "distanceToEnemyY",
+										"comparison": 2,
+										"value": "50"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 724944776956661,
+									"disabled": true,
+									"parameters": {
+										"which": "nearest",
+										"x": "Enemys.X",
+										"y": "Enemys.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 516584261713509,
+									"parameters": {
+										"instance-variable": "open",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 739927150610995,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 498776642425292,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 912741666058692
+						}
+					],
+					"sid": 426176041274991
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "damageDoor_Old2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Shot",
+									"sid": 738018088184415,
+									"parameters": {
+										"object": "Door_HotelAktiv"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 106772537376916,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 724821237332431,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Shot",
+									"sid": 254925215010961,
+									"parameters": {
+										"object": "Shepki",
+										"layer": "Player_All.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 970434654461715,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "2"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 689651474246574,
+									"parameters": {
+										"distance": "2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 189695525047538,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 541248917908253,
+									"parameters": {
+										"distance": "-2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 900121197952348,
+									"parameters": {
+										"seconds": "0.2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shepki",
+									"sid": 961622513096116
+								}
+							],
+							"sid": 913785715604740
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "HitBox",
+									"sid": 331484061620104,
+									"parameters": {
+										"object": "Door_HotelAktiv"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 824347313575115,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 841592386522589,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HitBox",
+									"sid": 660264511928195,
+									"parameters": {
+										"object": "Shepki",
+										"layer": "Player_All.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 121188044380330,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "0.5"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 928912295824821,
+									"parameters": {
+										"distance": "2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 313134431779921,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 955423308748613,
+									"parameters": {
+										"distance": "-2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 455255385476815,
+									"parameters": {
+										"seconds": "0.2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shepki",
+									"sid": 183282692103832
+								}
+							],
+							"sid": 710565744591927,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 895349309590790,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Axe\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 289340863309152,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "4"
+											}
+										}
+									],
+									"sid": 186385830605611
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 543338651722271,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Mont\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 366526082672331,
+											"parameters": {
+												"variable": "weapon",
+												"comparison": 0,
+												"value": "\"Baseball\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Door_HotelAktiv",
+											"sid": 151451405406496,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 458086737812790,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 551296094078923,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 450378370313606,
+									"parameters": {
+										"animation": "\"Crash\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 183000580941643,
+									"behaviorType": "Твёрдый",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_HotelAktiv",
+									"sid": 120736012725646,
+									"behaviorType": "Физика",
+									"parameters": {
+										"mode": "disabled"
+									}
+								}
+							],
+							"sid": 543023855314844
+						}
+					],
+					"sid": 562401893255044
+				}
+			],
+			"sid": 888134488962889
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -2095,6 +3328,16 @@
 					"behaviorType": "Физика",
 					"parameters": {
 						"object": "Door_Metal",
+						"state": "enable"
+					}
+				},
+				{
+					"id": "enabledisable-collisions",
+					"objectClass": "Weapon",
+					"sid": 530743286930428,
+					"behaviorType": "Физика",
+					"parameters": {
+						"object": "Door_HotelAktiv",
 						"state": "enable"
 					}
 				}

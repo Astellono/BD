@@ -2202,6 +2202,15 @@
 											"behaviorType": "Платформер"
 										},
 										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 832302341250516,
+											"parameters": {
+												"object": "LadderStair"
+											},
+											"isInverted": true
+										},
+										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Player_All",
 											"sid": 940795103202962,
@@ -2423,7 +2432,35 @@
 																	}
 																}
 															],
-															"actions": [],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "EnemyBaseball",
+																	"sid": 218265148880234,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 527295947730124,
+																	"parameters": {
+																		"seconds": "0.1",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-enabled",
+																	"objectClass": "Skvoz",
+																	"sid": 437279778386477,
+																	"behaviorType": "Твёрдый",
+																	"parameters": {
+																		"state": "disabled"
+																	}
+																}
+															],
 															"sid": 388277066190007,
 															"children": [
 																{
@@ -2492,7 +2529,35 @@
 																	}
 																}
 															],
-															"actions": [],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "EnemyKnife",
+																	"sid": 540020860491864,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 474249561251830,
+																	"parameters": {
+																		"seconds": "0.1",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-enabled",
+																	"objectClass": "Skvoz",
+																	"sid": 248303437981329,
+																	"behaviorType": "Твёрдый",
+																	"parameters": {
+																		"state": "disabled"
+																	}
+																}
+															],
 															"sid": 132516639835715,
 															"children": [
 																{
@@ -3115,6 +3180,15 @@
 											}
 										},
 										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_All",
+											"sid": 712599258332966,
+											"parameters": {
+												"object": "LadderStair"
+											},
+											"isInverted": true
+										},
+										{
 											"id": "is-group-active",
 											"objectClass": "System",
 											"sid": 359971050895895,
@@ -3126,10 +3200,10 @@
 										{
 											"id": "compare-animation-frame",
 											"objectClass": "Enemys",
-											"sid": 646490145587423,
+											"sid": 482073845561378,
 											"parameters": {
 												"comparison": 2,
-												"number": "2"
+												"number": "4"
 											}
 										},
 										{
@@ -3180,6 +3254,22 @@
 											"sid": 155290739542232,
 											"parameters": {
 												"scale": "0.25"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Player_All",
+											"sid": 405057635684685,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Enemys",
+											"sid": 594878703056710,
+											"parameters": {
+												"frame-number": "1"
 											}
 										}
 									],
@@ -5271,16 +5361,6 @@
 												"animation": "\"MountingFinishing\""
 											},
 											"isInverted": true
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Player_All",
-											"sid": 475638151729742,
-											"parameters": {
-												"instance-variable": "textframe",
-												"comparison": 5,
-												"value": "32"
-											}
 										}
 									],
 									"actions": [
@@ -70812,7 +70892,7 @@
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "EnemyKnife",
-															"sid": 244674686236332,
+															"sid": 765762448106919,
 															"parameters": {
 																"object": "LadderStair"
 															},
@@ -70823,14 +70903,14 @@
 														{
 															"id": "set-boolean-instvar",
 															"objectClass": "EnemyKnife",
-															"sid": 918342434716745,
+															"sid": 277491971424228,
 															"parameters": {
 																"instance-variable": "FearSwitch",
 																"value": "true"
 															}
 														}
 													],
-													"sid": 662790048306608,
+													"sid": 348330677058166,
 													"children": [
 														{
 															"eventType": "block",
@@ -70838,7 +70918,7 @@
 																{
 																	"id": "compare-instance-variable",
 																	"objectClass": "EnemyKnife",
-																	"sid": 694046251813891,
+																	"sid": 947829047101874,
 																	"parameters": {
 																		"instance-variable": "Fear",
 																		"comparison": 3,
@@ -70848,7 +70928,7 @@
 																{
 																	"id": "is-boolean-instance-variable-set",
 																	"objectClass": "EnemyKnife",
-																	"sid": 966654744970080,
+																	"sid": 653806702335628,
 																	"parameters": {
 																		"instance-variable": "FearSwitch"
 																	}
@@ -70856,7 +70936,7 @@
 																{
 																	"id": "is-moving",
 																	"objectClass": "EnemyKnife",
-																	"sid": 346011966691576,
+																	"sid": 134408904376388,
 																	"behaviorType": "НастраиваемоеДвижение"
 																}
 															],
@@ -70864,7 +70944,7 @@
 																{
 																	"id": "wait",
 																	"objectClass": "System",
-																	"sid": 433160681939371,
+																	"sid": 864987008784937,
 																	"parameters": {
 																		"seconds": "random(1,4)",
 																		"use-timescale": true
@@ -70873,7 +70953,7 @@
 																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "EnemyKnife",
-																	"sid": 836491952211908,
+																	"sid": 791996727127103,
 																	"parameters": {
 																		"instance-variable": "Down",
 																		"value": "true"
@@ -70882,7 +70962,7 @@
 																{
 																	"id": "set-speed",
 																	"objectClass": "EnemyKnife",
-																	"sid": 597486204824009,
+																	"sid": 144732588983513,
 																	"behaviorType": "НастраиваемоеДвижение",
 																	"parameters": {
 																		"which": "horizontal",
@@ -70890,7 +70970,7 @@
 																	}
 																}
 															],
-															"sid": 730142075718139
+															"sid": 628365559623070
 														}
 													]
 												},
@@ -71397,6 +71477,165 @@
 												}
 											],
 											"sid": 878179995937863
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "EnemyKnife",
+													"sid": 408386927427119,
+													"parameters": {
+														"animation": "\"Fear\""
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "EnemyKnife",
+													"sid": 552692895978971,
+													"parameters": {
+														"object": "HitBox"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 946022955029092,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Mounting\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 709495114427117
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "EnemyKnife",
+													"sid": 513112505982094,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "EnemyKnife",
+													"sid": 239033475198808,
+													"parameters": {
+														"instance-variable": "Finishing",
+														"value": "\"noWeapon\""
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "EnemyKnife",
+													"sid": 923728624813209,
+													"parameters": {
+														"instance-variable": "Rough",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "EnemyKnife",
+													"sid": 993005309197489,
+													"parameters": {
+														"animation": "weapon & \"Finishing\"",
+														"from": "current-frame"
+													}
+												}
+											],
+											"sid": 854685181993034
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "EnemyKnife",
+													"sid": 143418757747915,
+													"parameters": {
+														"animation": "\"Fear\""
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "EnemyKnife",
+													"sid": 440153405549782,
+													"parameters": {
+														"object": "HitBox"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 496613189719054,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Mounting\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 650947207471000
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "EnemyKnife",
+													"sid": 113183351943458,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "EnemyKnife",
+													"sid": 809588893127653,
+													"parameters": {
+														"instance-variable": "Finishing",
+														"value": "\"noWeapon\""
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "EnemyKnife",
+													"sid": 886460958842344,
+													"parameters": {
+														"instance-variable": "Rough",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "EnemyKnife",
+													"sid": 574667263386380,
+													"parameters": {
+														"animation": "\"BaseballFinishing\"",
+														"from": "current-frame"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "EnemyKnife",
+													"sid": 369141390949681,
+													"parameters": {
+														"frame-number": "11"
+													}
+												}
+											],
+											"sid": 589440669542799
 										}
 									],
 									"sid": 734883990298101
