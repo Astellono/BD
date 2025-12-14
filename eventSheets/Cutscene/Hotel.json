@@ -433,6 +433,14 @@
 							}
 						},
 						{
+							"id": "stop",
+							"objectClass": "Аудио",
+							"sid": 464616629873581,
+							"parameters": {
+								"tag": "\"audio\""
+							}
+						},
+						{
 							"id": "play",
 							"objectClass": "Аудио",
 							"sid": 779666398164148,
@@ -887,7 +895,6 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 606628836368126,
-							"disabled": true,
 							"parameters": {
 								"group-name": "\"Player\"",
 								"state": "deactivated"
@@ -897,7 +904,6 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 399374621655097,
-							"disabled": true,
 							"parameters": {
 								"group-name": "\"Enemy & Fear\"",
 								"state": "deactivated"
@@ -907,7 +913,6 @@
 							"id": "set-visible",
 							"objectClass": "Enemys",
 							"sid": 287662140207647,
-							"disabled": true,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -916,7 +921,6 @@
 							"id": "set-boolean-instvar",
 							"objectClass": "Camera",
 							"sid": 274520542587284,
-							"disabled": true,
 							"parameters": {
 								"instance-variable": "onPlayer",
 								"value": "false"
@@ -926,7 +930,6 @@
 							"id": "set-position",
 							"objectClass": "Camera",
 							"sid": 590755700265974,
-							"disabled": true,
 							"parameters": {
 								"x": "Boss.X",
 								"y": "Boss.Y"
@@ -936,7 +939,6 @@
 							"id": "create-object",
 							"objectClass": "System",
 							"sid": 651894220580728,
-							"disabled": true,
 							"parameters": {
 								"object-to-create": "Shadow3",
 								"layer": "\"Dialog\"",
@@ -950,7 +952,6 @@
 							"id": "tween-one-property",
 							"objectClass": "Shadow3",
 							"sid": 423333711469808,
-							"disabled": true,
 							"behaviorType": "Твинанимация",
 							"parameters": {
 								"tags": "\"\"",
@@ -968,7 +969,6 @@
 							"id": "set-animation",
 							"objectClass": "Boss",
 							"sid": 346886243284990,
-							"disabled": true,
 							"parameters": {
 								"animation": "\"Animation 1\"",
 								"from": "beginning"
@@ -978,7 +978,6 @@
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 871601335085934,
-							"disabled": true,
 							"parameters": {
 								"seconds": "3",
 								"use-timescale": true
@@ -988,7 +987,6 @@
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 807357407476519,
-							"disabled": true,
 							"parameters": {
 								"variable": "onDialMain",
 								"value": "true"
@@ -998,7 +996,6 @@
 							"id": "add-to-instvar",
 							"objectClass": "Player_Wolf",
 							"sid": 624172869390782,
-							"disabled": true,
 							"parameters": {
 								"instance-variable": "textframe",
 								"value": "1"
@@ -1600,18 +1597,34 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Shadow3",
-					"sid": 318605520903635,
+					"sid": 844925809315014,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetOpacity",
 						"end-value": "100",
-						"time": "1",
+						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
 						"ping-pong": "no",
 						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Enemys",
+					"sid": 111956727543392,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Head",
+					"sid": 122203378773811,
+					"parameters": {
+						"visibility": "invisible"
 					}
 				},
 				{
@@ -1805,18 +1818,34 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Shadow3",
-					"sid": 673479924002444,
+					"sid": 871108706389888,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetOpacity",
 						"end-value": "0",
-						"time": "3",
+						"time": "1",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
 						"ping-pong": "no",
 						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Enemys",
+					"sid": 663910378751937,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Head",
+					"sid": 878688653127938,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{

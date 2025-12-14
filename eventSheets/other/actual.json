@@ -98,6 +98,16 @@
 			"sid": 302194019538255
 		},
 		{
+			"eventType": "variable",
+			"name": "NoPause",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 850259457289718
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Setup",
@@ -1759,10 +1769,10 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "Player_All",
-							"sid": 409437128386460,
+							"sid": 599796197497231,
 							"parameters": {
 								"object": "Shadow3",
-								"layer": "Player_All.LayerName",
+								"layer": "\"Dialog\"",
 								"image-point": "0",
 								"create-hierarchy": false,
 								"template-name": "\"\""
@@ -5361,6 +5371,24 @@
 												"animation": "\"MountingFinishing\""
 											},
 											"isInverted": true
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 609893216262881,
+											"parameters": {
+												"variable": "onDialMain"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 886925679345911,
+											"parameters": {
+												"variable": "onDialMain"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
@@ -6527,9 +6555,19 @@
 											}
 										},
 										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ChairWolf",
+											"sid": 609847236759520,
+											"parameters": {
+												"instance-variable": "Vision",
+												"value": "true"
+											}
+										},
+										{
 											"id": "set-visible",
 											"objectClass": "ChairWolf",
 											"sid": 842879135730334,
+											"disabled": true,
 											"parameters": {
 												"visibility": "visible"
 											}
@@ -6559,7 +6597,7 @@
 										{
 											"id": "compare-animation-frame",
 											"objectClass": "Player_All",
-											"sid": 732038830705514,
+											"sid": 703727423224816,
 											"parameters": {
 												"comparison": 0,
 												"number": "2"
@@ -6582,9 +6620,19 @@
 											}
 										},
 										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ChairWolf",
+											"sid": 648896034298302,
+											"parameters": {
+												"instance-variable": "Vision",
+												"value": "true"
+											}
+										},
+										{
 											"id": "set-visible",
 											"objectClass": "ChairWolf",
 											"sid": 685452791740546,
+											"disabled": true,
 											"parameters": {
 												"visibility": "visible"
 											}
@@ -6614,7 +6662,7 @@
 										{
 											"id": "compare-animation-frame",
 											"objectClass": "Player_All",
-											"sid": 537767938350071,
+											"sid": 119339068848312,
 											"parameters": {
 												"comparison": 0,
 												"number": "1"
@@ -6637,9 +6685,19 @@
 											}
 										},
 										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ChairWolf",
+											"sid": 245010686328273,
+											"parameters": {
+												"instance-variable": "Vision",
+												"value": "true"
+											}
+										},
+										{
 											"id": "set-visible",
 											"objectClass": "ChairWolf",
 											"sid": 223722153257132,
+											"disabled": true,
 											"parameters": {
 												"visibility": "visible"
 											}
@@ -6692,9 +6750,19 @@
 											}
 										},
 										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ChairWolf",
+											"sid": 266516972214824,
+											"parameters": {
+												"instance-variable": "Vision",
+												"value": "true"
+											}
+										},
+										{
 											"id": "set-visible",
 											"objectClass": "ChairWolf",
 											"sid": 573899809220130,
+											"disabled": true,
 											"parameters": {
 												"visibility": "visible"
 											}
@@ -6716,7 +6784,7 @@
 										{
 											"id": "is-animation-playing",
 											"objectClass": "Player_Wolf",
-											"sid": 685611428828231,
+											"sid": 393297544031478,
 											"parameters": {
 												"animation": "\"MountingFinishing\""
 											},
@@ -6725,7 +6793,7 @@
 										{
 											"id": "is-animation-playing",
 											"objectClass": "Player_Wolf",
-											"sid": 401606675777231,
+											"sid": 875248658126639,
 											"parameters": {
 												"animation": "\"MountingAttack2\""
 											},
@@ -6734,7 +6802,7 @@
 										{
 											"id": "is-animation-playing",
 											"objectClass": "Player_Wolf",
-											"sid": 394663513180113,
+											"sid": 622023781679666,
 											"parameters": {
 												"animation": "\"MountingRunKick\""
 											},
@@ -6743,29 +6811,35 @@
 										{
 											"id": "is-animation-playing",
 											"objectClass": "Player_Wolf",
-											"sid": 592792668435593,
+											"sid": 288869943575557,
 											"parameters": {
 												"animation": "\"MountingJumpKick\""
 											},
 											"isInverted": true
 										},
 										{
+											"id": "is-visible",
+											"objectClass": "ChairWolf",
+											"sid": 520484056955312
+										},
+										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 591095251463917
+											"sid": 747276835946985
 										}
 									],
 									"actions": [
 										{
-											"id": "set-visible",
+											"id": "set-boolean-instvar",
 											"objectClass": "ChairWolf",
-											"sid": 820194887934590,
+											"sid": 545341328455874,
 											"parameters": {
-												"visibility": "invisible"
+												"instance-variable": "Vision",
+												"value": "false"
 											}
 										}
 									],
-									"sid": 898901712406595
+									"sid": 466097084464660
 								},
 								{
 									"eventType": "block",
@@ -6810,6 +6884,15 @@
 											"behaviorType": "Физика",
 											"parameters": {
 												"mode": "disabled"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ChairWolf",
+											"sid": 371026830247586,
+											"parameters": {
+												"instance-variable": "Vision",
+												"value": "false"
 											}
 										},
 										{
@@ -6883,6 +6966,55 @@
 										}
 									],
 									"sid": 275885099805187
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ChairWolf",
+											"sid": 458670303158101,
+											"parameters": {
+												"instance-variable": "Vision"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "ChairWolf",
+											"sid": 307977509301336,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 333829390632860
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ChairWolf",
+											"sid": 855601200338467,
+											"parameters": {
+												"instance-variable": "Vision"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "ChairWolf",
+											"sid": 819349113461382,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 469556348753973
 								}
 							],
 							"sid": 360348312722803
@@ -13311,7 +13443,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "Damage",
 					"description": "",
 					"isActiveOnStart": true,
@@ -13370,11 +13502,19 @@
 										"value": "\"Shotgun\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 523941970217425,
+									"parameters": {
+										"variable": "Wolf"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
 							"sid": 309043479600069,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -13492,8 +13632,7 @@
 											}
 										}
 									],
-									"sid": 895047843836743,
-									"disabled": true
+									"sid": 895047843836743
 								},
 								{
 									"eventType": "block",
@@ -13611,8 +13750,7 @@
 											}
 										}
 									],
-									"sid": 387218705782901,
-									"disabled": true
+									"sid": 387218705782901
 								}
 							]
 						},
@@ -13661,6 +13799,15 @@
 									"isInverted": true
 								},
 								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 358027634585868,
+									"parameters": {
+										"variable": "Wolf"
+									},
+									"isInverted": true
+								},
+								{
 									"id": "pick-nearestfurthest",
 									"objectClass": "Enemys",
 									"sid": 779634165286236,
@@ -13673,7 +13820,6 @@
 							],
 							"actions": [],
 							"sid": 360946975383272,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -13821,8 +13967,7 @@
 											}
 										}
 									],
-									"sid": 691984442684721,
-									"disabled": true
+									"sid": 691984442684721
 								},
 								{
 									"eventType": "block",
@@ -13970,8 +14115,7 @@
 											}
 										}
 									],
-									"sid": 368688727635590,
-									"disabled": true
+									"sid": 368688727635590
 								}
 							]
 						},
@@ -13999,6 +14143,15 @@
 									"isInverted": true
 								},
 								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 187298128146154,
+									"parameters": {
+										"variable": "Wolf"
+									},
+									"isInverted": true
+								},
+								{
 									"id": "pick-nearestfurthest",
 									"objectClass": "Enemys",
 									"sid": 125139373904080,
@@ -14019,7 +14172,6 @@
 							],
 							"actions": [],
 							"sid": 343140753134619,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -14035,7 +14187,6 @@
 									],
 									"actions": [],
 									"sid": 698634819418167,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -14198,8 +14349,167 @@
 												}
 											],
 											"sid": 667787167810499,
-											"disabled": true,
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 785049238638425,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Mounting\""
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 239271508556864,
+													"parameters": {
+														"variable": "Wolf"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 757248820973051,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 362478275211651,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 393780473274270,
+													"parameters": {
+														"instance-variable": "kickrun",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 898227931883121,
+													"parameters": {
+														"instance-variable": "kick",
+														"value": "false"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "HitBoxEnemy",
+													"sid": 145607005875203
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "Player_All",
+													"sid": 437792717282349,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "overall",
+														"speed": "Player_All.speedDamage*Enemys.RotateEnemy"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 147739748552971,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 201358985183515,
+													"parameters": {
+														"animation": "weapon & \"Damage\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 651046740270608,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 193658998995005,
+													"parameters": {
+														"variable": "HPplayer",
+														"value": "5"
+													}
+												},
+												{
+													"id": "stop",
+													"objectClass": "Player_All",
+													"sid": 203371234804757,
+													"behaviorType": "НастраиваемоеДвижение"
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 741887173567205,
+													"parameters": {
+														"seconds": "0.5",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 302123793033597,
+													"parameters": {
+														"animation": "weapon & \"Idle\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 976006243818321,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 391317901649829,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 513577688785910,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 901787600449730
 										}
 									]
 								},
@@ -14217,7 +14527,6 @@
 									],
 									"actions": [],
 									"sid": 265449835868495,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -14380,8 +14689,582 @@
 												}
 											],
 											"sid": 949915155403725,
-											"disabled": true,
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 717129665887295,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Mounting\""
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 413867391273419,
+													"parameters": {
+														"variable": "Wolf"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 233445720408890,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 602260594827836,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 234515819137164,
+													"parameters": {
+														"instance-variable": "kickrun",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 954166713663544,
+													"parameters": {
+														"instance-variable": "kick",
+														"value": "false"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Shot_Shotgun",
+													"sid": 901754636034418
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "Player_All",
+													"sid": 852833956359229,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "overall",
+														"speed": "Player_All.speedDamage*Enemys.RotateEnemy"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 744441571857557,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 250222758628361,
+													"parameters": {
+														"animation": "weapon & \"Damage\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 460055900508412,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 931882907141674,
+													"parameters": {
+														"variable": "HPplayer",
+														"value": "5"
+													}
+												},
+												{
+													"id": "stop",
+													"objectClass": "Player_All",
+													"sid": 298197171568626,
+													"behaviorType": "НастраиваемоеДвижение"
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 606161744206616,
+													"parameters": {
+														"seconds": "0.5",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 153343383376226,
+													"parameters": {
+														"animation": "weapon & \"Idle\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 724177456829033,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 480588854662171,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 644087028008077,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 446297496291908
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 840162061475862,
+									"parameters": {
+										"variable": "iFrame"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 635081127689876,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Chair\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 753142124322049,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Pistol\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 265926177542595,
+									"parameters": {
+										"variable": "weapon",
+										"comparison": 0,
+										"value": "\"Shotgun\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 996468193686159,
+									"parameters": {
+										"variable": "Wolf"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Enemys",
+									"sid": 377154881086484,
+									"parameters": {
+										"which": "nearest",
+										"x": "Player_All.X",
+										"y": "Player_All.Y"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Weapon",
+									"sid": 237520916328816,
+									"parameters": {
+										"object": "Player_All"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 176918034478598,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Player_All",
+											"sid": 753518794376529,
+											"parameters": {
+												"object": "HitBoxEnemy"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 721250964156727,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 701406026094943,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Mounting\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 241404234069835,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 419100290888908,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 855725584957812,
+													"parameters": {
+														"instance-variable": "kickrun",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 736332972994649,
+													"parameters": {
+														"instance-variable": "kick",
+														"value": "false"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "HitBoxEnemy",
+													"sid": 649635619549236
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "Player_All",
+													"sid": 593101062641885,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "overall",
+														"speed": "Player_All.speedDamage*Enemys.RotateEnemy"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 124497973451082,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 646046355576651,
+													"parameters": {
+														"animation": "weapon & \"Damage\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 736568748148247,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 181411060081763,
+													"parameters": {
+														"variable": "HPplayer",
+														"value": "5"
+													}
+												},
+												{
+													"id": "stop",
+													"objectClass": "Player_All",
+													"sid": 690970604644818,
+													"behaviorType": "НастраиваемоеДвижение"
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 972468027860407,
+													"parameters": {
+														"seconds": "0.5",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 889624988631873,
+													"parameters": {
+														"animation": "weapon & \"Idle\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 942072110825381,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 614119063020142,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 355440452387581,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 509797735875814
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Player_All",
+											"sid": 946314524057647,
+											"parameters": {
+												"object": "Shot_Shotgun"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 785963428123147,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 721652256546398,
+													"parameters": {
+														"variable": "weapon",
+														"comparison": 0,
+														"value": "\"Mounting\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 207626995391488,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 374102278108380,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 161538616967215,
+													"parameters": {
+														"instance-variable": "kickrun",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player_All",
+													"sid": 216098387083114,
+													"parameters": {
+														"instance-variable": "kick",
+														"value": "false"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Shot_Shotgun",
+													"sid": 144668744908991
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "Player_All",
+													"sid": 104702702717422,
+													"behaviorType": "НастраиваемоеДвижение",
+													"parameters": {
+														"which": "overall",
+														"speed": "Player_All.speedDamage*Enemys.RotateEnemy"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 257799322331954,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 477509030348040,
+													"parameters": {
+														"animation": "weapon & \"Damage\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 281949324187169,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 452949506185141,
+													"parameters": {
+														"variable": "HPplayer",
+														"value": "5"
+													}
+												},
+												{
+													"id": "stop",
+													"objectClass": "Player_All",
+													"sid": 346246306682381,
+													"behaviorType": "НастраиваемоеДвижение"
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 565707877367969,
+													"parameters": {
+														"seconds": "0.5",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_All",
+													"sid": 882940843627542,
+													"parameters": {
+														"animation": "weapon & \"Idle\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 365290166873632,
+													"parameters": {
+														"group-name": "\"Player\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Weapon",
+													"sid": 551085382849222,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HeadPlayer",
+													"sid": 352685774997179,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 825637161051565
 										}
 									]
 								}
@@ -14411,7 +15294,6 @@
 							],
 							"actions": [],
 							"sid": 482007503985949,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -14439,7 +15321,6 @@
 										}
 									],
 									"sid": 310996725083501,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -14468,7 +15349,6 @@
 										}
 									],
 									"sid": 458178281136712,
-									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -14494,8 +15374,7 @@
 											}
 										}
 									],
-									"sid": 106933512128252,
-									"disabled": true
+									"sid": 106933512128252
 								}
 							]
 						},
@@ -14541,7 +15420,6 @@
 								}
 							],
 							"sid": 377992490181740,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -14575,8 +15453,7 @@
 											}
 										}
 									],
-									"sid": 630842109624814,
-									"disabled": true
+									"sid": 630842109624814
 								},
 								{
 									"eventType": "block",
@@ -14620,8 +15497,7 @@
 											}
 										}
 									],
-									"sid": 216693764442584,
-									"disabled": true
+									"sid": 216693764442584
 								},
 								{
 									"eventType": "block",
@@ -14665,8 +15541,7 @@
 											}
 										}
 									],
-									"sid": 589694636770370,
-									"disabled": true
+									"sid": 589694636770370
 								},
 								{
 									"eventType": "block",
@@ -14710,8 +15585,7 @@
 											}
 										}
 									],
-									"sid": 918810485227998,
-									"disabled": true
+									"sid": 918810485227998
 								},
 								{
 									"eventType": "block",
@@ -14755,8 +15629,7 @@
 											}
 										}
 									],
-									"sid": 990684820624839,
-									"disabled": true
+									"sid": 990684820624839
 								},
 								{
 									"eventType": "block",
@@ -14800,8 +15673,7 @@
 											}
 										}
 									],
-									"sid": 529478716458234,
-									"disabled": true
+									"sid": 529478716458234
 								},
 								{
 									"eventType": "block",
@@ -14845,8 +15717,7 @@
 											}
 										}
 									],
-									"sid": 581572430933988,
-									"disabled": true
+									"sid": 581572430933988
 								},
 								{
 									"eventType": "block",
@@ -14890,8 +15761,7 @@
 											}
 										}
 									],
-									"sid": 943898994885594,
-									"disabled": true
+									"sid": 943898994885594
 								},
 								{
 									"eventType": "block",
@@ -14935,8 +15805,7 @@
 											}
 										}
 									],
-									"sid": 791093798816223,
-									"disabled": true
+									"sid": 791093798816223
 								},
 								{
 									"eventType": "block",
@@ -14952,8 +15821,7 @@
 											}
 										}
 									],
-									"sid": 799978535918360,
-									"disabled": true
+									"sid": 799978535918360
 								}
 							]
 						},
@@ -14985,7 +15853,8 @@
 									}
 								}
 							],
-							"sid": 313471185530183
+							"sid": 313471185530183,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -15011,7 +15880,8 @@
 									}
 								}
 							],
-							"sid": 563655859934719
+							"sid": 563655859934719,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -15045,7 +15915,6 @@
 								}
 							],
 							"sid": 964464087012207,
-							"disabled": true,
 							"isOrBlock": true
 						}
 					],
@@ -127376,7 +128245,6 @@
 															"id": "start-timer",
 															"objectClass": "EnemyManiac",
 															"sid": 691822460685637,
-															"disabled": true,
 															"behaviorType": "Таймер",
 															"parameters": {
 																"duration": "0.5",
@@ -127388,7 +128256,6 @@
 															"id": "set-boolean-instvar",
 															"objectClass": "EnemyManiac",
 															"sid": 603579715107416,
-															"disabled": true,
 															"parameters": {
 																"instance-variable": "triger",
 																"value": "false"
@@ -127398,7 +128265,6 @@
 															"id": "set-boolean-instvar",
 															"objectClass": "EnemyManiac",
 															"sid": 661935064757917,
-															"disabled": true,
 															"parameters": {
 																"instance-variable": "vision",
 																"value": "false"
@@ -127408,7 +128274,6 @@
 															"id": "set-boolean-instvar",
 															"objectClass": "EnemyManiac",
 															"sid": 244797455027126,
-															"disabled": true,
 															"parameters": {
 																"instance-variable": "search",
 																"value": "false"
@@ -127418,7 +128283,6 @@
 															"id": "set-boolean-instvar",
 															"objectClass": "EnemyManiac",
 															"sid": 906716015438479,
-															"disabled": true,
 															"parameters": {
 																"instance-variable": "Kick",
 																"value": "false"
@@ -127428,7 +128292,6 @@
 															"id": "set-boolean-instvar",
 															"objectClass": "EnemyManiac",
 															"sid": 862842119159503,
-															"disabled": true,
 															"parameters": {
 																"instance-variable": "onRamp",
 																"value": "false"
@@ -127438,7 +128301,6 @@
 															"id": "set-animation",
 															"objectClass": "EnemyManiac",
 															"sid": 632479862619664,
-															"disabled": true,
 															"parameters": {
 																"animation": "\"Damage\"",
 																"from": "beginning"
@@ -128671,6 +129533,7 @@
 												}
 											],
 											"sid": 180775257731039,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -128707,7 +129570,8 @@
 															}
 														}
 													],
-													"sid": 795666890757483
+													"sid": 795666890757483,
+													"disabled": true
 												}
 											]
 										},

@@ -92,6 +92,15 @@
 					"parameters": {
 						"slot": "\"start\""
 					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 872642198923882,
+					"parameters": {
+						"variable": "NoPause",
+						"value": "true"
+					}
 				}
 			],
 			"sid": 830472082835930
@@ -558,13 +567,13 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 966712507257489,
+					"sid": 565102302859960,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetWidth",
 						"end-value": "90",
-						"time": "2",
+						"time": "1",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -575,18 +584,32 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 323595996567434,
+					"sid": 344738589533778,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetHeight",
 						"end-value": "50",
-						"time": "2",
+						"time": "1",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
 						"ping-pong": "no",
 						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 641581198220584
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 988342632210041,
+					"parameters": {
+						"variable": "NoPause",
+						"value": "false"
 					}
 				}
 			],
