@@ -51,10 +51,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 262742990869586,
 					"parameters": {
-						"audio-file": "Station_Start",
+						"audio-file": {
+							"path": "Music/Station_Start"
+						},
 						"loop": "looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -242,10 +244,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 460072151566260,
 					"parameters": {
-						"audio-file": "MetallDoorOpen",
+						"audio-file": {
+							"path": "MetallDoorOpen"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -508,7 +512,7 @@
 						},
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 627850749049520,
 							"parameters": {
 								"tag": "\"Suspense\""
@@ -557,10 +561,12 @@
 					"actions": [
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 760687551306864,
 							"parameters": {
-								"audio-file": "Apartament",
+								"audio-file": {
+									"path": "Music/Apartament"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -600,10 +606,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 289642270392671,
 							"parameters": {
-								"audio-file": "KickBaseball",
+								"audio-file": {
+									"path": "Kick/KickBaseball"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -900,10 +908,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 237897524738888,
 							"parameters": {
-								"audio-file": "AxeFinishing",
+								"audio-file": {
+									"path": "Kick/AxeFinishing"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -1176,10 +1186,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 965698558640449,
 							"parameters": {
-								"audio-file": "Gless",
+								"audio-file": {
+									"path": "Gless"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -1290,6 +1302,24 @@
 					"parameters": {
 						"group-name": "\"Enemy_Pchel\"",
 						"state": "activated"
+					}
+				},
+				{
+					"id": "set-range",
+					"objectClass": "EnemyPchel",
+					"sid": 575142362735396,
+					"behaviorType": "ПолеЗрения",
+					"parameters": {
+						"range": "800"
+					}
+				},
+				{
+					"id": "set-range",
+					"objectClass": "EnemyBaseball",
+					"sid": 681950715375679,
+					"behaviorType": "ПолеЗрения",
+					"parameters": {
+						"range": "800"
 					}
 				},
 				{
@@ -1780,10 +1810,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 435231324766953,
 					"parameters": {
-						"audio-file": "OpenDoor",
+						"audio-file": {
+							"path": "OpenDoor"
+						},
 						"loop": "not-looping",
 						"volume": "-5",
 						"stereo-pan": "0",
@@ -1850,7 +1882,7 @@
 				},
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 718670279660903,
 					"parameters": {
 						"tag": "\"music\""
@@ -1858,7 +1890,7 @@
 				},
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 635273738107768,
 					"parameters": {
 						"tag": "\"Suspense\""
@@ -1866,10 +1898,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 724055129989065,
 					"parameters": {
-						"audio-file": "Heaviness",
+						"audio-file": {
+							"path": "Music/Heaviness"
+						},
 						"loop": "looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -1964,7 +1998,7 @@
 					"sid": 485359713338924,
 					"parameters": {
 						"key": "\"Apartament\"",
-						"value": "Аудио.PlaybackTime(\"Suspense\")"
+						"value": "Audio.PlaybackTime(\"Suspense\")"
 					}
 				},
 				{
@@ -1999,7 +2033,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 446308059534434,
 					"parameters": {
 						"tag": "\"Suspense\""

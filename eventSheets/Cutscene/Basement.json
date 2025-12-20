@@ -46,6 +46,26 @@
 					],
 					"actions": [
 						{
+							"id": "spawn-another-object",
+							"objectClass": "Player_Wolf",
+							"sid": 402808543710281,
+							"parameters": {
+								"object": "Shadow3",
+								"layer": "\"Dialog\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Shadow3",
+							"sid": 375628687153204,
+							"parameters": {
+								"scale": "5"
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
 							"sid": 266676733297507,
@@ -147,26 +167,6 @@
 							}
 						},
 						{
-							"id": "spawn-another-object",
-							"objectClass": "Player_All",
-							"sid": 575764139754387,
-							"parameters": {
-								"object": "Shadow3",
-								"layer": "\"Dialog\"",
-								"image-point": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-scale",
-							"objectClass": "Shadow3",
-							"sid": 677938780521550,
-							"parameters": {
-								"scale": "5"
-							}
-						},
-						{
 							"id": "save",
 							"objectClass": "System",
 							"sid": 462636941262185,
@@ -185,10 +185,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 771693228380216,
 							"parameters": {
-								"audio-file": "It couldn't be shittier",
+								"audio-file": {
+									"path": "Music/It couldn't be shittier"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -197,10 +199,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 548317052186910,
 							"parameters": {
-								"audio-file": "the-big-door-closes-echo",
+								"audio-file": {
+									"path": "the-big-door-closes-echo"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -209,10 +213,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 224836085382767,
 							"parameters": {
-								"audio-file": "Slap in the face",
+								"audio-file": {
+									"path": "Slap in the face"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -460,11 +466,13 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 637869345301413,
 							"disabled": true,
 							"parameters": {
-								"audio-file": "Fear",
+								"audio-file": {
+									"path": "Fear"
+								},
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -713,10 +721,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 672141069996636,
 							"parameters": {
-								"audio-file": "Gless",
+								"audio-file": {
+									"path": "Gless"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -972,10 +982,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 696082113843475,
 							"parameters": {
-								"audio-file": "Myso",
+								"audio-file": {
+									"path": "Myso"
+								},
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -984,10 +996,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 979145636865644,
 							"parameters": {
-								"audio-file": "Dril",
+								"audio-file": {
+									"path": "Dril"
+								},
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -1204,7 +1218,7 @@
 						},
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 276065628330108,
 							"parameters": {
 								"tag": "\"audio\""
@@ -1342,10 +1356,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 589814773011229,
 							"parameters": {
-								"audio-file": "Elektro",
+								"audio-file": {
+									"path": "Elektro"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -1429,7 +1445,7 @@
 						},
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 448050987347011,
 							"parameters": {
 								"tag": "\"audio\""
@@ -1588,10 +1604,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 755511813105298,
 							"parameters": {
-								"audio-file": "Water",
+								"audio-file": {
+									"path": "Water"
+								},
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -1600,10 +1618,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 618240502381819,
 							"parameters": {
-								"audio-file": "Water_Glotka",
+								"audio-file": {
+									"path": "Water_Glotka"
+								},
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -1685,7 +1705,7 @@
 					"actions": [
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 636483140534137,
 							"parameters": {
 								"tag": "\"audio\""
@@ -1779,7 +1799,7 @@
 						},
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 285982228055077,
 							"parameters": {
 								"tag": "\"Suspense\""
@@ -1787,10 +1807,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 638058899840888,
 							"parameters": {
-								"audio-file": "Underground",
+								"audio-file": {
+									"path": "Underground"
+								},
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -2274,10 +2296,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 896905131820478,
 							"parameters": {
-								"audio-file": "DoorKickJunkie",
+								"audio-file": {
+									"path": "DoorKickJunkie"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -2360,10 +2384,12 @@
 							"actions": [
 								{
 									"id": "play",
-									"objectClass": "Аудио",
+									"objectClass": "Audio",
 									"sid": 735258863594076,
 									"parameters": {
-										"audio-file": "OpenSmash",
+										"audio-file": {
+											"path": "OpenSmash"
+										},
 										"loop": "not-looping",
 										"volume": "0",
 										"stereo-pan": "0",
@@ -2464,10 +2490,12 @@
 								},
 								{
 									"id": "play",
-									"objectClass": "Аудио",
+									"objectClass": "Audio",
 									"sid": 530583830393570,
 									"parameters": {
-										"audio-file": "AxeFinishing",
+										"audio-file": {
+											"path": "Kick/AxeFinishing"
+										},
 										"loop": "not-looping",
 										"volume": "0",
 										"stereo-pan": "0",
@@ -2592,10 +2620,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 105238646162888,
 							"parameters": {
-								"audio-file": "ChainZvon",
+								"audio-file": {
+									"path": "ChainZvon"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -2800,7 +2830,7 @@
 							"conditions": [
 								{
 									"id": "is-tag-playing",
-									"objectClass": "Аудио",
+									"objectClass": "Audio",
 									"sid": 350925122569378,
 									"parameters": {
 										"tag": "\"audio\""
@@ -2811,10 +2841,12 @@
 							"actions": [
 								{
 									"id": "play",
-									"objectClass": "Аудио",
+									"objectClass": "Audio",
 									"sid": 335842765375320,
 									"parameters": {
-										"audio-file": "ChainZvon",
+										"audio-file": {
+											"path": "ChainZvon"
+										},
 										"loop": "not-looping",
 										"volume": "0",
 										"stereo-pan": "0",
@@ -3021,7 +3053,7 @@
 							"conditions": [
 								{
 									"id": "is-tag-playing",
-									"objectClass": "Аудио",
+									"objectClass": "Audio",
 									"sid": 929850312947243,
 									"parameters": {
 										"tag": "\"audio\""
@@ -3032,10 +3064,12 @@
 							"actions": [
 								{
 									"id": "play",
-									"objectClass": "Аудио",
+									"objectClass": "Audio",
 									"sid": 271855555352791,
 									"parameters": {
-										"audio-file": "ChainZvon",
+										"audio-file": {
+											"path": "ChainZvon"
+										},
 										"loop": "not-looping",
 										"volume": "0",
 										"stereo-pan": "0",
@@ -3176,10 +3210,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 848469558409882,
 							"parameters": {
-								"audio-file": "ChainCrash",
+								"audio-file": {
+									"path": "ChainCrash"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -3536,7 +3572,7 @@
 					"actions": [
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 987530461128326,
 							"parameters": {
 								"tag": "\"Suspense\""

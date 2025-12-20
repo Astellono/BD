@@ -41,10 +41,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 830528896866292,
 							"parameters": {
-								"audio-file": "Started_engine",
+								"audio-file": {
+									"path": "Started_engine"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -176,10 +178,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 545020619253624,
 							"parameters": {
-								"audio-file": "Raider_Car",
+								"audio-file": {
+									"path": "Raider_Car"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -256,10 +260,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 967097865497464,
 							"parameters": {
-								"audio-file": "Gless_Door_Destroy",
+								"audio-file": {
+									"path": "Gless_Door_Destroy"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -268,10 +274,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 936685063278420,
 							"parameters": {
-								"audio-file": "Crash_Furniture",
+								"audio-file": {
+									"path": "Crash_Furniture"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -434,7 +442,7 @@
 						},
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 464616629873581,
 							"parameters": {
 								"tag": "\"audio\""
@@ -442,10 +450,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 779666398164148,
 							"parameters": {
-								"audio-file": "Crash_Car",
+								"audio-file": {
+									"path": "Crash_Car"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -472,7 +482,7 @@
 						},
 						{
 							"id": "stop",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 886490936766991,
 							"parameters": {
 								"tag": "\"audio\""
@@ -556,10 +566,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 373853165696671,
 							"parameters": {
-								"audio-file": "OpenSmash",
+								"audio-file": {
+									"path": "OpenSmash"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -694,6 +706,15 @@
 							"parameters": {
 								"instance-variable": "onPlayer",
 								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 152690066514361,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "false"
 							}
 						},
 						{
@@ -858,10 +879,12 @@
 					"actions": [
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 892962384509171,
 							"parameters": {
-								"audio-file": "Crash_Glass2",
+								"audio-file": {
+									"path": "Crash_Glass2"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -1312,15 +1335,25 @@
 					"parameters": {
 						"tags": "\"Active\""
 					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Door_Metal",
+					"sid": 392762543588436,
+					"parameters": {
+						"tags": "\"Closed\""
+					}
 				}
 			],
 			"actions": [
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 236687154815303,
 					"parameters": {
-						"audio-file": "Open_Grid",
+						"audio-file": {
+							"path": "Open_Grid"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -1350,7 +1383,7 @@
 				},
 				{
 					"id": "set-animation-frame",
-					"objectClass": "door_closed",
+					"objectClass": "Door_Metal",
 					"sid": 897149897241483,
 					"parameters": {
 						"frame-number": "1"
@@ -1358,7 +1391,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "door_closed",
+					"objectClass": "Door_Metal",
 					"sid": 542754501014790,
 					"behaviorType": "Твёрдый",
 					"parameters": {
@@ -1899,10 +1932,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 858017642453842,
 					"parameters": {
-						"audio-file": "Open_Grid",
+						"audio-file": {
+							"path": "Open_Grid"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -2359,10 +2394,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 659113120753757,
 					"parameters": {
-						"audio-file": "zvuk-miasa-bossa-2_AzrZ196E",
+						"audio-file": {
+							"path": "zvuk-miasa-bossa-2_AzrZ196E"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -2396,7 +2433,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 684550994736537,
 					"parameters": {
 						"tag": "\"\""
@@ -2417,10 +2454,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 748385257255671,
 					"parameters": {
-						"audio-file": "zvuk-miasa-bossa_DTmUc8rr",
+						"audio-file": {
+							"path": "zvuk-miasa-bossa_DTmUc8rr"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -2458,7 +2497,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 467733500445159,
 					"parameters": {
 						"tag": "\"\""
@@ -2492,10 +2531,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 773030058959756,
 					"parameters": {
-						"audio-file": "zvuk-miasa-bossa_DTmUc8rr",
+						"audio-file": {
+							"path": "zvuk-miasa-bossa_DTmUc8rr"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -2524,6 +2565,20 @@
 					}
 				},
 				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 123187558394510,
+					"parameters": {
+						"audio-file": {
+							"path": "End_Scene"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"audio\""
+					}
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
 					"sid": 692938418034581,
@@ -2535,9 +2590,134 @@
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 882612589233975,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 766162251981061,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "true"
+					}
 				}
 			],
 			"sid": 764991425297206
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 580508997356241,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 850312683007099,
+					"parameters": {
+						"interval-seconds": "0.5"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 612922982651347,
+					"parameters": {
+						"variable": "Sound",
+						"comparison": 0,
+						"value": "-25"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 979764116249541,
+					"parameters": {
+						"variable": "Sound",
+						"value": "2.5"
+					}
+				}
+			],
+			"sid": 666578719046205
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 679582710885583,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 763987732872246,
+					"parameters": {
+						"variable": "Sound",
+						"comparison": 0,
+						"value": "-25"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 108240477963857,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "Music_Safe",
+					"sid": 475720807541950,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "Music_Safe",
+					"sid": 124969927374348,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 856153447625953
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 464551544302369,
+					"parameters": {
+						"layout": "Hotel"
+					}
+				}
+			],
+			"sid": 968273831918758
 		},
 		{
 			"eventType": "block",
