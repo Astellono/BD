@@ -448,6 +448,15 @@
 					}
 				},
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 775661354039952,
+					"parameters": {
+						"layer": "LayerIndex(\"Tutorial\")",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "pin-to-object-properties",
 					"objectClass": "Menu",
 					"sid": 152825136508940,
@@ -902,16 +911,6 @@
 					}
 				},
 				{
-					"id": "set-size",
-					"objectClass": "Camera",
-					"sid": 375557959518385,
-					"disabled": true,
-					"parameters": {
-						"width": "100",
-						"height": "65"
-					}
-				},
-				{
 					"id": "reset-global-variables",
 					"objectClass": "System",
 					"sid": 935055503125788,
@@ -933,9 +932,19 @@
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 689280327264376,
+					"disabled": true,
 					"parameters": {
 						"variable": "ZoomCamera",
 						"value": "true"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Camera",
+					"sid": 442510892912864,
+					"parameters": {
+						"width": "100",
+						"height": "50"
 					}
 				},
 				{
@@ -954,6 +963,11 @@
 					"parameters": {
 						"time-scale": "1.0"
 					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 609583822849221
 				},
 				{
 					"id": "go-to-layout",
@@ -2583,51 +2597,6 @@
 			],
 			"actions": [
 				{
-					"id": "pin-to-object-properties",
-					"objectClass": "Tutorial",
-					"sid": 740872509041892,
-					"behaviorType": "Прикрепить",
-					"parameters": {
-						"pin-to": "borders",
-						"x": true,
-						"y": true,
-						"angle": true,
-						"width-type": "no",
-						"height-type": "no",
-						"z": false
-					}
-				},
-				{
-					"id": "pin-to-object-properties",
-					"objectClass": "Tutorial_BG",
-					"sid": 249157468186088,
-					"behaviorType": "Прикрепить",
-					"parameters": {
-						"pin-to": "borders",
-						"x": true,
-						"y": true,
-						"angle": true,
-						"width-type": "no",
-						"height-type": "no",
-						"z": false
-					}
-				},
-				{
-					"id": "pin-to-object-properties",
-					"objectClass": "Text_Tutorial",
-					"sid": 188450509475960,
-					"behaviorType": "Прикрепить",
-					"parameters": {
-						"pin-to": "borders",
-						"x": true,
-						"y": true,
-						"angle": true,
-						"width-type": "no",
-						"height-type": "no",
-						"z": false
-					}
-				},
-				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 788957031086896,
@@ -2678,6 +2647,97 @@
 						"layer": "LayerIndex(\"Tutorial\")",
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "borders",
+					"sid": 436661475775075,
+					"parameters": {
+						"object": "Tutorial_BG",
+						"layer": "\"Tutorial\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Tutorial_BG",
+					"sid": 674292655988074,
+					"parameters": {
+						"object": "Tutorial",
+						"layer": "\"Tutorial\"",
+						"image-point": "1",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Tutorial_BG",
+					"sid": 184270624901049,
+					"parameters": {
+						"width": "1500",
+						"height": "1000"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Tutorial",
+					"sid": 551172452354560,
+					"parameters": {
+						"width": "391",
+						"height": "273.965488"
+					}
+				},
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "Tutorial",
+					"sid": 580794058827120,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Tutorial_BG",
+						"image-point": "1",
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Tutorial_BG",
+					"sid": 473833961308844,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "borders",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text_Tutorial",
+					"sid": 797758565497293,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "borders",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "Text_Tutorial",
+					"sid": 309268095375748
 				}
 			],
 			"sid": 774854235550731
@@ -2712,6 +2772,16 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Tutorial",
+							"sid": 962905832547974
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Tutorial_BG",
+							"sid": 384362379793673
+						},
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",

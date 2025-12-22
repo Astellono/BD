@@ -22,6 +22,173 @@
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
+							"sid": 309748117830120
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 596929115481887,
+							"parameters": {
+								"instance-variable": "onPlayer",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 780345006057140,
+							"parameters": {
+								"x": "Boss.X",
+								"y": "Boss.Y"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 680495243726404,
+							"parameters": {
+								"object-to-create": "Shadow3",
+								"layer": "\"Dialog\"",
+								"x": "Camera.X",
+								"y": "Camera.Y -100",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 434254256828434,
+							"parameters": {
+								"group-name": "\"Player\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 354363426093913,
+							"parameters": {
+								"group-name": "\"Enemy & Fear\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 239221016914922,
+							"parameters": {
+								"variable": "Start_Game",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 768178409262310,
+							"parameters": {
+								"variable": "Continue_Game",
+								"value": "false"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 111561370546365,
+							"parameters": {
+								"slot": "\"start\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Enemys",
+							"sid": 284479701487216,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 893719500722761,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Boss",
+							"sid": 601269798340799,
+							"parameters": {
+								"animation": "\"Animation 1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 137456380368121,
+							"parameters": {
+								"seconds": "3",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 819943947389842,
+							"parameters": {
+								"variable": "onDialMain",
+								"value": "true"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Player_Wolf",
+							"sid": 630431445521001,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 923807990893447,
+							"parameters": {
+								"variable": "weapon",
+								"value": "\"Mounting\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 328227129515133,
+							"parameters": {
+								"variable": "Wolf",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 482254646306962
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
 							"sid": 691548745947138
 						}
 					],
@@ -904,147 +1071,6 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 150963794593968
-						}
-					],
-					"actions": [
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 606628836368126,
-							"parameters": {
-								"group-name": "\"Player\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 399374621655097,
-							"parameters": {
-								"group-name": "\"Enemy & Fear\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Enemys",
-							"sid": 287662140207647,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Camera",
-							"sid": 274520542587284,
-							"parameters": {
-								"instance-variable": "onPlayer",
-								"value": "false"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 590755700265974,
-							"parameters": {
-								"x": "Boss.X",
-								"y": "Boss.Y"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 651894220580728,
-							"parameters": {
-								"object-to-create": "Shadow3",
-								"layer": "\"Dialog\"",
-								"x": "Camera.X",
-								"y": "Camera.Y -100",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Shadow3",
-							"sid": 423333711469808,
-							"behaviorType": "Твинанимация",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "offsetOpacity",
-								"end-value": "0",
-								"time": "1",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Boss",
-							"sid": 346886243284990,
-							"parameters": {
-								"animation": "\"Animation 1\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 871601335085934,
-							"parameters": {
-								"seconds": "3",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 807357407476519,
-							"parameters": {
-								"variable": "onDialMain",
-								"value": "true"
-							}
-						},
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Player_Wolf",
-							"sid": 624172869390782,
-							"parameters": {
-								"instance-variable": "textframe",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 833586326085459,
-							"parameters": {
-								"variable": "weapon",
-								"value": "\"Mounting\""
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 429037234693299,
-							"parameters": {
-								"variable": "Wolf",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 771207499647754
-				},
 				{
 					"eventType": "block",
 					"conditions": [

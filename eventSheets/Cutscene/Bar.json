@@ -311,20 +311,20 @@
 							}
 						},
 						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 782536275130885,
-							"parameters": {
-								"slot": "\"start\""
-							}
-						},
-						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 372931375892439,
 							"parameters": {
 								"variable": "Safe_Zone",
 								"value": "true"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 614271596828955,
+							"parameters": {
+								"slot": "\"start\""
 							}
 						}
 					],
@@ -978,19 +978,9 @@
 					],
 					"actions": [
 						{
-							"callFunction": "Create_mainDialoge",
-							"sid": 366042441661909,
-							"parameters": [
-								"\"Hello Mark, it's been a while since you've been here. How are you?\"",
-								"\"Fedor1\"",
-								"51",
-								"2"
-							]
-						},
-						{
 							"id": "set-animation",
 							"objectClass": "Player_Cutscene",
-							"sid": 691233264799026,
+							"sid": 538647910149396,
 							"parameters": {
 								"animation": "\"sitOnBarChair\"",
 								"from": "beginning"
@@ -999,11 +989,30 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Fedor",
-							"sid": 880554298013175,
+							"sid": 326812450285666,
 							"parameters": {
 								"animation": "\"Fedor_Idle\"",
 								"from": "beginning"
 							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 216991702558140,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 366042441661909,
+							"parameters": [
+								"\"Hello Mark, it's been a while since you've been here. How are you?\"",
+								"\"Fedor1\"",
+								"51",
+								"2"
+							]
 						}
 					],
 					"sid": 584633789305326
@@ -3328,6 +3337,7 @@
 					"id": "set-group-active",
 					"objectClass": "System",
 					"sid": 673480491364625,
+					"disabled": true,
 					"parameters": {
 						"group-name": "\"Player\"",
 						"state": "deactivated"
@@ -3357,13 +3367,13 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Shadow3",
-					"sid": 715449260605264,
+					"sid": 416760891925725,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetOpacity",
 						"end-value": "100",
-						"time": "5",
+						"time": "3",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -3532,31 +3542,6 @@
 				}
 			],
 			"sid": 687602394026694
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Kayboard",
-					"sid": 936379934017891,
-					"parameters": {
-						"key": 81
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Player_Cutscene",
-					"sid": 715294483688341,
-					"parameters": {
-						"instance-variable": "cast_text",
-						"value": "56"
-					}
-				}
-			],
-			"sid": 962596064436936
 		}
 	],
 	"sid": 194809940947679

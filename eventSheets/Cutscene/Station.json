@@ -48,10 +48,10 @@
 				{
 					"id": "set-size",
 					"objectClass": "Camera",
-					"sid": 466939928601928,
+					"sid": 161075703881909,
 					"parameters": {
-						"width": "45",
-						"height": "25"
+						"width": "40",
+						"height": "20"
 					}
 				},
 				{
@@ -573,13 +573,13 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 565102302859960,
+					"sid": 133478401725312,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetWidth",
-						"end-value": "90",
-						"time": "1",
+						"end-value": "80",
+						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -590,13 +590,13 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 344738589533778,
+					"sid": 589714727729773,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetHeight",
-						"end-value": "50",
-						"time": "1",
+						"end-value": "40",
+						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -607,7 +607,7 @@
 				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 641581198220584
+					"sid": 360795716757205
 				},
 				{
 					"id": "set-boolean-eventvar",
@@ -1398,6 +1398,160 @@
 						"1",
 						true
 					]
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Camera",
+					"sid": 574613840725233,
+					"parameters": {
+						"object": "Trip",
+						"layer": "\"Player\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Trip",
+					"sid": 854179789595035,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Trip",
+					"sid": 578719239234783,
+					"parameters": {
+						"animation": "\"Trip\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Trip",
+					"sid": 276487385027181,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"ВодныйФон\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Trip",
+					"sid": 109780327043700,
+					"parameters": {
+						"width": "Camera.Width * 10",
+						"height": "Camera.Height * 20"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Trip",
+					"sid": 692478445154269,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Trip",
+					"sid": 181840615070656,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "70",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Ekran",
+					"sid": 344782699778968,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "20",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Ekran",
+					"sid": 601873497221010,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"ВодныйФон\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 975167835203382,
+					"parameters": {
+						"audio-file": {
+							"path": "the-sound-of-the-creak-of-a-playing-record-when-the-needle-is-touched-with-a-hand"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"audio\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 705563480560220,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Ekran",
+					"sid": 505759545096914,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"ВодныйФон\""
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Ekran",
+					"sid": 576372753195109,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
 				}
 			],
 			"sid": 204718558553794
@@ -1468,6 +1622,23 @@
 					"parameters": {
 						"instance-variable": "textframe",
 						"value": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Trip",
+					"sid": 222925831539656,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
 					}
 				}
 			],
