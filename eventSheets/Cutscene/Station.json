@@ -48,10 +48,10 @@
 				{
 					"id": "set-size",
 					"objectClass": "Camera",
-					"sid": 466939928601928,
+					"sid": 161075703881909,
 					"parameters": {
-						"width": "45",
-						"height": "25"
+						"width": "40",
+						"height": "20"
 					}
 				},
 				{
@@ -92,6 +92,15 @@
 					"parameters": {
 						"slot": "\"start\""
 					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 872642198923882,
+					"parameters": {
+						"variable": "NoPause",
+						"value": "true"
+					}
 				}
 			],
 			"sid": 830472082835930
@@ -127,10 +136,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 202740556511305,
 					"parameters": {
-						"audio-file": "Station_Start",
+						"audio-file": {
+							"path": "Music/Station_Start"
+						},
 						"loop": "looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -304,10 +315,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 212617200800693,
 					"parameters": {
-						"audio-file": "Sound Metall Step Mark",
+						"audio-file": {
+							"path": "Sound Metall Step Mark"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -334,10 +347,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 223769962592654,
 					"parameters": {
-						"audio-file": "Mark is down",
+						"audio-file": {
+							"path": "Mark is down"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -558,13 +573,13 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 966712507257489,
+					"sid": 133478401725312,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetWidth",
-						"end-value": "90",
-						"time": "2",
+						"end-value": "80",
+						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -575,18 +590,32 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Camera",
-					"sid": 323595996567434,
+					"sid": 589714727729773,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetHeight",
-						"end-value": "50",
-						"time": "2",
+						"end-value": "40",
+						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
 						"ping-pong": "no",
 						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 360795716757205
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 988342632210041,
+					"parameters": {
+						"variable": "NoPause",
+						"value": "false"
 					}
 				}
 			],
@@ -1188,7 +1217,7 @@
 				},
 				{
 					"id": "stop-all",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 493399837740084
 				},
 				{
@@ -1201,10 +1230,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 417409532115378,
 					"parameters": {
-						"audio-file": "Station_Main",
+						"audio-file": {
+							"path": "Music/Station_Main"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -1367,6 +1398,160 @@
 						"1",
 						true
 					]
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Camera",
+					"sid": 574613840725233,
+					"parameters": {
+						"object": "Trip",
+						"layer": "\"Player\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Trip",
+					"sid": 854179789595035,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Trip",
+					"sid": 578719239234783,
+					"parameters": {
+						"animation": "\"Trip\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Trip",
+					"sid": 276487385027181,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"ВодныйФон\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Trip",
+					"sid": 109780327043700,
+					"parameters": {
+						"width": "Camera.Width * 10",
+						"height": "Camera.Height * 20"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Trip",
+					"sid": 692478445154269,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Trip",
+					"sid": 181840615070656,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "70",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Ekran",
+					"sid": 344782699778968,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "20",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Ekran",
+					"sid": 601873497221010,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"ВодныйФон\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 975167835203382,
+					"parameters": {
+						"audio-file": {
+							"path": "the-sound-of-the-creak-of-a-playing-record-when-the-needle-is-touched-with-a-hand"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"audio\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 705563480560220,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Ekran",
+					"sid": 505759545096914,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"ВодныйФон\""
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Ekran",
+					"sid": 576372753195109,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
 				}
 			],
 			"sid": 204718558553794
@@ -1438,6 +1623,23 @@
 						"instance-variable": "textframe",
 						"value": "1"
 					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Trip",
+					"sid": 222925831539656,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
 				}
 			],
 			"sid": 787441554657660
@@ -1464,7 +1666,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 844207327627060,
 					"parameters": {
 						"tag": "\"music\""
@@ -1472,10 +1674,12 @@
 				},
 				{
 					"id": "play",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 321061619535597,
 					"parameters": {
-						"audio-file": "Heaviness",
+						"audio-file": {
+							"path": "Music/Heaviness"
+						},
 						"loop": "looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -2095,7 +2299,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 493237002556097,
 					"parameters": {
 						"tag": "\"music\""
@@ -2462,28 +2666,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 954544458423117
-				}
-			],
-			"actions": [
-				{
-					"id": "set-canvas-size",
-					"objectClass": "System",
-					"sid": 388590887607062,
-					"parameters": {
-						"width": "Camera.Width*10",
-						"height": "Camera.Height*10"
-					}
-				}
-			],
-			"sid": 459242217886476
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-key-pressed",
 					"objectClass": "Kayboard",
 					"sid": 429902327828607,
@@ -2544,7 +2726,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 370169026552314,
 					"parameters": {
 						"tag": "\"Suspense\""

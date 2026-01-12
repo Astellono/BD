@@ -299,6 +299,15 @@
 						"variable": "Pause"
 					},
 					"isInverted": true
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 432415116970753,
+					"parameters": {
+						"variable": "NoPause"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -439,6 +448,15 @@
 					}
 				},
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 775661354039952,
+					"parameters": {
+						"layer": "LayerIndex(\"Tutorial\")",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "pin-to-object-properties",
 					"objectClass": "Menu",
 					"sid": 152825136508940,
@@ -514,9 +532,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "every-tick",
+					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 268256548069250
+					"sid": 114425975898007
 				}
 			],
 			"actions": [
@@ -537,6 +555,20 @@
 					"parameters": {
 						"x": "lerp(Self.X,Camera.X,0.075)",
 						"y": "lerp(Self.Y,Camera.Y,0.075)"
+					}
+				},
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "borders",
+					"sid": 917614219832798,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Camera",
+						"image-point": "0",
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
 					}
 				}
 			],
@@ -750,7 +782,7 @@
 				},
 				{
 					"id": "stop-all",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 831981662702700
 				},
 				{
@@ -797,7 +829,7 @@
 			"actions": [
 				{
 					"id": "stop-all",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 459626720587595
 				},
 				{
@@ -879,16 +911,6 @@
 					}
 				},
 				{
-					"id": "set-size",
-					"objectClass": "Camera",
-					"sid": 375557959518385,
-					"disabled": true,
-					"parameters": {
-						"width": "100",
-						"height": "65"
-					}
-				},
-				{
 					"id": "reset-global-variables",
 					"objectClass": "System",
 					"sid": 935055503125788,
@@ -910,9 +932,19 @@
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 689280327264376,
+					"disabled": true,
 					"parameters": {
 						"variable": "ZoomCamera",
 						"value": "true"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Camera",
+					"sid": 442510892912864,
+					"parameters": {
+						"width": "100",
+						"height": "50"
 					}
 				},
 				{
@@ -931,6 +963,11 @@
 					"parameters": {
 						"time-scale": "1.0"
 					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 609583822849221
 				},
 				{
 					"id": "go-to-layout",
@@ -974,7 +1011,7 @@
 			"actions": [
 				{
 					"id": "stop-all",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 875115648653512
 				}
 			],
@@ -991,15 +1028,34 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 589154519029355
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 191576256461866,
+							"parameters": {
+								"tag": "\"audio\""
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 123716040236998,
+							"parameters": {
+								"tag": "\"Damage\""
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 364767788041530,
+							"parameters": {
+								"tag": "\"Fire\""
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-volume",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 719319547286201,
 							"parameters": {
 								"tag": "\"audio\"",
@@ -1008,7 +1064,7 @@
 						},
 						{
 							"id": "set-volume",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 723869030828294,
 							"parameters": {
 								"tag": "\"Damage\"",
@@ -1017,7 +1073,7 @@
 						},
 						{
 							"id": "set-volume",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 881845757523638,
 							"parameters": {
 								"tag": "\"Fire\"",
@@ -1026,6 +1082,30 @@
 						}
 					],
 					"sid": 126742152608412,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Kayboard",
+							"sid": 684297192176419,
+							"parameters": {
+								"key": 27
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 278494913248831,
+							"parameters": {
+								"variable": "Pause"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 266645796464569,
 					"children": [
 						{
 							"eventType": "block",
@@ -1033,12 +1113,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 496346889307194
+									"sid": 936986058546621
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 273301826213625,
+									"sid": 683939524348260,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1050,13 +1130,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 957478742611322,
+									"sid": 790283422902621,
 									"parameters": {
 										"text": "\"100%\""
 									}
 								}
 							],
-							"sid": 339768496513954
+							"sid": 376105279614317
 						},
 						{
 							"eventType": "block",
@@ -1064,12 +1144,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 121817180700324
+									"sid": 364320493963498
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 397118851123107,
+									"sid": 810214583591655,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1081,13 +1161,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 802709307673592,
+									"sid": 468217095234027,
 									"parameters": {
 										"text": "\"90%\""
 									}
 								}
 							],
-							"sid": 787780993077648
+							"sid": 973317693576698
 						},
 						{
 							"eventType": "block",
@@ -1095,12 +1175,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 590873559625383
+									"sid": 591410036177719
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 458557475742705,
+									"sid": 579654002408303,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1112,13 +1192,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 496273392014631,
+									"sid": 106247345735552,
 									"parameters": {
 										"text": "\"80%\""
 									}
 								}
 							],
-							"sid": 383512763499472
+							"sid": 640243179769507
 						},
 						{
 							"eventType": "block",
@@ -1126,12 +1206,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 626420956830179
+									"sid": 392009050745471
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 959558104881931,
+									"sid": 220354317509778,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1143,13 +1223,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 542401927838858,
+									"sid": 407695756386206,
 									"parameters": {
 										"text": "\"70%\""
 									}
 								}
 							],
-							"sid": 527896103606246
+							"sid": 102145063297326
 						},
 						{
 							"eventType": "block",
@@ -1157,12 +1237,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 492082670845504
+									"sid": 574174761700655
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 743410704473874,
+									"sid": 909881248270440,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1174,13 +1254,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 260777907789375,
+									"sid": 934807053935291,
 									"parameters": {
 										"text": "\"60%\""
 									}
 								}
 							],
-							"sid": 869845560009998
+							"sid": 665369822003154
 						},
 						{
 							"eventType": "block",
@@ -1188,12 +1268,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 838972901834041
+									"sid": 406945502301047
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 137573661889565,
+									"sid": 800263886380945,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1205,13 +1285,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 637047896504456,
+									"sid": 951958519608989,
 									"parameters": {
 										"text": "\"50%\""
 									}
 								}
 							],
-							"sid": 330547273437426
+							"sid": 201928270538107
 						},
 						{
 							"eventType": "block",
@@ -1219,12 +1299,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 796135854796279
+									"sid": 434467832410725
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 803988601572258,
+									"sid": 621474126058046,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1236,13 +1316,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 442754750215771,
+									"sid": 998885537765432,
 									"parameters": {
 										"text": "\"40%\""
 									}
 								}
 							],
-							"sid": 755740626524911
+							"sid": 592284686176185
 						},
 						{
 							"eventType": "block",
@@ -1250,12 +1330,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 262690897809877
+									"sid": 143338591429774
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 951015342969941,
+									"sid": 966216448779837,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1267,13 +1347,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 249207344256627,
+									"sid": 941507331885392,
 									"parameters": {
 										"text": "\"30%\""
 									}
 								}
 							],
-							"sid": 848962205185549
+							"sid": 559290043246971
 						},
 						{
 							"eventType": "block",
@@ -1281,12 +1361,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 575179451723808
+									"sid": 262252753932437
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 156766699541074,
+									"sid": 512753351045269,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1298,13 +1378,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 955177313702255,
+									"sid": 429065882243649,
 									"parameters": {
 										"text": "\"20%\""
 									}
 								}
 							],
-							"sid": 353272012306920
+							"sid": 329083914368606
 						},
 						{
 							"eventType": "block",
@@ -1312,12 +1392,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 876328420448907
+									"sid": 246598734647303
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 502826903139650,
+									"sid": 413498922350965,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1329,13 +1409,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 934472907271012,
+									"sid": 937608510145596,
 									"parameters": {
 										"text": "\"10%\""
 									}
 								}
 							],
-							"sid": 367661073376909
+							"sid": 538919131504130
 						},
 						{
 							"eventType": "block",
@@ -1343,12 +1423,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Audio",
-									"sid": 724952658772142
+									"sid": 900521497246524
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 400318288069353,
+									"sid": 887620947438929,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1360,13 +1440,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Audio",
-									"sid": 713215347321077,
+									"sid": 424404107043637,
 									"parameters": {
 										"text": "\"0%\""
 									}
 								}
 							],
-							"sid": 568337643950461
+							"sid": 605765495066230
 						},
 						{
 							"eventType": "block",
@@ -1374,7 +1454,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 168446233308517,
+									"sid": 269703400381700,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 0,
@@ -1385,8 +1465,8 @@
 							"actions": [
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 257752698441067,
+									"objectClass": "Audio",
+									"sid": 468010842697279,
 									"parameters": {
 										"tag": "\"audio\"",
 										"state": "muted"
@@ -1394,8 +1474,8 @@
 								},
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 289149523355426,
+									"objectClass": "Audio",
+									"sid": 378370424971004,
 									"parameters": {
 										"tag": "\"Damage\"",
 										"state": "muted"
@@ -1403,15 +1483,15 @@
 								},
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 428740241677496,
+									"objectClass": "Audio",
+									"sid": 805397722727367,
 									"parameters": {
 										"tag": "\"Fire\"",
 										"state": "muted"
 									}
 								}
 							],
-							"sid": 621712270387228
+							"sid": 795656232496533
 						},
 						{
 							"eventType": "block",
@@ -1419,7 +1499,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 928158828503539,
+									"sid": 362853251074273,
 									"parameters": {
 										"variable": "Audio",
 										"comparison": 4,
@@ -1430,8 +1510,8 @@
 							"actions": [
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 338581563813275,
+									"objectClass": "Audio",
+									"sid": 723167253947172,
 									"parameters": {
 										"tag": "\"audio\"",
 										"state": "unmuted"
@@ -1439,8 +1519,8 @@
 								},
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 429981741687252,
+									"objectClass": "Audio",
+									"sid": 538921639202532,
 									"parameters": {
 										"tag": "\"Damage\"",
 										"state": "unmuted"
@@ -1448,17 +1528,18 @@
 								},
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 558973860430559,
+									"objectClass": "Audio",
+									"sid": 985429820487617,
 									"parameters": {
 										"tag": "\"Fire\"",
 										"state": "unmuted"
 									}
 								}
 							],
-							"sid": 982984105157406
+							"sid": 203408576655032
 						}
-					]
+					],
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -1693,16 +1774,27 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 614628972704054
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 777007446858804,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 167033407411942,
+							"parameters": {
+								"tag": "\"Suspense\""
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-volume",
-							"objectClass": "Аудио",
-							"sid": 684914086566537,
+							"objectClass": "Audio",
+							"sid": 164878201719738,
 							"parameters": {
 								"tag": "\"music\"",
 								"db": "Sound"
@@ -1710,15 +1802,39 @@
 						},
 						{
 							"id": "set-volume",
-							"objectClass": "Аудио",
-							"sid": 793962885152716,
+							"objectClass": "Audio",
+							"sid": 434369160397152,
 							"parameters": {
 								"tag": "\"Suspense\"",
 								"db": "Sound"
 							}
 						}
 					],
-					"sid": 419673830951538,
+					"sid": 986741213141794,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 254904079040151,
+							"parameters": {
+								"variable": "Pause"
+							}
+						},
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Kayboard",
+							"sid": 591568268248446,
+							"parameters": {
+								"key": 27
+							}
+						}
+					],
+					"actions": [],
+					"sid": 337481568779349,
 					"children": [
 						{
 							"eventType": "block",
@@ -1726,12 +1842,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 626800169161930
+									"sid": 142151195174302
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 266489164567799,
+									"sid": 440942582155263,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1743,13 +1859,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 933736560096472,
+									"sid": 555785959764676,
 									"parameters": {
 										"text": "\"100%\""
 									}
 								}
 							],
-							"sid": 387144172010135
+							"sid": 141093075397664
 						},
 						{
 							"eventType": "block",
@@ -1757,12 +1873,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 985455610250318
+									"sid": 319123615464369
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 913886575889978,
+									"sid": 191396530122484,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1774,13 +1890,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 848338604353752,
+									"sid": 850544973798178,
 									"parameters": {
 										"text": "\"90%\""
 									}
 								}
 							],
-							"sid": 937001211546446
+							"sid": 503304180733462
 						},
 						{
 							"eventType": "block",
@@ -1788,12 +1904,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 497812213296949
+									"sid": 150059111536645
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 212703330799900,
+									"sid": 391054146335514,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1805,13 +1921,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 207584826270959,
+									"sid": 163605150914509,
 									"parameters": {
 										"text": "\"80%\""
 									}
 								}
 							],
-							"sid": 940226151088475
+							"sid": 434945600487969
 						},
 						{
 							"eventType": "block",
@@ -1819,12 +1935,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 998848510401813
+									"sid": 730075873048176
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 719806682037185,
+									"sid": 600029269770686,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1836,13 +1952,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 367900669034674,
+									"sid": 686064560550025,
 									"parameters": {
 										"text": "\"70%\""
 									}
 								}
 							],
-							"sid": 887753057259210
+							"sid": 577126440177055
 						},
 						{
 							"eventType": "block",
@@ -1850,12 +1966,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 149621313335586
+									"sid": 391220474224264
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 258423419493282,
+									"sid": 200220434400033,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1867,13 +1983,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 130243084183396,
+									"sid": 972873631896441,
 									"parameters": {
 										"text": "\"60%\""
 									}
 								}
 							],
-							"sid": 726702020690733
+							"sid": 375286973470120
 						},
 						{
 							"eventType": "block",
@@ -1881,12 +1997,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 102528638944757
+									"sid": 816537205557025
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 531813458989747,
+									"sid": 993453458632908,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1898,13 +2014,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 715207613857933,
+									"sid": 698857828447877,
 									"parameters": {
 										"text": "\"50%\""
 									}
 								}
 							],
-							"sid": 561424506704139
+							"sid": 108196536786345
 						},
 						{
 							"eventType": "block",
@@ -1912,12 +2028,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 962838537304360
+									"sid": 365857482592702
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 829354587807000,
+									"sid": 289207202894112,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1929,13 +2045,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 891615204833515,
+									"sid": 798564566651952,
 									"parameters": {
 										"text": "\"40%\""
 									}
 								}
 							],
-							"sid": 564950094652100
+							"sid": 787933776911218
 						},
 						{
 							"eventType": "block",
@@ -1943,12 +2059,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 263412313377640
+									"sid": 461717133459666
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 374066150642557,
+									"sid": 665452385634905,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1960,13 +2076,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 318994094137992,
+									"sid": 197333479993394,
 									"parameters": {
 										"text": "\"30%\""
 									}
 								}
 							],
-							"sid": 713324388159367
+							"sid": 276446600891246
 						},
 						{
 							"eventType": "block",
@@ -1974,12 +2090,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 421345705806303
+									"sid": 895434211411132
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 857443416801314,
+									"sid": 350089597555841,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -1991,13 +2107,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 896279274964220,
+									"sid": 469618933416313,
 									"parameters": {
 										"text": "\"20%\""
 									}
 								}
 							],
-							"sid": 944308409763284
+							"sid": 228676321112824
 						},
 						{
 							"eventType": "block",
@@ -2005,12 +2121,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 775490835129176
+									"sid": 266435240676389
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 942178496405253,
+									"sid": 363216838816580,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -2022,13 +2138,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 842813761018404,
+									"sid": 671960167325173,
 									"parameters": {
 										"text": "\"10%\""
 									}
 								}
 							],
-							"sid": 751149242868171
+							"sid": 295070728755774
 						},
 						{
 							"eventType": "block",
@@ -2036,12 +2152,12 @@
 								{
 									"id": "is-visible",
 									"objectClass": "Numbers_Music",
-									"sid": 534766842680102
+									"sid": 458375709661990
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 357867708303272,
+									"sid": 274436083938205,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -2053,13 +2169,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Numbers_Music",
-									"sid": 135510966505313,
+									"sid": 591522793870799,
 									"parameters": {
 										"text": "\"0%\""
 									}
 								}
 							],
-							"sid": 992605609792892
+							"sid": 988590664638134
 						},
 						{
 							"eventType": "block",
@@ -2067,7 +2183,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 949353448259174,
+									"sid": 785609203655284,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 0,
@@ -2078,15 +2194,15 @@
 							"actions": [
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 440300977180950,
+									"objectClass": "Audio",
+									"sid": 639867257820053,
 									"parameters": {
 										"tag": "\"music\"",
 										"state": "muted"
 									}
 								}
 							],
-							"sid": 615138887279710
+							"sid": 577006519247869
 						},
 						{
 							"eventType": "block",
@@ -2094,7 +2210,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 753847050566831,
+									"sid": 506560724359217,
 									"parameters": {
 										"variable": "Sound",
 										"comparison": 4,
@@ -2105,17 +2221,18 @@
 							"actions": [
 								{
 									"id": "set-muted",
-									"objectClass": "Аудио",
-									"sid": 805538244827923,
+									"objectClass": "Audio",
+									"sid": 839318874908718,
 									"parameters": {
 										"tag": "\"music\"",
 										"state": "unmuted"
 									}
 								}
 							],
-							"sid": 330911987303228
+							"sid": 300754896093268
 						}
-					]
+					],
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -2480,51 +2597,6 @@
 			],
 			"actions": [
 				{
-					"id": "pin-to-object-properties",
-					"objectClass": "Tutorial",
-					"sid": 740872509041892,
-					"behaviorType": "Прикрепить",
-					"parameters": {
-						"pin-to": "borders",
-						"x": true,
-						"y": true,
-						"angle": true,
-						"width-type": "no",
-						"height-type": "no",
-						"z": false
-					}
-				},
-				{
-					"id": "pin-to-object-properties",
-					"objectClass": "Tutorial_BG",
-					"sid": 249157468186088,
-					"behaviorType": "Прикрепить",
-					"parameters": {
-						"pin-to": "borders",
-						"x": true,
-						"y": true,
-						"angle": true,
-						"width-type": "no",
-						"height-type": "no",
-						"z": false
-					}
-				},
-				{
-					"id": "pin-to-object-properties",
-					"objectClass": "Text_Tutorial",
-					"sid": 188450509475960,
-					"behaviorType": "Прикрепить",
-					"parameters": {
-						"pin-to": "borders",
-						"x": true,
-						"y": true,
-						"angle": true,
-						"width-type": "no",
-						"height-type": "no",
-						"z": false
-					}
-				},
-				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 788957031086896,
@@ -2575,6 +2647,97 @@
 						"layer": "LayerIndex(\"Tutorial\")",
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "borders",
+					"sid": 436661475775075,
+					"parameters": {
+						"object": "Tutorial_BG",
+						"layer": "\"Tutorial\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Tutorial_BG",
+					"sid": 674292655988074,
+					"parameters": {
+						"object": "Tutorial",
+						"layer": "\"Tutorial\"",
+						"image-point": "1",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Tutorial_BG",
+					"sid": 184270624901049,
+					"parameters": {
+						"width": "1500",
+						"height": "1000"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Tutorial",
+					"sid": 551172452354560,
+					"parameters": {
+						"width": "391",
+						"height": "273.965488"
+					}
+				},
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "Tutorial",
+					"sid": 580794058827120,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Tutorial_BG",
+						"image-point": "1",
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Tutorial_BG",
+					"sid": 473833961308844,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "borders",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text_Tutorial",
+					"sid": 797758565497293,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "borders",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "Text_Tutorial",
+					"sid": 309268095375748
 				}
 			],
 			"sid": 774854235550731
@@ -2610,6 +2773,16 @@
 					],
 					"actions": [
 						{
+							"id": "destroy",
+							"objectClass": "Tutorial",
+							"sid": 962905832547974
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Tutorial_BG",
+							"sid": 384362379793673
+						},
+						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
 							"sid": 571080233447328,
@@ -2644,7 +2817,9 @@
 					"sid": 338722597216354,
 					"parameters": {
 						"tag": "\"Lang\"",
-						"file": "Lang.json"
+						"file": {
+							"path": "Lang.json"
+						}
 					}
 				}
 			],

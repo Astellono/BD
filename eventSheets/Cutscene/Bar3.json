@@ -86,10 +86,12 @@
 						},
 						{
 							"id": "play",
-							"objectClass": "Аудио",
+							"objectClass": "Audio",
 							"sid": 240041026485182,
 							"parameters": {
-								"audio-file": "Bar_embient",
+								"audio-file": {
+									"path": "Music/Bar_embient"
+								},
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -402,6 +404,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 344088116315898,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
 								{
 									"callFunction": "Create_mainDialoge",
 									"sid": 450074985960806,
@@ -1214,7 +1225,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 383143322412601,
 					"parameters": {
 						"tag": "\"music\""
@@ -1264,7 +1275,7 @@
 			"actions": [
 				{
 					"id": "stop",
-					"objectClass": "Аудио",
+					"objectClass": "Audio",
 					"sid": 958396266081031,
 					"parameters": {
 						"tag": "\"Suspense\""

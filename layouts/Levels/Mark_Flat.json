@@ -3305,6 +3305,7 @@
 						"Твёрдый": {
 							"properties": {
 								"enabled": true,
+								"use-instance-tags": false,
 								"tags": "Wall"
 							}
 						},
@@ -3312,6 +3313,8 @@
 							"properties": {
 								"immovable": false,
 								"collision-mask": "use-collision-polygon",
+								"collision-filter-tags": "",
+								"collision-filter-mode": "exclusive",
 								"prevent-rotation": false,
 								"density": 1,
 								"friction": 0.5,
@@ -3372,6 +3375,7 @@
 						"Твёрдый": {
 							"properties": {
 								"enabled": true,
+								"use-instance-tags": false,
 								"tags": "Wall"
 							}
 						},
@@ -3379,6 +3383,8 @@
 							"properties": {
 								"immovable": false,
 								"collision-mask": "use-collision-polygon",
+								"collision-filter-tags": "",
+								"collision-filter-mode": "exclusive",
 								"prevent-rotation": false,
 								"density": 1,
 								"friction": 0.5,
@@ -3439,6 +3445,7 @@
 						"Твёрдый": {
 							"properties": {
 								"enabled": true,
+								"use-instance-tags": false,
 								"tags": "Wall"
 							}
 						},
@@ -3446,6 +3453,8 @@
 							"properties": {
 								"immovable": false,
 								"collision-mask": "use-collision-polygon",
+								"collision-filter-tags": "",
+								"collision-filter-mode": "exclusive",
 								"prevent-rotation": false,
 								"density": 1,
 								"friction": 0.5,
@@ -3506,6 +3515,7 @@
 						"Твёрдый": {
 							"properties": {
 								"enabled": true,
+								"use-instance-tags": false,
 								"tags": "Wall"
 							}
 						},
@@ -3513,6 +3523,8 @@
 							"properties": {
 								"immovable": false,
 								"collision-mask": "use-collision-polygon",
+								"collision-filter-tags": "",
+								"collision-filter-mode": "exclusive",
 								"prevent-rotation": false,
 								"density": 1,
 								"friction": 0.5,
@@ -3928,7 +3940,8 @@
 						"FearSwitch": false,
 						"StopFear": false,
 						"Dialog": false,
-						"HasDialog": false
+						"HasDialog": false,
+						"RollDeathWolf": 0
 					},
 					"behaviors": {
 						"ОграничитьСценой": {
@@ -3977,6 +3990,8 @@
 							"properties": {
 								"immovable": true,
 								"collision-mask": "use-collision-polygon",
+								"collision-filter-tags": "",
+								"collision-filter-mode": "exclusive",
 								"prevent-rotation": false,
 								"density": 1,
 								"friction": 0.5,
@@ -4058,7 +4073,9 @@
 						"FearSwitch": false,
 						"Heavy": 0,
 						"Dialog": false,
-						"HasDialog": false
+						"HasDialog": false,
+						"RollDeathWolf": 0,
+						"onRampFear": false
 					},
 					"behaviors": {
 						"ОграничитьСценой": {
@@ -4107,6 +4124,8 @@
 							"properties": {
 								"immovable": true,
 								"collision-mask": "use-collision-polygon",
+								"collision-filter-tags": "",
+								"collision-filter-mode": "exclusive",
 								"prevent-rotation": false,
 								"density": 1,
 								"friction": 0.5,
@@ -4192,7 +4211,8 @@
 						"ID": 0,
 						"Reloaded": false,
 						"Dialog": false,
-						"HasDialog": false
+						"HasDialog": false,
+						"RollDeathWolf": 0
 					},
 					"behaviors": {
 						"ОграничитьСценой": {
@@ -4241,6 +4261,8 @@
 							"properties": {
 								"immovable": true,
 								"collision-mask": "use-collision-polygon",
+								"collision-filter-tags": "",
+								"collision-filter-mode": "exclusive",
 								"prevent-rotation": false,
 								"density": 1,
 								"friction": 0.5,
@@ -4998,65 +5020,6 @@
 					}
 				},
 				{
-					"type": "Ekran",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Interferences",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 7286,
-					"sid": 885214077231413,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Твинанимация": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"effects": {
-						"ВодныйФон": {
-							"isEnabled": false,
-							"parameters": {
-								"speed": 0.1,
-								"x-speed": 0.3,
-								"y-speed": 0.3,
-								"intensity": 3,
-								"frequency": 4,
-								"angle": 7,
-								"delta": 20,
-								"reflectivity": 400,
-								"emboss": 0.3
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 885214077231413,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": true,
-					"world": {
-						"x": 606,
-						"y": 334,
-						"width": 1291,
-						"height": 965.625,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "Trigger_CutScene",
 					"properties": {
 						"initially-visible": false,
@@ -5512,6 +5475,65 @@
 						"height": 222,
 						"originX": 1,
 						"originY": 0.4921875,
+						"color": [
+							1,
+							1,
+							1,
+							0
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Ekran",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Interferences",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 7286,
+					"sid": 885214077231413,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Твинанимация": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"ВодныйФон": {
+							"isEnabled": false,
+							"parameters": {
+								"speed": 0.1,
+								"x-speed": 0.3,
+								"y-speed": 0.3,
+								"intensity": 3,
+								"frequency": 4,
+								"angle": 7,
+								"delta": 20,
+								"reflectivity": 400,
+								"emboss": 0.3
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 885214077231413,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": true,
+					"world": {
+						"x": 606,
+						"y": 334,
+						"width": 1291,
+						"height": 965.625,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
