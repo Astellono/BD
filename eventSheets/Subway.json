@@ -1,0 +1,307 @@
+{
+	"name": "Subway",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "actual"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Dialogue"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Effect"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 656355867294727
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 192529171245828,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Camera",
+					"sid": 549482799893763,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 381807804817014,
+					"parameters": {
+						"object-to-create": "Shadow3",
+						"layer": "\"Front\"",
+						"x": "Player_Cutscene.X",
+						"y": "Player_Cutscene.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "Music_Safe",
+					"sid": 774788772685439,
+					"parameters": {
+						"key": "\"SaveMusic\"",
+						"value": "\"0\""
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 807088406130207,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player_Cutscene",
+					"sid": 143286132558665,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player_Cutscene",
+					"sid": 531837427205745,
+					"parameters": {
+						"animation": "\"WalkFear\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 650619520768283
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player_Cutscene",
+					"sid": 241367624930553,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "150"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 264557290791158,
+					"parameters": {
+						"variable": "Cut_Scene",
+						"value": "true"
+					}
+				},
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 409018980753482,
+					"parameters": {
+						"slot": "\"start\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 885176700212795,
+					"parameters": {
+						"variable": "NoPause",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Trip2",
+					"sid": 504707552548840,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"ВодныйФон\""
+					}
+				}
+			],
+			"sid": 212232331342698
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 719329275741856,
+					"parameters": {
+						"variable": "Cut_Scene"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 948959992171060,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "ManWalkSubway",
+					"sid": 485546006694531,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "150"
+					}
+				}
+			],
+			"sid": 989431974197225
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_Cutscene",
+					"sid": 739077647984866,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Player_Cutscene",
+					"sid": 766834529569956,
+					"behaviorType": "НастраиваемоеДвижение"
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player_Cutscene",
+					"sid": 587201466060410,
+					"parameters": {
+						"animation": "\"IdleFear\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 311268935740294,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "ManWalkSubway",
+					"sid": 317333561824066,
+					"parameters": {
+						"animation": "\"Walk2\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 316475092213673,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "TrainClosed",
+					"sid": 923785478828848,
+					"disabled": true,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "1080",
+						"time": "2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-max-speed",
+					"objectClass": "TrainClosed",
+					"sid": 886450642453734,
+					"behaviorType": "ДвижениеК",
+					"parameters": {
+						"max-speed": "500"
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "TrainClosed",
+					"sid": 678310141864366,
+					"behaviorType": "ДвижениеК",
+					"parameters": {
+						"object": "Trigger_CutScene",
+						"image-point": "0",
+						"mode": "direct"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 168575535504887
+				}
+			],
+			"sid": 532218228566447
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-arrived",
+					"objectClass": "TrainClosed",
+					"sid": 427333423625950,
+					"behaviorType": "ДвижениеК"
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 770043965578381,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				}
+			],
+			"sid": 801432698955729
+		}
+	],
+	"sid": 934190144392218
+}

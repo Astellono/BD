@@ -3409,6 +3409,16 @@
 						"object": "Door_HotelAktiv",
 						"state": "enable"
 					}
+				},
+				{
+					"id": "enabledisable-collisions",
+					"objectClass": "Weapon",
+					"sid": 111510502828733,
+					"behaviorType": "Физика",
+					"parameters": {
+						"object": "door_closed",
+						"state": "enable"
+					}
 				}
 			],
 			"sid": 538861334471633,
@@ -3485,6 +3495,60 @@
 				}
 			],
 			"sid": 684439866789981,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Door_HotelAktiv",
+					"sid": 792784814898794,
+					"parameters": {
+						"comparison": 0,
+						"number": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Door_HotelAktiv",
+					"sid": 642235014437929,
+					"behaviorType": "Физика",
+					"parameters": {
+						"mode": "disabled"
+					}
+				}
+			],
+			"sid": 981285221356663,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "door_closed",
+					"sid": 210574158165175,
+					"parameters": {
+						"comparison": 0,
+						"number": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "door_closed",
+					"sid": 655216906650942,
+					"behaviorType": "Физика",
+					"parameters": {
+						"mode": "disabled"
+					}
+				}
+			],
+			"sid": 598626296391724,
 			"isOrBlock": true
 		},
 		{
