@@ -1772,6 +1772,85 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 381075931882086
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "Music_Safe",
+							"sid": 648488080869135,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "Music_Safe",
+							"sid": 213759083938068,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						}
+					],
+					"sid": 708967387822120
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "Music_Safe",
+							"sid": 393654931694944,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Numbers_Music",
+							"sid": 847377756631414,
+							"parameters": {
+								"instance-variable": "Music",
+								"value": "Music_Safe.ItemValue"
+							}
+						}
+					],
+					"sid": 463338418627318
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "Music_Safe",
+							"sid": 340511482126230,
+							"parameters": {
+								"key": "\"Sound\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 655134370676722,
+							"parameters": {
+								"variable": "Sound",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 990323278784009
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-tag-playing",
 							"objectClass": "Audio",
 							"sid": 777007446858804,
@@ -2257,10 +2336,10 @@
 						{
 							"id": "set-item",
 							"objectClass": "Music_Safe",
-							"sid": 659243901571419,
+							"sid": 961182571444601,
 							"parameters": {
 								"key": "\"Sound\"",
-								"value": "Sound"
+								"value": "Numbers_Music.Music"
 							}
 						}
 					],
@@ -2327,93 +2406,14 @@
 						{
 							"id": "set-item",
 							"objectClass": "Music_Safe",
-							"sid": 103382791390956,
+							"sid": 529954708283682,
 							"parameters": {
 								"key": "\"Sound\"",
-								"value": "Sound"
+								"value": "Numbers_Music.Music"
 							}
 						}
 					],
 					"sid": 757642288880213
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 855777394584886
-						}
-					],
-					"actions": [
-						{
-							"id": "get-item",
-							"objectClass": "Music_Safe",
-							"sid": 114123895809288,
-							"parameters": {
-								"key": "\"Sound\""
-							}
-						},
-						{
-							"id": "check-item-exists",
-							"objectClass": "Music_Safe",
-							"sid": 319468076197042,
-							"parameters": {
-								"key": "\"Sound\""
-							}
-						}
-					],
-					"sid": 724754762176036
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-item-get",
-							"objectClass": "Music_Safe",
-							"sid": 339423371266774,
-							"parameters": {
-								"key": "\"Sound\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 133061982281377,
-							"parameters": {
-								"variable": "Sound",
-								"value": "Music_Safe.ItemValue"
-							}
-						}
-					],
-					"sid": 553191828559596
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-item-missing",
-							"objectClass": "Music_Safe",
-							"sid": 649547804451253,
-							"parameters": {
-								"key": "\"Sound\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 186137798953977,
-							"parameters": {
-								"variable": "Sound",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 238423050559597
 				}
 			],
 			"sid": 449691978955507
