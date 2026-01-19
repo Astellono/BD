@@ -62,6 +62,15 @@
 					}
 				},
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 830582446271194,
+					"parameters": {
+						"variable": "Safe_Zone",
+						"value": "true"
+					}
+				},
+				{
 					"id": "spawn-another-object",
 					"objectClass": "Player_All",
 					"sid": 736142898654159,
@@ -106,9 +115,200 @@
 						"group-name": "\"Player\"",
 						"state": "activated"
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 180860606948058,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 349503634220107,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 732150255364550,
+					"parameters": {
+						"audio-file": {
+							"path": "Music/Night_Club (Remaster)"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
 				}
 			],
 			"sid": 122251061706483
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 846459611975774
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "EnemySecurity",
+					"sid": 952971648849383,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-range",
+					"objectClass": "EnemySecurity",
+					"sid": 824364611063162,
+					"behaviorType": "ПолеЗрения",
+					"parameters": {
+						"range": "150"
+					}
+				}
+			],
+			"sid": 452561174938046
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_All",
+					"sid": 744682070879232,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 537785830030888
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_Dealogue",
+					"sid": 566640069341022,
+					"parameters": [
+						"\"\"",
+						"0",
+						"0",
+						"350",
+						"1",
+						true
+					]
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "Player_All",
+					"sid": 359727428731669,
+					"behaviorType": "Таймер",
+					"parameters": {
+						"duration": "4",
+						"type": "once",
+						"tag": "\"text\""
+					}
+				}
+			],
+			"sid": 284767422023878
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Player_All",
+					"sid": 655839626279293,
+					"behaviorType": "Таймер",
+					"parameters": {
+						"tag": "\"text\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 146522357209818,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 385976791918508
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_All",
+					"sid": 988622894473809,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 731955229722796
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-timer",
+					"objectClass": "Player_All",
+					"sid": 949240680882008,
+					"behaviorType": "Таймер",
+					"parameters": {
+						"tag": "\"text\""
+					}
+				},
+				{
+					"callFunction": "Create_Dealogue",
+					"sid": 627081790072729,
+					"parameters": [
+						"\"\"",
+						"0",
+						"0",
+						"351",
+						"1",
+						true
+					]
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 665058869542699,
+					"parameters": {
+						"seconds": "4",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "Destroy_Dialoge",
+					"sid": 859443302586257
+				}
+			],
+			"sid": 860733166335741
 		},
 		{
 			"eventType": "block",
@@ -179,6 +379,293 @@
 				}
 			],
 			"sid": 735240763979377
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_All",
+					"sid": 545276082135852,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Trigger_CutScene",
+					"sid": 968995979415839,
+					"parameters": {
+						"tags": "\"Closed\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Wall",
+					"sid": 293118825489383,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Tualet_Club",
+					"sid": 532012891560462,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Wall",
+					"sid": 193867184947507,
+					"behaviorType": "Твёрдый",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Camera",
+					"sid": 615705616692903,
+					"parameters": {
+						"instance-variable": "onPlayer",
+						"value": "false"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Player_Cutscene",
+					"sid": 438980652662163
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Tualet_Club",
+					"sid": 276893540558889,
+					"parameters": {
+						"frame-number": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 339608029900988,
+					"parameters": {
+						"audio-file": {
+							"path": "OpenDoor"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 428668738792681,
+					"parameters": {
+						"audio-file": {
+							"path": "Pants are taken"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 362936839141355,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Tualet_Club",
+					"sid": 487793579294918,
+					"parameters": {
+						"frame-number": "0"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 906596725844555,
+					"parameters": {
+						"audio-file": {
+							"path": "ClosedDoor"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Trigger_CutScene",
+					"sid": 688132058786517,
+					"parameters": {
+						"object": "Player_Mask",
+						"layer": "\"Player\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Camera",
+					"sid": 448279799999475,
+					"parameters": {
+						"instance-variable": "onPlayer",
+						"value": "true"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Trigger_CutScene",
+					"sid": 897513021746475
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 381297016927193,
+					"parameters": {
+						"variable": "Safe_Zone",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 152145379925816
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_All",
+					"sid": 874950379273439,
+					"parameters": {
+						"object": "Wall"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Wall",
+					"sid": 746549624084647,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Wall",
+					"sid": 113229851173506,
+					"behaviorType": "Твёрдый"
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_Dealogue",
+					"sid": 805836010632219,
+					"parameters": [
+						"\"\"",
+						"0",
+						"0",
+						"352",
+						"1",
+						true
+					]
+				}
+			],
+			"sid": 750450105805078
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "Bottle",
+					"sid": 683451120923250
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Bottle",
+					"sid": 932727024081724,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Alko_Shadow",
+					"sid": 691825628880375,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Alko_Shadow",
+					"sid": 162852943159905,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 705977206955784
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_All",
+					"sid": 344373024037950,
+					"parameters": {
+						"object": "Alko_Shadow"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Alko_Shadow",
+					"sid": 478282124508133,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "EnemySecurity",
+					"sid": 613065575504782,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Create_DealogueEnemy",
+					"sid": 539292354756193,
+					"parameters": [
+						"EnemySecurity.X",
+						"EnemySecurity.Y -50",
+						"353",
+						"1",
+						false
+					]
+				}
+			],
+			"sid": 842421766398066
 		}
 	],
 	"sid": 902713123400387
