@@ -171,6 +171,20 @@
 					}
 				},
 				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 529976185422973,
+					"parameters": {
+						"audio-file": {
+							"path": "Subway/Start_Sub"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
 					"id": "set-speed",
 					"objectClass": "Vest",
 					"sid": 898671126436218,
@@ -405,7 +419,7 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 514641571454614,
+							"sid": 745652154294240,
 							"parameters": {
 								"audio-file": {
 									"path": "Subway/vibra-with-repetition (mp3cut.net)"
@@ -413,7 +427,7 @@
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"audio\""
+								"tag-optional": "\"Damage\""
 							}
 						},
 						{
@@ -424,9 +438,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 904138918614162,
+							"sid": 235641847918816,
 							"parameters": {
-								"seconds": "4",
+								"seconds": "5",
 								"use-timescale": true
 							}
 						},
@@ -497,9 +511,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 738343576537517,
+							"sid": 933873061494128,
 							"parameters": {
-								"seconds": "1.0",
+								"seconds": "2",
 								"use-timescale": true
 							}
 						},
@@ -630,17 +644,39 @@
 						{
 							"id": "stop",
 							"objectClass": "Audio",
-							"sid": 722429072910161,
+							"sid": 128006779832707,
 							"parameters": {
-								"tag": "\"audio\""
+								"tag": "\"music\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 520995689976761,
+							"parameters": {
+								"tag": "\"Damage\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 465131193187456,
+							"parameters": {
+								"audio-file": {
+									"path": "End_Scene"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"music\""
 							}
 						},
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 168769039097428,
+							"sid": 901875263166326,
 							"parameters": {
-								"seconds": "5",
+								"seconds": "4",
 								"use-timescale": true
 							}
 						},
@@ -813,12 +849,12 @@
 			],
 			"actions": [
 				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 195618040016874,
+					"id": "subtract-from-instvar",
+					"objectClass": "Numbers_Music",
+					"sid": 970130886405405,
 					"parameters": {
-						"variable": "Sound",
-						"value": "2.5"
+						"instance-variable": "Music",
+						"value": "2"
 					}
 				}
 			],
@@ -1011,6 +1047,15 @@
 					}
 				},
 				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 331222828831247,
+					"parameters": {
+						"seconds": "6",
+						"use-timescale": true
+					}
+				},
+				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 168575535504887
@@ -1018,9 +1063,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 335512336683657,
+					"sid": 130150383642555,
 					"parameters": {
-						"seconds": "8",
+						"seconds": "2",
 						"use-timescale": true
 					}
 				},
@@ -1044,7 +1089,7 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 733845869244040,
+					"sid": 250480776804290,
 					"parameters": {
 						"audio-file": {
 							"path": "Subway/Metro_Cycle"
@@ -1052,7 +1097,21 @@
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
-						"tag-optional": "\"audio\""
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 914924722041658,
+					"parameters": {
+						"audio-file": {
+							"path": "Subway/End_Sub"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
 					}
 				},
 				{
