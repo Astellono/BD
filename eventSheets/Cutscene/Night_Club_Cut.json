@@ -1,0 +1,284 @@
+{
+	"name": "Night_Club_Cut",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "actual"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Effect"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Dialogue"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Menu"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 429565821658830
+				}
+			],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 197493335463515,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Camera",
+					"sid": 685816997446721,
+					"parameters": {
+						"instance-variable": "onPlayer",
+						"value": "false"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 438120817205771,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 855671456134960,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 278724634486431,
+					"parameters": {
+						"variable": "Continue_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 779978871615673,
+					"parameters": {
+						"variable": "Safe_Zone",
+						"value": "true"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "EndScene",
+					"sid": 891584916901905,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "-2000",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 772061740370210,
+					"parameters": {
+						"audio-file": {
+							"path": "Music/Soul to soul"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 204499872781283,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 738341721887609,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 236303738250144
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 104821427957124,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 659945560880560,
+					"parameters": {
+						"interval-seconds": "0.5"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 674233078291824,
+					"parameters": {
+						"variable": "Sound",
+						"comparison": 0,
+						"value": "-25"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 138242942782050,
+					"parameters": {
+						"variable": "Sound",
+						"value": "2.5"
+					}
+				}
+			],
+			"sid": 126314573260890
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 129691920380771,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "EndScene",
+					"sid": 716571369892149,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "Player_All.X +300",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 948054773562959,
+					"parameters": {
+						"seconds": "5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 715723880995061,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "Music_Safe",
+					"sid": 337918577073800,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "Music_Safe",
+					"sid": 469596950447961,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 859846549711104
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 366763358807319,
+					"parameters": {
+						"layout": "Garage"
+					}
+				}
+			],
+			"sid": 542733523343899
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Kayboard",
+					"sid": 133695506666998,
+					"parameters": {
+						"key": 71
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 371999353664347,
+					"parameters": {
+						"variable": "Enemys",
+						"value": "40"
+					}
+				}
+			],
+			"sid": 830536663017908
+		}
+	],
+	"sid": 165965101847613
+}

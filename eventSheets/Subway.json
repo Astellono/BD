@@ -103,7 +103,7 @@
 				{
 					"id": "set-speed",
 					"objectClass": "Player_Cutscene",
-					"sid": 750087532568852,
+					"sid": 823521543785737,
 					"behaviorType": "НастраиваемоеДвижение",
 					"parameters": {
 						"which": "horizontal",
@@ -162,18 +162,9 @@
 					}
 				},
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 932002559087856,
-					"parameters": {
-						"seconds": "1.0",
-						"use-timescale": true
-					}
-				},
-				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 529976185422973,
+					"sid": 494847353847077,
 					"parameters": {
 						"audio-file": {
 							"path": "Subway/Start_Sub"
@@ -182,6 +173,15 @@
 						"volume": "0",
 						"stereo-pan": "0",
 						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 932002559087856,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
 					}
 				},
 				{
@@ -248,15 +248,33 @@
 					"actions": [
 						{
 							"callFunction": "Create_Dealogue",
-							"sid": 400059222103708,
+							"sid": 911948856740589,
 							"parameters": [
 								"\"\"",
 								"Player_All.ImagePointX(\"Dialog\")",
 								"Player_All.ImagePointY(\"Dialog\")",
 								"343",
-								"1",
+								"2",
 								true
 							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 792912020206190,
+							"parameters": {
+								"seconds": "4",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Player_Cutscene",
+							"sid": 646603215517869,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "1"
+							}
 						}
 					],
 					"sid": 183715442082152
@@ -267,11 +285,46 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 271118754469487,
+							"sid": 852592278180593,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 0,
 								"value": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 493982176330060
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_Dealogue",
+							"sid": 364948444308082,
+							"parameters": [
+								"\"\"",
+								"Player_All.ImagePointX(\"Dialog\")",
+								"Player_All.ImagePointY(\"Dialog\")",
+								"348",
+								"2",
+								true
+							]
+						}
+					],
+					"sid": 552191819945248
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player_Cutscene",
+							"sid": 751248187058654,
+							"parameters": {
+								"instance-variable": "textframe",
+								"comparison": 0,
+								"value": "3"
 							}
 						},
 						{
@@ -286,6 +339,14 @@
 							"parameters": {
 								"tags": "\"Closed\""
 							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "ManSubway",
+							"sid": 660909924123930,
+							"parameters": {
+								"tags": "\"Girl\""
+							}
 						}
 					],
 					"actions": [
@@ -293,6 +354,14 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 287070059693279
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ManSubway",
+							"sid": 314948966951132,
+							"parameters": {
+								"visibility": "invisible"
+							}
 						},
 						{
 							"id": "set-animation",
@@ -368,11 +437,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 613200119851604,
+							"sid": 788074707452314,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 0,
-								"value": "3"
+								"value": "4"
 							}
 						},
 						{
@@ -388,6 +457,15 @@
 							"sid": 159657829534347,
 							"parameters": {
 								"from": "current-frame"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 149480793248537,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
 							}
 						},
 						{
@@ -410,7 +488,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 576540989900271,
+							"sid": 135227246707370,
 							"parameters": {
 								"seconds": "0.5",
 								"use-timescale": true
@@ -462,11 +540,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 132558552167967,
+							"sid": 854889865066337,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 0,
-								"value": "4"
+								"value": "5"
 							}
 						},
 						{
@@ -511,9 +589,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 933873061494128,
+							"sid": 671387234885831,
 							"parameters": {
-								"seconds": "2",
+								"seconds": "4",
 								"use-timescale": true
 							}
 						},
@@ -535,11 +613,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 674048538368469,
+							"sid": 668426879708647,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 0,
-								"value": "4"
+								"value": "5"
 							}
 						},
 						{
@@ -569,11 +647,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 181236668859962,
+							"sid": 744305864736637,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 0,
-								"value": "5"
+								"value": "6"
 							}
 						},
 						{
@@ -714,11 +792,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_Cutscene",
-							"sid": 704913706436160,
+							"sid": 572415488219133,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 0,
-								"value": "6"
+								"value": "7"
 							}
 						},
 						{
@@ -753,13 +831,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player_Cutscene",
-							"sid": 871295365187824,
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "TrainClosed",
+							"sid": 404574062121940,
 							"parameters": {
-								"instance-variable": "textframe",
-								"comparison": 5,
-								"value": "2"
+								"instance-variable": "Trigger"
 							}
 						},
 						{
@@ -806,11 +882,11 @@
 				{
 					"id": "set-speed",
 					"objectClass": "ManWalkSubway",
-					"sid": 961869544945599,
+					"sid": 571163371458230,
 					"behaviorType": "НастраиваемоеДвижение",
 					"parameters": {
 						"which": "horizontal",
-						"speed": "125"
+						"speed": "110"
 					}
 				}
 			],
@@ -885,9 +961,9 @@
 				{
 					"id": "stop",
 					"objectClass": "Audio",
-					"sid": 782729992820145,
+					"sid": 810271678587229,
 					"parameters": {
-						"tag": "\"music\""
+						"tag": "\"Suspense\""
 					}
 				},
 				{
@@ -928,7 +1004,7 @@
 				{
 					"id": "on-collision-with-another-object",
 					"objectClass": "Player_Cutscene",
-					"sid": 739077647984866,
+					"sid": 652708069547040,
 					"parameters": {
 						"object": "Trigger_CutScene"
 					}
@@ -936,19 +1012,33 @@
 			],
 			"actions": [
 				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 772616743953724,
+					"callFunction": "Create_Dealogue",
+					"sid": 436245576830538,
+					"parameters": [
+						"\"\"",
+						"Player_All.ImagePointX(\"Dialog\")",
+						"Player_All.ImagePointY(\"Dialog\")",
+						"347",
+						"3",
+						true
+					]
+				}
+			],
+			"sid": 540619839285110
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_Cutscene",
+					"sid": 739077647984866,
 					"parameters": {
-						"audio-file": {
-							"path": "Subway/Train"
-						},
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"audio\""
+						"object": "Trigger_CutScene"
 					}
-				},
+				}
+			],
+			"actions": [
 				{
 					"id": "stop",
 					"objectClass": "Player_Cutscene",
@@ -976,9 +1066,32 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 617344824563727,
+					"sid": 772041675700587,
 					"parameters": {
-						"seconds": "2",
+						"seconds": "7",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 619428277176349,
+					"parameters": {
+						"audio-file": {
+							"path": "Subway/Transition"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"audio\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 707533125564287,
+					"parameters": {
+						"seconds": "1",
 						"use-timescale": true
 					}
 				},
@@ -1000,16 +1113,70 @@
 					}
 				},
 				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 854574247434110,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 361402666716469,
+					"parameters": {
+						"audio-file": {
+							"path": "Subway/Train"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Damage\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 794641352153118,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 461087093544607,
+					"parameters": {
+						"audio-file": {
+							"path": "Subway/End_Sub"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 188348191893920,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				},
+				{
 					"id": "tween-one-property",
 					"objectClass": "TrainClosed",
-					"sid": 923785478828848,
-					"disabled": true,
+					"sid": 680958835861366,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetX",
-						"end-value": "1080",
-						"time": "2",
+						"end-value": "1254",
+						"time": "1",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -1020,65 +1187,39 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 144736800902200,
+					"sid": 806443085106050,
 					"parameters": {
-						"seconds": "3",
+						"seconds": "0.5",
 						"use-timescale": true
 					}
 				},
 				{
-					"id": "set-max-speed",
+					"id": "set-boolean-instvar",
 					"objectClass": "TrainClosed",
-					"sid": 886450642453734,
-					"behaviorType": "ДвижениеК",
+					"sid": 297444537890892,
 					"parameters": {
-						"max-speed": "500"
+						"instance-variable": "Trigger",
+						"value": "true"
 					}
 				},
 				{
-					"id": "move-to-object",
-					"objectClass": "TrainClosed",
-					"sid": 678310141864366,
-					"behaviorType": "ДвижениеК",
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 826498903820022,
 					"parameters": {
-						"object": "Trigger_CutScene",
-						"image-point": "0",
-						"mode": "direct"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 331222828831247,
-					"parameters": {
-						"seconds": "6",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 168575535504887
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 130150383642555,
-					"parameters": {
-						"seconds": "2",
-						"use-timescale": true
+						"tag": "\"Damage\""
 					}
 				},
 				{
 					"id": "tween-one-property",
 					"objectClass": "SubWay_Scene",
-					"sid": 895664780284685,
+					"sid": 115958094003162,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetX",
 						"end-value": "5000",
-						"time": "5",
+						"time": "2",
 						"ease": "easeinoutsine",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -1098,20 +1239,6 @@
 						"volume": "0",
 						"stereo-pan": "0",
 						"tag-optional": "\"Suspense\""
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 914924722041658,
-					"parameters": {
-						"audio-file": {
-							"path": "Subway/End_Sub"
-						},
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"music\""
 					}
 				},
 				{
@@ -1242,6 +1369,7 @@
 					"id": "play",
 					"objectClass": "Audio",
 					"sid": 411308617875678,
+					"disabled": true,
 					"parameters": {
 						"audio-file": {
 							"path": "Subway/subway-subway-door-opening-sound-effect (1)"
@@ -1256,6 +1384,7 @@
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 434497950413089,
+					"disabled": true,
 					"parameters": {
 						"seconds": "2",
 						"use-timescale": true

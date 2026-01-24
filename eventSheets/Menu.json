@@ -570,9 +570,59 @@
 						"height-type": "no",
 						"z": false
 					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Camera",
+					"sid": 698932779044298,
+					"parameters": {
+						"object": "EndScene",
+						"layer": "\"Dialog\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "EndScene",
+					"sid": 217056739222258,
+					"parameters": {
+						"scale": "2"
+					}
 				}
 			],
 			"sid": 771566540557060
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "EndScene",
+					"sid": 322546717951044
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "EndScene",
+					"sid": 514363811097271,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "-1000",
+						"time": "2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 368479132062363
 		},
 		{
 			"eventType": "block",

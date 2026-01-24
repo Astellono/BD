@@ -1,0 +1,832 @@
+{
+	"name": "Mark_Flat4",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "actual"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Menu"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SetupBar8",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 608725010178589
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 150314653203901,
+							"parameters": {
+								"group-name": "\"Player\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 199618307809890,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 484350427849905,
+							"parameters": {
+								"audio-file": {
+									"path": "Music/Heaviness"
+								},
+								"loop": "looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Suspense\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "Music_Safe",
+							"sid": 419541488727753,
+							"parameters": {
+								"key": "\"Apartament\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "Music_Safe",
+							"sid": 918452079730597,
+							"parameters": {
+								"key": "\"Apartament\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 205586735651406,
+							"parameters": {
+								"variable": "Start_Game",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 510693704982450,
+							"parameters": {
+								"variable": "Continue_Game",
+								"value": "false"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 886553175629562,
+							"parameters": {
+								"slot": "\"start\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 849679531877652,
+							"parameters": {
+								"variable": "Safe_Zone",
+								"value": "true"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 844482949752562,
+							"parameters": {
+								"seconds": "3",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "press_E",
+							"sid": 476252479695186,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Player_All",
+								"image-point": "2",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 285546468633356,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 862215623925450
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 122385480382095,
+							"parameters": {
+								"variable": "onDialMain"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 602664329384430,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player_All",
+									"sid": 358848607807512,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 336685272713935
+								}
+							],
+							"actions": [],
+							"sid": 764608193320607
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Kayboard",
+							"sid": 946101384070022,
+							"parameters": {
+								"key": 69
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 326836804719937,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 612554082181725,
+							"parameters": {
+								"variable": "onDial"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 602939110131528,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Player_All",
+							"sid": 384125145809170,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 355625549653659,
+							"disabled": true,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 171710669615488,
+							"parameters": {
+								"variable": "onDial",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 762336673704345,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Trigger_CutScene",
+									"sid": 885509437245346,
+									"parameters": {
+										"tags": "\"TV\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player_All",
+									"sid": 900252048482113,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 903506922317219,
+									"parameters": [
+										"\"\"",
+										"0",
+										"0",
+										"381",
+										"1",
+										true
+									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player_All",
+									"sid": 462504397066942,
+									"parameters": {
+										"instance-variable": "textframe",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 576986046116991
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Trigger_CutScene",
+									"sid": 860348497970735,
+									"parameters": {
+										"tags": "\"Computer\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player_All",
+									"sid": 303996334601923,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 715970938744467,
+									"parameters": [
+										"\"\"",
+										"0",
+										"0",
+										"382",
+										"1",
+										true
+									]
+								}
+							],
+							"sid": 236669230426056
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Trigger_CutScene",
+									"sid": 666495329642540,
+									"parameters": {
+										"tags": "\"Computer\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player_All",
+									"sid": 931488350268060,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 661981217385666,
+									"parameters": [
+										"\"\"",
+										"0",
+										"0",
+										"383",
+										"1",
+										true
+									]
+								}
+							],
+							"sid": 498454250669031
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Trigger_CutScene",
+									"sid": 807276648069498,
+									"parameters": {
+										"tags": "\"Computer\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player_All",
+									"sid": 490159196616707,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 843481107197321,
+									"parameters": [
+										"\"\"",
+										"0",
+										"0",
+										"384",
+										"1",
+										true
+									]
+								}
+							],
+							"sid": 931021027802830
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Trigger_CutScene",
+									"sid": 163375332020152,
+									"parameters": {
+										"tags": "\"Computer\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player_All",
+									"sid": 266536884006996,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 880962867797509,
+									"parameters": [
+										"\"\"",
+										"0",
+										"0",
+										"385",
+										"2",
+										true
+									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player_All",
+									"sid": 924914107212748,
+									"parameters": {
+										"instance-variable": "textframe",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 763879987597743
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Trigger_CutScene",
+									"sid": 104556189482773,
+									"parameters": {
+										"tags": "\"Bad\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player_All",
+									"sid": 872950356653472,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 893745047457809,
+									"parameters": [
+										"\"\"",
+										"0",
+										"0",
+										"386",
+										"1",
+										true
+									]
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 601253007784881,
+									"parameters": {
+										"group-name": "\"Player\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "press_E",
+									"sid": 806041831781410,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Player_All",
+									"sid": 610753787169987,
+									"parameters": {
+										"animation": "\"noWeaponIdle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 798809170375112,
+									"parameters": {
+										"seconds": "2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "EndScene",
+									"sid": 992599042613911,
+									"behaviorType": "Твинанимация",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "Player_All.X",
+										"time": "1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 929558800493410,
+									"parameters": {
+										"seconds": "3",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "Destroy_Dialoge",
+									"sid": 819975257047925
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Player_Cutscene",
+									"sid": 867530484813983,
+									"behaviorType": "Платформер",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Player_All",
+									"sid": 596325232787805,
+									"parameters": {
+										"x": "480",
+										"y": "230"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 200900409113055,
+									"parameters": {
+										"variable": "Start_Game",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 886003336111166
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_All",
+							"sid": 858079310538183,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 832605441890054,
+							"parameters": {
+								"variable": "onDialMain"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 848748958731505,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player_All",
+							"sid": 385935651440752,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "Destroy_Dialoge",
+							"sid": 556511518426002
+						}
+					],
+					"sid": 366678022418590
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 931145406530004,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 561669678392122,
+							"parameters": {
+								"variable": "Cut_Scene"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 107938574467857,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "press_E",
+							"sid": 290830425252661,
+							"parameters": {
+								"layer": "\"Dialog\""
+							}
+						}
+					],
+					"sid": 495491404529102
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 328325009431159
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 746561393642366,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 619542056236471
+				}
+			],
+			"sid": 806765278446741
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 500141661063371,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 266039092526692,
+					"parameters": {
+						"interval-seconds": "0.5"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 163568290302621,
+					"parameters": {
+						"variable": "Sound",
+						"comparison": 0,
+						"value": "-25"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Numbers_Music",
+					"sid": 961760750034669,
+					"parameters": {
+						"instance-variable": "Music",
+						"value": "2.5"
+					}
+				}
+			],
+			"sid": 277560931826892
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 152257844165453,
+					"parameters": {
+						"variable": "Start_Game"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 805047286140507,
+					"parameters": {
+						"tag": "\"music\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "Music_Safe",
+					"sid": 910080559410253,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "Music_Safe",
+					"sid": 609241876901960,
+					"parameters": {
+						"key": "\"Sound\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 784636251947105
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 537490943987143,
+					"parameters": {
+						"layout": "Night_Club_Cut"
+					}
+				}
+			],
+			"sid": 434779632253467
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 542462674972626
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 638138372289495,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 679172706257961,
+					"parameters": {
+						"reset-static": false
+					}
+				}
+			],
+			"sid": 617624507569197
+		}
+	],
+	"sid": 799637744032251
+}
