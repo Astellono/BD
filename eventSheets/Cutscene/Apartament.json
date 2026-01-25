@@ -23,14 +23,14 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-created",
-					"objectClass": "Shadow3",
-					"sid": 928094294672496
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 917390411049247
 				},
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 390530669332218,
+					"sid": 296901824167998,
 					"parameters": {
 						"variable": "Enemys",
 						"comparison": 0,
@@ -41,18 +41,27 @@
 			],
 			"actions": [
 				{
-					"id": "wait",
+					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 711455397280907,
+					"sid": 800229959578072,
 					"parameters": {
-						"seconds": "1.0",
-						"use-timescale": true
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 961944485384953,
+					"parameters": {
+						"variable": "Cut_Scene",
+						"value": "false"
 					}
 				},
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 262742990869586,
+					"sid": 365201931612573,
 					"parameters": {
 						"audio-file": {
 							"path": "Music/Station_Start"
@@ -64,9 +73,65 @@
 					}
 				},
 				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 784770500263023,
+					"parameters": {
+						"object-to-create": "Shadow3",
+						"layer": "\"Player\"",
+						"x": "Player_Cutscene.X",
+						"y": "Player_Cutscene.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Shadow3",
+					"sid": 683531631689557,
+					"parameters": {
+						"scale": "2"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "EndScene",
+					"sid": 836070938602445,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "-1000",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "Music_Safe",
+					"sid": 724618188228017,
+					"parameters": {
+						"key": "\"SaveMusic\"",
+						"value": "\"0\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 634692502708118,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
 					"id": "tween-one-property",
 					"objectClass": "Shadow3",
-					"sid": 200340581235805,
+					"sid": 489945150133326,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
@@ -83,15 +148,41 @@
 				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 358208088458108
+					"sid": 413068496138680
 				},
 				{
 					"id": "destroy",
 					"objectClass": "Shadow3",
-					"sid": 278358496623695
+					"sid": 606460671702931
+				},
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 889461525724647,
+					"parameters": {
+						"slot": "\"start\""
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 235427474501152,
+					"parameters": {
+						"group-name": "\"Enemy_Fat\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 280012799823786,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "activated"
+					}
 				}
 			],
-			"sid": 289815877305199
+			"sid": 361821766263502
 		},
 		{
 			"eventType": "block",
@@ -1371,93 +1462,6 @@
 				}
 			],
 			"sid": 361034595788430
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 358964334912160
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 532683050515275,
-					"parameters": {
-						"variable": "Start_Game",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 423148995396649,
-					"parameters": {
-						"variable": "Cut_Scene",
-						"value": "false"
-					}
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 532281942006625,
-					"parameters": {
-						"object-to-create": "Shadow3",
-						"layer": "\"Player\"",
-						"x": "Player_Cutscene.X",
-						"y": "Player_Cutscene.Y",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "set-scale",
-					"objectClass": "Shadow3",
-					"sid": 738458436365668,
-					"parameters": {
-						"scale": "2"
-					}
-				},
-				{
-					"id": "set-item",
-					"objectClass": "Music_Safe",
-					"sid": 963560054922738,
-					"parameters": {
-						"key": "\"SaveMusic\"",
-						"value": "\"0\""
-					}
-				},
-				{
-					"id": "save",
-					"objectClass": "System",
-					"sid": 824857472790905,
-					"parameters": {
-						"slot": "\"start\""
-					}
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 157995082566185,
-					"parameters": {
-						"group-name": "\"Enemy_Fat\"",
-						"state": "deactivated"
-					}
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 254472162692334,
-					"parameters": {
-						"group-name": "\"Player\"",
-						"state": "activated"
-					}
-				}
-			],
-			"sid": 566197789743141
 		},
 		{
 			"eventType": "block",

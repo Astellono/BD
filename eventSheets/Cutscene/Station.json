@@ -68,12 +68,20 @@
 					}
 				},
 				{
-					"id": "set-item",
-					"objectClass": "Music_Safe",
-					"sid": 584824179713966,
+					"id": "tween-one-property",
+					"objectClass": "EndScene",
+					"sid": 641823247381419,
+					"behaviorType": "Твинанимация",
 					"parameters": {
-						"key": "\"SaveMusic\"",
-						"value": "\"0\""
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "-1000",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
 					}
 				},
 				{
@@ -101,6 +109,55 @@
 						"variable": "NoPause",
 						"value": "true"
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 288809235562144,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 885190758667818,
+					"parameters": {
+						"audio-file": {
+							"path": "Music/Station_Start"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Suspense\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Camera",
+					"sid": 287327274313312,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Shadow3",
+					"sid": 633322785475842,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "3",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
 				}
 			],
 			"sid": 830472082835930
@@ -124,57 +181,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 372395975921697,
-					"parameters": {
-						"seconds": "1.0",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 202740556511305,
-					"parameters": {
-						"audio-file": {
-							"path": "Music/Station_Start"
-						},
-						"loop": "looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"Suspense\""
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Camera",
-					"sid": 905180141302928,
-					"behaviorType": "Твинанимация",
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "Shadow3",
-					"sid": 647229004849503,
-					"behaviorType": "Твинанимация",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetOpacity",
-						"end-value": "0",
-						"time": "3",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 473994881500347
 		},
 		{
@@ -2263,11 +2270,11 @@
 			],
 			"actions": [
 				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 271950686352774,
+					"id": "subtract-from-instvar",
+					"objectClass": "Numbers_Music",
+					"sid": 511740310602269,
 					"parameters": {
-						"variable": "Sound",
+						"instance-variable": "Music",
 						"value": "2.5"
 					}
 				}
@@ -2284,19 +2291,18 @@
 					"parameters": {
 						"variable": "Start_Game"
 					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 796107411894208,
-					"parameters": {
-						"variable": "Sound",
-						"comparison": 0,
-						"value": "-25"
-					}
 				}
 			],
 			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 734412026680583,
+					"parameters": {
+						"seconds": "5",
+						"use-timescale": true
+					}
+				},
 				{
 					"id": "stop",
 					"objectClass": "Audio",
@@ -2329,9 +2335,9 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 449923582707506,
+					"sid": 764043230697586,
 					"parameters": {
-						"layout": "Bar"
+						"layout": "Subway"
 					}
 				}
 			],

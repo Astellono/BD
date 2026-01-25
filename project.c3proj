@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 46600,
+	"savedWithRelease": 46602,
 	"name": "BD",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -211,6 +211,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "bulge",
+			"name": "Выпуклость",
+			"author": "Brad Larson",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "pulse",
 			"name": "Пульс",
 			"author": "Danguafer/Silexars",
@@ -265,7 +272,7 @@
 			"explosion00",
 			"tilemap_packed",
 			"tilemap_packed2",
-			"ОтделениеПолиции"
+			"Police_Tower"
 		],
 		"subfolders": [
 			{
@@ -377,7 +384,8 @@
 					"Shot_Enemy",
 					"Fear",
 					"Shot_Shotgun",
-					"HitBoxDialog"
+					"HitBoxDialog",
+					"Out"
 				],
 				"subfolders": [],
 				"name": "Hitbox"
@@ -414,7 +422,8 @@
 					"Shadow4",
 					"Shadow5",
 					"Tailes_BG3",
-					"Asphalt1"
+					"Asphalt1",
+					"EndScene"
 				],
 				"subfolders": [
 					{
@@ -568,10 +577,24 @@
 							"Boom2",
 							"Elektro",
 							"Chandelier",
-							"Gaz"
+							"Gaz",
+							"Trip2"
 						],
 						"subfolders": [],
 						"name": "Effect and Sky"
+					},
+					{
+						"items": [
+							"TrainClosed",
+							"Subway",
+							"SubColonna",
+							"SubwayBench",
+							"Sub",
+							"Scene_Light",
+							"MobileSub"
+						],
+						"subfolders": [],
+						"name": "Subway"
 					}
 				],
 				"name": "Background"
@@ -783,7 +806,8 @@
 					},
 					{
 						"items": [
-							"icon1"
+							"icon1",
+							"Paper"
 						],
 						"subfolders": [],
 						"name": "icon"
@@ -1014,7 +1038,9 @@
 					"Test",
 					"AJAX",
 					"Lang",
-					"EnemyText"
+					"EnemyText",
+					"Text_Signboard",
+					"HitBoxText"
 				],
 				"subfolders": [],
 				"name": "text"
@@ -1044,7 +1070,10 @@
 					"Mid_Brother",
 					"PoliceMan",
 					"High_Brother",
-					"Bump"
+					"Bump",
+					"ManSubway",
+					"ManWalkSubway",
+					"Club_Boss"
 				],
 				"subfolders": [],
 				"name": "NPC"
@@ -1096,7 +1125,8 @@
 			"Head",
 			"Menu",
 			"GlassCrash",
-			"LadderStair"
+			"LadderStair",
+			"SubWay_Scene"
 		],
 		"subfolders": []
 	},
@@ -1106,28 +1136,31 @@
 			{
 				"items": [
 					"Test_elevator",
-					"Abandonment",
+					"Station",
 					"Bar",
+					"Abandonment",
+					"Bar2",
 					"Police_station",
 					"Mark_Flat",
 					"Bakery",
-					"Station",
 					"Apartament",
-					"Night_Club",
-					"Garage",
-					"Underground",
 					"Basement",
 					"Hotel",
+					"Night_Club",
+					"Mark_Flat4",
+					"Night_Club_Cut",
+					"Garage",
+					"Underground",
 					"Tower",
 					"Office",
 					"Warehouse",
-					"Bar2",
 					"Bar3",
 					"Mark_Flat2",
 					"Police2",
 					"Mark_Flat3",
 					"Station2",
-					"Bar4"
+					"Bar4",
+					"Subway"
 				],
 				"subfolders": [],
 				"name": "Levels"
@@ -1146,7 +1179,8 @@
 		"items": [
 			"Menu",
 			"Main_Menu",
-			"Police2"
+			"Police2",
+			"Subway"
 		],
 		"subfolders": [
 			{
@@ -1192,7 +1226,9 @@
 					"Mark_Flat2",
 					"Mark_Flat3",
 					"Station2",
-					"Bar4"
+					"Bar4",
+					"Mark_Flat4",
+					"Night_Club_Cut"
 				],
 				"subfolders": [],
 				"name": "Cutscene"
@@ -1242,14 +1278,6 @@
 					"name": "Night_Club.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 196232134914092,
-					"file-info": {
-						"purpose": "none"
-					}
-				},
-				{
-					"name": "Gless.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 657186518869076,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -1597,6 +1625,22 @@
 					"file-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "Gless.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 493362303682151,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Missage.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 800037669616311,
+					"file-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": [
@@ -1614,14 +1658,6 @@
 							"name": "Axe.webm",
 							"type": "audio/webm; codecs=opus",
 							"sid": 146848479756691,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "Mounting.webm",
-							"type": "audio/webm; codecs=opus",
-							"sid": 345357867234337,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -1769,10 +1805,88 @@
 							"file-info": {
 								"purpose": "none"
 							}
+						},
+						{
+							"name": "Mounting.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 700060812771828,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Bottle_Crash.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 393325532332582,
+							"file-info": {
+								"purpose": "none"
+							}
 						}
 					],
 					"subfolders": [],
 					"name": "Kick"
+				},
+				{
+					"items": [
+						{
+							"name": "subway-subway-door-opening-sound-effect (1).webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 417485115968963,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Transition.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 813780348955565,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "vibra-with-repetition (mp3cut.net).webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 152264888494248,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Metro_Cycle.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 217437917822066,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Start_Sub.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 798542615810409,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "End_Sub.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 696281121770961,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Train.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 468336479999829,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Subway"
 				}
 			]
 		},
@@ -1881,6 +1995,14 @@
 							"name": "Bonus Suicide x Mental Sorrow - from the outside .webm",
 							"type": "audio/webm; codecs=opus",
 							"sid": 290704107598983,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Night_Club (Remaster).webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 473742582272135,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -2097,7 +2219,7 @@
 			0
 		],
 		"orientations": "landscape",
-		"webgpu": "yes",
+		"webgpu": "no",
 		"multitexturing": "auto",
 		"gpuPreference": "high-performance",
 		"framerateMode": "vsync",
