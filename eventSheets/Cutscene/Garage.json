@@ -61,6 +61,38 @@
 						"group-name": "\"Player\"",
 						"state": "activated"
 					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 223434919170234,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 263971782439908,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 790101703572713,
+					"parameters": {
+						"audio-file": {
+							"path": "Music/Garage"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
 				}
 			],
 			"sid": 442739960015860
@@ -69,9 +101,155 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_All",
+					"sid": 497268928372105,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 276207163488269
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 250562761481330,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "Create_Dealogue",
+					"sid": 390801190262003,
+					"parameters": [
+						"\"\"",
+						"0",
+						"0",
+						"406",
+						"1",
+						true
+					]
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 705435744467680,
+					"parameters": {
+						"seconds": "4",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "Destroy_Dialoge",
+					"sid": 790625007796591
+				}
+			],
+			"sid": 865058636089463
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_All",
+					"sid": 217399761007024,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 893641727778652,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 144301679555361,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "High_Brother",
+					"sid": 511717639416799,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "200"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "High_Brother",
+					"sid": 116668613061212,
+					"parameters": {
+						"animation": "\"Run\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "High_Brother",
+					"sid": 151911449226853,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 610458504436724,
+					"parameters": {
+						"variable": "weapon",
+						"value": "\"noWeapon\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player_All",
+					"sid": 169201745288308,
+					"parameters": {
+						"animation": "\"noWeaponRun\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player_All",
+					"sid": 532325327498733,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "200"
+					}
+				}
+			],
+			"sid": 411517644692810
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 878843881756181,
+					"sid": 843720065656314,
 					"parameters": {
 						"variable": "Start_Game"
 					}
@@ -79,7 +257,7 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 875848874509894,
+					"sid": 873537295297564,
 					"parameters": {
 						"interval-seconds": "0.25"
 					}
@@ -87,7 +265,7 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Numbers_Music",
-					"sid": 105886683912795,
+					"sid": 102144873011930,
 					"parameters": {
 						"instance-variable": "Music",
 						"comparison": 3,
@@ -100,14 +278,14 @@
 				{
 					"id": "subtract-from-instvar",
 					"objectClass": "Numbers_Music",
-					"sid": 382400522653932,
+					"sid": 147943072364494,
 					"parameters": {
 						"instance-variable": "Music",
 						"value": "1"
 					}
 				}
 			],
-			"sid": 726706836043001
+			"sid": 671870617623617
 		},
 		{
 			"eventType": "block",
@@ -115,7 +293,7 @@
 				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 198007382101976,
+					"sid": 722396272640135,
 					"parameters": {
 						"variable": "Start_Game"
 					}
@@ -125,13 +303,13 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "EndScene",
-					"sid": 919321737904490,
+					"sid": 764884140699510,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetX",
-						"end-value": "Player_All.X +300",
-						"time": "1",
+						"end-value": "Trigger_CutScene.X +350",
+						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -142,7 +320,7 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 432663085779634,
+					"sid": 625609625968671,
 					"parameters": {
 						"seconds": "5",
 						"use-timescale": true
@@ -151,7 +329,7 @@
 				{
 					"id": "stop",
 					"objectClass": "Audio",
-					"sid": 243328517464746,
+					"sid": 349162575476580,
 					"parameters": {
 						"tag": "\"music\""
 					}
@@ -159,7 +337,7 @@
 				{
 					"id": "get-item",
 					"objectClass": "Music_Safe",
-					"sid": 997466307115352,
+					"sid": 292579006985405,
 					"parameters": {
 						"key": "\"Sound\""
 					}
@@ -167,7 +345,7 @@
 				{
 					"id": "check-item-exists",
 					"objectClass": "Music_Safe",
-					"sid": 283341309216578,
+					"sid": 454276062727731,
 					"parameters": {
 						"key": "\"Sound\""
 					}
@@ -175,18 +353,18 @@
 				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 621385613499446
+					"sid": 117299931471194
 				},
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 179677498221461,
+					"sid": 105489729085452,
 					"parameters": {
-						"layout": "Bar"
+						"layout": "Train"
 					}
 				}
 			],
-			"sid": 471846394321401
+			"sid": 866807499476284
 		}
 	],
 	"sid": 682940687077890
