@@ -566,6 +566,156 @@
 			"sid": 819307246352369
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BreakDesk",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Break_Desk",
+							"sid": 765693244872343
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-animation",
+							"objectClass": "Break_Desk",
+							"sid": 555425535056221
+						}
+					],
+					"sid": 195228139241092
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player_All",
+							"sid": 588419600805434,
+							"parameters": {
+								"object": "Break_Desk"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Break_Desk",
+							"sid": 808484636480006,
+							"parameters": {
+								"instance-variable": "Break"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "start-animation",
+							"objectClass": "Break_Desk",
+							"sid": 412417909760910,
+							"parameters": {
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 693459467013887,
+							"parameters": {
+								"audio-file": {
+									"path": "Break_Desk"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Break_Desk",
+							"sid": 485619199092731,
+							"parameters": {
+								"instance-variable": "Break",
+								"value": "true"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Break_Desk",
+							"sid": 383770284009264,
+							"parameters": {
+								"object": "Break_Wood",
+								"layer": "\"Light\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Break_Desk",
+							"sid": 397504434162915,
+							"parameters": {
+								"object": "Break_Wood",
+								"layer": "\"Light\"",
+								"image-point": "2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 182261723393525
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Break_Wood",
+							"sid": 587837782287854
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Break_Wood",
+							"sid": 732266771717152,
+							"parameters": {
+								"frame-number": "Random(0,3)"
+							}
+						},
+						{
+							"id": "apply-torque-towards-angle",
+							"objectClass": "Break_Wood",
+							"sid": 876503320044639,
+							"behaviorType": "Физика",
+							"parameters": {
+								"torque": "Random(50,150)",
+								"angle": "Random(40,180)"
+							}
+						},
+						{
+							"id": "apply-force",
+							"objectClass": "Break_Wood",
+							"sid": 802449476816716,
+							"behaviorType": "Физика",
+							"parameters": {
+								"force-x": "0",
+								"force-y": "10",
+								"image-point": "0"
+							}
+						}
+					],
+					"sid": 757224927058329
+				}
+			],
+			"sid": 175439428750641
+		},
+		{
 			"functionName": "zoomCamera",
 			"functionDescription": "",
 			"functionCategory": "",
