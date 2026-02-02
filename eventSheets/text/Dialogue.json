@@ -309,6 +309,13 @@
 					"initialValue": "false",
 					"comment": "",
 					"sid": 326747184083413
+				},
+				{
+					"name": "PinCut",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 799491984460326
 				}
 			],
 			"eventType": "function-block",
@@ -460,6 +467,83 @@
 						}
 					],
 					"sid": 507616858035092
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 913689828113087,
+							"parameters": {
+								"variable": "PinCut"
+							}
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 661614115889431,
+							"parameters": {
+								"which": "nearest",
+								"x": "Enemys.X",
+								"y": "Enemys.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 331985564470294,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "StoryMan",
+								"image-point": "\"Dialog\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "EnemyText",
+							"sid": 669137127184295,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Cloud_Dialogue",
+								"image-point": "\"Text\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 764934248470096
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 277305198212147,
+							"parameters": {
+								"variable": "PinCut"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "unpin",
+							"objectClass": "Cloud_Dialogue",
+							"sid": 441620926537000,
+							"behaviorType": "Прикрепить"
+						}
+					],
+					"sid": 161425005109461
 				}
 			]
 		},
@@ -825,6 +909,15 @@
 					"sid": 603058418351291,
 					"parameters": {
 						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "High_Brother",
+					"sid": 790796109507553,
+					"parameters": {
+						"instance-variable": "Textframe",
 						"value": "1"
 					}
 				}

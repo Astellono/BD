@@ -121,15 +121,662 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player_All",
-					"sid": 738341721887609,
+					"objectClass": "High_Brother",
+					"sid": 410813565737018,
 					"parameters": {
-						"instance-variable": "textframe",
+						"instance-variable": "Textframe",
 						"value": "1"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 929961175149346,
+					"parameters": {
+						"variable": "onDialMain",
+						"value": "true"
 					}
 				}
 			],
 			"sid": 236303738250144
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 528941963620468,
+					"parameters": {
+						"variable": "onDialMain"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 215582072191391,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 362075072080010,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 239727110943630
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 935265091019873,
+							"parameters": [
+								"\"\"",
+								"\"Club_Boss1\"",
+								"391",
+								"1"
+							]
+						}
+					],
+					"sid": 928466857716263
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 727077669868473,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 860706501520413
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 723249703426508,
+							"parameters": [
+								"\"\"",
+								"\"High_Brother\"",
+								"392",
+								"2"
+							]
+						}
+					],
+					"sid": 309101759983042
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 892329661883894,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "3"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 456328819987784
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 802759640344561,
+							"parameters": [
+								"\"\"",
+								"\"Club_Boss1\"",
+								"393",
+								"1"
+							]
+						}
+					],
+					"sid": 580278469643169
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 169928624887705,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "4"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 769732438456701
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 438413333901268,
+							"parameters": [
+								"\"\"",
+								"\"Club_Boss2\"",
+								"394",
+								"1"
+							]
+						},
+						{
+							"callFunction": "shakeScreen",
+							"sid": 107925313782313
+						},
+						{
+							"callFunction": "shakeScreen2",
+							"sid": 358695852666038
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 506089209880190,
+							"parameters": {
+								"audio-file": {
+									"path": "Missage"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						}
+					],
+					"sid": 804555593654982
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 346526968020857,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "5"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 322759715489035
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 487982110637593,
+							"parameters": [
+								"\"\"",
+								"\"High_Brother\"",
+								"395",
+								"1"
+							]
+						}
+					],
+					"sid": 810361940227530
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 605413565472794,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "6"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 262426213839614
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 406001416149876,
+							"parameters": [
+								"\"\"",
+								"\"Club_Boss1\"",
+								"396",
+								"1"
+							]
+						}
+					],
+					"sid": 139866685972053
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 146283729131974,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "7"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 266025207978405
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 729170555686391,
+							"parameters": [
+								"\"\"",
+								"\"High_Brother\"",
+								"397",
+								"1"
+							]
+						}
+					],
+					"sid": 342561745492571
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 666150205656277,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "8"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 484714945972258
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 463949981585970,
+							"parameters": [
+								"\"\"",
+								"\"High_Brother\"",
+								"398",
+								"3"
+							]
+						}
+					],
+					"sid": 724804721441136
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 372372943177267,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "9"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 693762526481758
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 534367357067207,
+							"parameters": [
+								"\"\"",
+								"\"Security\"",
+								"399",
+								"2"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "security_Cutscene",
+							"sid": 492384440305782,
+							"parameters": {
+								"animation": "\"PC\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 522008053898615
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 290702732845105,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "10"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 229450019927673
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 102191265041908,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						},
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 101821715888823,
+							"parameters": [
+								"\"\"",
+								"\"Club_Boss1\"",
+								"400",
+								"2"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "High_Brother",
+							"sid": 683832734832348,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "High_Brother",
+							"sid": 266761567138705,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "100"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "High_Brother",
+							"sid": 618136605173881,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 456670750692416,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "High_Brother",
+							"sid": 954178605084969,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "High_Brother",
+							"sid": 668918505573280,
+							"behaviorType": "НастраиваемоеДвижение",
+							"parameters": {
+								"which": "horizontal",
+								"speed": "0"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "High_Brother",
+							"sid": 792216955220048,
+							"parameters": {
+								"animation": "\"Idle_Fear\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 562925341189111,
+							"parameters": {
+								"audio-file": {
+									"path": "Music/It couldn't be shittier"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"music\""
+							}
+						}
+					],
+					"sid": 184904429282625
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 162673249255710,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "11"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 474095445896023
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 323858830091290,
+							"parameters": [
+								"\"\"",
+								"\"High_Brother1\"",
+								"401",
+								"2"
+							]
+						}
+					],
+					"sid": 619415874705528
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 530420149903612,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "12"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 285873989171066
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 480308439255911,
+							"parameters": [
+								"\"\"",
+								"\"High_Brother2\"",
+								"402",
+								"2"
+							]
+						}
+					],
+					"sid": 834235270174302
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 662211392919619,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "13"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 290213374555367
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Create_mainDialoge",
+							"sid": 359600329720178,
+							"parameters": [
+								"\"\"",
+								"\"Club_Boss2\"",
+								"403",
+								"1"
+							]
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 524308812526751,
+							"parameters": {
+								"audio-file": {
+									"path": "Missage"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"audio\""
+							}
+						}
+					],
+					"sid": 837566621229699
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 941851917053510,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 5,
+								"value": "13"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 389830894008380,
+							"parameters": {
+								"interval-seconds": "0.25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "shakeScreen",
+							"sid": 521115680858508
+						}
+					],
+					"sid": 957392311944050
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "High_Brother",
+							"sid": 298362157901655,
+							"parameters": {
+								"instance-variable": "Textframe",
+								"comparison": 0,
+								"value": "14"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 207490225916260
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 950291594854202,
+							"parameters": {
+								"variable": "Start_Game",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 614339256785773
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -145,9 +792,9 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 659945560880560,
+					"sid": 932012297018534,
 					"parameters": {
-						"interval-seconds": "0.5"
+						"interval-seconds": "0.25"
 					}
 				},
 				{
@@ -164,12 +811,12 @@
 			],
 			"actions": [
 				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 138242942782050,
+					"id": "subtract-from-instvar",
+					"objectClass": "Numbers_Music",
+					"sid": 338819710864310,
 					"parameters": {
-						"variable": "Sound",
-						"value": "2.5"
+						"instance-variable": "Music",
+						"value": "1"
 					}
 				}
 			],
@@ -191,12 +838,12 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "EndScene",
-					"sid": 716571369892149,
+					"sid": 319571646551758,
 					"behaviorType": "Твинанимация",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetX",
-						"end-value": "Player_All.X +300",
+						"end-value": "Camera.X +150",
 						"time": "1",
 						"ease": "default",
 						"destroy-on-complete": "no",
