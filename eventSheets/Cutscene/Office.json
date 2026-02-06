@@ -17,8 +17,74 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 124145958742915
+				}
+			],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 731075736694627,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 914273978144917,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 362289613730916,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 697101523711586,
+					"parameters": {
+						"variable": "Continue_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 714610372910927,
+					"disabled": true,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 214595268396286,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				}
+			],
+			"sid": 498657318994139
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 828869840073022,
 					"parameters": {
 						"object": "Trigger_CutScene"
@@ -100,7 +166,39 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
+					"sid": 338330305794098,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Trigger_CutScene",
+					"sid": 395770355751715,
+					"parameters": {
+						"tags": "\"Save\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 645907859137419,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				}
+			],
+			"sid": 425877461511344
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_All",
 					"sid": 792215240725819,
 					"parameters": {
 						"object": "Trigger_CutScene"
@@ -151,7 +249,7 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 407508558023850,
 					"parameters": {
 						"object": "Trigger_CutScene"
@@ -227,7 +325,7 @@
 				},
 				{
 					"id": "add-to-instvar",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 209362517034366,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -242,7 +340,7 @@
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 208915434111025,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -275,7 +373,7 @@
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 710728244288742,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -308,7 +406,7 @@
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Player",
+					"objectClass": "Player_All",
 					"sid": 378877818962856,
 					"parameters": {
 						"instance-variable": "textframe",
@@ -326,12 +424,12 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 317404837855087,
+					"sid": 179810635795060,
 					"parameters": {
 						"object-to-create": "Shadow3",
-						"layer": "10",
-						"x": "Player.X",
-						"y": "Player.Y",
+						"layer": "\"Dialog\"",
+						"x": "Player_All.X",
+						"y": "Player_All.Y",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
