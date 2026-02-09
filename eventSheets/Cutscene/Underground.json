@@ -10,6 +10,100 @@
 			"includeSheet": "Effect"
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 714451337126861
+				}
+			],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 248698266381812,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 265144538607219,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 153289538574291,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 587399075763279,
+					"parameters": {
+						"variable": "Continue_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 287058560053312,
+					"parameters": {
+						"variable": "Safe_Zone",
+						"value": "true"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 154263292841427,
+					"disabled": true,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 383333797366717,
+					"parameters": {
+						"audio-file": {
+							"path": "Music/Underground/Start_Under"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 663121293685748,
+					"parameters": {
+						"audio-file": {
+							"path": "Music/Underground/City_Under"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"audio\""
+					}
+				}
+			],
+			"sid": 205617879189054
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Underground2",
@@ -341,6 +435,14 @@
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 662455667772997
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Shadow3",
+							"sid": 294014734807301,
+							"parameters": {
+								"tags": "\"Start\""
+							}
 						}
 					],
 					"actions": [
@@ -360,6 +462,20 @@
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 696198310486709,
+							"parameters": {
+								"audio-file": {
+									"path": "Music/Underground/Suffering_Man"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Water\""
+							}
 						}
 					],
 					"sid": 838687322361101,
@@ -374,6 +490,14 @@
 									"parameters": {
 										"comparison": 0,
 										"opacity": "0"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Shadow3",
+									"sid": 249283705724859,
+									"parameters": {
+										"tags": "\"Start\""
 									}
 								}
 							],
@@ -495,6 +619,194 @@
 							"sid": 979216188875204
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player_All",
+							"sid": 360933663116369,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Trigger_CutScene",
+							"sid": 245699987748139,
+							"parameters": {
+								"tags": "\"Start\""
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Wall",
+							"sid": 946722473695144,
+							"parameters": {
+								"tags": "\"Cut\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Wall",
+							"sid": 226802461847220,
+							"behaviorType": "Твёрдый",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 428918341874803,
+							"parameters": {
+								"tag": "\"audio\""
+							}
+						}
+					],
+					"sid": 208641024991615
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Door_Old",
+							"sid": 743907888208571,
+							"parameters": {
+								"instance-variable": "open"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Door_Old",
+							"sid": 454550004290420,
+							"parameters": {
+								"tags": "\"Start\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 421329259910652
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 340030892575060,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 492140315281621,
+							"parameters": {
+								"audio-file": {
+									"path": "Music/Underground/Underground"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"music\""
+							}
+						},
+						{
+							"id": "seek-to",
+							"objectClass": "Audio",
+							"sid": 972778794040061,
+							"parameters": {
+								"tag": "\"music\"",
+								"position": "12"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 838953811301604,
+							"parameters": {
+								"variable": "Safe_Zone",
+								"value": "false"
+							}
+						},
+						{
+							"id": "change-tags",
+							"objectClass": "Door_Old",
+							"sid": 688988792508269,
+							"parameters": {
+								"action": "remove",
+								"tags": "\"Start\""
+							}
+						}
+					],
+					"sid": 580813780848307
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 998707059324846,
+							"parameters": {
+								"variable": "Safe_Zone"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Shadow3",
+							"sid": 233223161031307,
+							"parameters": {
+								"tags": "\"End\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 305639379350667
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Shadow3",
+							"sid": 110118868689360,
+							"behaviorType": "Твинанимация",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 303085358752630,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Shadow3",
+							"sid": 102170238630324
+						}
+					],
+					"sid": 386404756233320
 				}
 			],
 			"sid": 314873244592131
@@ -530,6 +842,14 @@
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 960278252694568
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Trigger_CutScene",
+							"sid": 803566407164196,
+							"parameters": {
+								"tags": "\"Final\""
+							}
 						}
 					],
 					"actions": [
@@ -949,36 +1269,33 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 691897528272173
+					"sid": 234892173106846
 				},
 				{
-					"id": "is-tag-playing",
-					"objectClass": "Audio",
-					"sid": 324004870020387,
+					"id": "has-tags",
+					"objectClass": "BarTable",
+					"sid": 782530751907119,
 					"parameters": {
-						"tag": "\"music\""
-					},
-					"isInverted": true
+						"tags": "\"Cut\""
+					}
 				}
 			],
 			"actions": [
 				{
-					"id": "play",
+					"id": "set-listener-orientation",
 					"objectClass": "Audio",
-					"sid": 616560213192023,
-					"disabled": true,
+					"sid": 298298263588800,
 					"parameters": {
-						"audio-file": {
-							"path": "Underground"
-						},
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"music\""
+						"forwardX": "500",
+						"forwardY": "500",
+						"forwardZ": "0",
+						"upX": "500",
+						"upY": "360",
+						"upZ": "360"
 					}
 				}
 			],
-			"sid": 521651115360271
+			"sid": 595109786874337
 		}
 	],
 	"sid": 159365679133501

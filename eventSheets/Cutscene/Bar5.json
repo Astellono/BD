@@ -205,6 +205,14 @@
 							"parameters": {
 								"object": "Chair_Bar"
 							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 767783507216141,
+							"parameters": {
+								"object": "HookahMan"
+							}
 						}
 					],
 					"actions": [
@@ -217,7 +225,8 @@
 							}
 						}
 					],
-					"sid": 590977989607752
+					"sid": 590977989607752,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -225,20 +234,181 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 861196332182961
+							"sid": 456254230349838
 						}
 					],
 					"actions": [
 						{
 							"id": "set-visible",
 							"objectClass": "press_E",
-							"sid": 237006198146445,
+							"sid": 899378144293653,
 							"parameters": {
 								"visibility": "invisible"
 							}
 						}
 					],
-					"sid": 796149446512542
+					"sid": 721450575888638
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Kayboard",
+							"sid": 240204425265620,
+							"parameters": {
+								"key": 69
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Cutscene",
+							"sid": 405611155376032,
+							"parameters": {
+								"object": "HookahMan"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 848804424835063,
+							"parameters": {
+								"variable": "onDial"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Table_Beer",
+							"sid": 476979006091944,
+							"parameters": {
+								"instance-variable": "textframe",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "press_E",
+							"sid": 807771873282220,
+							"disabled": true,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 622949902866929,
+							"parameters": {
+								"variable": "onDial",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 233155275290165,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 832926979872869,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 677109100394232,
+									"parameters": [
+										"\"\"",
+										"HookahMan.X",
+										"HookahMan.Y -50",
+										"510",
+										"2",
+										false
+									]
+								}
+							],
+							"sid": 541257061292429
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 561637620487244,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 403404868814094,
+									"parameters": [
+										"\"\"",
+										"HookahMan.X",
+										"HookahMan.Y -50",
+										"511",
+										"2",
+										false
+									]
+								}
+							],
+							"sid": 836718713319376
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Table_Beer",
+									"sid": 645702039504558,
+									"parameters": {
+										"instance-variable": "textframe",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Create_Dealogue",
+									"sid": 855692716446221,
+									"parameters": [
+										"\"\"",
+										"HookahMan.X",
+										"HookahMan.Y -50",
+										"512",
+										"2",
+										false
+									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Table_Beer",
+									"sid": 995550800474698,
+									"parameters": {
+										"instance-variable": "textframe",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 402910214172666
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -282,7 +452,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Player_Cutscene",
-							"sid": 687572449205113,
+							"sid": 987164695740677,
 							"parameters": {
 								"instance-variable": "textframe",
 								"value": "1"
@@ -305,11 +475,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Player_All",
-							"sid": 320732181683925,
+							"sid": 891657651365001,
 							"parameters": {
 								"instance-variable": "textframe",
 								"comparison": 2,
-								"value": "27"
+								"value": "19"
 							}
 						}
 					],
@@ -347,15 +517,6 @@
 							"parameters": {
 								"animation": "\"sitOnBarChair\"",
 								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Camera",
-							"sid": 957133276097944,
-							"parameters": {
-								"instance-variable": "onPlayer",
-								"value": "false"
 							}
 						}
 					],
@@ -396,6 +557,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 478022875650574,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
 								{
 									"callFunction": "Create_mainDialoge",
 									"sid": 275030425137594,
@@ -629,10 +799,10 @@
 							"actions": [
 								{
 									"callFunction": "Create_mainDialoge",
-									"sid": 503788679879752,
+									"sid": 407970310309104,
 									"parameters": [
 										"\"\"",
-										"\"Fedor3\"",
+										"\"Fedor4\"",
 										"498",
 										"3"
 									]
@@ -991,17 +1161,17 @@
 							],
 							"actions": [
 								{
-									"callFunction": "Destroy_DialogeMain",
-									"sid": 685725604539344
-								},
-								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 759998589806622,
+									"sid": 771962832812333,
 									"parameters": {
 										"group-name": "\"Player\"",
 										"state": "activated"
 									}
+								},
+								{
+									"callFunction": "Destroy_DialogeMain",
+									"sid": 685725604539344
 								},
 								{
 									"id": "set-boolean-eventvar",
@@ -1019,6 +1189,66 @@
 				}
 			],
 			"sid": 902086209015763
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player_Cutscene",
+					"sid": 644961950158619,
+					"parameters": {
+						"instance-variable": "textframe",
+						"comparison": 5,
+						"value": "19"
+					}
+				},
+				{
+					"id": "compare-x",
+					"objectClass": "Player_All",
+					"sid": 394908184863132,
+					"parameters": {
+						"comparison": 3,
+						"x-co-ordinate": "140"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 622023695434832,
+					"disabled": true,
+					"parameters": {
+						"group-name": "\"Player\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 297344765473589
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 322670626293633,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player_All",
+					"sid": 953476156776832,
+					"parameters": {
+						"animation": "\"noWeaponIdle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 396294109544507
 		},
 		{
 			"eventType": "block",
@@ -1078,6 +1308,23 @@
 			],
 			"actions": [
 				{
+					"id": "tween-one-property",
+					"objectClass": "EndScene",
+					"sid": 663358585104635,
+					"behaviorType": "Твинанимация",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "Player_All.X +600",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 322448255170061,
@@ -1118,13 +1365,38 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 626258371771291,
+					"sid": 784326009263637,
 					"parameters": {
-						"layout": "Office"
+						"layout": "Underground"
 					}
 				}
 			],
 			"sid": 638523583896072
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Kayboard",
+					"sid": 557752216683826,
+					"parameters": {
+						"key": 84
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player_All",
+					"sid": 106658191375597,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "19"
+					}
+				}
+			],
+			"sid": 447650700054830
 		}
 	],
 	"sid": 820835899789191
