@@ -101,7 +101,8 @@
 					}
 				}
 			],
-			"sid": 205617879189054
+			"sid": 205617879189054,
+			"disabled": true
 		},
 		{
 			"eventType": "group",
@@ -812,6 +813,80 @@
 						}
 					],
 					"sid": 400327518708407
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player_All",
+							"sid": 664380942005138,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Trigger_CutScene",
+							"sid": 823885205439623,
+							"parameters": {
+								"tags": "\"Save1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 181552749997309,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Trigger_CutScene",
+							"sid": 242282627990330
+						}
+					],
+					"sid": 403253909841309
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player_All",
+							"sid": 384885011699617,
+							"parameters": {
+								"object": "Trigger_CutScene"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Trigger_CutScene",
+							"sid": 623180215794957,
+							"parameters": {
+								"tags": "\"Save2\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 164563870621145,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Trigger_CutScene",
+							"sid": 842416303644626
+						}
+					],
+					"sid": 106152783338554
 				}
 			],
 			"sid": 314873244592131
@@ -1136,7 +1211,7 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 269062974968597,
+							"sid": 761169417779375,
 							"parameters": {
 								"audio-file": {
 									"path": "Shotgun"
@@ -1144,18 +1219,18 @@
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"audio\""
 							}
 						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 282842148080937,
+							"sid": 820098819834202,
 							"parameters": {
 								"object-to-create": "Shot",
-								"layer": "4",
+								"layer": "\"Player\"",
 								"x": "9300",
-								"y": "950",
+								"y": "850",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
@@ -1252,14 +1327,22 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 161193636053237,
+							"sid": 829422974203149,
 							"parameters": {
-								"object-to-create": "Shadow3",
-								"layer": "4",
+								"object-to-create": "Shadow5",
+								"layer": "\"Dialog\"",
 								"x": "Camera.X",
 								"y": "Camera.Y",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Shadow5",
+							"sid": 303086650656521,
+							"parameters": {
+								"scale": "4"
 							}
 						}
 					],
