@@ -14,6 +14,570 @@
 			"includeSheet": "Effect"
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 520210453495878
+				}
+			],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 789050522970274,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 334536446228991,
+					"parameters": {
+						"tag": "\"Suspense\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 429888541720417,
+					"parameters": {
+						"variable": "Start_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 167908760987285,
+					"parameters": {
+						"variable": "Continue_Game",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 981608224897645,
+					"parameters": {
+						"variable": "Safe_Zone",
+						"value": "false"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player_All",
+					"sid": 298464127649343,
+					"disabled": true,
+					"parameters": {
+						"instance-variable": "textframe",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 604426233582057,
+					"disabled": true,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 635596285694855,
+					"parameters": {
+						"group-name": "\"Enemy & Fear\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 880122669046116
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player_All",
+					"sid": 101723376121819,
+					"parameters": {
+						"object": "Trigger_CutScene"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "EnemyBaseball",
+					"sid": 912834955877150,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Trigger_CutScene",
+					"sid": 725609472067085,
+					"parameters": {
+						"tags": "\"Start\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "EnemyBaseball",
+					"sid": 361832249295677,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "250"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "EnemyBaseball",
+					"sid": 774421303440523,
+					"parameters": {
+						"animation": "\"Down\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 687935875991395,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "EnemyBaseball",
+					"sid": 977414022392944,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "0"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "EnemyBaseball",
+					"sid": 270936032404135,
+					"parameters": {
+						"animation": "\"onGround\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 419229295535233,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "100"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Trigger_CutScene",
+					"sid": 743760186613595
+				}
+			],
+			"sid": 984038794412927
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 679407561320489,
+					"parameters": {
+						"object": "EnemyBaseball"
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "EnemyBaseball",
+					"sid": 399082554773739,
+					"parameters": {
+						"tags": "\"Cut\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 764881877342121,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 270991963567492,
+					"parameters": {
+						"animation": "\"AxeFinishing\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 429363874791433,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "0"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 147295675874671,
+					"parameters": {
+						"object-to-create": "BloodAll",
+						"layer": "LayerIndex(\"Blood\")",
+						"x": "Player.ImagePointX(\"Blood\")",
+						"y": "Player.ImagePointY(\"Blood\")",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 750638821767784,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 817185168084408,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "BloodAll",
+					"sid": 989732936782357,
+					"parameters": {
+						"animation": "\"BloodAxe1\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "BloodAll",
+					"sid": 180973999909806,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "overall",
+						"speed": "Random(50,-50)"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "BloodAll",
+					"sid": 570248072993076,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"speed": "Random(50,-50)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 373632780667788,
+					"parameters": {
+						"seconds": "0.3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 703422544623820,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 245048035171019,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 470424809199678,
+					"parameters": {
+						"animation": "\"AxeFinishing\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 454197985554237,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "0"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 149532278972343,
+					"parameters": {
+						"object-to-create": "BloodAll",
+						"layer": "LayerIndex(\"Blood\")",
+						"x": "Player.ImagePointX(\"Blood\")",
+						"y": "Player.ImagePointY(\"Blood\")",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 859143557836482,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 688785608216339,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "BloodAll",
+					"sid": 980495306891527,
+					"parameters": {
+						"animation": "\"BloodAxe\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "BloodAll",
+					"sid": 701570032911132,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "overall",
+						"speed": "Random(50,-50)"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "BloodAll",
+					"sid": 961819673902352,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"speed": "Random(50,-50)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 147233626461343,
+					"parameters": {
+						"seconds": "0.3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 254212376745189,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 682811959426200,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 627778286230276,
+					"parameters": {
+						"seconds": "0.6",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 214969464832834,
+					"parameters": {
+						"animation": "\"AxeFinishing\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 522881049137756,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "0"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 588043514430740,
+					"parameters": {
+						"object-to-create": "BloodAll",
+						"layer": "LayerIndex(\"Blood\")",
+						"x": "Player.ImagePointX(\"Blood\")",
+						"y": "Player.ImagePointY(\"Blood\")",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 413857260770331,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 156415021752131,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "BloodAll",
+					"sid": 864678522026333,
+					"parameters": {
+						"animation": "\"BloodAxe1\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "BloodAll",
+					"sid": 532569998185562,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "overall",
+						"speed": "Random(50,-50)"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "BloodAll",
+					"sid": 780289877509220,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"speed": "Random(50,-50)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 942354388812615,
+					"parameters": {
+						"seconds": "0.3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 760438134472014,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BloodAll",
+					"sid": 515523309098494,
+					"behaviorType": "Поворот",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 600138994735836,
+					"behaviorType": "НастраиваемоеДвижение",
+					"parameters": {
+						"which": "horizontal",
+						"speed": "100"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 542108998320108,
+					"parameters": {
+						"seconds": "0.6",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 745945714526565,
+					"parameters": {
+						"animation": "\"AxeWalk\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 849961648514220
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Box3",
